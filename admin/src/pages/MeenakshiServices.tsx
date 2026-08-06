@@ -12,6 +12,8 @@ const fields: FieldSpec[] = [
   { key: 'alt', label: 'Card image alt text', type: 'text' },
   { key: 'scene', label: 'Scene image path', type: 'text' },
   { key: 'sceneAlt', label: 'Scene image alt text', type: 'text' },
+  { key: 'price', label: 'Price (₹)', type: 'number', hint: 'Zero shows as “On enquiry” rather than ₹0' },
+  { key: 'duration', label: 'Duration (minutes)', type: 'number' },
   { key: 'questions', label: 'Questions visitors arrive with', type: 'stringList' },
   { key: 'items', label: 'Consultation list', type: 'stringList' },
 ]
@@ -25,7 +27,8 @@ const MeenakshiServices = () => (
     listKeys={['title', 'lede']}
     emptyItem={{
       title: '', slug: '', n: '', short: '', deva: '', lede: '', intro: '',
-      img: '', alt: '', scene: '', sceneAlt: '', questions: [], items: [], isActive: true,
+      img: '', alt: '', scene: '', sceneAlt: '', questions: [], items: [],
+      price: 0, duration: 60, isActive: true,
     }}
     labelOf={(s) => s.title}
   />

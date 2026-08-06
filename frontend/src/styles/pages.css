@@ -1235,3 +1235,107 @@
   .uv__disc { width: 44px; }
   .uv__node-n { width: 21px; height: 21px; font-size: 9.5px; }
 }
+
+/* ---- booking: time slots ------------------------------------------------
+   Chips rather than a select: availability is the thing a visitor is scanning,
+   and a dropdown hides how much choice is left. Borrows the field's border,
+   radius and focus ring so it reads as part of the same form. */
+.bk-slots {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  padding-top: 2px;
+}
+.bk-slot {
+  min-height: clamp(36px, 4.6vh, 42px);
+  padding: 0 14px;
+  background: #fff; color: #2c2a27;
+  border: 1px solid rgba(36, 26, 20, 0.16); border-radius: 8px;
+  font-family: var(--font-sans); font-size: 14px;
+  cursor: pointer;
+  transition: border-color var(--dur-quick) var(--ease),
+              background-color var(--dur-quick) var(--ease),
+              color var(--dur-quick) var(--ease);
+}
+.bk-slot:hover { border-color: rgba(36, 26, 20, 0.34); }
+.bk-slot:focus-visible {
+  outline: none; border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(212, 83, 29, 0.14);
+}
+.bk-slot.is-on {
+  background: var(--saffron); border-color: var(--saffron); color: #fff;
+}
+
+/* ---- journal ------------------------------------------------------------- */
+.blog__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.blog__tag {
+  padding: 6px 14px; background: transparent; color: #6b625a;
+  border: 1px solid rgba(36, 26, 20, 0.16); border-radius: 999px;
+  font-family: var(--font-sans); font-size: 13px; cursor: pointer;
+  transition: border-color var(--dur-quick) var(--ease), color var(--dur-quick) var(--ease);
+}
+.blog__tag:hover { border-color: rgba(36, 26, 20, 0.34); color: #2c2a27; }
+.blog__tag.is-on { background: var(--saffron); border-color: var(--saffron); color: #fff; }
+
+.blog__empty { color: #857c73; font-family: var(--font-sans); font-size: 15px; padding: 32px 0; }
+
+.blog__list { list-style: none; margin: 0; padding: 0; }
+.blog__item + .blog__item { border-top: 1px solid rgba(36, 26, 20, 0.1); }
+.blog__link {
+  display: flex; gap: 24px; align-items: flex-start;
+  padding: 26px 0; text-decoration: none; color: inherit;
+}
+.blog__thumb { flex: 0 0 clamp(110px, 16vw, 190px); }
+.blog__thumb img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; display: block; }
+.blog__text { display: block; min-width: 0; }
+.blog__meta {
+  display: block; font-family: var(--font-sans); font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; color: #9a9089;
+}
+.blog__title {
+  display: block; margin-top: 6px;
+  font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 27px);
+  line-height: 1.25; color: #2c2a27;
+}
+.blog__excerpt {
+  display: block; margin-top: 8px; max-width: 62ch;
+  font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: #6b625a;
+}
+.blog__more {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--saffron);
+}
+.blog__link:hover .blog__title { color: var(--saffron); }
+
+/* ---- article ------------------------------------------------------------- */
+.article__cover { width: 100%; border-radius: 10px; margin-bottom: 28px; display: block; }
+.article__sign { margin-top: 28px; font-family: var(--font-display); font-style: italic; color: #857c73; }
+.article__cta { margin-top: 32px; }
+.article__related { margin-top: 44px; padding-top: 24px; border-top: 1px solid rgba(36, 26, 20, 0.1); }
+.article__related h2 { font-family: var(--font-display); font-size: 21px; margin-bottom: 10px; }
+.article__related ul { list-style: none; margin: 0; padding: 0; }
+.article__related li + li { margin-top: 6px; }
+.article__related a { color: var(--saffron); text-decoration: none; }
+.article__related a:hover { text-decoration: underline; }
+
+/* ---- testimonials page --------------------------------------------------- */
+.tlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
+@media (min-width: 860px) { .tlist { grid-template-columns: 1fr 1fr; gap: 30px 44px; } }
+.tlist__item { padding: 24px 26px; border: 1px solid rgba(36, 26, 20, 0.12); border-radius: 10px; background: #fff; }
+.tlist__quote {
+  margin: 0; font-family: var(--font-display); font-size: clamp(17px, 1.9vw, 20px);
+  line-height: 1.5; color: #2c2a27;
+}
+.tlist__by { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; }
+.tlist__name { font-family: var(--font-sans); font-size: 14px; color: #2c2a27; }
+.tlist__cat, .tlist__city {
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: .08em;
+  text-transform: uppercase; color: #9a9089;
+}
+.tlist__svc { margin-top: 4px; font-family: var(--font-sans); font-size: 13px; color: var(--saffron); }
+
+/* ---- service pricing ----------------------------------------------------- */
+.svc-price {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: var(--font-sans); font-size: 14px; color: #6b625a;
+}
+.svc-price__amt { font-size: 17px; color: #2c2a27; }
+.svc-price__sep { color: #c9c1b9; }

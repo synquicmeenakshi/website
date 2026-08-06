@@ -64,13 +64,37 @@ if (process.env.SERVER_ENV === 'production') {
 const { startReminderScheduler } = require('./services/reminderScheduler');
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
-.then(async () => {
-  console.log('✅ MongoDB Connected Successfully');
-  // Start reminder scheduler after DB connection
-  startReminderScheduler();
-})
-.catch((err) => console.error('❌ MongoDB Connection Error:', err));
+//
+// Explicit timeouts and a bounded pool: with the defaults, a transient network
+// blip against Atlas could leave the process alive but every query buffering
+// until it timed out, which reads as "server up, nothing works". The listeners
+// below make a dropped connection visible in the logs rather than silent.
+const MONGO_OPTIONS = {
+  serverSelectionTimeoutMS: 10000,
+  socketTimeoutMS: 45000,
+  maxPoolSize: 10,
+  retryWrites: true
+};
+
+function connectMongo(attempt = 1) {
+  mongoose.connect(process.env.MONGODB_URI, MONGO_OPTIONS)
+    .then(() => {
+      console.log('✅ MongoDB Connected Successfully');
+      if (attempt === 1) startReminderScheduler();
+    })
+    .catch((err) => {
+      console.error(`❌ MongoDB Connection Error (attempt ${attempt}):`, err.message);
+      const delay = Math.min(30000, 2000 * attempt);
+      console.log(`   retrying in ${delay / 1000}s…`);
+      setTimeout(() => connectMongo(attempt + 1), delay);
+    });
+}
+
+mongoose.connection.on('disconnected', () => console.warn('⚠️  MongoDB disconnected'));
+mongoose.connection.on('reconnected', () => console.log('✅ MongoDB reconnected'));
+mongoose.connection.on('error', (err) => console.error('⚠️  MongoDB error:', err.message));
+
+connectMongo();
 
 // Import Routes
 const authRoutes = require('./routes/authRoutes');
@@ -97,6 +121,7 @@ const faqRoutes = require('./routes/faqRoutes');
 // Meenakshi
 const meenakshiRoutes = require('./routes/meenakshiRoutes');
 const consultationRoutes = require('./routes/consultationRoutes');
+const meenakshiExtraRoutes = require('./routes/meenakshiExtraRoutes');
 
 // Use Routes
 app.use('/api/auth', authRoutes);
@@ -123,6 +148,7 @@ app.use('/api/faqs', faqRoutes);
 // Meenakshi
 app.use('/api/meenakshi', meenakshiRoutes);
 app.use('/api/consultations', consultationRoutes);
+app.use('/api', meenakshiExtraRoutes);
 
 // Health Check Routes
 app.get('/', (req, res) => {

@@ -9,7 +9,9 @@
  */
 
 const Consultation = require('../models/Consultation');
+const MeenakshiService = require('../models/MeenakshiService');
 const transporter = require('../config/emailConfig');
+const availability = require('../services/availabilityService');
 
 const emailConfigured = () => Boolean(process.env.EMAIL_USER && process.env.EMAIL_PASSWORD);
 
@@ -89,13 +91,62 @@ function notify(consultation) {
   }
 }
 
+/** GET /api/consultations/slots?date=YYYY-MM-DD — public. */
+const getSlots = async (req, res) => {
+  try {
+    const { date, from, days } = req.query;
+    if (from) {
+      const range = await availability.slotsForRange(from, Number(days) || 30);
+      return res.json({ success: true, data: range });
+    }
+    const result = await availability.slotsForDate(date);
+    res.json({ success: true, data: result });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+/** GET /api/consultations/window — public. Earliest/latest bookable dates. */
+const getWindow = async (req, res) => {
+  try {
+    res.json({ success: true, data: await availability.getWindow() });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 /** POST /api/consultations — public. */
 const createConsultation = async (req, res) => {
   try {
     const {
       name, contact, dob, tob, pob,
-      area, language, preferred, preferredDate, notes, consent
+      area, language, preferred, preferredDate, notes, consent,
+      appointmentDate, appointmentTime, serviceSlug
     } = req.body;
+
+    // Never trust the client's view of availability — re-check server-side.
+    // Without this, two visitors on the page at once can both take one slot.
+    if (appointmentDate && appointmentTime) {
+      const bookable = await availability.isSlotBookable(appointmentDate, appointmentTime);
+      if (!bookable) {
+        return res.status(409).json({
+          success: false,
+          message: 'That time has just been taken. Please choose another slot.',
+          code: 'SLOT_UNAVAILABLE'
+        });
+      }
+    }
+
+    // Price comes from the service record, never from the request body.
+    let amount = 0;
+    let currency = 'INR';
+    if (serviceSlug) {
+      const service = await MeenakshiService.findOne({ slug: serviceSlug, isActive: true }).lean();
+      if (service) {
+        amount = service.price || 0;
+        currency = service.currency || 'INR';
+      }
+    }
 
     const consultation = await Consultation.create({
       name,
@@ -109,6 +160,12 @@ const createConsultation = async (req, res) => {
       preferredDate: preferredDate || preferred || '',
       notes: notes || '',
       consent: Boolean(consent),
+      appointmentDate: appointmentDate || '',
+      appointmentTime: appointmentTime || '',
+      serviceSlug: serviceSlug || '',
+      amount,
+      currency,
+      paymentStatus: amount > 0 ? 'pending' : 'not_required',
       source: 'meenakshi-web'
     });
 
@@ -118,7 +175,15 @@ const createConsultation = async (req, res) => {
     res.status(201).json({
       success: true,
       message: 'Consultation request received',
-      data: { id: consultation._id, status: consultation.status }
+      data: {
+        id: consultation._id,
+        status: consultation.status,
+        amount: consultation.amount,
+        currency: consultation.currency,
+        paymentStatus: consultation.paymentStatus,
+        appointmentDate: consultation.appointmentDate,
+        appointmentTime: consultation.appointmentTime
+      }
     });
   } catch (error) {
     if (error.name === 'ValidationError') {
@@ -174,7 +239,8 @@ const getConsultationById = async (req, res) => {
 /** PATCH /api/consultations/:id — admin: status, confirmed slot, notes. */
 const updateConsultation = async (req, res) => {
   try {
-    const allowed = ['status', 'confirmedDate', 'confirmedTime', 'adminNotes'];
+    const allowed = ['status', 'confirmedDate', 'confirmedTime', 'adminNotes',
+      'appointmentDate', 'appointmentTime', 'paymentStatus'];
     const payload = {};
     for (const k of allowed) {
       if (req.body[k] !== undefined) payload[k] = req.body[k];
@@ -205,6 +271,8 @@ const deleteConsultation = async (req, res) => {
 };
 
 module.exports = {
+  getSlots,
+  getWindow,
   createConsultation,
   getAllConsultations,
   getConsultationById,

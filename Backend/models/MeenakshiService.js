@@ -69,6 +69,24 @@ const meenakshiServiceSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
+  // --- commercial -----------------------------------------------------------
+  // The proposal specifies each service carries a duration and price. Zero
+  // price means "on enquiry" and is rendered as such rather than as "₹0".
+  price: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  duration: {
+    type: Number,     // minutes
+    default: 60,
+    min: 0
+  },
+  currency: {
+    type: String,
+    default: 'INR'
+  },
+
   displayOrder: {
     type: Number,
     default: 0,

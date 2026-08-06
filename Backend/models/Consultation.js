@@ -80,6 +80,54 @@ const consultationSchema = new mongoose.Schema({
     default: false
   },
 
+  // --- the slot the visitor picked ------------------------------------------
+  // Distinct from confirmedDate/Time below: these are what the visitor chose at
+  // booking time; the confirmed pair is what an admin may later reassign.
+  appointmentDate: {
+    type: String,     // 'YYYY-MM-DD'
+    default: '',
+    index: true
+  },
+  appointmentTime: {
+    type: String,     // 'HH:mm'
+    default: ''
+  },
+  serviceSlug: {
+    type: String,
+    default: ''
+  },
+
+  // --- payment ---------------------------------------------------------------
+  // 'not_required' covers the window where Razorpay keys are not configured:
+  // the practice keeps taking bookings rather than the form failing.
+  paymentStatus: {
+    type: String,
+    enum: ['pending', 'paid', 'failed', 'not_required'],
+    default: 'pending',
+    index: true
+  },
+  amount: {
+    type: Number,     // in rupees, not paise
+    default: 0
+  },
+  currency: {
+    type: String,
+    default: 'INR'
+  },
+  orderId: {
+    type: String,
+    default: '',
+    index: true
+  },
+  paymentId: {
+    type: String,
+    default: ''
+  },
+  paidAt: {
+    type: Date,
+    default: null
+  },
+
   // --- admin-side ----------------------------------------------------------
   status: {
     type: String,

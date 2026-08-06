@@ -17,6 +17,10 @@ import Service from './pages/Service.jsx'
 import Journey from './pages/Journey.jsx'
 import Book from './pages/Book.jsx'
 import Legal from './pages/Legal.jsx'
+import Contact from './pages/Contact.jsx'
+import Blog from './pages/Blog.jsx'
+import Article from './pages/Article.jsx'
+import TestimonialsPage from './pages/TestimonialsPage.jsx'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -128,7 +132,10 @@ export default function App() {
           <Route path="/journey" element={<Journey />} />
           <Route path="/book" element={<Book />} />
           {/* the booking spread is the contact page */}
-          <Route path="/contact" element={<Navigate to="/book" replace />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<Article />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/legal/:slug" element={<Legal />} />
           {/* anything else falls back to the home page rather than a blank screen */}
           <Route path="*" element={<Home />} />

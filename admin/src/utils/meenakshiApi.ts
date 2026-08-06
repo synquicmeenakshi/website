@@ -93,3 +93,60 @@ export const updateConsultation = (id: string, data: Partial<Consultation>) =>
   request(`/consultations/${id}`, { method: 'PATCH', body: JSON.stringify(data) })
 export const deleteConsultation = (id: string) =>
   request(`/consultations/${id}`, { method: 'DELETE' })
+
+/* ---- availability -------------------------------------------------------- */
+export const getAvailability = () => request('/availability/settings')
+export const saveAvailability = (data: any) =>
+  request('/availability/settings', { method: 'PUT', body: JSON.stringify(data) })
+export const listBlocked = () => request('/availability/blocked')
+export const createBlocked = (data: any) =>
+  request('/availability/blocked', { method: 'POST', body: JSON.stringify(data) })
+export const deleteBlocked = (id: string) =>
+  request(`/availability/blocked/${id}`, { method: 'DELETE' })
+
+/* ---- blog ---------------------------------------------------------------- */
+export const listPosts = () => request('/blog/admin/all')
+export const createPost = (data: any) => request('/blog', { method: 'POST', body: JSON.stringify(data) })
+export const updatePost = (id: string, data: any) =>
+  request(`/blog/${id}`, { method: 'PUT', body: JSON.stringify(data) })
+export const deletePost = (id: string) => request(`/blog/${id}`, { method: 'DELETE' })
+
+/* ---- enquiries ----------------------------------------------------------- */
+export interface Enquiry {
+  _id: string
+  name: string
+  email: string
+  phone: string
+  subject: string
+  message: string
+  status: 'new' | 'read' | 'replied' | 'archived'
+  adminNotes: string
+  createdAt: string
+}
+export const listEnquiries = (params: { status?: string; search?: string } = {}) => {
+  const q = new URLSearchParams()
+  if (params.status && params.status !== 'all') q.set('status', params.status)
+  if (params.search) q.set('search', params.search)
+  const qs = q.toString()
+  return request(`/enquiries${qs ? `?${qs}` : ''}`)
+}
+export const updateEnquiry = (id: string, data: Partial<Enquiry>) =>
+  request(`/enquiries/${id}`, { method: 'PATCH', body: JSON.stringify(data) })
+export const deleteEnquiry = (id: string) => request(`/enquiries/${id}`, { method: 'DELETE' })
+
+/* ---- customers & revenue ------------------------------------------------- */
+export interface Customer {
+  key: string
+  name: string
+  contact: string
+  contactType: string
+  totalBookings: number
+  totalSpend: number
+  areas: string[]
+  firstSeen: string
+  lastSeen: string
+  history: any[]
+}
+export const listCustomers = (search?: string) =>
+  request(`/customers${search ? `?search=${encodeURIComponent(search)}` : ''}`)
+export const getRevenue = () => request('/payments/summary')

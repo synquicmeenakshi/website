@@ -94,7 +94,8 @@ export default function Footer() {
             <ul>
               <li><Link to="/about">Meet Meenakshi</Link></li>
               <li><Link to="/journey">Your consultation journey</Link></li>
-              <li><Link to="/#testimonials">Client experiences</Link></li>
+              <li><Link to="/testimonials">Client experiences</Link></li>
+              <li><Link to="/blog">Journal</Link></li>
               <li><Link to="/#faq">Frequently asked questions</Link></li>
               <li><Link to="/contact">Contact</Link></li>
               <li><Link to="/book">Book a consultation</Link></li>

@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BRAND } from '../data/site.js'
-import { CONSULT_AREAS } from '../data/services.js'
+import { SERVICES } from '../data/services.js'
 import {
   PinIcon, CalendarIcon, ClockIcon, CalendarClock,
   LotusIcon, ShieldCheck, YantraMark, YantraBadge,
@@ -45,11 +45,117 @@ function Field({ id, label, required, children, error, hint, className = '' }) {
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api'
 
+/** Load the Razorpay checkout script once, on demand. */
+function loadRazorpay() {
+  if (window.Razorpay) return Promise.resolve(true)
+  return new Promise((resolve) => {
+    const s = document.createElement('script')
+    s.src = 'https://checkout.razorpay.com/v1/checkout.js'
+    s.onload = () => resolve(true)
+    s.onerror = () => resolve(false)
+    document.body.appendChild(s)
+  })
+}
+
+const money = (n, c = 'INR') =>
+  c === 'INR' ? `₹${Number(n).toLocaleString('en-IN')}` : `${c} ${n}`
+
 export default function Book() {
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
   const [busy, setBusy] = useState(false)
-  const [failed, setFailed] = useState(false)
+  const [failed, setFailed] = useState('')
+
+  // slot picking
+  const [window_, setWindow_] = useState(null)
+  const [date, setDate] = useState('')
+  const [slots, setSlots] = useState(null)      // null = not asked yet
+  const [slotsReason, setSlotsReason] = useState('')
+  const [slot, setSlot] = useState('')
+  const [loadingSlots, setLoadingSlots] = useState(false)
+
+  // chosen service drives duration and price
+  const [serviceSlug, setServiceSlug] = useState('')
+  const service = SERVICES.find((s) => s.slug === serviceSlug) || null
+
+  useEffect(() => {
+    fetch(`${API_BASE}/consultations/window`)
+      .then((r) => r.json())
+      .then((b) => { if (b?.success) setWindow_(b.data) })
+      .catch(() => { /* the date input simply loses its min/max */ })
+  }, [])
+
+  // Fetch availability whenever the date changes. The slot list is authoritative
+  // from the server — the client never assumes a slot is free.
+  useEffect(() => {
+    if (!date) { setSlots(null); setSlot(''); setSlotsReason(''); return }
+    let cancelled = false
+    setLoadingSlots(true)
+    setSlot('')
+    fetch(`${API_BASE}/consultations/slots?date=${date}`)
+      .then((r) => r.json())
+      .then((b) => {
+        if (cancelled) return
+        setSlots(b?.data?.available || [])
+        setSlotsReason(b?.data?.reason || '')
+      })
+      .catch(() => { if (!cancelled) { setSlots([]); setSlotsReason('Could not load times.') } })
+      .finally(() => { if (!cancelled) setLoadingSlots(false) })
+    return () => { cancelled = true }
+  }, [date])
+
+  async function payFor(booking) {
+    // No fee, or no gateway configured — the booking stands as it is.
+    if (!booking.amount || booking.paymentStatus === 'not_required') return true
+
+    const cfg = await fetch(`${API_BASE}/payments/config`).then((r) => r.json()).catch(() => null)
+    if (!cfg?.configured) return true
+
+    const orderRes = await fetch(`${API_BASE}/payments/order`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ consultationId: booking.id }),
+    }).then((r) => r.json())
+
+    if (!orderRes?.success) throw new Error(orderRes?.message || 'Could not start payment')
+    if (orderRes.configured === false || orderRes.skipped) return true
+
+    const ok = await loadRazorpay()
+    if (!ok) throw new Error('Could not reach the payment gateway')
+
+    const order = orderRes.data
+    return new Promise((resolve, reject) => {
+      const rzp = new window.Razorpay({
+        key: order.keyId,
+        amount: order.amount,
+        currency: order.currency,
+        name: BRAND.name,
+        description: service ? service.title : 'Consultation',
+        order_id: order.orderId,
+        prefill: { name: order.name, email: /@/.test(order.contact) ? order.contact : '' },
+        theme: { color: '#DFB13B' },
+        handler: async (resp) => {
+          try {
+            const v = await fetch(`${API_BASE}/payments/verify`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(resp),
+            }).then((r) => r.json())
+            if (!v?.success) return reject(new Error(v?.message || 'Payment could not be verified'))
+            resolve(true)
+          } catch (err) {
+            reject(err)
+          }
+        },
+        modal: {
+          // The booking is already saved, so an abandoned checkout is not a lost
+          // enquiry — say so rather than implying the request vanished.
+          ondismiss: () => reject(new Error('PAYMENT_DISMISSED')),
+        },
+      })
+      rzp.open()
+    })
+  }
 
   async function onSubmit(ev) {
     ev.preventDefault()
@@ -61,7 +167,9 @@ export default function Book() {
     Object.entries(need).forEach(([k, label]) => {
       if (!String(fd.get(k) || '').trim()) e[k] = `${label} is required.`
     })
-    if (!fd.get('area')) e.area = 'Please choose a consultation area.'
+    if (!fd.get('area')) e.area = 'Please choose a consultation.'
+    if (!date) e.preferred = 'Please choose a date.'
+    else if (!slot) e.preferred = 'Please choose a time.'
 
     const contact = String(fd.get('contact') || '').trim()
     if (!contact) e.contact = 'A WhatsApp number or email is required.'
@@ -84,7 +192,7 @@ export default function Book() {
     const fullContact = isEmail ? contact : `${fd.get('dial') || ''} ${contact}`.trim()
 
     setBusy(true)
-    setFailed(false)
+    setFailed('')
     try {
       const res = await fetch(`${API_BASE}/consultations`, {
         method: 'POST',
@@ -96,8 +204,11 @@ export default function Book() {
           tob: fd.get('tob'),
           pob: fd.get('pob'),
           area: fd.get('area'),
+          serviceSlug,
           language: fd.get('language') || 'English',
-          preferred: fd.get('preferred'),
+          appointmentDate: date,
+          appointmentTime: slot,
+          preferred: date,
           // No `consent` is sent: this form has no consent control, so there is
           // nothing to record. It defaults to false server-side rather than
           // storing agreement the visitor never gave. Add a checkbox to the
@@ -109,13 +220,30 @@ export default function Book() {
       // not this API (a dev-server fallback, a proxy error page) must not read
       // as success, or the request is lost exactly as it used to be.
       const body = await res.json().catch(() => null)
+
+      if (res.status === 409) {
+        // Someone took the slot between loading the page and submitting.
+        setFailed(body?.message || 'That time has just been taken. Please choose another.')
+        const again = await fetch(`${API_BASE}/consultations/slots?date=${date}`).then((r) => r.json())
+        setSlots(again?.data?.available || [])
+        setSlot('')
+        setBusy(false)
+        return
+      }
+
       if (!res.ok || !body || body.success !== true) {
         throw new Error(body?.message || `HTTP ${res.status}`)
       }
 
+      await payFor(body.data)
       setSent(true)
     } catch (err) {
-      setFailed(true)
+      if (err?.message === 'PAYMENT_DISMISSED') {
+        // Deliberately not an error state: the request is recorded either way.
+        setSent(true)
+      } else {
+        setFailed('That did not go through. Please try again, or message us on WhatsApp.')
+      }
     } finally {
       setBusy(false)
     }
@@ -220,10 +348,31 @@ export default function Book() {
                 </div>
 
                 <div className="bk__row bk__row--2">
-                  <Field id="area" label="Consultation Area" required error={errors.area}>
-                    <select id="area" name="area" defaultValue="">
-                      <option value="" disabled>Select consultation area</option>
-                      {CONSULT_AREAS.map((a) => <option key={a} value={a}>{a}</option>)}
+                  <Field
+                    id="area"
+                    label="Consultation"
+                    required
+                    error={errors.area}
+                    hint={service
+                      ? `${service.duration || 60} minutes · ${service.price ? money(service.price, service.currency) : 'Fee on enquiry'}`
+                      : undefined}
+                  >
+                    <select
+                      id="area"
+                      name="area"
+                      value={service ? service.title : ''}
+                      onChange={(e) => {
+                        const chosen = SERVICES.find((s) => s.title === e.target.value)
+                        setServiceSlug(chosen ? chosen.slug : '')
+                      }}
+                    >
+                      <option value="" disabled>Select a consultation</option>
+                      {SERVICES.map((s) => (
+                        <option key={s.slug} value={s.title}>
+                          {s.title}
+                          {s.price ? ` — ${money(s.price, s.currency)}` : ''}
+                        </option>
+                      ))}
                     </select>
                   </Field>
                   <Field id="language" label="Preferred Language">
@@ -235,9 +384,23 @@ export default function Book() {
                 </div>
 
                 <div className="bk__row bk__row--2">
-                  <Field id="preferred" label="Preferred Date">
+                  <Field
+                    id="preferred"
+                    label="Date"
+                    required
+                    error={errors.preferred}
+                    hint={window_ ? `Earliest ${window_.min} — consultations are prepared in advance.` : undefined}
+                  >
                     <span className="bk-input-wrap">
-                      <input id="preferred" name="preferred" type="date" />
+                      <input
+                        id="preferred"
+                        name="preferred"
+                        type="date"
+                        value={date}
+                        min={window_?.min}
+                        max={window_?.max}
+                        onChange={(e) => setDate(e.target.value)}
+                      />
                       <CalendarIcon className="bk-input-ico" />
                     </span>
                   </Field>
@@ -251,6 +414,39 @@ export default function Book() {
                     </span>
                   </Field>
                 </div>
+
+                {date && (
+                  <div className="bk__row">
+                    <div className="bk-field">
+                      <label htmlFor="bk-slots">
+                        Time <span className="bk-req" aria-hidden="true">*</span>
+                      </label>
+
+                      {loadingSlots ? (
+                        <p className="bk-hint">Checking availability…</p>
+                      ) : slots && slots.length > 0 ? (
+                        <div className="bk-slots" id="bk-slots" role="radiogroup" aria-label="Available times">
+                          {slots.map((t) => (
+                            <button
+                              key={t}
+                              type="button"
+                              role="radio"
+                              aria-checked={slot === t}
+                              className={`bk-slot${slot === t ? ' is-on' : ''}`}
+                              onClick={() => setSlot(t)}
+                            >
+                              {t}
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="bk-hint">
+                          {slotsReason || 'No times available on that date. Please try another.'}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 <div className="bk__row bk__row--submit">
                   <p className="bk__notice">
@@ -267,9 +463,7 @@ export default function Book() {
                       Book Consultation <ArrowUpRight />
                     </button>
                     {failed && (
-                      <p className="bk-err" role="alert">
-                        That did not go through. Please try again, or message us on WhatsApp at {BRAND.phone}.
-                      </p>
+                      <p className="bk-err" role="alert">{failed} {BRAND.phone}</p>
                     )}
                     <p className="bk__safe"><LockSmall /> Your information is safe and secure.</p>
                   </div>

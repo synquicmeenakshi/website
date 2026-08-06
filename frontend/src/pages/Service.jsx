@@ -34,8 +34,10 @@ export default function Service() {
         tone="dark"
         meta={[
           [String(s.items.length), 'Consultations within this discipline'],
-          ['60 min+', 'One to one, online, English or Hindi'],
-          ['4–5 days', 'From confirmation to appointment'],
+          // Duration and fee come from the service record. A zero price reads as
+          // "on enquiry" rather than "free".
+          [s.price ? `₹${Number(s.price).toLocaleString('en-IN')}` : 'On enquiry', 'Consultation fee'],
+          [`${s.duration || 60} min+`, 'One to one, online, English or Hindi'],
           ['15 days', 'Support after your session'],
         ]}
         actions={

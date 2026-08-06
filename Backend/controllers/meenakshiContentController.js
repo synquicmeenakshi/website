@@ -30,7 +30,11 @@ const service = (s) => ({
   scene: s.scene,
   sceneAlt: s.sceneAlt,
   questions: s.questions || [],
-  items: s.items || []
+  items: s.items || [],
+  // Commercial fields — the proposal requires duration and pricing per service.
+  price: s.price || 0,
+  duration: s.duration || 0,
+  currency: s.currency || 'INR'
 });
 
 const testimonial = (t) => ({

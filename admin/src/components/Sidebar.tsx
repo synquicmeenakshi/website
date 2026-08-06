@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, Sparkles, Users, LogOut, Quote, X, Settings2, HelpCircle, CalendarCheck, Footprints, Scale } from 'lucide-react'
+import { LayoutDashboard, Sparkles, Users, LogOut, Quote, X, Settings2, HelpCircle, CalendarCheck, Footprints, Scale, CalendarClock, MessageSquare, Newspaper } from 'lucide-react'
 import znlogo from '../assets/znlogo.png'
 import { destroyAdminSession } from '../utils/cookies'
 
@@ -24,13 +24,16 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
   const menuItems: MenuItem[] = [
     { name: 'Dashboard', icon: <LayoutDashboard className="w-5 h-5" />, path: '/dashboard' },
     { name: 'Consultations', icon: <CalendarCheck className="w-5 h-5" />, path: '/consultations' },
+    { name: 'Availability', icon: <CalendarClock className="w-5 h-5" />, path: '/m/availability' },
+    { name: 'Customers', icon: <Users className="w-5 h-5" />, path: '/m/customers' },
+    { name: 'Enquiries', icon: <MessageSquare className="w-5 h-5" />, path: '/m/enquiries' },
     { name: 'Services', icon: <Sparkles className="w-5 h-5" />, path: '/m/services' },
+    { name: 'Blog', icon: <Newspaper className="w-5 h-5" />, path: '/m/blog' },
     { name: 'Testimonials', icon: <Quote className="w-5 h-5" />, path: '/m/testimonials' },
     { name: 'FAQ', icon: <HelpCircle className="w-5 h-5" />, path: '/m/faq' },
     { name: 'Journey', icon: <Footprints className="w-5 h-5" />, path: '/m/journey' },
     { name: 'Legal Pages', icon: <Scale className="w-5 h-5" />, path: '/m/legal' },
     { name: 'Site Settings', icon: <Settings2 className="w-5 h-5" />, path: '/m/settings' },
-    { name: 'Users', icon: <Users className="w-5 h-5" />, path: '/users' },
   ]
 
   const handleLogout = () => {

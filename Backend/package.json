@@ -33,6 +33,7 @@
     "multer": "^2.0.2",
     "node-cron": "^3.0.3",
     "nodemailer": "^7.0.10",
+    "razorpay": "^2.9.8",
     "twilio": "^5.10.7",
     "xss-clean": "^0.1.4"
   },

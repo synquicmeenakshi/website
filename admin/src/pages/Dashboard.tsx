@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import {
   Loader2, AlertCircle, RefreshCw, ArrowRight, Mail, Phone,
   CalendarCheck, Clock, CheckCircle2, XCircle,
-  Sparkles, Quote, HelpCircle, Footprints, Scale, Settings2,
+  Sparkles, Quote, HelpCircle, Footprints, Scale, Settings2, IndianRupee, Newspaper, Users as UsersIcon, MessageSquare,
 } from 'lucide-react'
 import AdminShell from '../components/AdminShell'
-import { listConsultations, listItems, type Consultation } from '../utils/meenakshiApi'
+import { listConsultations, listItems, getRevenue, type Consultation } from '../utils/meenakshiApi'
 
 const statusStyle: Record<string, string> = {
   new: 'bg-amber-50 text-amber-700 border-amber-200',
@@ -30,6 +30,7 @@ const Dashboard = () => {
   const [items, setItems] = useState<Consultation[]>([])
   const [counts, setCounts] = useState<Record<string, number>>({})
   const [content, setContent] = useState<Record<string, number>>({})
+  const [revenue, setRevenue] = useState<any>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -42,6 +43,12 @@ const Dashboard = () => {
       setCounts(res.byStatus || {})
 
       // Content counts are informational — a failure here must not blank the page.
+      // Revenue is informational on this page; never let it blank the dashboard.
+      try {
+        const rev = await getRevenue()
+        setRevenue(rev.data || {})
+      } catch { /* payments may be unconfigured */ }
+
       const names = ['services', 'testimonials', 'faqs', 'journey', 'legal'] as const
       const results = await Promise.allSettled(names.map((n) => listItems(n)))
       const next: Record<string, number> = {}
@@ -73,6 +80,9 @@ const Dashboard = () => {
     { label: 'FAQ', count: content.faqs, path: '/m/faq', icon: <HelpCircle className="w-4 h-4" /> },
     { label: 'Journey', count: content.journey, path: '/m/journey', icon: <Footprints className="w-4 h-4" /> },
     { label: 'Legal Pages', count: content.legal, path: '/m/legal', icon: <Scale className="w-4 h-4" /> },
+    { label: 'Blog', count: undefined, path: '/m/blog', icon: <Newspaper className="w-4 h-4" /> },
+    { label: 'Customers', count: undefined, path: '/m/customers', icon: <UsersIcon className="w-4 h-4" /> },
+    { label: 'Enquiries', count: undefined, path: '/m/enquiries', icon: <MessageSquare className="w-4 h-4" /> },
     { label: 'Site Settings', count: undefined, path: '/m/settings', icon: <Settings2 className="w-4 h-4" /> },
   ]
 
@@ -124,6 +134,22 @@ const Dashboard = () => {
                 <p className="text-2xl font-semibold text-slate-800 mt-3">{t.value}</p>
                 <p className="text-xs text-slate-500">{t.label}</p>
               </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { label: 'Total revenue', value: `₹${(revenue.totalRevenue ?? 0).toLocaleString('en-IN')}` },
+              { label: 'This month', value: `₹${(revenue.monthRevenue ?? 0).toLocaleString('en-IN')}` },
+              { label: 'Paid bookings', value: revenue.paidCount ?? 0 },
+            ].map((r) => (
+              <div key={r.label} className="bg-white rounded-xl border border-slate-200/80 p-4">
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-amber-600 bg-amber-50">
+                  <IndianRupee className="w-5 h-5" />
+                </div>
+                <p className="text-xl font-semibold text-slate-800 mt-3">{r.value}</p>
+                <p className="text-xs text-slate-500">{r.label}</p>
+              </div>
             ))}
           </div>
 
