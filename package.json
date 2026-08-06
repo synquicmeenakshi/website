@@ -1,0 +1,24 @@
+{
+  "name": "zenyourlife",
+  "version": "1.0.0",
+  "description": "ZenYourLife - Wellness and Rental Platform",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend && npm install --prefix admin",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:admin": "npm run build --prefix admin",
+    "build": "npm run build:frontend && npm run build:admin",
+    "start": "SERVER_ENV=production node backend/server.js",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:admin": "npm run dev --prefix admin"
+  },
+  "keywords": [
+    "wellness",
+    "booking",
+    "rental",
+    "easypanel"
+  ],
+  "author": "",
+  "license": "ISC"
+}

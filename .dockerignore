@@ -1,0 +1,30 @@
+# Keep package-lock.json files for consistent builds
+!**/package-lock.json
+
+# Ignore build outputs
+**/dist
+**/build
+**/.next
+
+# Ignore dependencies (will be installed during build)
+**/node_modules
+
+# Ignore dev files
+**/.git
+**/.vscode
+**/.idea
+**/.DS_Store
+
+# Ignore logs
+**/logs
+**/*.log
+**/npm-debug.log*
+
+# Ignore environment files (set these in Easypanel)
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Ignore uploads directory content but keep the folder structure
+backend/uploads/*
+!backend/uploads/.gitkeep

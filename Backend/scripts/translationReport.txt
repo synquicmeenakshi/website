@@ -1,0 +1,2985 @@
+TRANSLATION VERIFICATION REPORT
+Generated: 2026-03-10T04:28:35.610Z
+Legend: ✅=translated  ~ =same as EN (may be intentional brand name)  ❌=missing/empty
+
+✅ Connected to MongoDB
+
+══════════════════════════════════════════════════════════════════════════════════════════
+📋 FAQs
+══════════════════════════════════════════════════════════════════════════════════════════
+Total FAQs in DB: 7
+
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e348833363  |  Category: massage
+EN Question: What types of massages do you offer?
+
+  [question]
+    EN : What types of massages do you offer?
+    FR: [✅] Quels types de massages proposez-vous ?
+    DE: [✅] Welche Arten von Massagen bieten Sie an?
+    NL: [✅] Welke soorten massages bieden jullie aan?
+    ES: [✅] ¿Qué tipos de masajes ofrecen?
+
+  [answer]
+    EN : We offer a wide range of therapeutic massages including Swedish, deep tissue, ho…
+    FR: [✅] Nous proposons une large gamme de massages thérapeutiques, notamment des massage…
+    DE: [✅] Wir bieten eine breite Palette an therapeutischen Massagen an, darunter schwedis…
+    NL: [✅] We bieden een breed scala aan therapeutische massages, waaronder Zweeds, deep ti…
+    ES: [✅] Ofrecemos una amplia gama de masajes terapéuticos incluyendo sueco, tejido profu…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e348833364  |  Category: massage
+EN Question: How long do the massage sessions last?
+
+  [question]
+    EN : How long do the massage sessions last?
+    FR: [✅] Quelle est la durée des séances de massage ?
+    DE: [✅] Wie lange dauern die Massagesitzungen?
+    NL: [✅] Hoe lang duren de massagesessies?
+    ES: [✅] ¿Cuánto duran las sesiones de masaje?
+
+  [answer]
+    EN : Our sessions range from 30 minutes to 90 minutes depending on the treatment type…
+    FR: [✅] Nos séances durent de 30 à 90 minutes selon le type de traitement. Les traitemen…
+    DE: [✅] Unsere Sitzungen dauern zwischen 30 und 90 Minuten, je nach Art der Behandlung. …
+    NL: [✅] Onze sessies variëren van 30 minuten tot 90 minuten, afhankelijk van het soort b…
+    ES: [✅] Nuestras sesiones oscilan entre 30 y 90 minutos, dependiendo del tipo de tratami…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e348833365  |  Category: massage
+EN Question: Do I need to book in advance?
+
+  [question]
+    EN : Do I need to book in advance?
+    FR: [✅] Dois-je réserver à l'avance ?
+    DE: [✅] Muss ich im Voraus buchen?
+    NL: [✅] Moet ik van tevoren reserveren?
+    ES: [✅] ¿Es necesario reservar con antelación?
+
+  [answer]
+    EN : Yes, booking in advance is mandatory. You can easily book online through the web…
+    FR: [✅] Oui, la réservation à l'avance est obligatoire. Vous pouvez facilement réserver …
+    DE: [✅] Ja, eine Buchung im Voraus ist obligatorisch. Sie können ganz einfach online übe…
+    NL: [✅] Ja, vooraf reserveren is verplicht. Je kunt eenvoudig online boeken via de websi…
+    ES: [✅] Sí, es obligatorio reservar con antelación. Puede reservar fácilmente en línea a…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e348833366  |  Category: massage
+EN Question: What should I expect during my first visit?
+
+  [question]
+    EN : What should I expect during my first visit?
+    FR: [✅] À quoi dois-je m'attendre lors de ma première visite ?
+    DE: [✅] Was erwartet mich bei meinem ersten Besuch?
+    NL: [✅] Wat kan ik verwachten tijdens mijn eerste bezoek?
+    ES: [✅] ¿Qué debo esperar de mi primera visita?
+
+  [answer]
+    EN : During your first visit, we'll discuss your health history, preferences, and any…
+    FR: [✅] Lors de votre première visite, nous discuterons de vos antécédents médicaux, de …
+    DE: [✅] Bei Ihrem ersten Besuch besprechen wir mit Ihnen Ihre gesundheitliche Vorgeschic…
+    NL: [✅] Tijdens je eerste bezoek bespreken we je gezondheidsgeschiedenis, voorkeuren en …
+    ES: [✅] Durante su primera visita, hablaremos de su historial médico, sus preferencias y…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e348833368  |  Category: rental
+EN Question: How far are the rentals from Lanzarote's main attractions?
+
+  [question]
+    EN : How far are the rentals from Lanzarote's main attractions?
+    FR: [✅] Quelle est la distance entre les locations et les principales attractions de Lan…
+    DE: [✅] Wie weit sind die Vermietungen von den Hauptattraktionen Lanzarotes entfernt?
+    NL: [✅] Hoe ver liggen de huuraccommodaties van de belangrijkste bezienswaardigheden van…
+    ES: [✅] ¿A qué distancia están los alquileres de las principales atracciones de Lanzarot…
+
+  [answer]
+    EN : It depends on where you book. Villa Zen Your Life is centrally located in Playa …
+    FR: [✅] Cela dépend de l'endroit où vous réservez. La Villa Zen Your Life est située au …
+    DE: [✅] Das hängt davon ab, wo Sie buchen. Die Villa Zen Your Life liegt zentral in Play…
+    NL: [✅] Dat hangt af van waar je boekt. Villa Zen Your Life ligt centraal in Playa Blanc…
+    ES: [✅] Depende de dónde reserves. Villa Zen Your Life tiene una ubicación céntrica en P…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e348833369  |  Category: rental
+EN Question: Is early check-in or late check-out possible?
+
+  [question]
+    EN : Is early check-in or late check-out possible?
+    FR: [✅] Est-il possible d'arriver plus tôt ou de partir plus tard ?
+    DE: [✅] Ist frühes Einchecken oder spätes Auschecken möglich?
+    NL: [✅] Is vroeg inchecken of laat uitchecken mogelijk?
+    ES: [✅] ¿Es posible hacer el check-in antes o el check-out después de lo previsto?
+
+  [answer]
+    EN : Early check-in and late check-out are subject to availability and may incur addi…
+    FR: [✅] L'enregistrement anticipé et le départ tardif sont soumis à disponibilité et peu…
+    DE: [✅] Frühes Einchecken und spätes Auschecken hängen von der Verfügbarkeit ab und könn…
+    NL: [✅] Vroeg inchecken en laat uitchecken zijn afhankelijk van beschikbaarheid en kunne…
+    ES: [✅] La entrada anticipada y la salida tardía están sujetas a disponibilidad y pueden…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69524d556bdd69e34883336a  |  Category: rental
+EN Question: Are the rentals suitable for families or groups?
+
+  [question]
+    EN : Are the rentals suitable for families or groups?
+    FR: [✅] Les locations sont-elles adaptées aux familles ou aux groupes ?
+    DE: [✅] Sind die Mietobjekte für Familien oder Gruppen geeignet?
+    NL: [✅] Zijn de accommodaties geschikt voor gezinnen of groepen?
+    ES: [✅] ¿Los alquileres son adecuados para familias o grupos?
+
+  [answer]
+    EN : Yes, for small groups only. Villa Zen Your Life accommodates up to 6 guests, and…
+    FR: [✅] Oui, uniquement pour les petits groupes. La Villa Zen Your Life peut accueillir …
+    DE: [✅] Ja, nur für kleine Gruppen. Die Villa Zen Your Life bietet Platz für bis zu 6 Pe…
+    NL: [✅] Ja, alleen voor kleine groepen. Villa Zen Your Life is geschikt voor maximaal 6 …
+    ES: [✅] Sí, sólo para grupos pequeños. Villa Zen Your Life tiene capacidad para un máxim…
+
+📊 FAQ missing (❌): 0
+
+
+══════════════════════════════════════════════════════════════════════════════════════════
+💆 Services
+══════════════════════════════════════════════════════════════════════════════════════════
+Total Services in DB: 16
+
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692adac8cf795cf5e8e72a13
+EN Title: Zen Your Body
+
+  [title]
+    EN : Zen Your Body
+    FR: [~] Zen Your Body
+    DE: [~] Zen Your Body
+    NL: [✅] Zen je lichaam
+    ES: [✅] Zen Tu Cuerpo
+
+  [description]
+    EN : A complete full-body massage designed to release tension, restore balance, and b…
+    FR: [✅] Un massage complet du corps conçu pour relâcher les tensions, rétablir l'équilib…
+    DE: [✅] Eine Ganzkörpermassage, die Verspannungen löst, das Gleichgewicht wiederherstell…
+    NL: [✅] Een volledige lichaamsmassage die is ontworpen om spanningen los te laten, het e…
+    ES: [✅] Un completo masaje corporal diseñado para liberar tensiones, restablecer el equi…
+
+  [benefits[0].description]
+    EN : Reduces stress and anxiety through deep relaxation
+    FR: [✅] Réduit le stress et l'anxiété grâce à une relaxation profonde
+    DE: [✅] Reduziert Stress und Ängste durch tiefe Entspannung
+    NL: [✅] Vermindert stress en angst door diepe ontspanning
+    ES: [✅] Reduce el estrés y la ansiedad mediante una relajación profunda
+
+  [benefits[1].description]
+    EN : Improves blood circulation throughout the body
+    FR: [✅] Améliore la circulation sanguine dans tout le corps
+    DE: [✅] Verbessert die Blutzirkulation im gesamten Körper
+    NL: [✅] Verbetert de bloedcirculatie door het hele lichaam
+    ES: [✅] Mejora la circulación sanguínea en todo el cuerpo
+
+  [benefits[2].description]
+    EN : Releases muscle tension and knots
+    FR: [✅] Libère les tensions et les nœuds musculaires
+    DE: [✅] Löst Muskelverspannungen und -knoten
+    NL: [✅] Verlicht spierspanning en knopen
+    ES: [✅] Libera la tensión muscular y los nudos
+
+  [benefits[3].description]
+    EN : Promotes better sleep quality
+    FR: [✅] Favorise un sommeil de meilleure qualité
+    DE: [✅] Fördert eine bessere Schlafqualität
+    NL: [✅] Bevordert een betere slaapkwaliteit
+    ES: [✅] Favorece una mejor calidad del sueño
+
+  [benefits[4].description]
+    EN : Enhances mental clarity and focus
+    FR: [✅] Améliore la clarté mentale et la concentration
+    DE: [✅] Verbessert die geistige Klarheit und Konzentration
+    NL: [✅] Verbetert mentale helderheid en focus
+    ES: [✅] Mejora la claridad mental y la concentración
+
+  [benefits[5].description]
+    EN : Supports natural detoxification processes
+    FR: [✅] Favorise les processus naturels de désintoxication
+    DE: [✅] Unterstützt die natürlichen Entgiftungsprozesse
+    NL: [✅] Ondersteunt natuurlijke ontgiftingsprocessen
+    ES: [✅] Favorece los procesos naturales de desintoxicación
+
+  [targetAudience[0].description]
+    EN : Anyone seeking complete mind-body relaxation
+    FR: [✅] Toute personne recherchant une relaxation complète du corps et de l'esprit
+    DE: [✅] Jeder, der eine vollständige Entspannung von Geist und Körper sucht
+    NL: [✅] Iedereen die op zoek is naar volledige ontspanning van lichaam en geest
+    ES: [✅] Cualquiera que busque una completa relajación cuerpo-mente
+
+  [targetAudience[1].description]
+    EN : People experiencing high stress levels
+    FR: [✅] Les personnes souffrant d'un niveau de stress élevé
+    DE: [✅] Menschen, die einem hohen Stresspegel ausgesetzt sind
+    NL: [✅] Mensen met een hoog stressniveau
+    ES: [✅] Personas con altos niveles de estrés
+
+  [targetAudience[2].description]
+    EN : Those with general muscle tension and fatigue
+    FR: [✅] Les personnes souffrant de tension musculaire et de fatigue générale
+    DE: [✅] Personen mit allgemeiner Muskelverspannung und Müdigkeit
+    NL: [✅] Mensen met algemene spierspanning en vermoeidheid
+    ES: [✅] Aquellos con tensión muscular general y fatiga
+
+  [targetAudience[3].description]
+    EN : Individuals wanting a mental and physical reset
+    FR: [✅] Personnes souhaitant une remise à zéro mentale et physique
+    DE: [✅] Personen, die einen geistigen und körperlichen Reset wünschen
+    NL: [✅] Personen die een mentale en fysieke reset willen
+    ES: [✅] Personas que desean un restablecimiento mental y físico
+
+  [contentSections[0].title]
+    EN : Complete Relaxation Experience
+    FR: [✅] Expérience de relaxation complète
+    DE: [✅] Vollständige Entspannung erleben
+    NL: [✅] Volledige ontspanningservaring
+    ES: [✅] Experiencia de relajación completa
+
+  [contentSections[0].description]
+    EN : Our signature Zen Your Body massage is a holistic full-body treatment that combi…
+    FR: [✅] Notre massage signature Zen Your Body est un traitement holistique du corps enti…
+    DE: [✅] Unsere charakteristische Zen Your Body Massage ist eine ganzheitliche Ganzkörper…
+    NL: [✅] Onze kenmerkende Zen Your Body massage is een holistische behandeling voor het h…
+    ES: [✅] Nuestro emblemático masaje Zen Your Body es un tratamiento holístico para todo e…
+
+  [contentSections[1].title]
+    EN : Mind-Body Harmony
+    FR: [✅] Harmonie corps-esprit
+    DE: [✅] Geist-Körper-Harmonie
+    NL: [✅] Harmonie tussen geest en lichaam
+    ES: [✅] Armonía mente-cuerpo
+
+  [contentSections[1].description]
+    EN : This massage goes beyond physical relief - it creates a profound sense of mental…
+    FR: [✅] Ce massage va au-delà du soulagement physique - il crée un profond sentiment de …
+    DE: [✅] Diese Massage geht über die körperliche Linderung hinaus - sie schafft ein tiefe…
+    NL: [✅] Deze massage gaat verder dan fysieke verlichting - het creëert een diep gevoel v…
+    ES: [✅] Este masaje va más allá del alivio físico: crea una profunda sensación de clarid…
+
+  [contentSections[2].title]
+    EN : Personalized Care
+    FR: [✅] Soins personnalisés
+    DE: [✅] Personalisierte Pflege
+    NL: [✅] Persoonlijke zorg
+    ES: [✅] Atención personalizada
+
+  [contentSections[2].description]
+    EN : Every Zen Your Body session is tailored to your individual needs. Before your tr…
+    FR: [✅] Chaque séance de Zen Your Body est adaptée à vos besoins individuels. Avant votr…
+    DE: [✅] Jede Zen Your Body-Sitzung ist auf Ihre individuellen Bedürfnisse zugeschnitten.…
+    NL: [✅] Elke Zen Your Body sessie is afgestemd op jouw individuele behoeften. Voorafgaan…
+    ES: [✅] Cada sesión de Zen Your Body se adapta a sus necesidades individuales. Antes de …
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692adac8cf795cf5e8e72a1d
+EN Title: Back and neck
+
+  [title]
+    EN : Back and neck
+    FR: [✅] Dos et cou
+    DE: [✅] Rücken und Nacken
+    NL: [✅] Rug en nek
+    ES: [✅] Espalda y cuello
+
+  [description]
+    EN : A focused therapeutic massage targeting the upper body where tension commonly ac…
+    FR: [✅] Un massage thérapeutique ciblé sur la partie supérieure du corps où s'accumulent…
+    DE: [✅] Eine gezielte therapeutische Massage, die auf den Oberkörper abzielt, wo sich hä…
+    NL: [✅] Een gerichte therapeutische massage gericht op het bovenlichaam waar spanning zi…
+    ES: [✅] Masaje terapéutico centrado en la parte superior del cuerpo, donde suelen acumul…
+
+  [benefits[0].description]
+    EN : Quick tension relief in just 30 minutes
+    FR: [✅] Soulagement rapide des tensions en 30 minutes seulement
+    DE: [✅] Schneller Spannungsabbau in nur 30 Minuten
+    NL: [✅] Snelle verlichting van spanning in slechts 30 minuten
+    ES: [✅] Alivio rápido de la tensión en sólo 30 minutos
+
+  [benefits[1].description]
+    EN : Focused treatment on problem areas
+    FR: [✅] Traitement ciblé sur les zones à problèmes
+    DE: [✅] Gezielte Behandlung von Problembereichen
+    NL: [✅] Gerichte behandeling op probleemgebieden
+    ES: [✅] Tratamiento focalizado en las zonas problemáticas
+
+  [benefits[2].description]
+    EN : Uses warm oils and therapeutic essential oils
+    FR: [✅] Utilise des huiles chaudes et des huiles essentielles thérapeutiques
+    DE: [✅] Verwendet warme Öle und therapeutische ätherische Öle
+    NL: [✅] Gebruikt warme oliën en therapeutische essentiële oliën
+    ES: [✅] Utiliza aceites calientes y aceites esenciales terapéuticos
+
+  [benefits[3].description]
+    EN : Perfect for busy schedules
+    FR: [✅] Parfait pour les horaires chargés
+    DE: [✅] Perfekt für einen vollen Terminkalender
+    NL: [✅] Perfect voor drukke schema's
+    ES: [✅] Perfecto para agendas apretadas
+
+  [benefits[4].description]
+    EN : Improves posture and mobility
+    FR: [✅] Améliore la posture et la mobilité
+    DE: [✅] Verbessert Körperhaltung und Beweglichkeit
+    NL: [✅] Verbetert houding en mobiliteit
+    ES: [✅] Mejora la postura y la movilidad
+
+  [benefits[5].description]
+    EN : Relieves tension headaches and migraines
+    FR: [✅] Soulage les céphalées de tension et les migraines
+    DE: [✅] Linderung von Spannungskopfschmerzen und Migräne
+    NL: [✅] Verlicht spanningshoofdpijn en migraine
+    ES: [✅] Alivia las cefaleas tensionales y las migrañas
+
+  [targetAudience[0].description]
+    EN : People with limited time who need quick relief
+    FR: [✅] Personnes disposant de peu de temps et ayant besoin d'une aide rapide
+    DE: [✅] Menschen, die wenig Zeit haben und schnelle Abhilfe brauchen
+    NL: [✅] Mensen met weinig tijd die snel verlichting nodig hebben
+    ES: [✅] Personas con poco tiempo que necesitan un alivio rápido
+
+  [targetAudience[1].description]
+    EN : Office workers experiencing neck and shoulder tension
+    FR: [✅] Travailleurs de bureau souffrant de tensions au niveau du cou et des épaules
+    DE: [✅] Büroangestellte, die unter Nacken- und Schulterverspannungen leiden
+    NL: [✅] Kantoormedewerkers die last hebben van nek- en schouderspanningen
+    ES: [✅] Trabajadores de oficina con tensión en cuello y hombros
+
+  [targetAudience[2].description]
+    EN : Athletes after intensive sports sessions
+    FR: [✅] Athlètes après des séances de sport intensives
+    DE: [✅] Athleten nach intensiven Sporteinheiten
+    NL: [✅] Atleten na intensieve sportsessies
+    ES: [✅] Atletas después de sesiones deportivas intensivas
+
+  [targetAudience[3].description]
+    EN : Anyone with posture-related discomfort
+    FR: [✅] Toute personne souffrant d'une gêne liée à la posture
+    DE: [✅] Jeder, der unter Haltungsbeschwerden leidet
+    NL: [✅] Iedereen met houdingsgerelateerde ongemakken
+    ES: [✅] Cualquier persona con molestias relacionadas con la postura
+
+  [contentSections[0].title]
+    EN : Quick Relief for Busy Lives
+    FR: [✅] Un soulagement rapide pour les vies occupées
+    DE: [✅] Schnelle Erleichterung für vielbeschäftigte Menschen
+    NL: [✅] Snelle verlichting voor drukke levens
+    ES: [✅] Alivio rápido para vidas ajetreadas
+
+  [contentSections[0].description]
+    EN : Do not have much time but still want to enjoy a massage that melts away all your…
+    FR: [✅] Vous n'avez pas beaucoup de temps mais vous voulez quand même profiter d'un mass…
+    DE: [✅] Sie haben nicht viel Zeit, möchten aber trotzdem eine Massage genießen, die alle…
+    NL: [✅] Heb je niet veel tijd maar wil je toch genieten van een massage die al je spanni…
+    ES: [✅] ¿No dispone de mucho tiempo pero aun así quiere disfrutar de un masaje que derri…
+
+  [contentSections[1].title]
+    EN : Targeted Treatment for Maximum Effect
+    FR: [✅] Un traitement ciblé pour un effet maximal
+    DE: [✅] Gezielte Behandlung für maximale Wirkung
+    NL: [✅] Gerichte behandeling voor maximaal effect
+    ES: [✅] Tratamiento específico para un efecto máximo
+
+  [contentSections[1].description]
+    EN : Because tensions mainly occur in the neck, shoulders and back, we concentrate ou…
+    FR: [✅] Les tensions se produisant principalement dans le cou, les épaules et le dos, no…
+    DE: [✅] Da Verspannungen vor allem im Nacken, in den Schultern und im Rücken auftreten, …
+    NL: [✅] Omdat spanningen zich vooral voordoen in de nek, schouders en rug, concentreren …
+    ES: [✅] Dado que las tensiones se producen principalmente en el cuello, los hombros y la…
+
+  [contentSections[2].title]
+    EN : Ideal After Intensive Activity
+    FR: [✅] Idéal après une activité intensive
+    DE: [✅] Ideal nach intensiver Aktivität
+    NL: [✅] Ideaal na een intensieve activiteit
+    ES: [✅] Ideal después de una actividad intensa
+
+  [contentSections[2].description]
+    EN : This massage is also perfect after intensive sports sessions or demanding physic…
+    FR: [✅] Ce massage est également parfait après des séances de sport intensives ou un tra…
+    DE: [✅] Diese Massage ist auch ideal nach intensiven Sporteinheiten oder anstrengender k…
+    NL: [✅] Deze massage is ook perfect na intensieve sportsessies of veeleisend fysiek werk…
+    ES: [✅] Este masaje también es perfecto después de sesiones deportivas intensas o trabaj…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692adac8cf795cf5e8e72a3c
+EN Title: Hotstone
+
+  [title]
+    EN : Hotstone
+    FR: [✅] Pierre chaude (Hotstone)
+    DE: [~] Hotstone
+    NL: [~] Hotstone
+    ES: [✅] Piedras calientes (Hotstone)
+
+  [description]
+    EN : An ancient healing massage using smooth, heated basalt stones to provide deep wa…
+    FR: [✅] Un massage curatif ancestral utilisant des pierres de basalte lisses et chauffée…
+    DE: [✅] Eine uralte Heilmassage mit glatten, erhitzten Basaltsteinen, die tiefe Wärme un…
+    NL: [✅] Een eeuwenoude helende massage met gladde, verwarmde basaltstenen die diepe warm…
+    ES: [✅] Un masaje curativo ancestral que utiliza piedras de basalto lisas y calentadas p…
+
+  [benefits[0].description]
+    EN : Deep muscle relaxation through therapeutic heat
+    FR: [✅] Relaxation musculaire profonde grâce à la chaleur thérapeutique
+    DE: [✅] Tiefe Muskelentspannung durch therapeutische Wärme
+    NL: [✅] Diepe spierontspanning door therapeutische warmte
+    ES: [✅] Relajación muscular profunda mediante calor terapéutico
+
+  [benefits[1].description]
+    EN : Improved blood circulation and oxygenation
+    FR: [✅] Amélioration de la circulation sanguine et de l'oxygénation
+    DE: [✅] Verbesserte Durchblutung und Sauerstoffversorgung
+    NL: [✅] Verbeterde bloedcirculatie en zuurstoftoevoer
+    ES: [✅] Mejora de la circulación sanguínea y oxigenación
+
+  [benefits[2].description]
+    EN : Brings body and mind into harmony
+    FR: [✅] Harmonise le corps et l'esprit
+    DE: [✅] Bringt Körper und Geist in Harmonie
+    NL: [✅] Brengt lichaam en geest in harmonie
+    ES: [✅] Armoniza cuerpo y mente
+
+  [benefits[3].description]
+    EN : Natural detoxification and toxin removal
+    FR: [✅] Détoxification naturelle et élimination des toxines
+    DE: [✅] Natürliche Entgiftung und Entfernung von Giftstoffen
+    NL: [✅] Natuurlijke ontgifting en verwijdering van afvalstoffen
+    ES: [✅] Desintoxicación natural y eliminación de toxinas
+
+  [benefits[4].description]
+    EN : Relieves chronic pain conditions like fibromyalgia
+    FR: [✅] Soulage les douleurs chroniques comme la fibromyalgie
+    DE: [✅] Lindert chronische Schmerzen wie Fibromyalgie
+    NL: [✅] Verlicht chronische pijnklachten zoals fibromyalgie
+    ES: [✅] Alivia condiciones de dolor crónico como la fibromialgia
+
+  [benefits[5].description]
+    EN : Promotes better sleep quality
+    FR: [✅] Favorise une meilleure qualité de sommeil
+    DE: [✅] Fördert eine bessere Schlafqualität
+    NL: [✅] Bevordert een betere slaapkwaliteit
+    ES: [✅] Promueve una mejor calidad del sueño
+
+  [targetAudience[0].description]
+    EN : Ideal for stress, tension, and energy blockages
+    FR: [✅] Idéal pour le stress, les tensions et les blocages énergétiques
+    DE: [✅] Ideal bei Stress, Verspannungen und Energieblockaden
+    NL: [✅] Ideaal bij stress, spanning en energieblokkades
+    ES: [✅] Ideal para estrés, tensión y bloqueos energéticos
+
+  [targetAudience[1].description]
+    EN : Those suffering from rheumatism or osteoarthritis
+    FR: [✅] Personnes souffrant de rhumatismes ou d'arthrose
+    DE: [✅] Menschen mit Rheuma oder Arthrose
+    NL: [✅] Mensen die lijden aan reuma of artrose
+    ES: [✅] Personas que sufren de reumatismo o artrosis
+
+  [targetAudience[2].description]
+    EN : People with poor circulation
+    FR: [✅] Personnes ayant une mauvaise circulation
+    DE: [✅] Menschen mit schlechter Durchblutung
+    NL: [✅] Mensen met een slechte bloedsomloop
+    ES: [✅] Personas con mala circulación
+
+  [targetAudience[3].description]
+    EN : Anyone seeking deep relaxation and warmth
+    FR: [✅] Toute personne recherchant une relaxation profonde et de la chaleur
+    DE: [✅] Alle, die tiefe Entspannung und Wärme suchen
+    NL: [✅] Iedereen die diepe ontspanning en warmte zoekt
+    ES: [✅] Cualquiera que busque relajación profunda y calor
+
+  [contentSections[0].title]
+    EN : Ancient Healing Tradition
+    FR: [✅] Tradition de guérison ancestrale
+    DE: [✅] Uralte Heiltradition
+    NL: [✅] Eeuwenoude helende traditie
+    ES: [✅] Tradición curativa ancestral
+
+  [contentSections[0].description]
+    EN : Hot stone massage has roots in various cultures including Native American and As…
+    FR: [✅] Le massage aux pierres chaudes trouve ses racines dans diverses cultures, notamm…
+    DE: [✅] Die Hotstone-Massage hat ihre Wurzeln in verschiedenen Kulturen, darunter indian…
+    NL: [✅] Hotstonemassage heeft zijn wortels in verschillende culturen, waaronder inheems-…
+    ES: [✅] El masaje con piedras calientes tiene sus raíces en diversas culturas, incluidas…
+
+  [contentSections[1].title]
+    EN : Working with Energy Points
+    FR: [✅] Travail avec les points d'énergie
+    DE: [✅] Arbeit mit Energiepunkten
+    NL: [✅] Werken met energiepunten
+    ES: [✅] Trabajo con puntos de energía
+
+  [contentSections[1].description]
+    EN : The heated basalt stones are strategically placed on acupuncture points and ener…
+    FR: [✅] Les pierres de basalte chauffées sont stratégiquement placées sur les points d'a…
+    DE: [✅] Die erhitzten Basaltsteine werden strategisch auf Akupunkturpunkte und Energieze…
+    NL: [✅] De verwarmde basaltstenen worden strategisch geplaatst op acupunctuurpunten en e…
+    ES: [✅] Las piedras de basalto calentadas se colocan estratégicamente en puntos de acupu…
+
+  [contentSections[2].title]
+    EN : Self-Healing Activation
+    FR: [✅] Activation de l'auto-guérison
+    DE: [✅] Aktivierung der Selbstheilung
+    NL: [✅] Activering van zelfgenezing
+    ES: [✅] Activación de la autocuración
+
+  [contentSections[2].description]
+    EN : Hot stone massage contributes to the self-healing capacity of your body. The hea…
+    FR: [✅] Le massage aux pierres chaudes contribue à la capacité d'auto-guérison de votre …
+    DE: [✅] Die Hotstone-Massage trägt zur Selbstheilungsfähigkeit Ihres Körpers bei. Die Wä…
+    NL: [✅] Hotstonemassage draagt bij aan het zelfgenezend vermogen van uw lichaam. De warm…
+    ES: [✅] El masaje con piedras calientes contribuye a la capacidad de autocuración de tu …
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692adac8cf795cf5e8e72a4b
+EN Title: Sports massage full body
+
+  [title]
+    EN : Sports massage full body
+    FR: [✅] Massage sportif corps complet
+    DE: [✅] Sportmassage Ganzkörper
+    NL: [✅] Sportmassage volledig lichaam
+    ES: [✅] Masaje deportivo cuerpo completo
+
+  [description]
+    EN : A dynamic therapeutic massage specifically designed for athletes and active indi…
+    FR: [✅] Un massage thérapeutique dynamique spécialement conçu pour les sportifs et les p…
+    DE: [✅] Eine dynamische therapeutische Massage, die speziell für Sportler und aktive Men…
+    NL: [✅] Een dynamische therapeutische massage speciaal ontworpen voor sporters en actiev…
+    ES: [✅] Un masaje terapéutico dinámico diseñado especialmente para deportistas y persona…
+
+  [benefits[0].description]
+    EN : Faster muscle recovery after workouts
+    FR: [✅] Récupération musculaire plus rapide après l'effort
+    DE: [✅] Schnellere Muskelerholung nach dem Training
+    NL: [✅] Sneller spierherstel na inspanning
+    ES: [✅] Recuperación muscular más rápida después del ejercicio
+
+  [benefits[1].description]
+    EN : Increased flexibility and range of motion
+    FR: [✅] Augmentation de la flexibilité et de l'amplitude de mouvement
+    DE: [✅] Erhöhte Flexibilität und Bewegungsumfang
+    NL: [✅] Verhoogde flexibiliteit en bewegingsomvang
+    ES: [✅] Mayor flexibilidad y rango de movimiento
+
+  [benefits[2].description]
+    EN : Prevention of sports-related injuries
+    FR: [✅] Prévention des blessures liées au sport
+    DE: [✅] Vorbeugung von Sportverletzungen
+    NL: [✅] Preventie van sportgerelateerde blessures
+    ES: [✅] Prevención de lesiones deportivas
+
+  [benefits[3].description]
+    EN : Reduced muscle soreness and DOMS
+    FR: [✅] Réduction des courbatures et des DOMS
+    DE: [✅] Reduzierter Muskelkater und DOMS
+    NL: [✅] Verminderde spierpijn en DOMS
+    ES: [✅] Reducción de agujetas y DOMS
+
+  [benefits[4].description]
+    EN : Enhanced athletic performance
+    FR: [✅] Amélioration des performances athlétiques
+    DE: [✅] Verbesserte sportliche Leistung
+    NL: [✅] Verbeterde atletische prestaties
+    ES: [✅] Mejor rendimiento atlético
+
+  [benefits[5].description]
+    EN : Improved circulation and lymphatic drainage
+    FR: [✅] Meilleure circulation et drainage lymphatique
+    DE: [✅] Verbesserte Durchblutung und Lymphdrainage
+    NL: [✅] Verbeterde circulatie en lymfedrainage
+    ES: [✅] Mejor circulación y drenaje linfático
+
+  [targetAudience[0].description]
+    EN : Professional and amateur athletes
+    FR: [✅] Sportifs professionnels et amateurs
+    DE: [✅] Professionelle und Freizeitsportler
+    NL: [✅] Professionele en recreatieve sporters
+    ES: [✅] Deportistas profesionales y amateur
+
+  [targetAudience[1].description]
+    EN : Fitness enthusiasts and gym-goers
+    FR: [✅] Passionnés de fitness et adeptes de la salle de sport
+    DE: [✅] Fitness-Enthusiasten und Studiogänger
+    NL: [✅] Fitness-enthousiastelingen en sportschoolgangers
+    ES: [✅] Entusiastas del fitness y asiduos al gimnasio
+
+  [targetAudience[2].description]
+    EN : Runners, cyclists, and swimmers
+    FR: [✅] Coureurs, cyclistes et nageurs
+    DE: [✅] Läufer, Radfahrer und Schwimmer
+    NL: [✅] Hardlopers, wielrenners en zwemmers
+    ES: [✅] Corredores, ciclistas y nadadores
+
+  [targetAudience[3].description]
+    EN : Anyone recovering from physical activity
+    FR: [✅] Toute personne en phase de récupération après une activité physique
+    DE: [✅] Alle, die sich von körperlicher Aktivität erholen
+    NL: [✅] Iedereen die herstelt van fysieke activiteit
+    ES: [✅] Cualquier persona en recuperación de actividad física
+
+  [contentSections[0].title]
+    EN : Ideal Support for Active Lifestyles
+    FR: [✅] Soutien idéal pour les modes de vie actifs
+    DE: [✅] Ideale Unterstützung für aktive Lebensstile
+    NL: [✅] Ideale ondersteuning voor actieve levensstijlen
+    ES: [✅] Apoyo ideal para estilos de vida activos
+
+  [contentSections[0].description]
+    EN : Sports massage is slightly more dynamic than relaxation massage and is ideal bef…
+    FR: [✅] Le massage sportif est légèrement plus dynamique que le massage relaxant et est …
+    DE: [✅] Sportmassage ist etwas dynamischer als Entspannungsmassage und ist ideal vor dem…
+    NL: [✅] Sportmassage is iets dynamischer dan ontspanningsmassage en is ideaal vóór het s…
+    ES: [✅] El masaje deportivo es ligeramente más dinámico que el masaje de relajación y es…
+
+  [contentSections[1].title]
+    EN : Deep Effect on Muscles
+    FR: [✅] Effet profond sur les muscles
+    DE: [✅] Tiefe Wirkung auf die Muskulatur
+    NL: [✅] Diep effect op de spieren
+    ES: [✅] Efecto profundo en los músculos
+
+  [contentSections[1].description]
+    EN : The techniques of sports massage include ironing, kneading, and pressure techniq…
+    FR: [✅] Les techniques du massage sportif comprennent le lissage, le pétrissage et les t…
+    DE: [✅] Die Techniken der Sportmassage umfassen Streichungen, Knetungen und Drucktechnik…
+    NL: [✅] De technieken van sportmassage omvatten strijken, kneden en druktechnieken afgel…
+    ES: [✅] Las técnicas del masaje deportivo incluyen deslizamiento, amasamiento y técnicas…
+
+  [contentSections[2].title]
+    EN : Preventing Injuries and Faster Recovery
+    FR: [✅] Prévention des blessures et récupération accélérée
+    DE: [✅] Verletzungsvorbeugung und schnellere Erholung
+    NL: [✅] Blessurepreventie en sneller herstel
+    ES: [✅] Prevención de lesiones y recuperación acelerada
+
+  [contentSections[2].description]
+    EN : Rigid or excessively tight muscles increase the risk of injury during exercise. …
+    FR: [✅] Des muscles rigides ou excessivement tendus augmentent le risque de blessure pen…
+    DE: [✅] Steife oder übermäßig angespannte Muskeln erhöhen das Verletzungsrisiko beim Spo…
+    NL: [✅] Stijve of overmatig gespannen spieren verhogen het risico op blessures tijdens h…
+    ES: [✅] Los músculos rígidos o excesivamente tensos aumentan el riesgo de lesiones duran…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692adac8cf795cf5e8e72a5f
+EN Title: Mini coup d'eclat
+
+  [title]
+    EN : Mini coup d'eclat
+    FR: [✅] Mini coup d'éclat
+    DE: [✅] Mini coup d'éclat
+    NL: [✅] Mini coup d'éclat
+    ES: [✅] Mini coup d'éclat
+
+  [description]
+    EN : A quick yet effective 30-minute facial treatment designed to give your skin an i…
+    FR: [✅] Un soin du visage rapide mais efficace de 30 minutes conçu pour donner à votre p…
+    DE: [✅] Eine schnelle, aber effektive 30-minütige Gesichtsbehandlung, die Ihrer Haut sof…
+    NL: [✅] Een snelle maar effectieve gezichtsbehandeling van 30 minuten, ontworpen om uw h…
+    ES: [✅] Un tratamiento facial rápido pero efectivo de 30 minutos diseñado para darle a t…
+
+  [benefits[0].description]
+    EN : Instant glow and refreshed complexion
+    FR: [✅] Éclat instantané et teint rafraîchi
+    DE: [✅] Sofortige Ausstrahlung und erfrischter Teint
+    NL: [✅] Direct stralend en fris teint
+    ES: [✅] Brillo instantáneo y tez refrescada
+
+  [benefits[1].description]
+    EN : Time-efficient at only 30 minutes
+    FR: [✅] Efficace en seulement 30 minutes
+    DE: [✅] Zeiteffizient in nur 30 Minuten
+    NL: [✅] Tijdefficiënt in slechts 30 minuten
+    ES: [✅] Eficiente en solo 30 minutos
+
+  [benefits[2].description]
+    EN : Gentle cleansing and exfoliation
+    FR: [✅] Nettoyage doux et exfoliation
+    DE: [✅] Sanfte Reinigung und Peeling
+    NL: [✅] Zachte reiniging en exfoliatie
+    ES: [✅] Limpieza suave y exfoliación
+
+  [benefits[3].description]
+    EN : Ideal introduction to professional facials
+    FR: [✅] Introduction idéale aux soins professionnels
+    DE: [✅] Idealer Einstieg in professionelle Gesichtsbehandlungen
+    NL: [✅] Ideale kennismaking met professionele gezichtsbehandelingen
+    ES: [✅] Introducción ideal a tratamientos faciales profesionales
+
+  [benefits[4].description]
+    EN : Perfect maintenance between full treatments
+    FR: [✅] Parfait entre deux soins complets
+    DE: [✅] Perfekte Pflege zwischen vollständigen Behandlungen
+    NL: [✅] Perfect onderhoud tussen volledige behandelingen
+    ES: [✅] Perfecto mantenimiento entre tratamientos completos
+
+  [benefits[5].description]
+    EN : Suitable for all skin types
+    FR: [✅] Convient à tous les types de peau
+    DE: [✅] Geeignet für alle Hauttypen
+    NL: [✅] Geschikt voor alle huidtypes
+    ES: [✅] Apto para todos los tipos de piel
+
+  [targetAudience[0].description]
+    EN : Busy professionals with limited time
+    FR: [✅] Professionnels pressés avec peu de temps
+    DE: [✅] Vielbeschäftigte Berufstätige mit wenig Zeit
+    NL: [✅] Drukke professionals met weinig tijd
+    ES: [✅] Profesionales ocupados con poco tiempo
+
+  [targetAudience[1].description]
+    EN : First-time facial clients
+    FR: [✅] Personnes découvrant les soins du visage professionnels
+    DE: [✅] Erstbesucher bei Gesichtsbehandlungen
+    NL: [✅] Mensen die voor het eerst een gezichtsbehandeling proberen
+    ES: [✅] Personas que prueban un facial profesional por primera vez
+
+  [targetAudience[2].description]
+    EN : Anyone needing a quick skin pick-me-up
+    FR: [✅] Toute personne ayant besoin d'un coup de fraîcheur rapide
+    DE: [✅] Alle, die eine schnelle Hautauffrischung brauchen
+    NL: [✅] Iedereen die een snelle huidopkikker nodig heeft
+    ES: [✅] Cualquiera que necesite un impulso rápido para la piel
+
+  [targetAudience[3].description]
+    EN : Those maintaining regular skincare routines
+    FR: [✅] Personnes entretenant une routine de soins régulière
+    DE: [✅] Personen, die regelmäßige Hautpflegeroutinen pflegen
+    NL: [✅] Personen die een regelmatige huidverzorgingsroutine onderhouden
+    ES: [✅] Personas que mantienen rutinas regulares de cuidado de la piel
+
+  [contentSections[0].title]
+    EN : Express Radiance Treatment
+    FR: [✅] Soin éclat express
+    DE: [✅] Express-Strahlungsbehandlung
+    NL: [✅] Express stralingsbehandeling
+    ES: [✅] Tratamiento de luminosidad exprés
+
+  [contentSections[0].description]
+    EN : Not much time but want to pamper your skin? Our Mini Coup d'�clat is the ideal s…
+    FR: [✅] Pas beaucoup de temps mais envie de chouchouter votre peau ? Notre Mini Coup d'É…
+    DE: [✅] Nicht viel Zeit, aber möchten Sie Ihre Haut verwöhnen? Unser Mini Coup d'Éclat i…
+    NL: [✅] Niet veel tijd maar wilt u uw huid verwennen? Onze Mini Coup d'Éclat is de ideal…
+    ES: [✅] ¿No tienes mucho tiempo pero quieres mimar tu piel? Nuestro Mini Coup d'Éclat es…
+
+  [contentSections[1].title]
+    EN : Professional Products, Quick Results
+    FR: [✅] Produits professionnels, résultats rapides
+    DE: [✅] Professionelle Produkte, schnelle Ergebnisse
+    NL: [✅] Professionele producten, snelle resultaten
+    ES: [✅] Productos profesionales, resultados rápidos
+
+  [contentSections[1].description]
+    EN : We work with premium products from Sultane de Saba to ensure your skin receives …
+    FR: [✅] Nous travaillons avec des produits haut de gamme de Sultane de Saba pour garanti…
+    DE: [✅] Wir arbeiten mit Premium-Produkten von Sultane de Saba, um sicherzustellen, dass…
+    NL: [✅] Wij werken met premium producten van Sultane de Saba om ervoor te zorgen dat uw …
+    ES: [✅] Trabajamos con productos premium de Sultane de Saba para garantizar que tu piel …
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692adac8cf795cf5e8e72a7d
+EN Title: Anti-aging Mesoeclat
+
+  [title]
+    EN : Anti-aging Mesoeclat
+    FR: [✅] Anti-âge Mesoéclat
+    DE: [✅] Anti-Aging Mesoéclat
+    NL: [✅] Anti-aging Mesoéclat
+    ES: [✅] Anti-edad Mesoéclat
+
+  [description]
+    EN : An advanced anti-aging facial treatment inspired by mesotherapy principles. Usin…
+    FR: [✅] Un soin du visage anti-âge avancé inspiré des principes de la mésothérapie. À l'…
+    DE: [✅] Eine fortschrittliche Anti-Aging-Gesichtsbehandlung, inspiriert von den Prinzipi…
+    NL: [✅] Een geavanceerde anti-aging gezichtsbehandeling geïnspireerd op de principes van…
+    ES: [✅] Un tratamiento facial antiedad avanzado inspirado en los principios de la mesote…
+
+  [benefits[0].description]
+    EN : Visibly reduces fine lines and deep wrinkles
+    FR: [✅] Réduction visible des rides et ridules
+    DE: [✅] Sichtbare Reduktion von Falten und feinen Linien
+    NL: [✅] Zichtbare vermindering van rimpels en fijne lijntjes
+    ES: [✅] Reducción visible de arrugas y líneas finas
+
+  [benefits[1].description]
+    EN : Stimulates natural collagen production
+    FR: [✅] Fermeté et élasticité améliorées de la peau
+    DE: [✅] Verbesserte Hautfestigkeit und Elastizität
+    NL: [✅] Verbeterde stevigheid en elasticiteit van de huid
+    ES: [✅] Mejor firmeza y elasticidad de la piel
+
+  [benefits[2].description]
+    EN : Improves skin firmness and elasticity
+    FR: [✅] Teint lumineux et rajeuni
+    DE: [✅] Strahlender, verjüngter Teint
+    NL: [✅] Stralende, verjongde teint
+    ES: [✅] Tez luminosa y rejuvenecida
+
+  [benefits[3].description]
+    EN : Restores youthful radiance and glow
+    FR: [✅] Hydratation profonde des couches de la peau
+    DE: [✅] Tiefe Feuchtigkeitsversorgung der Hautschichten
+    NL: [✅] Diepe hydratatie van de huidlagen
+    ES: [✅] Hidratación profunda de las capas de la piel
+
+  [benefits[4].description]
+    EN : Evens out skin tone and reduces age spots
+    FR: [✅] Stimulation de la production de collagène
+    DE: [✅] Stimulation der Kollagenproduktion
+    NL: [✅] Stimulatie van collageenproductie
+    ES: [✅] Estimulación de la producción de colágeno
+
+  [benefits[5].description]
+    EN : Provides cumulative anti-aging benefits
+    FR: [✅] Résultats longue durée avec un entretien régulier
+    DE: [✅] Langanhaltende Ergebnisse bei regelmäßiger Pflege
+    NL: [✅] Langdurige resultaten bij regelmatig onderhoud
+    ES: [✅] Resultados duraderos con mantenimiento regular
+
+  [targetAudience[0].description]
+    EN : Those concerned about visible signs of aging
+    FR: [✅] Personnes préoccupées par les signes du vieillissement
+    DE: [✅] Personen, die sich um Alterserscheinungen sorgen
+    NL: [✅] Personen bezorgd over tekenen van veroudering
+    ES: [✅] Personas preocupadas por los signos del envejecimiento
+
+  [targetAudience[1].description]
+    EN : People with fine lines and wrinkles
+    FR: [✅] Personnes recherchant des solutions anti-âge non invasives
+    DE: [✅] Menschen, die nicht-invasive Anti-Aging-Lösungen suchen
+    NL: [✅] Mensen die niet-invasieve anti-aging oplossingen zoeken
+    ES: [✅] Quienes buscan soluciones antiedad no invasivas
+
+  [targetAudience[2].description]
+    EN : Anyone seeking advanced anti-aging treatment
+    FR: [✅] Personnes souhaitant améliorer la fermeté de la peau
+    DE: [✅] Personen, die die Hautfestigkeit verbessern möchten
+    NL: [✅] Personen die de stevigheid van hun huid willen verbeteren
+    ES: [✅] Personas que desean mejorar la firmeza de su piel
+
+  [targetAudience[3].description]
+    EN : Those wanting to maintain youthful skin
+    FR: [✅] Toute personne désirant un teint rajeuni
+    DE: [✅] Alle, die einen verjüngten Teint wünschen
+    NL: [✅] Iedereen die een verjongde teint wenst
+    ES: [✅] Cualquiera que desee una tez rejuvenecida
+
+  [contentSections[0].title]
+    EN : Mesotherapy-Inspired Rejuvenation
+    FR: [✅] Rajeunissement inspiré de la mésothérapie
+    DE: [✅] Mesotherapie-inspirierte Verjüngung
+    NL: [✅] Mesotherapie-geïnspireerde verjonging
+    ES: [✅] Rejuvenecimiento inspirado en mesoterapia
+
+  [contentSections[0].description]
+    EN : The Anti-aging Mesoeclat facial draws from mesotherapy techniques, delivering po…
+    FR: [✅] Le soin Anti-âge Mesoéclat s'inspire des techniques de mésothérapie pour délivre…
+    DE: [✅] Die Anti-Aging Mesoéclat Gesichtsbehandlung nutzt Mesotherapie-Techniken, um kra…
+    NL: [✅] De Anti-aging Mesoéclat gezichtsbehandeling is geïnspireerd op mesotherapietechn…
+    ES: [✅] El facial Anti-edad Mesoéclat se inspira en técnicas de mesoterapia para entrega…
+
+  [contentSections[1].title]
+    EN : Deep Cellular Regeneration
+    FR: [✅] Régénération cellulaire profonde
+    DE: [✅] Tiefe zelluläre Regeneration
+    NL: [✅] Diepe cellulaire regeneratie
+    ES: [✅] Regeneración celular profunda
+
+  [contentSections[1].description]
+    EN : This treatment goes beyond surface care to target the signs of aging at their so…
+    FR: [✅] Ce soin va au-delà des soins superficiels pour cibler les signes du vieillisseme…
+    DE: [✅] Diese Behandlung geht über oberflächliche Pflege hinaus und bekämpft die Zeichen…
+    NL: [✅] Deze behandeling gaat verder dan oppervlakkige verzorging om de tekenen van vero…
+    ES: [✅] Este tratamiento va más allá del cuidado superficial para atacar los signos del …
+
+  [contentSections[2].title]
+    EN : Lasting Anti-Aging Results
+    FR: [✅] Résultats anti-âge durables
+    DE: [✅] Langanhaltende Anti-Aging-Ergebnisse
+    NL: [✅] Langdurige anti-aging resultaten
+    ES: [✅] Resultados antiedad duraderos
+
+  [contentSections[2].description]
+    EN : The Mesoeclat treatment provides both immediate and cumulative benefits. You wil…
+    FR: [✅] Le soin Mesoéclat offre des résultats immédiats et cumulatifs. Vous remarquerez …
+    DE: [✅] Die Mesoéclat-Behandlung bietet sowohl sofortige als auch kumulative Ergebnisse.…
+    NL: [✅] De Mesoéclat-behandeling biedt zowel directe als cumulatieve resultaten. U zult …
+    ES: [✅] El tratamiento Mesoéclat ofrece resultados inmediatos y acumulativos. Notarás un…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69467f54a80b4682c75463af
+EN Title: Sports massage leg, back and neck
+
+  [title]
+    EN : Sports massage leg, back and neck
+    FR: [✅] Massage sportif des jambes, du dos et de la nuque
+    DE: [✅] Sportmassage Bein, Rücken und Nacken
+    NL: [✅] Sportmassage been, rug en nek
+    ES: [✅] Masaje deportivo de piernas, espalda y cuello
+
+  [description]
+    EN : A targeted sports massage focusing on legs, back, and neck - the areas most affe…
+    FR: [✅] Un massage sportif ciblé sur les jambes, le dos et le cou - les zones les plus t…
+    DE: [✅] Eine gezielte Sportmassage, die sich auf Beine, Rücken und Nacken konzentriert -…
+    NL: [✅] Een gerichte sportmassage gericht op benen, rug en nek - de gebieden die het mee…
+    ES: [✅] Un masaje deportivo específico centrado en las piernas, la espalda y el cuello, …
+
+  [benefits[0].description]
+    EN : Targets the three most stressed muscle groups
+    FR: [✅] Cible les trois groupes musculaires les plus sollicités
+    DE: [✅] Zielt auf die drei am meisten beanspruchten Muskelgruppen ab
+    NL: [✅] Richt zich op de drie meest belaste spiergroepen
+    ES: [✅] Se centra en los tres grupos musculares más estresados
+
+  [benefits[1].description]
+    EN : Improves flexibility and range of motion
+    FR: [✅] Améliore la flexibilité et l'amplitude des mouvements
+    DE: [✅] Verbessert Flexibilität und Bewegungsumfang
+    NL: [✅] Verbetert flexibiliteit en bewegingsbereik
+    ES: [✅] Mejora la flexibilidad y la amplitud de movimiento
+
+  [benefits[2].description]
+    EN : Reduces muscle tension and knots
+    FR: [✅] Réduit la tension musculaire et les nœuds
+    DE: [✅] Reduziert Muskelverspannungen und -knoten
+    NL: [✅] Vermindert spierspanning en knopen
+    ES: [✅] Reduce la tensión muscular y los nudos
+
+  [benefits[3].description]
+    EN : Speeds up post-workout recovery
+    FR: [✅] Accélère la récupération après l'entraînement
+    DE: [✅] Beschleunigt die Erholung nach dem Training
+    NL: [✅] Versnelt het herstel na de training
+    ES: [✅] Acelera la recuperación después del entrenamiento
+
+  [benefits[4].description]
+    EN : Helps prevent sports injuries
+    FR: [✅] Aide à prévenir les blessures sportives
+    DE: [✅] Hilft, Sportverletzungen vorzubeugen
+    NL: [✅] Helpt sportblessures voorkomen
+    ES: [✅] Ayuda a prevenir lesiones deportivas
+
+  [benefits[5].description]
+    EN : Enhances overall athletic performance
+    FR: [✅] Améliore les performances athlétiques globales
+    DE: [✅] Verbessert die allgemeine sportliche Leistung
+    NL: [✅] Verbetert de algehele atletische prestaties
+    ES: [✅] Mejora el rendimiento deportivo general
+
+  [targetAudience[0].description]
+    EN : Athletes and sports enthusiasts
+    FR: [✅] Athlètes et passionnés de sport
+    DE: [✅] Athleten und Sportbegeisterte
+    NL: [✅] Atleten en sportliefhebbers
+    ES: [✅] Atletas y aficionados al deporte
+
+  [targetAudience[1].description]
+    EN : Runners, cyclists, and gym-goers
+    FR: [✅] Coureurs, cyclistes et sportifs
+    DE: [✅] Läufer, Radfahrer und Fitnessstudiobesucher
+    NL: [✅] Hardlopers, fietsers en sportschoolgangers
+    ES: [✅] Corredores, ciclistas y gimnastas
+
+  [targetAudience[2].description]
+    EN : People with active lifestyles
+    FR: [✅] Personnes ayant un mode de vie actif
+    DE: [✅] Menschen mit aktivem Lebensstil
+    NL: [✅] Mensen met een actieve levensstijl
+    ES: [✅] Personas con estilos de vida activos
+
+  [targetAudience[3].description]
+    EN : Those recovering from physical exertion
+    FR: [✅] Les personnes qui se remettent d'un effort physique
+    DE: [✅] Personen, die sich von körperlicher Anstrengung erholen
+    NL: [✅] Zij die herstellen van fysieke inspanning
+    ES: [✅] Los que se recuperan de un esfuerzo físico
+
+  [contentSections[0].title]
+    EN : Targeted Treatment for Key Muscle Groups
+    FR: [✅] Traitement ciblé des principaux groupes musculaires
+    DE: [✅] Gezielte Behandlung für wichtige Muskelgruppen
+    NL: [✅] Gerichte behandeling voor belangrijke spiergroepen
+    ES: [✅] Tratamiento específico de grupos musculares clave
+
+  [contentSections[0].description]
+    EN : This specialized sports massage focuses on the three areas that bear the most st…
+    FR: [✅] Ce massage sportif spécialisé se concentre sur les trois zones les plus sollicit…
+    DE: [✅] Diese spezielle Sportmassage konzentriert sich auf die drei Bereiche, die bei kö…
+    NL: [✅] Deze gespecialiseerde sportmassage richt zich op de drie gebieden die het meest …
+    ES: [✅] Este masaje deportivo especializado se centra en las tres zonas que soportan más…
+
+  [contentSections[1].title]
+    EN : Perfect for Pre and Post Workout
+    FR: [✅] Parfait pour l'entraînement avant et après la séance
+    DE: [✅] Perfekt für vor und nach dem Training
+    NL: [✅] Perfect voor vóór en na de training
+    ES: [✅] Perfecto para antes y después del entrenamiento
+
+  [contentSections[1].description]
+    EN : Whether you need to prepare your muscles for an upcoming competition or recover …
+    FR: [✅] Que vous ayez besoin de préparer vos muscles pour une compétition à venir ou de …
+    DE: [✅] Ganz gleich, ob Sie Ihre Muskeln auf einen bevorstehenden Wettkampf vorbereiten …
+    NL: [✅] Of je nu je spieren moet voorbereiden op een komende wedstrijd of moet herstelle…
+    ES: [✅] Tanto si necesita preparar los músculos para una próxima competición como recupe…
+
+  [contentSections[2].title]
+    EN : Athletic Performance Enhancement
+    FR: [✅] Amélioration des performances sportives
+    DE: [✅] Sportliche Leistungsverbesserung
+    NL: [✅] Atletische prestatieverbetering
+    ES: [✅] Mejora del rendimiento deportivo
+
+  [contentSections[2].description]
+    EN : Regular sports massage targeting legs, back, and neck can significantly improve …
+    FR: [✅] Un massage sportif régulier ciblant les jambes, le dos et le cou peut améliorer …
+    DE: [✅] Eine regelmäßige Sportmassage für Beine, Rücken und Nacken kann Ihre sportliche …
+    NL: [✅] Regelmatige sportmassage gericht op benen, rug en nek kan je sportprestaties aan…
+    ES: [✅] Un masaje deportivo regular en piernas, espalda y cuello puede mejorar significa…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69467f6ea80b4682c75463b2
+EN Title: Sports massage legs
+
+  [title]
+    EN : Sports massage legs
+    FR: [✅] Massage sportif jambes
+    DE: [✅] Sportmassage Beine
+    NL: [✅] Sportmassage benen
+    ES: [✅] Masaje deportivo piernas
+
+  [description]
+    EN : A concentrated 30-minute sports massage specifically targeting the legs. Ideal f…
+    FR: [✅] Un massage sportif concentré de 30 minutes ciblant spécifiquement les jambes. Id…
+    DE: [✅] Eine konzentrierte 30-minütige Sportmassage, die speziell auf die Beine abzielt.…
+    NL: [✅] Een geconcentreerde 30-minuten sportmassage specifiek gericht op de benen. Ideaa…
+    ES: [✅] Un masaje deportivo concentrado de 30 minutos enfocado específicamente en las pi…
+
+  [benefits[0].description]
+    EN : Targeted relief for tired, tight leg muscles
+    FR: [✅] Soulagement ciblé de la fatigue des jambes
+    DE: [✅] Gezielte Linderung müder Beine
+    NL: [✅] Gerichte verlichting van vermoeide benen
+    ES: [✅] Alivio enfocado de piernas cansadas
+
+  [benefits[1].description]
+    EN : Reduces calf and hamstring cramping
+    FR: [✅] Améliore la circulation dans les membres inférieurs
+    DE: [✅] Verbessert die Durchblutung der unteren Extremitäten
+    NL: [✅] Verbetert de circulatie in de onderste ledematen
+    ES: [✅] Mejora la circulación en las extremidades inferiores
+
+  [benefits[2].description]
+    EN : Improves circulation in lower body
+    FR: [✅] Accélère la récupération après la course ou le vélo
+    DE: [✅] Beschleunigt die Erholung nach dem Laufen oder Radfahren
+    NL: [✅] Versnelt herstel na hardlopen of fietsen
+    ES: [✅] Acelera la recuperación después de correr o andar en bicicleta
+
+  [benefits[3].description]
+    EN : Prevents IT band and shin splint issues
+    FR: [✅] Réduit le risque de crampes
+    DE: [✅] Reduziert das Risiko von Krämpfen
+    NL: [✅] Vermindert het risico op krampen
+    ES: [✅] Reduce el riesgo de calambres
+
+  [benefits[4].description]
+    EN : Accelerates recovery after leg-intensive workouts
+    FR: [✅] Durée idéale de 30 minutes
+    DE: [✅] Ideale Dauer von 30 Minuten
+    NL: [✅] Ideale duur van 30 minuten
+    ES: [✅] Duración ideal de 30 minutos
+
+  [targetAudience[0].description]
+    EN : Runners training for races
+    FR: [✅] Coureurs et joggers
+    DE: [✅] Läufer und Jogger
+    NL: [✅] Hardlopers en joggers
+    ES: [✅] Corredores y joggers
+
+  [targetAudience[1].description]
+    EN : Cyclists and spinning enthusiasts
+    FR: [✅] Cyclistes
+    DE: [✅] Radfahrer
+    NL: [✅] Wielrenners
+    ES: [✅] Ciclistas
+
+  [targetAudience[2].description]
+    EN : Football, basketball, and soccer players
+    FR: [✅] Footballeurs et sportifs d'équipe
+    DE: [✅] Fußballer und Mannschaftssportler
+    NL: [✅] Voetballers en teamsporters
+    ES: [✅] Futbolistas y deportistas de equipo
+
+  [targetAudience[3].description]
+    EN : Anyone with leg fatigue from exercise
+    FR: [✅] Toute personne souffrant de jambes lourdes ou fatiguées
+    DE: [✅] Alle mit schweren oder müden Beinen
+    NL: [✅] Iedereen met zware of vermoeide benen
+    ES: [✅] Cualquier persona con piernas pesadas o cansadas
+
+  [contentSections[0].title]
+    EN : Focused Leg Recovery
+    FR: [✅] Récupération ciblée des jambes
+    DE: [✅] Gezielte Beinerholung
+    NL: [✅] Gericht beenherstel
+    ES: [✅] Recuperación enfocada de piernas
+
+  [contentSections[0].description]
+    EN : Your legs power every step, pedal stroke, and jump. This specialized 30-minute t…
+    FR: [✅] Vos jambes alimentent chaque pas, chaque coup de pédale et chaque saut. Ce soin …
+    DE: [✅] Ihre Beine treiben jeden Schritt, Pedaltritt und Sprung an. Diese spezialisierte…
+    NL: [✅] Uw benen drijven elke stap, pedaalslag en sprong aan. Deze gespecialiseerde 30-m…
+    ES: [✅] Tus piernas impulsan cada paso, pedaleo y salto. Este tratamiento especializado …
+
+  [contentSections[1].title]
+    EN : Essential for Lower Body Athletes
+    FR: [✅] Essentiel pour les sportifs du bas du corps
+    DE: [✅] Unverzichtbar für Unterkörper-Sportler
+    NL: [✅] Essentieel voor atleten van het onderlichaam
+    ES: [✅] Esencial para deportistas de tren inferior
+
+  [contentSections[1].description]
+    EN : Whether you are training for a marathon, cycling long distances, or playing spor…
+    FR: [✅] Que vous vous entraîniez pour un marathon, fassiez du vélo sur de longues distan…
+    DE: [✅] Ob Sie für einen Marathon trainieren, lange Strecken radfahren oder Sportarten b…
+    NL: [✅] Of u nu traint voor een marathon, lange afstanden fietst of sporten beoefent die…
+    ES: [✅] Ya sea que entrenes para un maratón, recorras largas distancias en bicicleta o p…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69467fb3a80b4682c75463b4
+EN Title: Scrub + Zen Your Body
+
+  [title]
+    EN : Scrub + Zen Your Body
+    FR: [✅] Gommage + Zen Your Body
+    DE: [✅] Peeling + Zen Your Body
+    NL: [✅] Scrub + Zen Je Lichaam
+    ES: [✅] Exfoliación + Zen Your Body
+
+  [description]
+    EN : A luxurious 90-minute combination treatment that begins with an invigorating ful…
+    FR: [✅] Un soin luxueux de 90 minutes qui commence par un gommage corporel revigorant po…
+    DE: [✅] Eine luxuriöse 90-minütige Behandlung, die mit einem belebenden Ganzkörperpeelin…
+    NL: [✅] Een luxueuze 90 minuten durende behandeling die begint met een verkwikkende lich…
+    ES: [✅] Un lujoso tratamiento de 90 minutos que comienza con una vigorizante exfoliación…
+
+  [benefits[0].description]
+    EN : Deep exfoliation removes dead skin cells
+    FR: [✅] Exfoliation complète du corps pour une peau douce et renouvelée
+    DE: [✅] Ganzkörperpeeling für weiche, erneuerte Haut
+    NL: [✅] Volledige lichaamsexfoliatie voor zachte, vernieuwde huid
+    ES: [✅] Exfoliación corporal completa para una piel suave y renovada
+
+  [benefits[1].description]
+    EN : Improved skin texture and radiance
+    FR: [✅] Relaxation profonde du corps entier
+    DE: [✅] Tiefe Ganzkörperentspannung
+    NL: [✅] Diepe ontspanning van het hele lichaam
+    ES: [✅] Relajación profunda de cuerpo completo
+
+  [benefits[2].description]
+    EN : Enhanced absorption of massage oils
+    FR: [✅] Améliore l'absorption des produits de soin
+    DE: [✅] Verbessert die Aufnahme von Pflegeprodukten
+    NL: [✅] Verbetert de opname van verzorgingsproducten
+    ES: [✅] Mejora la absorción de productos de cuidado
+
+  [benefits[3].description]
+    EN : Complete relaxation of mind and body
+    FR: [✅] Stimule la circulation sanguine
+    DE: [✅] Regt die Durchblutung an
+    NL: [✅] Stimuleert de bloedcirculatie
+    ES: [✅] Estimula la circulación sanguínea
+
+  [benefits[4].description]
+    EN : Promotes lymphatic drainage and detoxification
+    FR: [✅] Expérience spa luxueuse de 90 minutes
+    DE: [✅] Luxuriöses 90-Minuten-Spa-Erlebnis
+    NL: [✅] Luxueuze spa-ervaring van 90 minuten
+    ES: [✅] Lujosa experiencia spa de 90 minutos
+
+  [benefits[5].description]
+    EN : Leaves skin soft, smooth, and glowing
+    FR: [✅] Combine les bienfaits de deux soins en un
+    DE: [✅] Kombiniert die Vorteile von zwei Behandlungen in einer
+    NL: [✅] Combineert de voordelen van twee behandelingen in één
+    ES: [✅] Combina los beneficios de dos tratamientos en uno
+
+  [targetAudience[0].description]
+    EN : Those seeking a complete spa experience
+    FR: [✅] Personnes recherchant une expérience spa complète
+    DE: [✅] Menschen, die ein komplettes Spa-Erlebnis suchen
+    NL: [✅] Mensen op zoek naar een complete spa-ervaring
+    ES: [✅] Personas que buscan una experiencia spa completa
+
+  [targetAudience[1].description]
+    EN : People preparing for special occasions
+    FR: [✅] Ceux qui souhaitent rajeunir leur peau
+    DE: [✅] Wer seine Haut verjüngen möchte
+    NL: [✅] Wie zijn huid wil verjongen
+    ES: [✅] Quienes desean rejuvenecer su piel
+
+  [targetAudience[2].description]
+    EN : Anyone with dry or dull skin
+    FR: [✅] Idéal pour une occasion spéciale ou un cadeau
+    DE: [✅] Ideal als besonderes Geschenk oder zu einem besonderen Anlass
+    NL: [✅] Ideaal voor een speciale gelegenheid of cadeau
+    ES: [✅] Ideal para una ocasión especial o regalo
+
+  [targetAudience[3].description]
+    EN : Those wanting both skin care and relaxation
+    FR: [✅] Personnes ayant besoin de détente profonde
+    DE: [✅] Personen, die tiefe Entspannung brauchen
+    NL: [✅] Personen die diepe ontspanning nodig hebben
+    ES: [✅] Personas que necesitan relajación profunda
+
+  [contentSections[0].title]
+    EN : Complete Skin Renewal
+    FR: [✅] Renouveau complet de la peau
+    DE: [✅] Komplette Hauterneuerung
+    NL: [✅] Complete huidvernieuwing
+    ES: [✅] Renovación completa de la piel
+
+  [contentSections[0].description]
+    EN : Your treatment begins with a personalized body scrub consultation. Our therapist…
+    FR: [✅] Votre soin commence par une consultation personnalisée. Notre thérapeute sélecti…
+    DE: [✅] Ihre Behandlung beginnt mit einer persönlichen Beratung. Unsere Therapeutin wähl…
+    NL: [✅] Uw behandeling begint met een persoonlijk adviesgesprek. Onze therapeut selectee…
+    ES: [✅] Tu tratamiento comienza con una consulta personalizada. Nuestra terapeuta selecc…
+
+  [contentSections[1].title]
+    EN : Enhanced Massage Experience
+    FR: [✅] Expérience de massage sublimée
+    DE: [✅] Verbessertes Massageerlebnis
+    NL: [✅] Verbeterde massage-ervaring
+    ES: [✅] Experiencia de masaje mejorada
+
+  [contentSections[1].description]
+    EN : Following the body scrub, your freshly exfoliated skin is perfectly prepared to …
+    FR: [✅] Après le gommage, votre peau fraîchement exfoliée est parfaitement préparée pour…
+    DE: [✅] Nach dem Peeling ist Ihre frisch exfolierte Haut perfekt vorbereitet, um die näh…
+    NL: [✅] Na de scrub is uw vers geëxfolieerde huid perfect voorbereid om de voedende olië…
+    ES: [✅] Después de la exfoliación, tu piel recién renovada está perfectamente preparada …
+
+  [contentSections[2].title]
+    EN : Total Body Transformation
+    FR: [✅] Transformation corporelle totale
+    DE: [✅] Totale Körpertransformation
+    NL: [✅] Totale lichaamstransformatie
+    ES: [✅] Transformación corporal total
+
+  [contentSections[2].description]
+    EN : The 90-minute duration allows for a thorough and unhurried experience. The scrub…
+    FR: [✅] Les 90 minutes permettent une expérience approfondie et sans hâte. Le gommage dé…
+    DE: [✅] Die 90 Minuten ermöglichen ein gründliches und ungehetztes Erlebnis. Das Peeling…
+    NL: [✅] De 90 minuten bieden een grondige en ongehaaste ervaring. De scrub ontgift en st…
+    ES: [✅] Los 90 minutos permiten una experiencia completa y sin prisas. La exfoliación de…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 6946804aa80b4682c75463c1
+EN Title: Purifying
+
+  [title]
+    EN : Purifying
+    FR: [✅] Purifiant
+    DE: [✅] Reinigend
+    NL: [✅] Zuiverend
+    ES: [✅] Purificante
+
+  [description]
+    EN : A deep-cleansing facial treatment designed to detoxify and clarify your skin. Us…
+    FR: [✅] Un soin du visage nettoyant en profondeur conçu pour détoxifier et clarifier vot…
+    DE: [✅] Eine tiefenreinigende Gesichtsbehandlung zur Entgiftung und Klärung Ihrer Haut. …
+    NL: [✅] Een diep reinigende gezichtsbehandeling ontworpen om uw huid te ontgiften en te …
+    ES: [✅] Un tratamiento facial de limpieza profunda diseñado para desintoxicar y clarific…
+
+  [benefits[0].description]
+    EN : Removes deep-seated impurities and toxins
+    FR: [✅] Nettoyage en profondeur et détoxification
+    DE: [✅] Tiefenreinigung und Entgiftung
+    NL: [✅] Diepe reiniging en ontgifting
+    ES: [✅] Limpieza profunda y desintoxicación
+
+  [benefits[1].description]
+    EN : Unclogs pores and reduces blackheads
+    FR: [✅] Désobstrue les pores et prévient les imperfections
+    DE: [✅] Befreit die Poren und beugt Unreinheiten vor
+    NL: [✅] Opent poriën en voorkomt onzuiverheden
+    ES: [✅] Desobstruye los poros y previene imperfecciones
+
+  [benefits[2].description]
+    EN : Controls excess oil production
+    FR: [✅] Élimine les impuretés et l'excès de sébum
+    DE: [✅] Entfernt Unreinheiten und überschüssigen Talg
+    NL: [✅] Verwijdert onzuiverheden en overtollig talg
+    ES: [✅] Elimina impurezas y exceso de sebo
+
+  [benefits[3].description]
+    EN : Reduces appearance of enlarged pores
+    FR: [✅] Rétablit la clarté et l'éclat naturels
+    DE: [✅] Stellt natürliche Klarheit und Ausstrahlung wieder her
+    NL: [✅] Herstelt natuurlijke helderheid en glans
+    ES: [✅] Restaura la claridad y el brillo naturales
+
+  [benefits[4].description]
+    EN : Prevents future breakouts
+    FR: [✅] Apaise les inflammations et rougeurs
+    DE: [✅] Beruhigt Entzündungen und Rötungen
+    NL: [✅] Kalmeert ontstekingen en roodheid
+    ES: [✅] Calma inflamaciones y enrojecimientos
+
+  [benefits[5].description]
+    EN : Creates a clearer, more balanced complexion
+    FR: [✅] Convient aux peaux grasses et mixtes
+    DE: [✅] Geeignet für fettige und Mischhaut
+    NL: [✅] Geschikt voor vette en gecombineerde huid
+    ES: [✅] Apto para pieles grasas y mixtas
+
+  [targetAudience[0].description]
+    EN : Those with oily or combination skin
+    FR: [✅] Personnes ayant la peau grasse ou mixte
+    DE: [✅] Menschen mit fettiger oder Mischhaut
+    NL: [✅] Mensen met een vette of gecombineerde huid
+    ES: [✅] Personas con piel grasa o mixta
+
+  [targetAudience[1].description]
+    EN : People prone to acne and breakouts
+    FR: [✅] Personnes sujettes à l'acné ou aux imperfections
+    DE: [✅] Personen, die zu Akne oder Unreinheiten neigen
+    NL: [✅] Personen die last hebben van acne of onzuiverheden
+    ES: [✅] Personas propensas al acné o imperfecciones
+
+  [targetAudience[2].description]
+    EN : Anyone experiencing congested pores
+    FR: [✅] Peaux congestionnées ayant besoin de détoxification
+    DE: [✅] Verstopfte Haut, die Entgiftung braucht
+    NL: [✅] Verstopte huid die ontgifting nodig heeft
+    ES: [✅] Piel congestionada que necesita desintoxicación
+
+  [targetAudience[3].description]
+    EN : Those seeking a deep cleanse and detox
+    FR: [✅] Toute personne souhaitant un teint plus clair
+    DE: [✅] Alle, die einen klareren Teint wünschen
+    NL: [✅] Iedereen die een helderdere teint wil
+    ES: [✅] Cualquiera que desee una tez más clara
+
+  [contentSections[0].title]
+    EN : Deep Cleansing Process
+    FR: [✅] Processus de nettoyage profond
+    DE: [✅] Tiefenreinigungsprozess
+    NL: [✅] Diep reinigingsproces
+    ES: [✅] Proceso de limpieza profunda
+
+  [contentSections[0].description]
+    EN : The Purifying facial begins with a thorough double cleanse to remove surface imp…
+    FR: [✅] Le soin Purifiant commence par un double nettoyage approfondi pour éliminer les …
+    DE: [✅] Die reinigende Gesichtsbehandlung beginnt mit einer gründlichen Doppelreinigung,…
+    NL: [✅] De Zuiverende gezichtsbehandeling begint met een grondige dubbele reiniging om o…
+    ES: [✅] El facial Purificante comienza con una doble limpieza profunda para eliminar imp…
+
+  [contentSections[1].title]
+    EN : Professional Extraction and Treatment
+    FR: [✅] Extraction professionnelle et traitement
+    DE: [✅] Professionelle Extraktion und Behandlung
+    NL: [✅] Professionele extractie en behandeling
+    ES: [✅] Extracción profesional y tratamiento
+
+  [contentSections[1].description]
+    EN : Our skilled therapist performs careful manual extractions to clear blocked pores…
+    FR: [✅] Notre thérapeute qualifiée effectue des extractions manuelles soigneuses pour dé…
+    DE: [✅] Unsere erfahrene Therapeutin führt sorgfältige manuelle Extraktionen durch, um v…
+    NL: [✅] Onze bekwame therapeute voert zorgvuldige handmatige extracties uit om verstopte…
+    ES: [✅] Nuestra terapeuta cualificada realiza extracciones manuales cuidadosas para deso…
+
+  [contentSections[2].title]
+    EN : Balancing and Protection
+    FR: [✅] Rééquilibrage et protection
+    DE: [✅] Ausgleich und Schutz
+    NL: [✅] Herstel van balans en bescherming
+    ES: [✅] Reequilibrio y protección
+
+  [contentSections[2].description]
+    EN : After the deep cleanse, we restore skin balance with a soothing toner and lightw…
+    FR: [✅] Après le nettoyage profond, nous rétablissons l'équilibre de la peau avec un ton…
+    DE: [✅] Nach der Tiefenreinigung stellen wir das Hautgleichgewicht mit einem beruhigende…
+    NL: [✅] Na de diepe reiniging herstellen we de huidbalans met een kalmerende toner en ee…
+    ES: [✅] Después de la limpieza profunda, restauramos el equilibrio de la piel con un tón…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69468056a80b4682c75463c3
+EN Title: Hydra+
+
+  [title]
+    EN : Hydra+
+    FR: [~] Hydra+
+    DE: [~] Hydra+
+    NL: [~] Hydra+
+    ES: [✅] Hydra
+
+  [description]
+    EN : An intensive hydrating facial that delivers deep moisture to thirsty skin. Using…
+    FR: [✅] Un soin du visage hydratant intensif qui apporte une hydratation profonde aux pe…
+    DE: [✅] Eine intensiv feuchtigkeitsspendende Gesichtsbehandlung, die trockener Haut tief…
+    NL: [✅] Een intensief hydraterende gezichtsbehandeling die diepe vochtigheid brengt aan …
+    ES: [✅] Un tratamiento facial hidratante intensivo que aporta hidratación profunda a la …
+
+  [benefits[0].description]
+    EN : Delivers deep, long-lasting hydration
+    FR: [✅] Hydratation profonde et durable
+    DE: [✅] Tiefe und langanhaltende Feuchtigkeitsversorgung
+    NL: [✅] Diepe en langdurige hydratatie
+    ES: [✅] Hidratación profunda y duradera
+
+  [benefits[1].description]
+    EN : Restores skin plumpness and elasticity
+    FR: [✅] Restaure l'équilibre hydrique de la peau
+    DE: [✅] Stellt den Feuchtigkeitshaushalt der Haut wieder her
+    NL: [✅] Herstelt de vochtbalans van de huid
+    ES: [✅] Restaura el equilibrio hídrico de la piel
+
+  [benefits[2].description]
+    EN : Reduces appearance of fine lines and wrinkles
+    FR: [✅] Peau repulpée et revitalisée
+    DE: [✅] Pralle und revitalisierte Haut
+    NL: [✅] Volle en gerevitaliseerde huid
+    ES: [✅] Piel tersa y revitalizada
+
+  [benefits[3].description]
+    EN : Creates a radiant, dewy complexion
+    FR: [✅] Réduit les ridules de déshydratation
+    DE: [✅] Reduziert feine Linien durch Austrocknung
+    NL: [✅] Vermindert fijne lijntjes door uitdroging
+    ES: [✅] Reduce las líneas finas por deshidratación
+
+  [benefits[4].description]
+    EN : Soothes dry, tight, or uncomfortable skin
+    FR: [✅] Protège la barrière cutanée
+    DE: [✅] Schützt die Hautbarriere
+    NL: [✅] Beschermt de huidbarrière
+    ES: [✅] Protege la barrera cutánea
+
+  [benefits[5].description]
+    EN : Strengthens skin barrier function
+    FR: [✅] Éclat immédiat et longue durée
+    DE: [✅] Sofortige und langanhaltende Ausstrahlung
+    NL: [✅] Direct en langdurig stralend effect
+    ES: [✅] Brillo inmediato y duradero
+
+  [targetAudience[0].description]
+    EN : Those with dry or dehydrated skin
+    FR: [✅] Peaux sèches et déshydratées
+    DE: [✅] Trockene und dehydrierte Haut
+    NL: [✅] Droge en gedehydrateerde huid
+    ES: [✅] Pieles secas y deshidratadas
+
+  [targetAudience[1].description]
+    EN : People experiencing dull, tired-looking skin
+    FR: [✅] Personnes exposées aux conditions climatiques rudes
+    DE: [✅] Menschen, die rauen Wetterbedingungen ausgesetzt sind
+    NL: [✅] Mensen blootgesteld aan barre weersomstandigheden
+    ES: [✅] Personas expuestas a condiciones climáticas adversas
+
+  [targetAudience[2].description]
+    EN : Anyone exposed to harsh environmental conditions
+    FR: [✅] Peaux matures nécessitant plus d'hydratation
+    DE: [✅] Reife Haut, die mehr Feuchtigkeit braucht
+    NL: [✅] Rijpere huid die meer hydratatie nodig heeft
+    ES: [✅] Pieles maduras que necesitan más hidratación
+
+  [targetAudience[3].description]
+    EN : Those seeking a moisture boost and radiant glow
+    FR: [✅] Toute personne souhaitant un teint frais et éclatant
+    DE: [✅] Alle, die einen frischen und strahlenden Teint wünschen
+    NL: [✅] Iedereen die een fris en stralend teint wil
+    ES: [✅] Cualquiera que desee una tez fresca y radiante
+
+  [contentSections[0].title]
+    EN : Intensive Hydration Technology
+    FR: [✅] Technologie d'hydratation intensive
+    DE: [✅] Intensive Feuchtigkeitstechnologie
+    NL: [✅] Intensieve hydratietechnologie
+    ES: [✅] Tecnología de hidratación intensiva
+
+  [contentSections[0].description]
+    EN : The Hydra+ facial utilizes cutting-edge hydration techniques including hyaluroni…
+    FR: [✅] Le soin Hydra+ utilise des techniques d'hydratation de pointe, notamment des sér…
+    DE: [✅] Die Hydra+ Behandlung nutzt modernste Hydratationstechniken, darunter Hyaluronsä…
+    NL: [✅] De Hydra+ behandeling maakt gebruik van geavanceerde hydratietechnieken, waarond…
+    ES: [✅] El facial Hydra+ utiliza técnicas de hidratación de vanguardia, incluyendo suero…
+
+  [contentSections[1].title]
+    EN : Nourishing Infusion Treatment
+    FR: [✅] Traitement d'infusion nourrissante
+    DE: [✅] Nährende Infusionsbehandlung
+    NL: [✅] Voedende infusiebehandeling
+    ES: [✅] Tratamiento de infusión nutritiva
+
+  [contentSections[1].description]
+    EN : Your skin receives a powerful cocktail of hydrating ingredients including hyalur…
+    FR: [✅] Votre peau reçoit un cocktail puissant d'ingrédients hydratants : acide hyaluron…
+    DE: [✅] Ihre Haut erhält einen kraftvollen Cocktail aus feuchtigkeitsspendenden Inhaltss…
+    NL: [✅] Uw huid ontvangt een krachtige cocktail van hydraterende ingrediënten: hyaluronz…
+    ES: [✅] Tu piel recibe un cóctel potente de ingredientes hidratantes: ácido hialurónico,…
+
+  [contentSections[2].title]
+    EN : Lasting Radiance and Protection
+    FR: [✅] Éclat durable et protection
+    DE: [✅] Langanhaltende Ausstrahlung und Schutz
+    NL: [✅] Langdurige straling en bescherming
+    ES: [✅] Luminosidad duradera y protección
+
+  [contentSections[2].description]
+    EN : The treatment concludes with a rich moisturizer and protective barrier to lock i…
+    FR: [✅] Le soin se termine par un hydratant riche et une barrière protectrice pour scell…
+    DE: [✅] Die Behandlung endet mit einer reichhaltigen Feuchtigkeitscreme und einer Schutz…
+    NL: [✅] De behandeling wordt afgesloten met een rijke moisturizer en beschermende barriè…
+    ES: [✅] El tratamiento finaliza con un hidratante rico y una barrera protectora para sel…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69479448a80b4682c7548464
+EN Title: Eyes Under
+
+  [title]
+    EN : Eyes Under
+    FR: [✅] Eyeliner inférieur (Eyes Under)
+    DE: [✅] Eyeliner unten (Eyes Under)
+    NL: [✅] Eyeliner onder (Eyes Under)
+    ES: [✅] Delineado inferior (Eyes Under)
+
+  [description]
+    EN : Permanent makeup for under the eyes (lower lash line). This semi-permanent cosme…
+    FR: [✅] Maquillage permanent pour le dessous des yeux (ligne de cils inférieure). Cette …
+    DE: [✅] Permanent Make-up für unter die Augen (untere Wimpernlinie). Diese semi-permanen…
+    NL: [✅] Permanente make-up voor onder de ogen (onderste wimperrand). Deze semi-permanent…
+    ES: [✅] Maquillaje permanente para debajo de los ojos (línea de pestañas inferior). Esta…
+
+  [benefits[0].title]
+    EN : Long-Lasting Results
+    FR: [✅] Des résultats durables
+    DE: [✅] Langanhaltende Ergebnisse
+    NL: [✅] Duurzame resultaten
+    ES: [✅] Resultados duraderos
+
+  [benefits[0].description]
+    EN : Semi-permanent results that last 1-3 years
+    FR: [✅] Définition subtile et naturelle des yeux
+    DE: [✅] Subtile und natürliche Augendefinition
+    NL: [✅] Subtiele en natuurlijke oogdefinitie
+    ES: [✅] Definición sutil y natural de los ojos
+
+  [benefits[1].title]
+    EN : Natural Enhancement
+    FR: [✅] Amélioration naturelle
+    DE: [✅] Natürliche Verstärkung
+    NL: [✅] Natuurlijke verbetering
+    ES: [✅] Mejora natural
+
+  [benefits[1].description]
+    EN : Subtle definition that enhances your natural eye shape
+    FR: [✅] Pas besoin d'appliquer un eyeliner quotidiennement
+    DE: [✅] Kein tägliches Eyeliner-Auftragen mehr nötig
+    NL: [✅] Geen dagelijkse eyeliner meer nodig
+    ES: [✅] Sin necesidad de aplicar delineador diariamente
+
+  [benefits[2].title]
+    EN : Time Saving
+    FR: [✅] Gain de temps
+    DE: [✅] Zeitersparnis
+    NL: [✅] Tijd besparen
+    ES: [✅] Ahorro de tiempo
+
+  [benefits[2].description]
+    EN : No more daily eyeliner application needed
+    FR: [✅] Résistant à l'eau et à l'épreuve des larmes
+    DE: [✅] Wasser- und tränenbeständig
+    NL: [✅] Waterbestendig en traanbestendig
+    ES: [✅] Resistente al agua y a las lágrimas
+
+  [benefits[3].title]
+    EN : Smudge-Proof
+    FR: [✅] Anti-salissures
+    DE: [✅] Verschmutzungssicher
+    NL: [✅] Veegbestendig
+    ES: [✅] A prueba de manchas
+
+  [benefits[3].description]
+    EN : Perfect makeup that stays in place all day
+    FR: [✅] Résultats longue durée
+    DE: [✅] Langanhaltende Ergebnisse
+    NL: [✅] Langdurige resultaten
+    ES: [✅] Resultados de larga duración
+
+  [targetAudience[0].title]
+    EN : Busy Professionals
+    FR: [✅] Professionnels occupés
+    DE: [✅] Vielbeschäftigte Fachkräfte
+    NL: [✅] Drukke professionals
+    ES: [✅] Profesionales ocupados
+
+  [targetAudience[0].description]
+    EN : Those who want to save time on daily makeup
+    FR: [✅] Personnes souhaitant un regard défini sans maquillage quotidien
+    DE: [✅] Menschen, die definierte Augen ohne tägliches Make-up wünschen
+    NL: [✅] Mensen die een gedefinieerde blik willen zonder dagelijkse make-up
+    ES: [✅] Personas que desean ojos definidos sin maquillaje diario
+
+  [targetAudience[1].title]
+    EN : Active Lifestyle
+    FR: [✅] Mode de vie actif
+    DE: [✅] Aktiver Lebensstil
+    NL: [✅] Actieve levensstijl
+    ES: [✅] Estilo de vida activo
+
+  [targetAudience[1].description]
+    EN : Swimmers, athletes, and fitness enthusiasts
+    FR: [✅] Personnes aux yeux sensibles ou larmoyants
+    DE: [✅] Personen mit empfindlichen oder tränenden Augen
+    NL: [✅] Personen met gevoelige of tranende ogen
+    ES: [✅] Personas con ojos sensibles o llorosos
+
+  [targetAudience[2].title]
+    EN : Sensitive Eyes
+    FR: [✅] Yeux sensibles
+    DE: [✅] Empfindliche Augen
+    NL: [✅] Gevoelige ogen
+    ES: [✅] Ojos sensibles
+
+  [targetAudience[2].description]
+    EN : People who struggle with traditional makeup products
+    FR: [✅] Modes de vie actifs nécessitant un look durable
+    DE: [✅] Aktive Lebensstile, die einen dauerhaften Look erfordern
+    NL: [✅] Actieve levensstijlen die een duurzame look vereisen
+    ES: [✅] Estilos de vida activos que requieren un look duradero
+
+  [contentSections[0].title]
+    EN : What is Eyes Under PMU?
+    FR: [✅] Qu'est-ce que le PMU Eyes Under ?
+    DE: [✅] Was ist Eyes Under PMU?
+    NL: [✅] Wat is Eyes Under PMU?
+    ES: [✅] ¿Qué es el PMU Eyes Under?
+
+  [contentSections[0].description]
+    EN : Eyes Under permanent makeup is a specialized cosmetic tattooing technique that e…
+    FR: [✅] Le maquillage permanent Eyes Under est une technique de tatouage cosmétique spéc…
+    DE: [✅] Eyes Under Permanent Make-up ist eine spezialisierte kosmetische Tätowiertechnik…
+    NL: [✅] Eyes Under permanente make-up is een gespecialiseerde cosmetische tatoeagetechni…
+    ES: [✅] El maquillaje permanente Eyes Under es una técnica especializada de tatuaje cosm…
+
+  [contentSections[1].title]
+    EN : The Procedure
+    FR: [✅] La procédure
+    DE: [✅] Die Behandlung
+    NL: [✅] De procedure
+    ES: [✅] El procedimiento
+
+  [contentSections[1].description]
+    EN : The treatment begins with a consultation to discuss your desired look. A topical…
+    FR: [✅] Le soin commence par une consultation pour discuter du look souhaité. Une crème …
+    DE: [✅] Die Behandlung beginnt mit einer Beratung, um den gewünschten Look zu besprechen…
+    NL: [✅] De behandeling begint met een consultatie om de gewenste look te bespreken. Een …
+    ES: [✅] El tratamiento comienza con una consulta para discutir el look deseado. Se aplic…
+
+  [contentSections[2].title]
+    EN : Aftercare and Healing
+    FR: [✅] Suivi et cicatrisation
+    DE: [✅] Nachsorge und Heilung
+    NL: [✅] Nazorg en genezing
+    ES: [✅] Cuidados posteriores y cicatrización
+
+  [contentSections[2].description]
+    EN : Initial healing takes 7-10 days. During this time, you may experience mild swell…
+    FR: [✅] La cicatrisation initiale prend 7 à 10 jours. Pendant cette période, vous pouvez…
+    DE: [✅] Die erste Heilung dauert 7 bis 10 Tage. Während dieser Zeit können Sie leichte S…
+    NL: [✅] De eerste genezing duurt 7 tot 10 dagen. Gedurende deze periode kunt u lichte zw…
+    ES: [✅] La cicatrización inicial toma de 7 a 10 días. Durante este período, puedes exper…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69479472a80b4682c7548470
+EN Title: Eyes Upper
+
+  [title]
+    EN : Eyes Upper
+    FR: [✅] Eyeliner supérieur (Eyes Upper)
+    DE: [✅] Eyeliner oben (Eyes Upper)
+    NL: [✅] Eyeliner boven (Eyes Upper)
+    ES: [✅] Delineado superior (Eyes Upper)
+
+  [description]
+    EN : Permanent makeup for upper eyelids (upper lash line). This sophisticated cosmeti…
+    FR: [✅] Maquillage permanent pour les paupières supérieures (ligne de cils supérieure). …
+    DE: [✅] Permanent Make-up für die oberen Augenlider (obere Wimpernlinie). Diese raffinie…
+    NL: [✅] Permanente make-up voor de bovenste oogleden (bovenste wimperrand). Deze verfijn…
+    ES: [✅] Maquillaje permanente para los párpados superiores (línea de pestañas superior).…
+
+  [benefits[0].title]
+    EN : Defined Eyes
+    FR: [✅] Yeux définis
+    DE: [✅] Definierte Augen
+    NL: [✅] Gedefinieerde ogen
+    ES: [✅] Ojos definidos
+
+  [benefits[0].description]
+    EN : Creates a beautiful, defined upper lash line
+    FR: [✅] Look d'eyeliner élégant et permanent
+    DE: [✅] Eleganter und permanenter Eyeliner-Look
+    NL: [✅] Elegante en permanente eyeliner-look
+    ES: [✅] Look de delineado elegante y permanente
+
+  [benefits[1].title]
+    EN : Waterproof
+    FR: [✅] Imperméable à l'eau
+    DE: [✅] Wasserdicht
+    NL: [✅] Waterdicht
+    ES: [✅] Impermeable
+
+  [benefits[1].description]
+    EN : Perfect for swimming, gym, and outdoor activities
+    FR: [✅] Gain de temps le matin
+    DE: [✅] Spart morgens Zeit
+    NL: [✅] Bespaart tijd 's ochtends
+    ES: [✅] Ahorra tiempo por la mañana
+
+  [benefits[2].title]
+    EN : Customizable
+    FR: [✅] Personnalisable
+    DE: [✅] Anpassbar
+    NL: [✅] Aanpasbare
+    ES: [✅] Personalizable
+
+  [benefits[2].description]
+    EN : Choose from natural to dramatic looks
+    FR: [✅] Résistant à l'eau toute la journée
+    DE: [✅] Wasserfest den ganzen Tag
+    NL: [✅] Waterbestendig de hele dag
+    ES: [✅] Resistente al agua todo el día
+
+  [benefits[3].title]
+    EN : Anti-Aging Effect
+    FR: [✅] Effet anti-âge
+    DE: [✅] Anti-Aging-Effekt
+    NL: [✅] Anti-verouderingseffect
+    ES: [✅] Efecto antienvejecimiento
+
+  [benefits[3].description]
+    EN : Makes eyes appear more youthful and open
+    FR: [✅] Personnalisable selon votre style
+    DE: [✅] Anpassbar an Ihren Stil
+    NL: [✅] Aanpasbaar aan uw stijl
+    ES: [✅] Personalizable según tu estilo
+
+  [targetAudience[0].title]
+    EN : Makeup Lovers
+    FR: [✅] Amateurs de maquillage
+    DE: [✅] Makeup-Liebhaber
+    NL: [✅] Make-up liefhebbers
+    ES: [✅] Amantes del maquillaje
+
+  [targetAudience[0].description]
+    EN : Those who want perfect eyeliner every day
+    FR: [✅] Personnes qui appliquent un eyeliner quotidiennement
+    DE: [✅] Menschen, die täglich Eyeliner auftragen
+    NL: [✅] Mensen die dagelijks eyeliner aanbrengen
+    ES: [✅] Personas que aplican delineado diariamente
+
+  [targetAudience[1].title]
+    EN : Contact Lens Wearers
+    FR: [✅] Porteurs de lentilles de contact
+    DE: [✅] Träger von Kontaktlinsen
+    NL: [✅] Contactlensdragers
+    ES: [✅] Usuarios de lentes de contacto
+
+  [targetAudience[1].description]
+    EN : Avoid makeup getting into eyes
+    FR: [✅] Personnes aux yeux sensibles
+    DE: [✅] Personen mit empfindlichen Augen
+    NL: [✅] Personen met gevoelige ogen
+    ES: [✅] Personas con ojos sensibles
+
+  [targetAudience[2].title]
+    EN : Vision Impaired
+    FR: [✅] Malvoyants
+    DE: [✅] Sehbehindert
+    NL: [✅] Slechtziendheid
+    ES: [✅] Discapacidad visual
+
+  [targetAudience[2].description]
+    EN : Difficulty applying traditional makeup
+    FR: [✅] Professionnelles actives
+    DE: [✅] Aktive Berufstätige
+    NL: [✅] Actieve professionals
+    ES: [✅] Profesionales activas
+
+  [contentSections[0].title]
+    EN : What is Eyes Upper PMU?
+    FR: [✅] Qu'est-ce que le PMU Eyes Upper ?
+    DE: [✅] Was ist Eyes Upper PMU?
+    NL: [✅] Wat is Eyes Upper PMU?
+    ES: [✅] ¿Qué es el PMU Eyes Upper?
+
+  [contentSections[0].description]
+    EN : Eyes Upper permanent makeup enhances the upper lash line with semi-permanent pig…
+    FR: [✅] Le maquillage permanent Eyes Upper sublime la ligne de cils supérieure avec un p…
+    DE: [✅] Eyes Upper Permanent Make-up betont die obere Wimpernlinie mit semi-permanentem …
+    NL: [✅] Eyes Upper permanente make-up sublimeert de bovenste wimperrand met semi-permane…
+    ES: [✅] El maquillaje permanente Eyes Upper realza la línea de pestañas superior con pig…
+
+  [contentSections[1].title]
+    EN : The Procedure
+    FR: [✅] La procédure
+    DE: [✅] Die Behandlung
+    NL: [✅] De procedure
+    ES: [✅] El procedimiento
+
+  [contentSections[1].description]
+    EN : After a thorough consultation, numbing cream is applied. The technician uses a s…
+    FR: [✅] Après une consultation approfondie, une crème anesthésiante est appliquée. La te…
+    DE: [✅] Nach einer ausführlichen Beratung wird eine Betäubungscreme aufgetragen. Die Tec…
+    NL: [✅] Na een uitgebreid adviesgesprek wordt verdovende crème aangebracht. De technica …
+    ES: [✅] Después de una consulta detallada, se aplica crema anestésica. La técnica utiliz…
+
+  [contentSections[2].title]
+    EN : Results and Longevity
+    FR: [✅] Résultats et longévité
+    DE: [✅] Ergebnisse und Haltbarkeit
+    NL: [✅] Resultaten en duurzaamheid
+    ES: [✅] Resultados y durabilidad
+
+  [contentSections[2].description]
+    EN : Results typically last 1-3 years depending on skin type, lifestyle, and aftercar…
+    FR: [✅] Les résultats durent généralement 1 à 3 ans selon le type de peau, le mode de vi…
+    DE: [✅] Die Ergebnisse halten in der Regel 1 bis 3 Jahre, abhängig von Hauttyp, Lebensst…
+    NL: [✅] Resultaten gaan doorgaans 1 tot 3 jaar mee, afhankelijk van huidtype, levensstij…
+    ES: [✅] Los resultados suelen durar de 1 a 3 años dependiendo del tipo de piel, estilo d…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 694794a2a80b4682c75485ee
+EN Title: Eyes Upper and Under
+
+  [title]
+    EN : Eyes Upper and Under
+    FR: [✅] Yeux supérieurs et inférieurs
+    DE: [✅] Augen oben und unten
+    NL: [✅] Ogen boven en onder
+    ES: [✅] Ojos superiores e inferiores
+
+  [description]
+    EN : Complete eye enhancement with permanent makeup for both upper and lower lash lin…
+    FR: [✅] Amélioration complète des yeux grâce au maquillage permanent des cils supérieurs…
+    DE: [✅] Komplette Augenverschönerung mit Permanent Make-up für den oberen und unteren Wi…
+    NL: [✅] Complete oogcorrectie met permanente make-up voor zowel de bovenste als onderste…
+    ES: [✅] Mejora completa de la mirada con maquillaje permanente para las líneas de las pe…
+
+  [benefits[0].title]
+    EN : Complete Look
+    FR: [✅] Look complet
+    DE: [✅] Vollständiger Blick
+    NL: [✅] Compleet overzicht
+    ES: [✅] Mirada completa
+
+  [benefits[0].description]
+    EN : Full eye enhancement with upper and lower definition
+    FR: [✅] Amélioration complète de l'œil avec définition supérieure et inférieure
+    DE: [✅] Vollständige Augenverbesserung mit oberer und unterer Definition
+    NL: [✅] Volledige oogverbetering met definitie van boven- en onderoog
+    ES: [✅] Realce ocular completo con definición superior e inferior
+
+  [benefits[1].title]
+    EN : Value Package
+    FR: [✅] Paquet de valeur
+    DE: [✅] Wertpaket
+    NL: [✅] Waardepakket
+    ES: [✅] Paquete económico
+
+  [benefits[1].description]
+    EN : Save compared to individual treatments
+    FR: [✅] Économiser par rapport aux traitements individuels
+    DE: [✅] Einsparungen im Vergleich zu Einzelbehandlungen
+    NL: [✅] Bespaar in vergelijking met afzonderlijke behandelingen
+    ES: [✅] Ahorro en comparación con los tratamientos individuales
+
+  [benefits[2].title]
+    EN : Harmonious Result
+    FR: [✅] Résultat harmonieux
+    DE: [✅] Harmonisches Ergebnis
+    NL: [✅] Harmonisch resultaat
+    ES: [✅] Resultado armonioso
+
+  [benefits[2].description]
+    EN : Perfectly balanced upper and lower lines
+    FR: [✅] Des lignes supérieures et inférieures parfaitement équilibrées
+    DE: [✅] Perfekt ausbalancierte obere und untere Linien
+    NL: [✅] Perfect uitgebalanceerde boven- en onderlijnen
+    ES: [✅] Líneas superior e inferior perfectamente equilibradas
+
+  [benefits[3].title]
+    EN : Maximum Impact
+    FR: [✅] Impact maximal
+    DE: [✅] Maximale Wirkung
+    NL: [✅] Maximale impact
+    ES: [✅] Impacto máximo
+
+  [benefits[3].description]
+    EN : The most dramatic and beautiful eye enhancement
+    FR: [✅] La mise en valeur des yeux la plus spectaculaire et la plus belle
+    DE: [✅] Die dramatischste und schönste Augenverschönerung
+    NL: [✅] De meest dramatische en mooiste oogcorrectie
+    ES: [✅] El realce de ojos más espectacular y bello
+
+  [targetAudience[0].title]
+    EN : Complete Transformation
+    FR: [✅] Transformation complète
+    DE: [✅] Vollständige Transformation
+    NL: [✅] Volledige transformatie
+    ES: [✅] Transformación completa
+
+  [targetAudience[0].description]
+    EN : Those seeking the most comprehensive eye enhancement
+    FR: [✅] Ceux qui recherchent l'amélioration la plus complète des yeux
+    DE: [✅] Diejenigen, die die umfassendste Augenverbesserung suchen
+    NL: [✅] Wie op zoek is naar de meest uitgebreide oogcorrectie
+    ES: [✅] Quienes buscan la mejora ocular más completa
+
+  [targetAudience[1].title]
+    EN : Time Savers
+    FR: [✅] Gagner du temps
+    DE: [✅] Zeitersparnis
+    NL: [✅] Tijdbesparers
+    ES: [✅] Ahorro de tiempo
+
+  [targetAudience[1].description]
+    EN : Want maximum results in fewer appointments
+    FR: [✅] Vous souhaitez obtenir un maximum de résultats en moins de temps
+    DE: [✅] Sie wollen maximale Ergebnisse in weniger Terminen
+    NL: [✅] Maximale resultaten in minder afspraken
+    ES: [✅] Desea obtener los máximos resultados en menos citas
+
+  [targetAudience[2].title]
+    EN : Special Occasions
+    FR: [✅] Occasions spéciales
+    DE: [✅] Besondere Anlässe
+    NL: [✅] Speciale gelegenheden
+    ES: [✅] Ocasiones especiales
+
+  [targetAudience[2].description]
+    EN : Perfect for weddings, events, or everyday glamour
+    FR: [✅] Parfait pour les mariages, les événements ou le glamour de tous les jours
+    DE: [✅] Perfekt für Hochzeiten, Veranstaltungen oder den alltäglichen Glamour
+    NL: [✅] Perfect voor bruiloften, evenementen of alledaagse glamour
+    ES: [✅] Perfecta para bodas, eventos o para el glamour cotidiano
+
+  [contentSections[0].title]
+    EN : Complete Eye Enhancement
+    FR: [✅] Amélioration complète des yeux
+    DE: [✅] Vollständige Augenverbesserung
+    NL: [✅] Complete oogverbetering
+    ES: [✅] Realce ocular completo
+
+  [contentSections[0].description]
+    EN : The Eyes Upper and Under treatment combines both upper and lower lash line enhan…
+    FR: [✅] Le traitement Eyes Upper and Under combine l'amélioration de la ligne des cils s…
+    DE: [✅] Die Eyes Upper and Under-Behandlung kombiniert die Verschönerung des oberen und …
+    NL: [✅] De Eyes Upper and Under behandeling combineert de verbetering van zowel de boven…
+    ES: [✅] El tratamiento Eyes Upper and Under combina el realce de la línea de las pestaña…
+
+  [contentSections[1].title]
+    EN : The Treatment Process
+    FR: [✅] Le processus de traitement
+    DE: [✅] Der Behandlungsprozess
+    NL: [✅] Het behandelingsproces
+    ES: [✅] El proceso de tratamiento
+
+  [contentSections[1].description]
+    EN : This treatment takes approximately 2 hours. Both the upper and lower lash lines …
+    FR: [✅] Ce traitement dure environ 2 heures. Les lignes des cils supérieurs et inférieur…
+    DE: [✅] Diese Behandlung dauert etwa 2 Stunden. Sowohl der obere als auch der untere Wim…
+    NL: [✅] Deze behandeling duurt ongeveer 2 uur. Zowel de bovenste als de onderste wimperl…
+    ES: [✅] Este tratamiento dura aproximadamente 2 horas. Las líneas de las pestañas superi…
+
+  [contentSections[2].title]
+    EN : Why Choose the Complete Package?
+    FR: [✅] Pourquoi choisir le paquet complet ?
+    DE: [✅] Warum das Komplettpaket?
+    NL: [✅] Waarom kiezen voor het Complete Pakket?
+    ES: [✅] ¿Por qué elegir el paquete completo?
+
+  [contentSections[2].description]
+    EN : Choosing the combined treatment offers better value and ensures a harmonious res…
+    FR: [✅] Le choix du traitement combiné offre un meilleur rapport qualité-prix et garanti…
+    DE: [✅] Die Entscheidung für eine kombinierte Behandlung bietet ein besseres Preis-Leist…
+    NL: [✅] Kiezen voor de gecombineerde behandeling is voordeliger en zorgt voor een harmon…
+    ES: [✅] Elegir el tratamiento combinado ofrece una mejor relación calidad-precio y garan…
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 69479595a80b4682c75485fb
+EN Title: Microblading Brows
+
+  [title]
+    EN : Microblading Brows
+    FR: [✅] Microblading sourcils
+    DE: [✅] Microblading Augenbrauen
+    NL: [✅] Microblading wenkbrauwen
+    ES: [✅] Microblading cejas
+
+  [description]
+    EN : Microblading is a semi-permanent eyebrow tattooing technique that creates natura…
+    FR: [✅] Le microblading est une technique de tatouage semi-permanent des sourcils qui cr…
+    DE: [✅] Microblading ist eine semi-permanente Augenbrauen-Tätowiertechnik, die natürlich…
+    NL: [✅] Microblading is een semi-permanente wenkbrauwtatoeagetechniek die natuurlijk oge…
+    ES: [✅] El microblading es una técnica de tatuaje de cejas semipermanente que crea trazo…
+
+  [benefits[0].title]
+    EN : Natural Looking
+    FR: [✅] Aspect naturel
+    DE: [✅] Natürlich aussehen
+    NL: [✅] Natuurlijk ogend
+    ES: [✅] Aspecto natural
+
+  [benefits[0].description]
+    EN : Hair-like strokes that mimic real eyebrow hairs
+    FR: [✅] Sourcils d'aspect naturel trait par trait
+    DE: [✅] Natürlich aussehende Augenbrauen Strich für Strich
+    NL: [✅] Natuurlijk ogende wenkbrauwen lijn voor lijn
+    ES: [✅] Cejas de aspecto natural trazo a trazo
+
+  [benefits[1].title]
+    EN : Custom Shape
+    FR: [✅] Forme personnalisée
+    DE: [✅] Benutzerdefinierte Form
+    NL: [✅] Aangepaste vorm
+    ES: [✅] Forma personalizada
+
+  [benefits[1].description]
+    EN : Brows designed to complement your unique face shape
+    FR: [✅] Résultats semi-permanents durant 1 à 3 ans
+    DE: [✅] Semi-permanente Ergebnisse, die 1 bis 3 Jahre halten
+    NL: [✅] Semi-permanente resultaten die 1 tot 3 jaar meegaan
+    ES: [✅] Resultados semipermanentes que duran de 1 a 3 años
+
+  [benefits[2].title]
+    EN : Fuller Brows
+    FR: [✅] Des sourcils plus fournis
+    DE: [✅] Vollere Augenbrauen
+    NL: [✅] Vollere wenkbrauwen
+    ES: [✅] Cejas más pobladas
+
+  [benefits[2].description]
+    EN : Fill in sparse areas or create fuller-looking brows
+    FR: [✅] Personnalisé selon la forme de votre visage
+    DE: [✅] Angepasst an Ihre Gesichtsform
+    NL: [✅] Aangepast aan uw gezichtsvorm
+    ES: [✅] Personalizado según la forma de tu rostro
+
+  [benefits[3].title]
+    EN : Low Maintenance
+    FR: [✅] Faible entretien
+    DE: [✅] Geringe Wartung
+    NL: [✅] Weinig onderhoud
+    ES: [✅] Bajo mantenimiento
+
+  [benefits[3].description]
+    EN : Wake up with perfect brows every day
+    FR: [✅] Remplit les zones clairsemées naturellement
+    DE: [✅] Füllt dünne Stellen natürlich auf
+    NL: [✅] Vult dunne plekken op natuurlijke wijze op
+    ES: [✅] Rellena zonas dispersas de forma natural
+
+  [targetAudience[0].title]
+    EN : Sparse Brows
+    FR: [✅] Sourcils clairsemés
+    DE: [✅] Spärliche Augenbrauen
+    NL: [✅] Dunne wenkbrauwen
+    ES: [✅] Cejas escasas
+
+  [targetAudience[0].description]
+    EN : Those with thin or patchy eyebrows
+    FR: [✅] Personnes avec des sourcils clairsemés ou asymétriques
+    DE: [✅] Menschen mit dünnen oder asymmetrischen Augenbrauen
+    NL: [✅] Mensen met dunne of asymmetrische wenkbrauwen
+    ES: [✅] Personas con cejas escasas o asimétricas
+
+  [targetAudience[1].title]
+    EN : Over-Plucked Brows
+    FR: [✅] Des sourcils trop épais
+    DE: [✅] Übergezupfte Augenbrauen
+    NL: [✅] Overgeplukte wenkbrauwen
+    ES: [✅] Cejas demasiado depiladas
+
+  [targetAudience[1].description]
+    EN : Brows damaged from years of plucking or waxing
+    FR: [✅] Personnes ayant perdu leurs sourcils (alopécie, chimiothérapie)
+    DE: [✅] Personen, die ihre Augenbrauen verloren haben (Alopezie, Chemotherapie)
+    NL: [✅] Personen die hun wenkbrauwen hebben verloren (alopecia, chemotherapie)
+    ES: [✅] Personas que han perdido sus cejas (alopecia, quimioterapia)
+
+  [targetAudience[2].title]
+    EN : Alopecia Sufferers
+    FR: [✅] Personnes souffrant d'alopécie
+    DE: [✅] Alopezie-Kranke
+    NL: [✅] Alopecia-patiënten
+    ES: [✅] Enfermos de alopecia
+
+  [targetAudience[2].description]
+    EN : Those who have lost eyebrow hair due to medical conditions
+    FR: [✅] Personnes souhaitant gagner du temps le matin
+    DE: [✅] Menschen, die morgens Zeit sparen möchten
+    NL: [✅] Mensen die 's ochtends tijd willen besparen
+    ES: [✅] Personas que quieren ahorrar tiempo por la mañana
+
+  [targetAudience[3].title]
+    EN : Busy Lifestyles
+    FR: [✅] Modes de vie occupés
+    DE: [✅] Vielbeschäftigte Lebensstile
+    NL: [✅] Drukke levensstijlen
+    ES: [✅] Estilos de vida ajetreados
+
+  [targetAudience[3].description]
+    EN : Anyone wanting to simplify their beauty routine
+    FR: [✅] Quiconque désire des sourcils naturellement définis
+    DE: [✅] Alle, die natürlich definierte Augenbrauen wünschen
+    NL: [✅] Iedereen die natuurlijk gedefinieerde wenkbrauwen wil
+    ES: [✅] Cualquiera que desee cejas naturalmente definidas
+
+  [contentSections[0].title]
+    EN : What is Microblading?
+    FR: [✅] Qu'est-ce que le microblading ?
+    DE: [✅] Was ist Microblading?
+    NL: [✅] Wat is microblading?
+    ES: [✅] ¿Qué es el microblading?
+
+  [contentSections[0].description]
+    EN : Microblading is a manual, semi-permanent cosmetic tattooing technique. Using a s…
+    FR: [✅] Le microblading est une technique de tatouage cosmétique semi-permanent réalisée…
+    DE: [✅] Microblading ist eine manuelle, semi-permanente kosmetische Tätowiertechnik. Mit…
+    NL: [✅] Microblading is een handmatige, semi-permanente cosmetische tatoeagetechniek. Me…
+    ES: [✅] El microblading es una técnica de tatuaje cosmético semipermanente realizada man…
+
+  [contentSections[1].title]
+    EN : The Microblading Process
+    FR: [✅] Le processus de microblading
+    DE: [✅] Der Microblading-Prozess
+    NL: [✅] Het microbladingproces
+    ES: [✅] El proceso de microblading
+
+  [contentSections[1].description]
+    EN : The treatment begins with a detailed consultation and brow mapping to design you…
+    FR: [✅] Le soin commence par une consultation détaillée et un dessin des sourcils pour c…
+    DE: [✅] Die Behandlung beginnt mit einer ausführlichen Beratung und Augenbrauenzeichnung…
+    NL: [✅] De behandeling begint met een uitgebreide consultatie en wenkbrauwtekening om de…
+    ES: [✅] El tratamiento comienza con una consulta detallada y diseño de cejas para crear …
+
+  [contentSections[2].title]
+    EN : Healing and Aftercare
+    FR: [✅] Cicatrisation et suivi
+    DE: [✅] Heilung und Nachsorge
+    NL: [✅] Genezing en nazorg
+    ES: [✅] Cicatrización y cuidados
+
+  [contentSections[2].description]
+    EN : Initial healing takes 10-14 days. Brows will appear darker immediately after tre…
+    FR: [✅] La cicatrisation initiale prend 10 à 14 jours. Les sourcils apparaîtront plus fo…
+    DE: [✅] Die erste Heilung dauert 10 bis 14 Tage. Die Augenbrauen erscheinen direkt nach …
+    NL: [✅] De eerste genezing duurt 10 tot 14 dagen. De wenkbrauwen zullen direct na de beh…
+    ES: [✅] La cicatrización inicial toma de 10 a 14 días. Las cejas aparecerán más oscuras …
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 694795cea80b4682c7548608
+EN Title: Refreshing
+
+  [title]
+    EN : Refreshing
+    FR: [✅] Rafraîchissant
+    DE: [✅] Erfrischend
+    NL: [✅] Verfrissend
+    ES: [✅] Refrescante
+
+  [description]
+    EN : A touch-up treatment designed to refresh and maintain your existing permanent ma…
+    FR: [✅] Un traitement de retouche conçu pour rafraîchir et entretenir votre maquillage p…
+    DE: [✅] Eine Auffrischungsbehandlung zur Auffrischung und Pflege Ihres bestehenden Perma…
+    NL: [✅] Een touch-up behandeling ontworpen om je bestaande permanente make-up op te fris…
+    ES: [✅] Un tratamiento de retoque diseñado para refrescar y mantener su maquillaje perma…
+
+  [benefits[0].title]
+    EN : Restore Color
+    FR: [✅] Restaurer la couleur
+    DE: [✅] Farbe wiederherstellen
+    NL: [✅] Kleur herstellen
+    ES: [✅] Restaurar el color
+
+  [benefits[0].description]
+    EN : Bring back the vibrancy of faded permanent makeup
+    FR: [✅] Redonner de l'éclat à un maquillage permanent défraîchi
+    DE: [✅] Bringen Sie die Lebendigkeit von verblasstem Permanent Make-up zurück
+    NL: [✅] Breng de levendigheid van vervaagde permanente make-up terug
+    ES: [✅] Devuelve la vitalidad al maquillaje permanente descolorido
+
+  [benefits[1].title]
+    EN : Extend Longevity
+    FR: [✅] Prolonger la durée de vie
+    DE: [✅] Verlängern Sie die Lebenserwartung
+    NL: [✅] Levensduur verlengen
+    ES: [✅] Prolongar la longevidad
+
+  [benefits[1].description]
+    EN : Maintain your PMU results for years longer
+    FR: [✅] Conservez les résultats de votre PMU pendant des années
+    DE: [✅] Behalten Sie Ihre PMU-Ergebnisse über Jahre hinweg bei
+    NL: [✅] Behoud uw PMU-resultaten jarenlang
+    ES: [✅] Mantenga los resultados de su PMU durante años
+
+  [benefits[2].title]
+    EN : Affordable Maintenance
+    FR: [✅] Maintenance abordable
+    DE: [✅] Erschwingliche Wartung
+    NL: [✅] Betaalbaar onderhoud
+    ES: [✅] Mantenimiento asequible
+
+  [benefits[2].description]
+    EN : Cost-effective way to keep your look perfect
+    FR: [✅] Un moyen économique de conserver un look parfait
+    DE: [✅] Kosteneffizienter Weg, um Ihr Aussehen perfekt zu halten
+    NL: [✅] Kosteneffectieve manier om je look perfect te houden
+    ES: [✅] Una forma rentable de mantener un look perfecto
+
+  [benefits[3].title]
+    EN : Quick Session
+    FR: [✅] Séance rapide
+    DE: [✅] Schnelle Sitzung
+    NL: [✅] Snelle sessie
+    ES: [✅] Sesión rápida
+
+  [benefits[3].description]
+    EN : Shorter appointment time than initial treatment
+    FR: [✅] Délai de rendez-vous plus court que pour le traitement initial
+    DE: [✅] Kürzere Behandlungszeit als bei der Erstbehandlung
+    NL: [✅] Kortere afspraaktijd dan initiële behandeling
+    ES: [✅] Cita más breve que el tratamiento inicial
+
+  [targetAudience[0].title]
+    EN : Existing PMU Clients
+    FR: [✅] Clients actuels de l'UGP
+    DE: [✅] Bestehende PMU-Kunden
+    NL: [✅] Bestaande PMU-klanten
+    ES: [✅] Clientes PMU existentes
+
+  [targetAudience[0].description]
+    EN : Those with fading permanent makeup
+    FR: [✅] Les personnes dont le maquillage permanent s'estompe
+    DE: [✅] Personen mit verblassendem Permanent Make-up
+    NL: [✅] Mensen met vervagende permanente make-up
+    ES: [✅] Los que tienen maquillaje permanente que se desvanece
+
+  [targetAudience[1].title]
+    EN : Annual Maintenance
+    FR: [✅] Entretien annuel
+    DE: [✅] Jährliche Wartung
+    NL: [✅] Jaarlijks onderhoud
+    ES: [✅] Mantenimiento anual
+
+  [targetAudience[1].description]
+    EN : Clients maintaining their PMU results
+    FR: [✅] Les clients maintiennent les résultats de leur PMU
+    DE: [✅] Kunden, die ihre PMU-Ergebnisse beibehalten
+    NL: [✅] Klanten die hun PMU-resultaten bijhouden
+    ES: [✅] Los clientes mantienen sus resultados PMU
+
+  [targetAudience[2].title]
+    EN : Color Correction
+    FR: [✅] Correction des couleurs
+    DE: [✅] Farbkorrektur
+    NL: [✅] Kleurcorrectie
+    ES: [✅] Corrección del color
+
+  [targetAudience[2].description]
+    EN : Those wanting to adjust their existing PMU shade
+    FR: [✅] Ceux qui souhaitent adapter la teinte de leur PMU existante
+    DE: [✅] Diejenigen, die ihre bestehende PMU-Farbe anpassen wollen
+    NL: [✅] Wie zijn bestaande PMU schaduw wil aanpassen
+    ES: [✅] Aquellos que deseen ajustar su sombra PMU existente
+
+  [contentSections[0].title]
+    EN : What is PMU Refreshing?
+    FR: [✅] Qu'est-ce que le rafraîchissement PMU ?
+    DE: [✅] Was ist PMU Refreshing?
+    NL: [✅] Wat is PMU Refreshing?
+    ES: [✅] ¿Qué es la actualización de PMU?
+
+  [contentSections[0].description]
+    EN : PMU Refreshing is a maintenance treatment for existing permanent makeup. As PMU …
+    FR: [✅] Le rafraîchissement PMU est un traitement d'entretien pour le maquillage permane…
+    DE: [✅] PMU Refreshing ist eine Auffrischungsbehandlung für bestehendes Permanent Make-u…
+    NL: [✅] PMU Refreshing is een onderhoudsbehandeling voor bestaande permanente make-up. O…
+    ES: [✅] PMU Refreshing es un tratamiento de mantenimiento para el maquillaje permanente …
+
+  [contentSections[1].title]
+    EN : The Refreshing Process
+    FR: [✅] Le processus de rafraîchissement
+    DE: [✅] Der Auffrischungsprozess
+    NL: [✅] Het verfrissingsproces
+    ES: [✅] El proceso de renovación
+
+  [contentSections[1].description]
+    EN : The treatment is quicker than the initial procedure, typically taking about 60 m…
+    FR: [✅] Le traitement est plus rapide que la procédure initiale et dure généralement 60 …
+    DE: [✅] Die Behandlung ist kürzer als die Erstbehandlung und dauert in der Regel etwa 60…
+    NL: [✅] De behandeling is sneller dan de eerste procedure en duurt meestal ongeveer 60 m…
+    ES: [✅] El tratamiento es más rápido que el procedimiento inicial y suele durar unos 60 …
+
+  [contentSections[2].title]
+    EN : When to Refresh
+    FR: [✅] Quand rafraîchir
+    DE: [✅] Wann Sie aktualisieren sollten
+    NL: [✅] Wanneer verversen
+    ES: [✅] Cuándo actualizar
+
+  [contentSections[2].description]
+    EN : Most clients need a refresh every 12-18 months, depending on skin type, lifestyl…
+    FR: [✅] La plupart des clients ont besoin d'un rafraîchissement tous les 12 à 18 mois, e…
+    DE: [✅] Die meisten Kunden benötigen alle 12-18 Monate eine Auffrischung, je nach Hautty…
+    NL: [✅] De meeste klanten hebben om de 12-18 maanden een opfrisbeurt nodig, afhankelijk …
+    ES: [✅] La mayoría de los clientes necesitan una renovación cada 12-18 meses, dependiend…
+
+📊 Service missing (❌): 0
+
+
+══════════════════════════════════════════════════════════════════════════════════════════
+🏠 Properties
+══════════════════════════════════════════════════════════════════════════════════════════
+Total Properties in DB: 2
+
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692571d80521a318b4a5c433
+Name: Villa Zen Your Life
+
+  [description]
+    EN : Elegant villa featuring a sun terrace, beautiful garden, and heated outdoor pool…
+    FR: [✅] Villa élégante avec terrasse ensoleillée, beau jardin et piscine extérieure chau…
+    DE: [✅] Elegante Villa mit Sonnenterrasse, schönem Garten und beheiztem Außenpool. Genie…
+    NL: [✅] Elegante villa met zonneterras, prachtige tuin en verwarmd buitenzwembad. Geniet…
+    ES: [✅] Elegante villa con terraza soleada, hermoso jardín y piscina exterior climatizad…
+
+  [priceUnit]
+    EN : per night
+    FR: [✅] par nuit
+    DE: [✅] pro Nacht
+    NL: [✅] per nacht
+    ES: [✅] por noche
+
+  [parking]
+    EN : Parking for 2
+    FR: [✅] Parking pour 2
+    DE: [✅] Parkplatz für 2
+    NL: [✅] Parking voor 2
+    ES: [✅] Aparcamiento para 2
+
+  [amenities[0]]
+    EN : Swimming Pool
+    FR: [✅] Piscine
+    DE: [✅] Schwimmbad
+    NL: [✅] Zwembad
+    ES: [✅] Piscina
+
+  [amenities[1]]
+    EN : Free WiFi
+    FR: [✅] WiFi gratuit
+    DE: [✅] Kostenloses WLAN
+    NL: [✅] Gratis WiFi
+    ES: [✅] WiFi gratuito
+
+  [amenities[2]]
+    EN : Free Parking
+    FR: [✅] Parking gratuit
+    DE: [✅] Kostenloser Parkplatz
+    NL: [✅] Gratis parking
+    ES: [✅] Aparcamiento gratuito
+
+  [amenities[3]]
+    EN : BBQ Facilities
+    FR: [✅] Barbecue
+    DE: [✅] Grillmöglichkeiten
+    NL: [✅] BBQ-faciliteiten
+    ES: [✅] Barbacoa
+
+  [amenities[4]]
+    EN : Terrace
+    FR: [✅] Terrasse
+    DE: [✅] Terrasse
+    NL: [✅] Terras
+    ES: [✅] Terraza
+
+  [amenities[5]]
+    EN : Garden
+    FR: [✅] Jardin
+    DE: [✅] Garten
+    NL: [✅] Tuin
+    ES: [✅] Jardín
+
+  [amenities[6]]
+    EN : Air Conditioning
+    FR: [✅] Climatisation
+    DE: [✅] Klimaanlage
+    NL: [✅] Airconditioning
+    ES: [✅] Aire acondicionado
+
+  [amenities[7]]
+    EN : Fully Equipped Kitchen
+    FR: [✅] Cuisine équipée
+    DE: [✅] Voll ausgestattete Küche
+    NL: [✅] Volledig uitgeruste keuken
+    ES: [✅] Cocina equipada
+
+  [amenities[8]]
+    EN : Washing Machine
+    FR: [✅] Machine à laver
+    DE: [✅] Waschmaschine
+    NL: [✅] Wasmachine
+    ES: [✅] Lavadora
+
+  [amenities[9]]
+    EN : Outdoor Seating
+    FR: [✅] Espace extérieur
+    DE: [✅] Außensitzplätze
+    NL: [✅] Buitenzitplaatsen
+    ES: [✅] Zona exterior
+
+  [amenities[10]]
+    EN : wifi
+    FR: [~] wifi
+    DE: [~] wifi
+    NL: [~] wifi
+    ES: [~] wifi
+
+  [amenities[11]]
+    EN : washing
+    FR: [~] washing
+    DE: [~] washing
+    NL: [~] washing
+    ES: [~] washing
+
+  [amenities[12]]
+    EN : tv
+    FR: [~] tv
+    DE: [~] tv
+    NL: [~] tv
+    ES: [~] tv
+
+  [amenities[13]]
+    EN : linens
+    FR: [~] linens
+    DE: [~] linens
+    NL: [~] linens
+    ES: [~] linens
+
+  [amenities[14]]
+    EN : safe
+    FR: [~] safe
+    DE: [~] safe
+    NL: [~] safe
+    ES: [~] safe
+
+  [amenities[15]]
+    EN : coffee
+    FR: [~] coffee
+    DE: [~] coffee
+    NL: [~] coffee
+    ES: [~] coffee
+
+  [amenities[16]]
+    EN : outdoor
+    FR: [~] outdoor
+    DE: [~] outdoor
+    NL: [~] outdoor
+    ES: [~] outdoor
+
+  [amenities[17]]
+    EN : checkin
+    FR: [~] checkin
+    DE: [~] checkin
+    NL: [~] checkin
+    ES: [~] checkin
+
+  [amenities[18]]
+    EN : ac
+    FR: [~] ac
+    DE: [~] ac
+    NL: [~] ac
+    ES: [~] ac
+
+  [amenities[19]]
+    EN : pool
+    FR: [~] pool
+    DE: [~] pool
+    NL: [~] pool
+    ES: [~] pool
+
+  [amenities[20]]
+    EN : kitchen
+    FR: [~] kitchen
+    DE: [~] kitchen
+    NL: [~] kitchen
+    ES: [~] kitchen
+
+  [amenities[21]]
+    EN : parking
+    FR: [~] parking
+    DE: [~] parking
+    NL: [~] parking
+    ES: [~] parking
+
+  [amenities[22]]
+    EN : garden
+    FR: [~] garden
+    DE: [~] garden
+    NL: [~] garden
+    ES: [~] garden
+
+  [cleanliness.title]
+    EN : Cleanliness
+    FR: [✅] Propreté
+    DE: [✅] Sauberkeit
+    NL: [✅] Netheid
+    ES: [✅] Limpieza
+
+  [cleanliness.description]
+    EN : Professionally cleaned and sanitized before every stay.
+    FR: [✅] Nettoyé et désinfecté professionnellement avant chaque séjour.
+    DE: [✅] Vor jedem Aufenthalt professionell gereinigt und desinfiziert.
+    NL: [✅] Professioneel schoongemaakt en ontsmet vóór elk verblijf.
+    ES: [✅] Limpiado y desinfectado profesionalmente antes de cada estancia.
+
+  [overview.title]
+    EN : Villa Zen Your Life - Your Perfect Lanzarote Escape
+    FR: [✅] Villa Zen Your Life - Votre évasion parfaite à Lanzarote
+    DE: [✅] Villa Zen Your Life - Ihr perfekter Lanzarote-Urlaub
+    NL: [✅] Villa Zen Your Life - Uw perfecte Lanzarote-verblijf
+    ES: [✅] Villa Zen Your Life - Su escapada perfecta en Lanzarote
+
+  [overview.description1]
+    EN : Experience elegant accommodation at Villa Zen Your Life, featuring a sun terrace…
+    FR: [✅] Découvrez un hébergement élégant à Villa Zen Your Life, avec terrasse ensoleillé…
+    DE: [✅] Erleben Sie elegantes Wohnen in der Villa Zen Your Life mit Sonnenterrasse, schö…
+    NL: [✅] Ervaar elegant verblijf in Villa Zen Your Life, met zonneterras, prachtige tuin …
+    ES: [✅] Disfrute de un alojamiento elegante en Villa Zen Your Life, con terraza soleada,…
+
+  [overview.description2]
+    EN : Enjoy comfortable amenities including BBQ facilities perfect for evening gatheri…
+    FR: [✅] Profitez d'équipements confortables comprenant un barbecue parfait pour les soir…
+    DE: [✅] Genießen Sie komfortable Annehmlichkeiten wie Grillmöglichkeiten, perfekt für ge…
+    NL: [✅] Geniet van comfortabele voorzieningen waaronder BBQ-faciliteiten perfect voor av…
+    ES: [✅] Disfrute de cómodas instalaciones incluyendo barbacoa perfecta para reuniones no…
+
+  [overview.highlights[0]]
+    EN : Heated outdoor swimming pool
+    FR: [✅] Piscine extérieure chauffée
+    DE: [✅] Beheizter Außenpool
+    NL: [✅] Verwarmd buitenzwembad
+    ES: [✅] Piscina exterior climatizada
+
+  [overview.highlights[1]]
+    EN : Free WiFi throughout the property
+    FR: [✅] WiFi gratuit dans toute la propriété
+    DE: [✅] Kostenloses WLAN im gesamten Haus
+    NL: [✅] Gratis WiFi in de hele woning
+    ES: [✅] WiFi gratuito en toda la propiedad
+
+  [overview.highlights[2]]
+    EN : Free private parking on-site
+    FR: [✅] Parking privé gratuit sur place
+    DE: [✅] Kostenloser privater Parkplatz vor Ort
+    NL: [✅] Gratis privéparking op het terrein
+    ES: [✅] Aparcamiento privado gratuito en el lugar
+
+  [overview.highlights[3]]
+    EN : Sun terrace with stunning views
+    FR: [✅] Terrasse ensoleillée avec vues magnifiques
+    DE: [✅] Sonnenterrasse mit herrlichem Ausblick
+    NL: [✅] Zonneterras met prachtig uitzicht
+    ES: [✅] Terraza soleada con vistas impresionantes
+
+  [overview.highlights[4]]
+    EN : Beautiful private garden
+    FR: [✅] Beau jardin privé
+    DE: [✅] Schöner privater Garten
+    NL: [✅] Mooie privétuin
+    ES: [✅] Hermoso jardín privado
+
+  [overview.highlights[5]]
+    EN : 3 bedrooms with comfortable beds
+    FR: [✅] 3 chambres avec lits confortables
+    DE: [✅] 3 Schlafzimmer mit bequemen Betten
+    NL: [✅] 3 slaapkamers met comfortabele bedden
+    ES: [✅] 3 dormitorios con camas cómodas
+
+  [overview.highlights[6]]
+    EN : 2 modern bathrooms
+    FR: [✅] 2 salles de bain modernes
+    DE: [✅] 2 moderne Badezimmer
+    NL: [✅] 2 moderne badkamers
+    ES: [✅] 2 baños modernos
+
+  [overview.highlights[7]]
+    EN : Air conditioning in all rooms
+    FR: [✅] Climatisation dans toutes les pièces
+    DE: [✅] Klimaanlage in allen Zimmern
+    NL: [✅] Airconditioning in alle kamers
+    ES: [✅] Aire acondicionado en todas las habitaciones
+
+  [overview.highlights[8]]
+    EN : Washing machine available
+    FR: [✅] Machine à laver disponible
+    DE: [✅] Waschmaschine verfügbar
+    NL: [✅] Wasmachine beschikbaar
+    ES: [✅] Lavadora disponible
+
+  [location.title]
+    EN : Prime Location in Playa Blanca
+    FR: [✅] Emplacement privilégié à Playa Blanca
+    DE: [✅] Beste Lage in Playa Blanca
+    NL: [✅] Toplocatie in Playa Blanca
+    ES: [✅] Ubicación privilegiada en Playa Blanca
+
+  [location.description]
+    EN : Villa Zen Your Life is perfectly situated in the sunny south of Lanzarote, just …
+    FR: [✅] Villa Zen Your Life est idéalement située dans le sud ensoleillé de Lanzarote, à…
+    DE: [✅] Villa Zen Your Life liegt perfekt im sonnigen Süden von Lanzarote, nur 25 Gehmin…
+    NL: [✅] Villa Zen Your Life is perfect gelegen in het zonnige zuiden van Lanzarote, op s…
+    ES: [✅] Villa Zen Your Life está perfectamente ubicada en el soleado sur de Lanzarote, a…
+
+  [location.places[0].title]
+    EN : Playa Dorada
+    FR: [~] Playa Dorada
+    DE: [~] Playa Dorada
+    NL: [~] Playa Dorada
+    ES: [~] Playa Dorada
+
+  [location.places[1].title]
+    EN : Marina Rubicon
+    FR: [~] Marina Rubicon
+    DE: [~] Marina Rubicon
+    NL: [~] Marina Rubicon
+    ES: [✅] Marina Rubicón
+
+  [location.places[2].title]
+    EN : Playa Papagayo
+    FR: [~] Playa Papagayo
+    DE: [~] Playa Papagayo
+    NL: [~] Playa Papagayo
+    ES: [~] Playa Papagayo
+
+──────────────────────────────────────────────────────────────────────────────────────────
+ID: 692571d80521a318b4a5c434
+Name: Casa Artevista
+
+  [description]
+    EN : Elegant villa in Tabayesco featuring 2 bedrooms, terrace, balcony, garden views,…
+    FR: [✅] Villa élégante à Tabayesco avec 2 chambres, terrasse, balcon, vue sur le jardin …
+    DE: [✅] Elegante Villa in Tabayesco mit 2 Schlafzimmern, Terrasse, Balkon, Gartenblick u…
+    NL: [✅] Elegante villa in Tabayesco met 2 slaapkamers, terras, balkon, tuinuitzicht en p…
+    ES: [✅] Elegante villa en Tabayesco con 2 dormitorios, terraza, balcón, vistas al jardín…
+
+  [priceUnit]
+    EN : per night
+    FR: [✅] par nuit
+    DE: [✅] pro Nacht
+    NL: [✅] per nacht
+    ES: [✅] por noche
+
+  [parking]
+    EN : No private parking
+    FR: [✅] Pas de parking privé
+    DE: [✅] Kein privater Parkplatz
+    NL: [✅] Geen privéparking
+    ES: [✅] Sin aparcamiento privado
+
+  [amenities[0]]
+    EN : Hot Tub
+    FR: [✅] Jacuzzi
+    DE: [✅] Whirlpool
+    NL: [✅] Hottub
+    ES: [✅] Jacuzzi
+
+  [amenities[1]]
+    EN : Free WiFi
+    FR: [✅] WiFi gratuit
+    DE: [✅] Kostenloses WLAN
+    NL: [✅] Gratis WiFi
+    ES: [✅] WiFi gratuito
+
+  [amenities[2]]
+    EN : Kitchen
+    FR: [✅] Cuisine
+    DE: [✅] Küche
+    NL: [✅] Keuken
+    ES: [✅] Cocina
+
+  [amenities[3]]
+    EN : Terrace
+    FR: [✅] Terrasse
+    DE: [✅] Terrasse
+    NL: [✅] Terras
+    ES: [✅] Terraza
+
+  [amenities[4]]
+    EN : Balcony
+    FR: [✅] Balcon
+    DE: [✅] Balkon
+    NL: [✅] Balkon
+    ES: [✅] Balcón
+
+  [amenities[5]]
+    EN : Garden View
+    FR: [✅] Vue sur le jardin
+    DE: [✅] Gartenblick
+    NL: [✅] Tuinuitzicht
+    ES: [✅] Vistas al jardín
+
+  [amenities[6]]
+    EN : TV
+    FR: [~] TV
+    DE: [~] TV
+    NL: [~] TV
+    ES: [~] TV
+
+  [amenities[7]]
+    EN : Washing Machine
+    FR: [✅] Machine à laver
+    DE: [✅] Waschmaschine
+    NL: [✅] Wasmachine
+    ES: [✅] Lavadora
+
+  [amenities[8]]
+    EN : Private Bathroom
+    FR: [✅] Salle de bain privée
+    DE: [✅] Eigenes Bad
+    NL: [✅] Privébadkamer
+    ES: [✅] Baño privado
+
+  [amenities[9]]
+    EN : wifi
+    FR: [~] wifi
+    DE: [~] wifi
+    NL: [~] wifi
+    ES: [~] wifi
+
+  [amenities[10]]
+    EN : washing
+    FR: [~] washing
+    DE: [~] washing
+    NL: [~] washing
+    ES: [~] washing
+
+  [amenities[11]]
+    EN : tv
+    FR: [~] tv
+    DE: [~] tv
+    NL: [~] tv
+    ES: [~] tv
+
+  [amenities[12]]
+    EN : linens
+    FR: [~] linens
+    DE: [~] linens
+    NL: [~] linens
+    ES: [~] linens
+
+  [amenities[13]]
+    EN : safe
+    FR: [~] safe
+    DE: [~] safe
+    NL: [~] safe
+    ES: [~] safe
+
+  [amenities[14]]
+    EN : coffee
+    FR: [~] coffee
+    DE: [~] coffee
+    NL: [~] coffee
+    ES: [~] coffee
+
+  [amenities[15]]
+    EN : outdoor
+    FR: [~] outdoor
+    DE: [~] outdoor
+    NL: [~] outdoor
+    ES: [~] outdoor
+
+  [amenities[16]]
+    EN : checkin
+    FR: [~] checkin
+    DE: [~] checkin
+    NL: [~] checkin
+    ES: [~] checkin
+
+  [amenities[17]]
+    EN : kitchen
+    FR: [~] kitchen
+    DE: [~] kitchen
+    NL: [~] kitchen
+    ES: [~] kitchen
+
+  [amenities[18]]
+    EN : garden
+    FR: [~] garden
+    DE: [~] garden
+    NL: [~] garden
+    ES: [~] garden
+
+  [amenities[19]]
+    EN : view
+    FR: [~] view
+    DE: [~] view
+    NL: [~] view
+    ES: [~] view
+
+  [cleanliness.title]
+    EN : Cleanliness
+    FR: [✅] Propreté
+    DE: [✅] Sauberkeit
+    NL: [✅] Netheid
+    ES: [✅] Limpieza
+
+  [cleanliness.description]
+    EN : Professionally cleaned and sanitized before every stay.
+    FR: [✅] Nettoyé et désinfecté professionnellement avant chaque séjour.
+    DE: [✅] Vor jedem Aufenthalt professionell gereinigt und desinfiziert.
+    NL: [✅] Professioneel schoongemaakt en ontsmet vóór elk verblijf.
+    ES: [✅] Limpiado y desinfectado profesionalmente antes de cada estancia.
+
+  [overview.title]
+    EN : Casa Artevista - Charming Villa in Tabayesco
+    FR: [✅] Casa Artevista - Villa de charme à Tabayesco
+    DE: [✅] Casa Artevista - Charmante Villa in Tabayesco
+    NL: [✅] Casa Artevista - Charmante villa in Tabayesco
+    ES: [✅] Casa Artevista - Encantadora villa en Tabayesco
+
+  [overview.description1]
+    EN : Welcome to Casa Artevista, an elegant villa nestled in the peaceful village of T…
+    FR: [✅] Bienvenue à Casa Artevista, une villa élégante nichée dans le paisible village d…
+    DE: [✅] Willkommen in der Casa Artevista, einer eleganten Villa im friedlichen Dorf Taba…
+    NL: [✅] Welkom bij Casa Artevista, een elegante villa verscholen in het rustige dorpje T…
+    ES: [✅] Bienvenido a Casa Artevista, una elegante villa ubicada en el tranquilo pueblo d…
+
+  [overview.description2]
+    EN : The villa offers modern amenities including free WiFi throughout, a fully equipp…
+    FR: [✅] La villa offre des équipements modernes comprenant le WiFi gratuit dans toute la…
+    DE: [✅] Die Villa bietet moderne Annehmlichkeiten wie kostenloses WLAN im gesamten Haus,…
+    NL: [✅] De villa biedt moderne voorzieningen waaronder gratis WiFi in de hele woning, ee…
+    ES: [✅] La villa ofrece comodidades modernas incluyendo WiFi gratuito en toda la propied…
+
+  [overview.highlights[0]]
+    EN : Private hot tub for relaxation
+    FR: [✅] Jacuzzi privé pour la détente
+    DE: [✅] Privater Whirlpool zur Entspannung
+    NL: [✅] Privé hottub voor ontspanning
+    ES: [✅] Jacuzzi privado para relajarse
+
+  [overview.highlights[1]]
+    EN : Free WiFi throughout the property
+    FR: [✅] WiFi gratuit dans toute la propriété
+    DE: [✅] Kostenloses WLAN im gesamten Haus
+    NL: [✅] Gratis WiFi in de hele woning
+    ES: [✅] WiFi gratuito en toda la propiedad
+
+  [overview.highlights[2]]
+    EN : 2 bedrooms with queen beds
+    FR: [✅] 2 chambres avec lits queen
+    DE: [✅] 2 Schlafzimmer mit Queensize-Betten
+    NL: [✅] 2 slaapkamers met queensize bedden
+    ES: [✅] 2 dormitorios con camas queen
+
+  [overview.highlights[3]]
+    EN : Fully equipped kitchen
+    FR: [✅] Cuisine entièrement équipée
+    DE: [✅] Voll ausgestattete Küche
+    NL: [✅] Volledig uitgeruste keuken
+    ES: [✅] Cocina totalmente equipada
+
+  [overview.highlights[4]]
+    EN : TV for entertainment
+    FR: [✅] TV pour le divertissement
+    DE: [✅] TV zur Unterhaltung
+    NL: [✅] TV voor entertainment
+    ES: [✅] TV para entretenimiento
+
+  [overview.highlights[5]]
+    EN : Washing machine available
+    FR: [✅] Machine à laver disponible
+    DE: [✅] Waschmaschine verfügbar
+    NL: [✅] Wasmachine beschikbaar
+    ES: [✅] Lavadora disponible
+
+  [overview.highlights[6]]
+    EN : Near Jardín de Cactus Gardens (7 km)
+    FR: [✅] Près du Jardín de Cactus (7 km)
+    DE: [✅] Nahe Jardín de Cactus (7 km)
+    NL: [✅] Dichtbij Jardín de Cactus (7 km)
+    ES: [✅] Cerca del Jardín de Cactus (7 km)
+
+  [overview.highlights[7]]
+    EN : Top rated location (10.0)
+    FR: [✅] Emplacement le mieux noté (10.0)
+    DE: [✅] Bestbewertete Lage (10.0)
+    NL: [✅] Best beoordeelde locatie (10.0)
+    ES: [✅] Ubicación mejor valorada (10.0)
+
+  [overview.highlights[8]]
+    EN : Wonderful guest rating (9.0)
+    FR: [✅] Excellente note des clients (9.0)
+    DE: [✅] Hervorragende Gästebewertung (9.0)
+    NL: [✅] Uitstekende gastenbeoordeling (9.0)
+    ES: [✅] Excelente valoración de huéspedes (9.0)
+
+  [location.title]
+    EN : Peaceful Retreat in Tabayesco Valley
+    FR: [✅] Retraite paisible dans la vallée de Tabayesco
+    DE: [✅] Friedlicher Rückzugsort im Tal von Tabayesco
+    NL: [✅] Rustige toevlucht in de vallei van Tabayesco
+    ES: [✅] Retiro tranquilo en el valle de Tabayesco
+
+  [location.description]
+    EN : Casa Artevista is nestled in the charming village of Tabayesco, in one of Lanzar…
+    FR: [✅] Casa Artevista est nichée dans le charmant village de Tabayesco, dans l'une des …
+    DE: [✅] Die Casa Artevista liegt im charmanten Dorf Tabayesco, in einem der schönsten Tä…
+    NL: [✅] Casa Artevista ligt verscholen in het charmante dorpje Tabayesco, in een van de …
+    ES: [✅] Casa Artevista está ubicada en el encantador pueblo de Tabayesco, en uno de los …
+
+  [location.places[0].title]
+    EN : Playa de la Garita
+    FR: [~] Playa de la Garita
+    DE: [~] Playa de la Garita
+    NL: [~] Playa de la Garita
+    ES: [~] Playa de la Garita
+
+  [location.places[1].title]
+    EN : Jardin de Cactus
+    FR: [✅] Jardín de Cactus
+    DE: [✅] Jardín de Cactus
+    NL: [✅] Jardín de Cactus
+    ES: [✅] Jardín de Cactus
+
+  [location.places[2].title]
+    EN : Jameos del Agua
+    FR: [~] Jameos del Agua
+    DE: [~] Jameos del Agua
+    NL: [~] Jameos del Agua
+    ES: [~] Jameos del Agua
+
+📊 Property missing (❌): 0
+
+
+══════════════════════════════════════════════════════════════════════════════════════════
+FINAL SUMMARY
+══════════════════════════════════════════════════════════════════════════════════════════
+  FAQ missing (❌):      0
+  Service missing (❌):  0
+  Property missing (❌): 0
+  TOTAL MISSING:         0
+
+  ✅ All translations present!
+══════════════════════════════════════════════════════════════════════════════════════════

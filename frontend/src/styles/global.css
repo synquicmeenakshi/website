@@ -1,0 +1,1395 @@
+/* ============================================================
+   MEENAKSHI — Sacred Sciences
+   Saffron and brass on warm ivory, with indigo and deep maroon
+   for the dark bands. Structure follows the reference build:
+   one 6px gutter, one radius, one type scale.
+   ============================================================ */
+
+:root {
+  /* ---- Colour ------------------------------------------------ */
+  --ivory: #f7f2e7;          /* page canvas */
+  --ivory-2: #efe7d5;        /* raised card surface, cream bands */
+  --sand: #e3d7bd;           /* soft borders, inset panels */
+  --cream: #f8f4ea;          /* text on dark surfaces */
+  --cream-dim: rgba(248, 244, 234, 0.72);
+
+  --ink: #241a14;            /* primary text, warm dark brown */
+  --ink-soft: #6f6055;       /* secondary text */
+  --ink-deep: #140d09;
+
+  /* Solid dark panels. One maroon, one indigo, no purple. */
+  --maroon: #4a1410;
+  --maroon-deep: #350d0a;
+  --indigo: #191533;         /* the night band behind Why Meenakshi */
+  --indigo-deep: #100d24;
+
+  --saffron: #d4531d;        /* primary accent */
+  --saffron-600: #ad3f15;    /* hover */
+  --saffron-300: #e0866a;    /* accent on dark */
+  --saffron-100: #f0d7c9;
+
+  --gold: #b58a46;
+  --tan: #cfa96b;
+
+  --hairline: rgba(36, 26, 20, 0.15);
+  --hairline-strong: rgba(36, 26, 20, 0.38);
+  --hairline-invert: rgba(248, 244, 234, 0.2);
+
+  /* ---- Type -------------------------------------------------- */
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-sans: 'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+  --font-deva: 'Tiro Devanagari Hindi', serif;
+
+  /* One scale. Use a step, do not invent a clamp.
+     heading clamp(28px, calc(24.8px + 0.83vw), 46px)
+     quote   clamp(22px, calc(19.5px + 0.64vw), 36px)
+     card    clamp(17px, calc(16.1px + 0.23vw), 22px)
+     body    clamp(15px, calc(14.6px + 0.09vw), 17px)
+     meta    clamp(11px, calc(10.6px + 0.09vw), 13px) */
+  --t-heading: clamp(28px, calc(24.8px + 0.83vw), 46px);
+  --t-quote: clamp(22px, calc(19.5px + 0.64vw), 36px);
+  --t-card: clamp(17px, calc(16.1px + 0.23vw), 22px);
+  --t-body: clamp(15px, calc(14.6px + 0.09vw), 17px);
+  --t-meta: clamp(11px, calc(10.6px + 0.09vw), 13px);
+
+  /* ---- Rhythm ------------------------------------------------ */
+  --page-max: 1480px;
+  --gutter: clamp(20px, 4vw, 56px);
+  /* Was 36px + 5.2vw. On a 1440 desktop that put 111px of nothing above and
+     below every band, and the inner pages are mostly bands. */
+  --section-gap: clamp(48px, calc(30px + 4vw), 108px);
+  --gap: 6px;                /* the one gutter every card grid uses */
+  --radius: 10px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ------------------------------------------------ */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-quick: 0.22s;
+  --dur: 0.5s;
+  --dur-slow: 0.9s;
+}
+
+/* ---- Reset / base -------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Lenis drives scrolling; native smooth behaviour would fight it */
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar { display: none; }
+
+/* No sideways scroll anywhere. `clip` rather than `hidden` on purpose: hidden
+   turns the element into a scroll container, which gives Lenis a second
+   scrollport to fight over and coerces overflow-y to auto. */
+html,
+body { overflow-x: clip; }
+
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: var(--t-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+/* The Jyotish drawings ship at width/height 100%, so they need a frame with a
+   definite size. Without the cap, one of them in a grid cell resolves against
+   the page rather than the cell and drags the whole track past the viewport. */
+svg { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* A grid or flex item's automatic minimum size is its content, so a single long
+   word — an email address, a URL, a Devanagari string — widens its track until
+   the row runs off the screen. Nothing in this build wants that. */
+p, li, h1, h2, h3, blockquote, dd, dt, figcaption { overflow-wrap: break-word; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { list-style: none; }
+
+::selection { background: var(--saffron); color: var(--cream); }
+:focus-visible { outline: 2px solid var(--saffron); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Shared primitives --------------------------------------- */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: fixed; top: 10px; left: 10px; z-index: 400;
+  padding: 12px 18px; background: var(--ink); color: var(--cream);
+  font-size: 14px; border-radius: var(--radius);
+  transform: translateY(-180%);
+  transition: transform var(--dur-quick) var(--ease);
+}
+.skip-link:focus { transform: none; }
+
+/* `width: 100%` matters. In a block parent, `margin-inline: auto` on an
+   auto-width box resolves to zero and the box fills. In a GRID parent it does
+   not: auto margins stop the item stretching, so it is sized to its content
+   and centred — which is why the sections built on `display: grid` had their
+   copy starting 4px and 42px further in than every other section. */
+.container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+section { position: relative; }
+
+/* Display type is the serif; UI and body are the sans. */
+.section-title,
+.page-hero__title,
+.hero-message__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+}
+.section-title { font-size: var(--t-heading); }
+.section-title em,
+.page-hero__title em,
+.hero-message__title .t-accent {
+  font-style: italic;
+  color: var(--saffron);
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--font-sans);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--saffron);
+}
+.eyebrow__deva {
+  font-family: var(--font-deva);
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 1.25em;
+  color: var(--gold);
+}
+
+.section-intro { display: grid; gap: 14px; margin-bottom: clamp(28px, 3.4vw, 56px); }
+.section-intro--center { text-align: center; justify-items: center; }
+.section-intro--left { justify-items: start; }
+.section-intro__rule { color: var(--saffron); }
+.section-copy {
+  max-width: 62ch; color: var(--ink-soft);
+  font-size: var(--t-body);
+}
+.section-intro--center .section-copy { margin-inline: auto; }
+
+.lede {
+  font-family: var(--font-serif);
+  font-size: var(--t-quote);
+  line-height: 1.32;
+  font-weight: 400;
+  color: var(--ink);
+  max-width: 30ch;
+}
+
+.stat { display: grid; gap: 3px; }
+.stat__value { font-family: var(--font-serif); font-size: clamp(28px, 3vw, 44px); line-height: 1; color: var(--saffron); }
+.stat__label { font-size: var(--t-meta); color: var(--ink-soft); line-height: 1.4; }
+.stat__deva { font-family: var(--font-deva); font-size: 12px; color: var(--gold); }
+
+/* ---- Buttons -------------------------------------------------- */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 52px; padding: 0 26px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 14px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: background var(--dur-quick) var(--ease), color var(--dur-quick) var(--ease),
+    border-color var(--dur-quick) var(--ease), transform var(--dur-quick) var(--ease);
+}
+.btn svg { transition: transform var(--dur-quick) var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+.btn--sm { min-height: 44px; padding: 0 20px; font-size: 12px; }
+.btn--wide { width: 100%; }
+
+.btn--primary { background: var(--saffron); color: var(--cream); }
+.btn--primary:hover { background: var(--saffron-600); }
+.btn--outline { border-color: var(--hairline-strong); color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.btn--quiet { color: var(--ink); border-color: transparent; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--saffron); }
+.btn--quiet:hover { color: var(--saffron); }
+.btn--invert { background: var(--cream); color: var(--maroon); }
+.btn--invert:hover { background: var(--saffron); color: var(--cream); }
+.btn--ghost-invert { border-color: var(--hairline-invert); color: var(--cream); }
+.btn--ghost-invert:hover { background: rgba(248, 244, 234, 0.14); border-color: var(--cream); }
+
+.textlink {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--t-meta); font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--saffron);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+}
+.textlink:hover { border-color: var(--saffron); }
+.textlink svg { transition: transform var(--dur-quick) var(--ease); }
+.textlink:hover svg { transform: translateX(3px); }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+/* The bar takes the measurements of whatever it is currently over. Over the
+   hero it is one more card in that grid: the same 6px margin, the same width
+   and the same corner as the cells beneath it, so their left and right edges
+   line up rather than nearly lining up. Everything below the hero is a
+   .container — page-max, inset by --gutter — so past the hero the bar draws in
+   to exactly that rail and sits on the section content edges. Only the width
+   moves; the height is the same either way. */
+.site-header {
+  --hdr-rail: 100%;
+  --hdr-gutter: var(--gap);
+
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: var(--gap) var(--hdr-gutter) 0;
+  transition: transform 0.42s var(--ease), padding 0.62s var(--ease);
+}
+/* the .container rail, written the same way .container writes it */
+.site-header.is-compact {
+  --hdr-rail: calc(var(--page-max) - var(--gutter) * 2);
+  --hdr-gutter: var(--gutter);
+}
+.site-header.is-hidden { transform: translateY(calc(-100% - var(--gap))); }
+
+.site-header__inner {
+  /* the positioning context every dropdown measures itself against */
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  max-width: var(--hdr-rail);
+  margin-inline: auto;
+  padding: 10px 12px 10px 18px;
+  border-radius: var(--radius);
+  background: rgba(247, 242, 231, 0.92);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--hairline);
+  transition: box-shadow 0.32s var(--ease), max-width 0.62s var(--ease);
+}
+.site-header.is-solid .site-header__inner {
+  box-shadow: 0 12px 36px -26px rgba(36, 26, 20, 0.7);
+}
+
+.brand { display: flex; align-items: center; gap: 11px; color: var(--saffron); flex: none; }
+.brand__type { display: flex; flex-direction: column; line-height: 1; }
+.brand__name {
+  font-family: var(--font-serif); font-size: 22px; font-weight: 500;
+  letter-spacing: 0.03em; color: var(--ink);
+}
+.brand__tag {
+  font-size: 8.5px; font-weight: 500; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--ink-soft); margin-top: 4px;
+}
+
+.site-nav { display: flex; align-items: center; gap: clamp(4px, 1vw, 18px); }
+/* Static, deliberately. The panel is positioned against the bar, not against
+   the link that opens it — see .nav-panel. */
+.nav-item { position: static; }
+.nav-item__link {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 10px 8px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; white-space: nowrap;
+  color: var(--ink-soft);
+  transition: color var(--dur-quick) var(--ease);
+}
+.nav-item__link:hover,
+.nav-item.is-open .nav-item__link { color: var(--saffron); }
+.nav-item svg { transition: transform var(--dur-quick) var(--ease); }
+.nav-item.is-open svg { transform: rotate(180deg); }
+
+/* The mega panel. Anchored to .site-header__inner rather than to the link that
+   opened it, so it is exactly as wide as the bar and moves with it when the bar
+   narrows past the hero. One panel is the same object as the next: same left
+   edge, same right edge, same height, whatever is inside it. */
+.nav-panel {
+  position: absolute; top: 100%; left: 0; right: 0;
+  padding-top: 10px;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur);
+}
+.nav-item.is-open .nav-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+.nav-panel__sheet {
+  width: 100%;
+  background: var(--ivory);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: 0 40px 90px -50px rgba(36, 26, 20, 0.7);
+  overflow: hidden;
+}
+/* A definite height, not a content height. The three panels carry three, five
+   and three secondary links; sized by content they would each open to a
+   different depth and the bar would look like it was breathing. */
+.nav-panel__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 1.3fr 0.85fr 1fr;
+  grid-auto-rows: clamp(320px, 27vw, 384px);
+  gap: 1px;
+  background: var(--hairline);
+}
+.nav-panel__inner > * { background: var(--ivory); padding: 20px; min-width: 0; min-height: 0; }
+
+.navlead { position: relative; overflow: hidden; padding: 0 !important; display: block; }
+.navlead img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.navlead:hover img { transform: scale(1.04); }
+.navlead__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(20, 13, 9, 0.88) 8%, rgba(20, 13, 9, 0.28) 55%, rgba(20, 13, 9, 0.05) 100%);
+}
+.navlead__body { position: absolute; inset: auto 0 0 0; padding: 22px; display: grid; gap: 7px; color: var(--cream); }
+.navlead__eyebrow { font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--tan); }
+.navlead__title { font-family: var(--font-serif); font-size: 25px; line-height: 1.12; }
+.navlead__title em { font-style: italic; color: var(--saffron-300); }
+.navlead__copy { font-size: 13px; line-height: 1.5; color: var(--cream-dim); }
+.navlead__cta { display: inline-flex; align-items: center; gap: 7px; margin-top: 5px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tan); }
+
+/* Header on the first row, contents on the second: every column's rule sits on
+   one line, so the thumbnails and the featured picture start at the same
+   height across all four columns and across all three panels. */
+.navcol { display: grid; grid-template-rows: auto minmax(0, 1fr); min-height: 0; }
+.navcol__group {
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--ink-soft); padding-bottom: 12px; margin-bottom: 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+.navthumbs { display: grid; gap: 4px; align-content: start; }
+.navthumbs a {
+  display: grid; grid-template-columns: 54px 1fr 18px; align-items: center; gap: 13px;
+  padding: 9px; border-radius: 8px;
+  transition: background var(--dur-quick) var(--ease);
+}
+.navthumbs a:hover { background: var(--ivory-2); }
+.navthumbs__media { width: 54px; height: 54px; border-radius: 6px; overflow: hidden; }
+.navthumbs__media img { width: 100%; height: 100%; object-fit: cover; }
+.navthumbs__text { display: grid; gap: 2px; min-width: 0; }
+.navthumbs__label { font-size: 15px; font-weight: 400; color: var(--ink); }
+.navthumbs__sub { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
+.navthumbs__go { color: var(--saffron); opacity: 0; transition: opacity var(--dur-quick) var(--ease); }
+.navthumbs a:hover .navthumbs__go { opacity: 1; }
+
+.navlinks { display: grid; gap: 1px; align-content: start; }
+.navlinks a {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 0; font-size: 14px; color: var(--ink-soft);
+  border-bottom: 1px solid var(--hairline);
+  transition: color var(--dur-quick) var(--ease), padding-left var(--dur-quick) var(--ease);
+}
+.navlinks a svg { opacity: 0; transition: opacity var(--dur-quick) var(--ease); }
+.navlinks a:hover { color: var(--saffron); padding-left: 6px; }
+.navlinks a:hover svg { opacity: 1; }
+
+.navcol--featured { background: var(--ivory-2) !important; }
+/* The picture takes whatever the copy does not, so the card always fills its
+   column exactly and its bottom edge lands on the panel's bottom edge. */
+.navfeat { display: grid; grid-template-rows: minmax(0, 1fr) auto auto auto; gap: 9px; min-height: 0; }
+.navfeat__media { border-radius: 8px; overflow: hidden; min-height: 0; }
+.navfeat__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.navfeat:hover .navfeat__media img { transform: scale(1.04); }
+.navfeat__title { font-family: var(--font-serif); font-size: 20px; line-height: 1.18; }
+.navfeat__title em { font-style: italic; color: var(--saffron); }
+.navfeat__sub {
+  font-size: 12.5px; color: var(--ink-soft); line-height: 1.5;
+  /* two lines in every panel, so the CTA sits on one line across all three */
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+.navfeat__cta { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--saffron); }
+
+.header-utils { display: flex; align-items: center; gap: 10px; flex: none; }
+.menu-toggle { display: none; width: 44px; height: 44px; place-items: center; color: var(--ink); }
+
+/* mobile drawer */
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 99;
+  background: var(--ivory);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur);
+}
+.mobile-nav.open { opacity: 1; visibility: visible; pointer-events: auto; }
+.mobile-nav__scroll {
+  height: 100%; overflow-y: auto;
+  padding: calc(var(--header-h, 76px) + 20px) var(--gutter) 48px;
+}
+.mobile-nav__row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border-bottom: 1px solid var(--hairline);
+}
+.mobile-nav__row a {
+  flex: 1; padding: 17px 0;
+  font-family: var(--font-serif); font-size: 24px; color: var(--ink);
+}
+.mobile-nav__toggle { width: 44px; height: 44px; display: grid; place-items: center; color: var(--saffron); }
+.mobile-nav__group.is-open .mobile-nav__toggle svg { transform: rotate(180deg); }
+.mobile-nav__sub { padding: 6px 0 14px; display: grid; gap: 1px; }
+.mobile-nav__sub a { display: block; padding: 10px 0 10px 16px; font-size: 15px; color: var(--ink-soft); border-left: 1px solid var(--hairline); }
+.mobile-nav__foot { display: grid; gap: 12px; justify-items: start; margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--hairline); }
+.mobile-nav__foot a:not(.btn) { font-size: 15px; color: var(--ink-soft); }
+
+/* ============================================================
+   HERO (home)
+   ============================================================ */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.35fr 0.95fr 0.9fr;
+  grid-template-rows: 1fr 1fr 0.72fr;
+  gap: var(--gap);
+  padding: calc(var(--header-h, 76px) + var(--gap)) var(--gap) 0;
+  /* One viewport and no more — but `min-height`, not `height`. An `fr` row
+     will not shrink below its own content, so a long promise panel grows the
+     grid instead of being clipped out of it. And `svh` rather than `vh`: on a
+     phone `vh` measures the viewport with the browser toolbar retracted, so
+     `100vh` is taller than what is actually on screen and the bottom row sits
+     below the fold from the moment the page loads. */
+  min-height: 100vh;
+  min-height: 100svh;
+  /* Deliberately wider than the page rail: the bento is the one full-bleed
+     element on the site, inset only by its own 6px gutter. */
+  max-width: 2400px;
+  margin-inline: auto;
+}
+
+.hero-cell--message   { grid-column: 1; grid-row: 1 / 4; }
+.hero-cell--portrait  { grid-column: 2; grid-row: 1 / 3; }
+.hero-cell--astro     { grid-column: 3; grid-row: 1; }
+.hero-cell--services  { grid-column: 3; grid-row: 2; }
+.hero-cell--journey   { grid-column: 2; grid-row: 3; }
+.hero-cell--proof     { grid-column: 3; grid-row: 3; }
+
+.hero-cell {
+  position: relative; display: block; overflow: hidden; min-height: 0;
+  border-radius: var(--radius);
+}
+/* `min-height: 0` above lets the photographic cells shrink to whatever the row
+   gives them, which is right — their only children are absolutely positioned.
+   The two cells that hold real text need the automatic minimum back, or the
+   row is free to size below the copy and `overflow: hidden` cuts it off. */
+.hero-cell--message,
+.hero-cell--proof { min-height: auto; }
+.hero-cell img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+a.hero-cell:hover img { transform: scale(1.035); }
+
+/* The portrait plate is 16:9 with Meenakshi in its right third and open ivory
+   to her left. This cell is close to a portrait, so `cover` crops it hard on
+   the horizontal — and a centred crop frames the empty half, leaving her
+   entering at the right edge. Pull the plate left so she sits in the cell. */
+.hero-cell--portrait img { object-position: 87% center; }
+/* Several of these photographs are pale engravings, so the scrim has to be
+   heavy enough to carry cream text at the bottom of any of them. */
+.hero-cell__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(20, 13, 9, 0.9) 0%, rgba(20, 13, 9, 0.62) 26%,
+    rgba(20, 13, 9, 0.22) 58%, rgba(20, 13, 9, 0) 100%);
+}
+.hero-cell__label {
+  position: absolute; left: clamp(18px, 1.8vw, 32px); right: clamp(18px, 1.8vw, 32px);
+  top: 50%; transform: translateY(-50%);
+  z-index: 2; color: var(--cream);
+  text-shadow: 0 1px 18px rgba(20, 13, 9, 0.65);
+  font-size: clamp(13px, 0.85vw, 16px); font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.55;
+  display: grid; gap: 4px; justify-items: start;
+}
+.hero-cell__label--bottom { top: auto; bottom: clamp(20px, 2.2vw, 34px); transform: none; }
+.hero-cell__label em { font-style: normal; color: var(--tan); }
+.hero-cell__label svg { margin-top: 8px; }
+.hero-cell__sub {
+  margin-top: 8px; max-width: 30ch;
+  font-size: 13px; letter-spacing: 0.02em; text-transform: none;
+  line-height: 1.6; color: var(--cream-dim);
+}
+.hero-cell__dash { display: block; width: 30px; height: 2px; background: var(--tan); margin-bottom: 12px; }
+
+/* A drawn cell rather than a photographed one: the chart sits on a solid
+   ground so the label over it always has contrast. */
+.hero-cell__art {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  padding: 7%;
+  background: var(--maroon);
+  color: var(--tan);
+}
+.hero-cell__art svg { width: 100%; height: 100%; opacity: 0.6; }
+
+
+
+/* the ivory promise panel */
+.hero-cell--message {
+  background: var(--ivory-2);
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 18px;
+  padding: clamp(28px, 3.2vw, 60px);
+  background-image: url('/img/paper-texture.png');
+  background-size: cover; background-position: center;
+}
+.hero-message__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: var(--t-meta); font-weight: 500;
+  letter-spacing: 0.26em; text-transform: uppercase; color: var(--saffron);
+}
+.hero-message__title {
+  font-size: clamp(34px, 3.7vw, 66px);
+  display: grid;
+}
+.hero-message__title .line { display: block; overflow: hidden; padding-bottom: 0.04em; }
+.hero-message__title .line > span { display: block; }
+.hero-message__rule { display: block; width: 96px; height: 1px; background: var(--saffron); }
+.hero-message__copy { max-width: 46ch; color: var(--ink-soft); }
+.hero-message__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+
+/* the solid proof cell */
+.hero-cell--proof {
+  background: var(--maroon); color: var(--cream);
+  display: grid; align-content: center;
+  padding: clamp(20px, 1.8vw, 30px);
+}
+.hero-cell--proof ul { display: grid; gap: 14px; }
+.hero-cell--proof li { display: grid; gap: 2px; }
+.hero-proof__value { font-family: var(--font-serif); font-size: clamp(22px, 1.9vw, 32px); line-height: 1; color: var(--tan); }
+.hero-proof__label { font-size: 11.5px; line-height: 1.4; color: var(--cream-dim); }
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+
+.marquee {
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  padding: 15px 0;
+  margin-top: var(--gap);
+}
+.marquee__track { display: flex; width: max-content; animation: marquee 42s linear infinite; }
+.marquee__run { display: flex; }
+.marquee__item {
+  display: inline-flex; align-items: center; gap: 30px;
+  padding-right: 30px;
+  font-family: var(--font-serif); font-size: clamp(17px, 1.5vw, 25px);
+  font-style: italic; white-space: nowrap;
+}
+.marquee__star { color: var(--saffron); flex: none; }
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+/* ============================================================
+   PRACTICE (meet Meenakshi, home)
+   ============================================================ */
+
+/* One screen, centred in it. `min-height` rather than `height` so the section
+   grows rather than clips if the copy ever outruns a short viewport, and the
+   padding is measured in `vh` so it gives way first on the short ones. */
+.practice {
+  display: grid; align-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: clamp(44px, 5vh, 92px);
+}
+.practice__inner { display: grid; gap: clamp(22px, 3vh, 40px); }
+
+/* The claim is a masthead across the whole container, not a column heading.
+   Deliberately no `max-width`: the full measure is what keeps it on one line. */
+.practice__head { display: grid; gap: 12px; }
+.practice__title { text-wrap: balance; }
+
+.practice__grid {
+  display: grid; grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(20px, 2.6vw, 48px);
+  align-items: stretch;
+}
+
+/* No `aspect-ratio`: the figure stretches to the row, and the row is as tall
+   as the lineages beside it — that is what makes the two columns end level.
+   The image is absolutely positioned so it cannot feed its own intrinsic
+   height back into the measurement the stretch depends on. */
+.practice__media {
+  position: relative; overflow: hidden; min-height: 320px;
+  border-radius: var(--radius); background: var(--ink-deep);
+}
+.practice__media img {
+  position: absolute; left: 0; top: -10%;
+  width: 100%; height: 120%;
+  object-fit: cover; object-position: center 38%;
+}
+.practice__media figcaption {
+  position: absolute; inset: auto 0 0 0; z-index: 1; padding: 16px 20px;
+  background: linear-gradient(0deg, rgba(20, 13, 9, 0.85), transparent);
+  color: var(--cream); display: grid; gap: 2px;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.practice__deva { font-family: var(--font-deva); font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--tan); }
+
+.practice__body {
+  display: grid; align-content: space-between; min-width: 0;
+  gap: clamp(16px, 2.2vh, 30px);
+}
+.practice__lede {
+  font-family: var(--font-serif); font-size: var(--t-quote);
+  line-height: 1.3; max-width: 44ch; color: var(--ink);
+}
+
+/* The four lineages, two up — one hairline sheet rather than four cards, so
+   they read as a single credential block. */
+.practice__lineages {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  background: var(--hairline); border: 1px solid var(--hairline);
+  border-radius: var(--radius); overflow: hidden;
+}
+.lineage {
+  background: var(--ivory); padding: clamp(14px, 1.5vw, 20px);
+  display: grid; gap: 3px; align-content: start;
+  transition: background var(--dur-quick) var(--ease);
+}
+.lineage:hover { background: var(--ivory-2); }
+.lineage__n { font-family: var(--font-serif); font-size: 12px; letter-spacing: 0.14em; color: var(--saffron); }
+.lineage__name { font-family: var(--font-serif); font-size: clamp(17px, 1.35vw, 20px); line-height: 1.15; color: var(--ink); }
+.lineage__note { font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }
+
+/* Quote and route out share one line: stacked they cost another 60px of a
+   height this section does not have to spend. */
+.practice__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: clamp(16px, 2vw, 32px); flex-wrap: wrap;
+  padding-top: clamp(14px, 1.8vh, 24px);
+  border-top: 1px solid var(--hairline);
+}
+.practice__quote { flex: 1 1 24ch; padding-left: 16px; border-left: 2px solid var(--saffron); }
+.practice__quote p {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(17px, 1.35vw, 22px); line-height: 1.3; color: var(--ink);
+}
+.practice__foot .btn { flex: none; }
+
+.proofbar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--hairline);
+  border: 1px solid var(--hairline); border-radius: var(--radius);
+  overflow: hidden; margin-top: clamp(36px, 4vw, 72px);
+}
+.proofbar li { background: var(--ivory); padding: clamp(18px, 2vw, 30px); display: grid; gap: 5px; }
+.proofbar--quiet li { background: var(--ivory-2); }
+.proofbar__value { font-family: var(--font-serif); font-size: clamp(26px, 2.6vw, 40px); line-height: 1; color: var(--saffron); }
+.proofbar__label { font-size: var(--t-meta); color: var(--ink-soft); line-height: 1.45; }
+
+/* ============================================================
+   SERVICE CARDS
+   ============================================================ */
+
+.svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+/* Eight cards on six tracks. Three equal columns left the last row a third
+   empty; here the first two run half-width each and the remaining six run three
+   up, which fills all three rows exactly and opens the page on the two
+   consultations most people arrive for. */
+.svc-grid--index {
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(12px, 1.4vw, 22px);
+}
+.svc-grid--index > * { grid-column: span 2; }
+.svc-grid--index > .svc-card--lg { grid-column: span 3; }
+.svc-grid--index > .svc-card--lg .svc-card__title { font-size: clamp(21px, 1.9vw, 28px); }
+.svc-grid--index > .svc-card--lg .svc-card__body { padding: 22px 24px 26px; gap: 8px; }
+
+.svc-card {
+  display: grid; grid-template-rows: auto 1fr;
+  background: var(--ivory); border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--hairline);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.svc-card:hover { transform: translateY(-4px); border-color: var(--saffron); box-shadow: 0 26px 50px -34px rgba(74, 20, 16, 0.55); }
+.svc-card__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; display: block; }
+.svc-card--lg .svc-card__media { aspect-ratio: 4 / 2.7; }
+.svc-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.svc-card:hover .svc-card__media img { transform: scale(1.05); }
+.svc-card__scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20, 13, 9, 0.5), transparent 60%); }
+.svc-card__body { padding: 18px 20px 22px; display: grid; gap: 6px; align-content: start; }
+.svc-card__deva { font-family: var(--font-deva); font-size: 13px; color: var(--gold); }
+.svc-card__title { font-family: var(--font-serif); font-size: var(--t-card); line-height: 1.15; color: var(--ink); }
+.svc-card__lede { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+.svc-card__go {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: 6px;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--saffron);
+}
+.svc-card:hover .svc-card__go svg { transform: translateX(3px); }
+.svc-card__go svg { transition: transform var(--dur-quick) var(--ease); }
+
+
+/* ============================================================
+   FEATURED ASTROLOGY
+   ============================================================ */
+
+.featured {
+  display: grid; align-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: clamp(44px, 5vh, 92px);
+}
+/* `stretch`, not `start`: the wheel was pinned to the top of the row as a
+   fixed square while the column beside it ran on for another 240px. */
+.featured__grid {
+  display: grid; grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(24px, 3vw, 56px); align-items: stretch;
+}
+/* No `aspect-ratio` — the panel is as tall as the copy next to it. The wheel
+   is absolutely positioned so it cannot feed its own square back into the row
+   height it is supposed to be taking from that copy. */
+.featured__media {
+  position: relative; overflow: hidden; min-height: 340px;
+  border-radius: var(--radius); background: var(--indigo); color: var(--tan);
+}
+.featured__wheel {
+  position: absolute; inset: 0;
+  display: grid; place-items: center; padding: 8%;
+}
+/* `height: 100%` with the viewBox's default `meet` — the drawing scales to
+   whichever side is shorter and centres on the other. */
+.featured__wheel svg { width: 100%; height: 100%; opacity: 0.75; }
+.featured__badge {
+  position: absolute; left: 0; bottom: 0;
+  background: var(--saffron); color: var(--cream);
+  padding: 16px 20px; display: grid; gap: 2px;
+  border-top-right-radius: var(--radius);
+  max-width: 70%;
+}
+.featured__badge-n { font-family: var(--font-serif); font-size: 30px; line-height: 1; }
+.featured__badge span:last-child { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4; }
+
+.featured__body {
+  display: grid; align-content: space-between; min-width: 0;
+  gap: clamp(14px, 2vh, 24px);
+}
+.featured__copy { color: var(--ink-soft); max-width: 58ch; }
+.featured__questions { background: var(--ivory-2); border-radius: var(--radius); padding: 20px 24px; }
+.featured__q-head { font-size: var(--t-meta); letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; }
+.featured__questions ul { display: grid; gap: 7px; }
+.featured__questions li { font-family: var(--font-serif); font-size: 18px; font-style: italic; color: var(--ink); }
+
+.featured__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+.featured__list li {
+  display: flex; align-items: baseline; gap: 11px;
+  padding: 11px 0; border-bottom: 1px solid var(--hairline);
+  font-size: 14.5px;
+}
+.featured__list-n { font-family: var(--font-serif); font-size: 12px; color: var(--saffron); flex: none; }
+.featured__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ============================================================
+   WHY (dark band)
+   ============================================================ */
+
+.why {
+  position: relative; overflow: hidden;
+  display: grid; align-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: clamp(44px, 5vh, 92px);
+  background: var(--indigo); color: var(--cream);
+}
+.why .section-intro { margin-bottom: clamp(22px, 2.6vw, 40px); }
+.why__bg { position: absolute; inset: 0; opacity: 0.16; }
+.why__bg img { width: 100%; height: 100%; object-fit: cover; }
+.why__inner { position: relative; z-index: 1; }
+.why .section-title { color: var(--cream); }
+.why .section-title em { color: var(--saffron-300); }
+.why .section-copy { color: var(--cream-dim); }
+.why .eyebrow { color: var(--tan); }
+.why .eyebrow__deva { color: var(--saffron-300); }
+.why .section-intro__rule { color: var(--tan); }
+
+/* Three up, not two: seven commitments land in three rows instead of four,
+   which is the difference between this band fitting a screen and not. */
+.why__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline-invert); border: 1px solid var(--hairline-invert); border-radius: var(--radius); overflow: hidden; }
+.why__item { background: var(--indigo); display: grid; grid-template-columns: auto 1fr; gap: 16px; padding: clamp(18px, 1.9vw, 28px); align-items: start; }
+
+/* The seventh takes the closing row on its own and sets its title beside its
+   body rather than above it — so it reads as the summary of the six, and costs
+   one line instead of three. */
+.why__item:last-child { grid-column: 1 / -1; }
+.why__item:last-child > div {
+  display: grid; grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(16px, 2.4vw, 44px); align-items: baseline;
+}
+.why__item:last-child h3 { margin-bottom: 0; }
+.why__n { font-family: var(--font-serif); font-size: 22px; color: var(--tan); line-height: 1; }
+.why__item h3 { font-family: var(--font-serif); font-size: 21px; font-weight: 400; line-height: 1.2; margin-bottom: 7px; }
+.why__item p { font-size: 14px; color: var(--cream-dim); line-height: 1.6; }
+
+/* ============================================================
+   JOURNEY STRIP
+   ============================================================ */
+
+.journey-strip { padding-block: var(--section-gap); background: var(--ivory-2); }
+.journey-rail { overflow-x: auto; scrollbar-width: none; padding-bottom: 8px; }
+.journey-rail::-webkit-scrollbar { display: none; }
+.journey-rail__track {
+  display: flex; gap: var(--gap);
+  padding-inline: max(var(--gutter), calc((100vw - var(--page-max)) / 2 + var(--gutter)));
+  width: max-content;
+}
+.jstep {
+  flex: 0 0 clamp(230px, 22vw, 300px);
+  background: var(--ivory); border: 1px solid var(--hairline);
+  border-radius: var(--radius); padding: 22px;
+  display: grid; gap: 8px; align-content: start;
+}
+.jstep__n { font-family: var(--font-serif); font-size: 26px; color: var(--saffron); line-height: 1; }
+.jstep__line { display: block; width: 34px; height: 1px; background: var(--saffron); opacity: 0.5; }
+.jstep h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 400; line-height: 1.2; }
+.jstep p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; }
+.jstep__aside { font-size: 11.5px; letter-spacing: 0.06em; color: var(--saffron); margin-top: 4px; }
+.journey-strip__foot { display: flex; gap: 12px; flex-wrap: wrap; margin-top: clamp(26px, 3vw, 44px); }
+
+/* ============================================================
+   TESTIMONIALS — the asterism
+   Seven cards plotted on a star chart, with the line between
+   them traced on scroll. One viewport, no scrolling column.
+   ============================================================ */
+
+.tst { padding-block: clamp(40px, 4.2vw, 78px); }
+.tst .section-intro { margin-bottom: clamp(18px, 2vw, 32px); }
+
+/* Twelve columns. The cards are placed on explicit lines, so two of them
+   cannot occupy the same ground however the viewport or the copy changes —
+   which is the whole reason this stopped being an absolute-percentage field. */
+.tst__field {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  /* Wide enough that a connector between two cards is a run you can see rather
+     than a tick mark — the chart is drawn in these gaps. */
+  gap: clamp(20px, 2.2vw, 38px);
+  color: var(--saffron);
+}
+
+/* The chart is the sky the cards are pinned to, so it sits behind them. Its
+   box is measured, not stretched — the SVG carries a pixel viewBox matching
+   the field, which is why the vertices stay round. */
+.tst__chart {
+  position: absolute; top: 0; left: 0; z-index: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+.tst__line { opacity: 0.7; }
+.tst__vertex { fill: var(--saffron); opacity: 0.85; }
+
+.tst__dust { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.tst__dust span {
+  position: absolute;
+  width: var(--r); height: var(--r);
+  margin: calc(var(--r) / -2) 0 0 calc(var(--r) / -2);
+  border-radius: 50%;
+  background: var(--saffron);
+  opacity: 0.4;
+}
+
+/* each voice is a card pinned to its star */
+.tst__node {
+  position: relative; z-index: 1;
+  align-self: start;
+  padding: 15px 17px 14px;
+  background: var(--ivory);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px -30px rgba(36, 26, 20, 0.65);
+  display: grid; gap: 9px;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+.tst__node:hover {
+  transform: translateY(-4px);
+  border-color: var(--saffron);
+  box-shadow: 0 26px 50px -28px rgba(212, 83, 29, 0.5);
+  z-index: 3;
+}
+.tst__node-mark { color: var(--saffron); }
+.tst__node blockquote {
+  font-family: var(--font-serif);
+  font-size: clamp(14.5px, 1.1vw, 17px);
+  line-height: 1.38;
+  color: var(--ink);
+}
+.tst__node figcaption { display: grid; gap: 1px; padding-top: 9px; border-top: 1px solid var(--hairline); }
+.tst__name { font-size: 12.5px; color: var(--ink); }
+.tst__meta { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* the brightest star carries the strongest quote */
+.tst__node--bright {
+  padding: 20px 22px 18px;
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--cream);
+  z-index: 2;
+}
+.tst__node--bright blockquote { font-size: clamp(17px, 1.5vw, 22px); font-style: italic; color: var(--cream); }
+.tst__node--bright figcaption { border-color: var(--hairline-invert); }
+.tst__node--bright .tst__name { color: var(--cream); }
+.tst__node--bright .tst__meta { color: var(--cream-dim); }
+.tst__node--bright .tst__node-mark { color: var(--tan); }
+
+.tst__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; margin-top: clamp(16px, 1.8vw, 28px);
+}
+.tst__conf { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; color: var(--ink-soft); }
+.tst__conf svg { color: var(--saffron); flex: none; }
+
+/* Below the breakpoint the asterism cannot hold its shape, so it becomes an
+   ordinary stack and the chart is dropped rather than squashed. */
+/* Below the breakpoint the asterism cannot hold its shape, so it becomes an
+   ordinary stack and the chart is dropped rather than squashed. The inline
+   grid placement is authored per card, so it has to be overridden with
+   `!important` — nothing else can beat a style attribute. */
+@media (max-width: 900px) {
+  .tst__field { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tst__chart,
+  .tst__dust { display: none; }
+  .tst__node {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin-top: 0 !important;
+  }
+  .tst__node--bright { grid-column: 1 / -1 !important; }
+}
+@media (max-width: 620px) {
+  .tst__field { grid-template-columns: 1fr; }
+  .tst__foot { flex-direction: column; align-items: flex-start; }
+}
+
+/* ============================================================
+   FAQ (home)
+   ============================================================ */
+
+.faq { padding-block: var(--section-gap); background: var(--ivory-2); }
+.faq__grid {
+  display: grid; grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(28px, 4vw, 72px); align-items: start;
+}
+
+/* The four groups act as a filter rather than four headings, so the index
+   stays beside the answers instead of scrolling away from them. */
+.faq__side {
+  display: grid; gap: 18px; justify-items: start; min-width: 0;
+  position: sticky; top: calc(var(--header-h, 76px) + 24px);
+}
+.faq__tabs { display: grid; gap: 1px; width: 100%; }
+.faq__tab {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  width: 100%; padding: 14px 0; text-align: left;
+  font-size: 15px; color: var(--ink-soft);
+  border-bottom: 1px solid var(--hairline);
+  transition: color var(--dur-quick) var(--ease), padding-left var(--dur-quick) var(--ease);
+}
+.faq__tab:hover { color: var(--saffron); padding-left: 6px; }
+.faq__tab.is-on { color: var(--saffron); border-bottom-color: var(--saffron); }
+.faq__tab-n {
+  flex: none; font-size: 11px; letter-spacing: 0.14em;
+  color: var(--saffron); font-variant-numeric: tabular-nums;
+}
+.faq__aside { font-size: 14px; line-height: 1.65; color: var(--ink-soft); max-width: 38ch; }
+
+.faq__panel { min-width: 0; }
+
+.faq__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  margin-top: clamp(28px, 3vw, 48px); padding-top: 26px;
+  border-top: 1px solid var(--hairline);
+}
+.faq__foot p { font-family: var(--font-serif); font-size: var(--t-quote); color: var(--ink); }
+
+.acc-list { display: grid; }
+.acc { border-bottom: 1px solid var(--hairline); }
+.acc:first-child { border-top: 1px solid var(--hairline); }
+.acc__h { margin: 0; }
+.acc__btn {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: start; gap: 14px;
+  width: 100%; padding: 20px 0; text-align: left; min-height: 56px;
+}
+.acc__n { font-family: var(--font-serif); font-size: 13px; color: var(--saffron); padding-top: 5px; }
+.acc__q { font-family: var(--font-serif); font-size: clamp(17px, 1.3vw, 21px); line-height: 1.3; color: var(--ink); transition: color var(--dur-quick) var(--ease); }
+.acc__btn:hover .acc__q { color: var(--saffron); }
+.acc__ico {
+  display: grid; place-items: center; width: 30px; height: 30px; flex: none;
+  border: 1px solid var(--hairline-strong); border-radius: 50%; color: var(--saffron);
+  transition: background var(--dur-quick) var(--ease), color var(--dur-quick) var(--ease), border-color var(--dur-quick) var(--ease);
+}
+.acc.is-open .acc__ico { background: var(--saffron); color: var(--cream); border-color: var(--saffron); }
+.acc__panel { padding: 0 44px 22px 27px; }
+.acc__panel p { font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); max-width: 68ch; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer { position: relative; overflow: hidden; background: var(--ivory); }
+
+.footcta { background: var(--maroon-deep); color: var(--cream); padding-block: clamp(56px, 7vw, 128px); }
+.footcta__inner { display: grid; justify-items: center; text-align: center; gap: 16px; }
+.footcta__deva { font-family: var(--font-deva); font-size: 18px; color: var(--tan); }
+.footcta__title { font-family: var(--font-serif); font-size: var(--t-heading); font-weight: 400; line-height: 1.12; max-width: 26ch; }
+.footcta__title em { font-style: italic; color: var(--saffron-300); }
+.footcta__rule { color: var(--tan); }
+.footcta__copy { max-width: 52ch; color: var(--cream-dim); }
+.footcta__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+.footcta__pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; }
+.footcta__pills li {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 7px 14px; border: 1px solid var(--hairline-invert); border-radius: var(--radius-pill);
+  color: var(--cream-dim);
+}
+
+.footer__grid { display: grid; grid-template-columns: 0.9fr 1.6fr; gap: clamp(28px, 4vw, 72px); padding-top: clamp(48px, 6vw, 96px); }
+.footer__brand > a { display: grid; gap: 10px; justify-items: start; color: var(--saffron); }
+.footer__name { font-family: var(--font-serif); font-size: 30px; color: var(--ink); }
+.footer__roles { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-top: 10px; }
+.footer__social { display: grid; gap: 10px; margin-top: 22px; }
+.footer__social a { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-soft); transition: color var(--dur-quick) var(--ease); }
+.footer__social a:hover { color: var(--saffron); }
+.footer__social svg { color: var(--saffron); flex: none; }
+
+.footer__nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.4vw, 40px); }
+.footer__h { font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--saffron); margin-bottom: 14px; }
+.footer__nav ul { display: grid; gap: 2px; }
+.footer__nav a { display: inline-block; padding: 6px 0; font-size: 14px; color: var(--ink-soft); transition: color var(--dur-quick) var(--ease), transform var(--dur-quick) var(--ease); }
+.footer__nav a:hover { color: var(--saffron); transform: translateX(3px); }
+
+.footer__disclaimer { margin-top: clamp(36px, 4vw, 64px); padding-top: 24px; border-top: 1px solid var(--hairline); font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); max-width: 100ch; }
+.footer__disclaimer strong { color: var(--ink); font-weight: 500; }
+.footer__base {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  margin-top: 22px; padding: 20px 0 32px; border-top: 1px solid var(--hairline);
+  font-size: 12px; color: var(--ink-soft);
+}
+.footer__deva { font-family: var(--font-deva); color: var(--gold); font-size: 14px; }
+
+/* the watermark, and the content that has to stay legible on top of it */
+.footer__chakra {
+  position: absolute;
+  right: clamp(-90px, -5vw, -40px);
+  bottom: clamp(-110px, -6vw, -50px);
+  width: clamp(240px, 30vw, 440px);
+  color: var(--saffron);
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+}
+.footer__chakra svg { width: 100%; height: auto; }
+.site-footer > .container,
+.site-footer > .footcta { position: relative; z-index: 1; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1180px) {
+  /* Three columns rather than wrapping to two rows: a two-row panel is twice
+     the height and covers the page it is offering to navigate. The featured
+     card is the one zone that repeats something already linked above it. */
+  .nav-panel__inner { grid-template-columns: 1.1fr 1.3fr 0.9fr; grid-auto-rows: 300px; }
+  .navcol--featured { display: none; }
+  .hero { grid-template-columns: 1.2fr 1fr; }
+  .hero-cell--message  { grid-column: 1; grid-row: 1 / 3; }
+  .hero-cell--portrait { grid-column: 2; grid-row: 1 / 3; }
+  .hero-cell--astro    { grid-column: 1; grid-row: 3; }
+  .hero-cell--services { grid-column: 2; grid-row: 3; }
+  .hero-cell--journey,
+  .hero-cell--proof    { display: none; }
+  .hero { min-height: 100vh; min-height: 100svh; }
+}
+
+@media (max-width: 1024px) {
+  .site-nav { display: none; }
+  .menu-toggle { display: grid; }
+  .practice__grid,
+  .featured__grid,
+  .faq__grid,
+  .footer__grid { grid-template-columns: 1fr; }
+  /* Stacked, the group index is above the answers rather than beside them, so
+     sticking it to the top would pin it over the thing it filters. */
+  .faq__side { position: static; }
+  .faq__tabs { grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+  .practice__media,
+  .featured__media { max-width: 520px; }
+  /* Stacked, the section cannot be one screen, and the portrait needs a shape
+     of its own again — there is no column beside it left to take height from. */
+  .practice,
+  .featured { min-height: 0; padding-block: var(--section-gap); }
+  .practice__media { aspect-ratio: 4 / 3; min-height: 0; }
+  .featured__media { aspect-ratio: 1; min-height: 0; }
+  .svc-grid { grid-template-columns: repeat(2, 1fr); }
+  /* four tracks, so the two lead cards go full width and the rest run two up */
+  .svc-grid--index { grid-template-columns: repeat(4, 1fr); }
+  .svc-grid--index > .svc-card--lg { grid-column: span 4; }
+  /* four columns keeps the asymmetry while doubling every tile's width */
+  /* Two up here rather than one: seven stacked commitments is a long scroll,
+     and the band no longer has to fit a screen once it stops being a spread. */
+  .why { min-height: 0; padding-block: var(--section-gap); }
+  .why__list { grid-template-columns: repeat(2, 1fr); }
+  .why__item:last-child > div { grid-template-columns: 1fr; gap: 7px; }
+  .why__item:last-child h3 { margin-bottom: 7px; }
+  .tst__grid { grid-template-columns: 1fr; }
+  .proofbar { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  /* Stacked, the bento is a column of cards: it should run as long as its
+     content does rather than being held to a screen. */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    min-height: 0;
+    padding-top: calc(var(--header-h, 72px) + var(--gap));
+  }
+  .hero-cell--message  { grid-column: 1; grid-row: auto; min-height: 62svh; }
+  .hero-cell--portrait { grid-column: 1; grid-row: auto; aspect-ratio: 4 / 3.4; }
+  .hero-cell--astro,
+  .hero-cell--services { grid-column: 1; grid-row: auto; aspect-ratio: 16 / 9; }
+  .featured__list { grid-template-columns: 1fr; }
+  .footer__nav { grid-template-columns: 1fr; }
+  .practice__lineages { grid-template-columns: 1fr; }
+  .services-home__foot,
+  .tst__foot,
+  .faq__foot { flex-direction: column; align-items: flex-start; }
+  .faq__tabs { grid-template-columns: 1fr; }
+  .why__list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .svc-grid,
+  .svc-grid--index { grid-template-columns: 1fr; }
+  .svc-grid--index > *,
+  .svc-grid--index > .svc-card--lg { grid-column: auto; }
+  /* Two up, not one. This used to force every tile to `1 / -1 !important` at
+     210px a row, which made the eight-tile wall 1722px of scrolling on its own
+     — and the `!important` quietly beat the two-column rule below. */
+  .proofbar { grid-template-columns: 1fr; }
+  .btn { width: 100%; }
+  .header-utils .btn { width: auto; }
+  .hero-message__cta .btn,
+  .footcta__actions .btn { width: 100%; }
+}
+
+@media (max-width: 400px) {
+  .header-utils .btn--primary { display: none; }
+}
+
+
+/* The booking spread is a full-bleed layout with its own masthead, so the site
+   header and the footer's closing CTA would only repeat what it already says. */
+/* The booking spread is a full-bleed layout with its own masthead, and it is
+   built to be one screen with nothing below the fold. The site header would
+   repeat what its masthead already says, and the footer — 679px of directory,
+   disclaimer and closing CTA — is the difference between one screen and two. */
+body:has(.bk) .site-header,
+body:has(.bk) .site-footer { display: none; }
+
+/* ============================================================
+   MOBILE
+   The phone was 15.7 screens of scrolling. Nearly all of it came from
+   one-column stacking: every grid on the site collapsed to a single
+   column, so eight service tiles, seven commitments, seven voices and
+   nineteen footer links each became their own screenful.
+
+   The fix is not smaller type — it is keeping the cards side by side.
+   A phone is ~350px of usable width, which is two of most of these
+   cards, so the wall stays a wall and the page reads like the desktop
+   layout rather than a list of everything on the site.
+   ============================================================ */
+
+@media (max-width: 720px) {
+  :root {
+    /* 112px of air between every section was ~1000px of the scroll on its own */
+    --section-gap: clamp(38px, 9vw, 56px);
+  }
+
+  /* ---- hero: one screen, not four ----
+     The chart and All-consultations cells both lead to pages the mosaic
+     directly below already covers, so on a phone they are two screens of
+     scrolling to repeat what comes next. The promise and the portrait stay. */
+  .hero-cell--astro,
+  .hero-cell--services { display: none; }
+  .hero-cell--message { min-height: 0; padding: clamp(24px, 6vw, 36px); }
+  .hero-cell--portrait { aspect-ratio: 4 / 3.6; }
+  .hero-message__title { font-size: clamp(31px, 8.4vw, 44px); }
+  .hero-message__copy { font-size: 14.5px; }
+  .hero { gap: var(--gap); }
+
+  /* ---- practice ---- */
+  .practice__lineages { grid-template-columns: repeat(2, 1fr); }
+  .lineage { padding: 13px 14px; }
+  .lineage__note { font-size: 11.5px; }
+  .practice__media { aspect-ratio: 4 / 3; max-width: none; }
+  .practice__lede { font-size: clamp(19px, 5vw, 24px); }
+  .practice__foot { flex-direction: column; align-items: stretch; gap: 16px; }
+
+  /* ---- the mosaic: two up, so eight tiles are five rows not eight ---- */
+  /* `:nth-child(n)`, not `> *`. The desktop placements are written as
+     `:nth-child(1)`…`:nth-child(8)`, so a plain child selector is a
+     specificity step below them and loses — the tiles kept their six-column
+     placements and grid quietly built implicit columns to hold them. Matching
+     the specificity and coming later in the file is what clears them. */
+  .svc-mosaic > :nth-child(1),
+  .tile__body { min-height: 150px; padding: 14px; gap: 10px; }
+  .tile__title { font-size: 16px; }
+  .tile--feature .tile__title { font-size: clamp(24px, 6.6vw, 32px); }
+  .tile__lede { font-size: 12.5px; }
+  .tile__go { font-size: 9.5px; letter-spacing: 0.16em; }
+
+  /* ---- featured ---- */
+  .featured__media { aspect-ratio: 4 / 3; max-width: none; }
+  .featured__questions { padding: 15px 17px; }
+  .featured__questions li { font-size: 16px; }
+  .featured__list li { padding: 9px 0; font-size: 13.5px; }
+
+  /* ---- why: two up ---- */
+  .why__list { grid-template-columns: repeat(2, 1fr); }
+  .why__item { padding: 15px 14px; gap: 5px; grid-template-columns: 1fr; }
+  .why__item h3 { font-size: 16px; margin-bottom: 5px; }
+  .why__item p { font-size: 12px; line-height: 1.5; }
+  .why__n { font-size: 15px; }
+
+  /* ---- the voices ---- */
+  .tst__field { grid-template-columns: 1fr; gap: 10px; }
+  .tst__node { padding: 13px 15px; }
+  .tst__node blockquote { font-size: 15px; }
+
+  /* ---- faq ---- */
+  .acc__btn { padding: 15px 0; gap: 11px; }
+  .acc__panel { padding: 0 8px 16px 27px; }
+  .acc__panel p { font-size: 13.5px; }
+
+  /* ---- footer: the directory was 19 stacked rows ---- */
+  .footcta { padding-block: clamp(38px, 9vw, 60px); }
+  .footcta__pills { display: none; }
+  .footer__grid { gap: 28px; padding-top: 36px; }
+  .footer__nav { grid-template-columns: repeat(2, 1fr); gap: 20px 16px; }
+  .footer__nav > :first-child { grid-column: 1 / -1; }
+  .footer__nav > :first-child ul { grid-template-columns: repeat(2, 1fr); display: grid; }
+  .footer__disclaimer { margin-top: 28px; font-size: 11.5px; line-height: 1.6; }
+
+  /* A phone is touched, not pointed at: nothing tappable under 44px. */
+  .footer__nav a,
+  .footer__social a,
+  .mobile-nav__sub a { min-height: 44px; display: flex; align-items: center; }
+}
+
+@media (max-width: 720px) {
+  /* ---- the voices ----
+     Seven quote cards stacked one-up is a screen and three quarters of
+     testimonial on a phone. Four is enough to make the point; the rest are
+     still read on any wider screen. */
+  .tst__node:nth-of-type(n + 6) { display: none; }
+  .tst__foot { flex-direction: column; align-items: stretch; gap: 14px; }
+  .tst__foot .btn { width: 100%; }
+
+  /* ---- featured: six consultations named, four is plenty at this width ---- */
+  .featured__list li:nth-child(n + 5) { display: none; }
+
+  /* ---- faq ---- */
+  .faq__side { gap: 12px; }
+  .faq__tab { padding: 11px 0; font-size: 14px; }
+  .faq__aside { display: none; }
+  .faq__foot { flex-direction: column; align-items: stretch; gap: 14px; }
+  .faq__foot p { display: none; }
+  .faq__foot .btn { width: 100%; }
+
+  /* ---- footer ----
+     The eight consultations are the same eight in the mosaic further up, and
+     the policies are one tap from any of them. The phone keeps the routes it
+     cannot get elsewhere. */
+  .footer__nav > :first-child { display: none; }
+  .footer__nav { grid-template-columns: repeat(2, 1fr); }
+  .footer__base { padding-bottom: 24px; }
+
+  /* ---- practice ---- */
+  .practice__quote { flex-basis: auto; }
+  .practice__foot .btn { width: 100%; }
+
+  /* ---- journey rail keeps its swipe, just tighter cards ---- */
+  .jstep { flex-basis: clamp(210px, 66vw, 250px); padding: 17px; }
+  .jstep p { font-size: 12.5px; }
+}
+
+
+/* ============================================================
+   TOUCH TARGETS
+   Below the tablet breakpoint every control has to be reachable
+   with a thumb. 44px is the floor; these are the links that sat
+   under it because their size came from their text alone.
+   ============================================================ */
+@media (max-width: 900px) {
+  .mobile-nav__foot a:not(.btn),
+  .about-contact__links a:not(.btn),
+  .legal__card a:not(.btn),
+  .faq__side .textlink,
+  .footer__nav a,
+  .footer__social a,
+  .legal__nav a,
+  .navlinks a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .brand { min-height: 44px; }
+  .uv__ghost { min-height: 44px; }
+}
+
+@media (max-width: 720px) {
+  /* ---- footer, centred ----
+     Stacked to one column, a left-ragged directory leaves the whole right
+     side of the phone empty. Centred, the brand, the routes and the legal
+     line share one axis down the middle. */
+  .footer__grid { justify-items: center; text-align: center; }
+  .footer__brand { display: grid; justify-items: center; }
+  .footer__brand > a { justify-items: center; }
+  .footer__roles { text-align: center; }
+  .footer__social { justify-items: center; width: 100%; }
+  .footer__social a { justify-content: center; }
+
+  .footer__nav { width: 100%; text-align: center; }
+  .footer__h { text-align: center; }
+  .footer__nav a { justify-content: center; }
+  /* the hover nudge reads as a wobble once the label is centred */
+  .footer__nav a:hover { transform: none; color: var(--saffron); }
+
+  .footer__disclaimer { text-align: center; margin-inline: auto; }
+  .footer__base { justify-content: center; text-align: center; }
+}
