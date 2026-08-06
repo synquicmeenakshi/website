@@ -94,12 +94,21 @@ function notify(consultation) {
 /** GET /api/consultations/slots?date=YYYY-MM-DD — public. */
 const getSlots = async (req, res) => {
   try {
-    const { date, from, days } = req.query;
+    const { date, from, days, service, duration } = req.query;
+
+    // Duration comes from the service record so the client cannot shorten a
+    // booking to squeeze into a slot it does not fit.
+    let mins = Number(duration) || 0;
+    if (service) {
+      const svc = await MeenakshiService.findOne({ slug: service, isActive: true }).select('duration').lean();
+      if (svc) mins = svc.duration || 0;
+    }
+
     if (from) {
-      const range = await availability.slotsForRange(from, Number(days) || 30);
+      const range = await availability.slotsForRange(from, Number(days) || 30, mins);
       return res.json({ success: true, data: range });
     }
-    const result = await availability.slotsForDate(date);
+    const result = await availability.slotsForDate(date, mins);
     res.json({ success: true, data: result });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -124,27 +133,31 @@ const createConsultation = async (req, res) => {
       appointmentDate, appointmentTime, serviceSlug
     } = req.body;
 
-    // Never trust the client's view of availability — re-check server-side.
-    // Without this, two visitors on the page at once can both take one slot.
+    // Price and duration come from the service record, never from the request
+    // body — otherwise a caller could set their own fee or shorten a session
+    // to fit a slot it does not fit into.
+    let amount = 0;
+    let currency = 'INR';
+    let durationMinutes = 0;
+    if (serviceSlug) {
+      const service = await MeenakshiService.findOne({ slug: serviceSlug, isActive: true }).lean();
+      if (service) {
+        amount = service.price || 0;
+        currency = service.currency || 'INR';
+        durationMinutes = service.duration || 0;
+      }
+    }
+
+    // Never trust the client's view of availability — re-check server-side,
+    // and check the whole duration, not just the start time.
     if (appointmentDate && appointmentTime) {
-      const bookable = await availability.isSlotBookable(appointmentDate, appointmentTime);
+      const bookable = await availability.isSlotBookable(appointmentDate, appointmentTime, durationMinutes);
       if (!bookable) {
         return res.status(409).json({
           success: false,
           message: 'That time has just been taken. Please choose another slot.',
           code: 'SLOT_UNAVAILABLE'
         });
-      }
-    }
-
-    // Price comes from the service record, never from the request body.
-    let amount = 0;
-    let currency = 'INR';
-    if (serviceSlug) {
-      const service = await MeenakshiService.findOne({ slug: serviceSlug, isActive: true }).lean();
-      if (service) {
-        amount = service.price || 0;
-        currency = service.currency || 'INR';
       }
     }
 
@@ -163,6 +176,7 @@ const createConsultation = async (req, res) => {
       appointmentDate: appointmentDate || '',
       appointmentTime: appointmentTime || '',
       serviceSlug: serviceSlug || '',
+      durationMinutes: durationMinutes || undefined,
       amount,
       currency,
       paymentStatus: amount > 0 ? 'pending' : 'not_required',

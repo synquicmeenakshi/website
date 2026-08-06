@@ -63,6 +63,8 @@ change.
 | TC-214 ★ | Double-booking blocked | Open `/book` in two tabs. Select the same date and slot in both. Submit both. | First succeeds. Second shows "That time has just been taken", refreshes the slot list, and does **not** create a second booking |
 | TC-215 | Submit disabled in flight | Submit and watch the button | Disabled while sending; cannot double-submit |
 | TC-216 ★ | Network failure is visible | DevTools → Network → Offline. Submit. | Red error message appears. **Must not show the success panel.** |
+| TC-218 ★ | Long session blocks the next slot | Admin → Services: set Astrology's duration to 120. Book it at the first available time. Reload `/book`, same date. | The following hour is **gone**. A 120-minute session must not leave the slot it overlaps bookable. |
+| TC-219 ★ | Long session cannot straddle a break | With a 120-minute service, look at the offered starts | A start whose session would run through a gap in the day's configured times (e.g. 12:00 when 13:00 and 14:00 are not configured) is **not** offered |
 | TC-217 | Birth details stored | Book, then open the record in admin | DOB, TOB, POB, language, area all match what was entered |
 
 ### Payment — requires Razorpay keys
@@ -70,6 +72,9 @@ change.
 | ID | Case | Steps | Expected |
 |---|---|---|---|
 | TC-220 | No keys configured | With `RAZORPAY_KEY_ID` unset, book a service with a price | Booking completes **without** checkout; payment status `not_required`. Bookings are never blocked by missing keys. |
+| TC-230 ★ | Times shown in the visitor's timezone | DevTools → ⋮ → More tools → Sensors → set Location to London. Reload `/book`, pick a date. | Chips show **London** times, with a line reading "Times shown in your local time (Europe/London). The practice keeps Asia/Kolkata." Hovering a chip shows the IST time. |
+| TC-231 | Same timezone, no noise | With the machine in IST, pick a date | Chips show IST; the hint reads "Times shown in Asia/Kolkata" with no conversion wording |
+| TC-232 ★ | Booked time is the practice's | After TC-230, book a slot and open it in admin | The stored time is the **IST** wall time, not the visitor's local rendering |
 | TC-221 | Zero-price service | Book a service priced at 0 | No checkout; booking recorded |
 | TC-222 | Checkout opens | With test keys set and a priced service, submit | Razorpay modal opens showing the correct amount |
 | TC-223 | Successful payment | Complete with a Razorpay test card | Success panel; admin shows payment **paid**, status **confirmed**, payment ID recorded |

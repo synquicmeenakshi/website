@@ -96,6 +96,14 @@ const consultationSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  // Copied from the service at booking time, not read live: changing a
+  // service's duration later must not silently move an existing booking's
+  // end time and start overlapping its neighbour.
+  durationMinutes: {
+    type: Number,
+    default: 60,
+    min: 0
+  },
 
   // --- payment ---------------------------------------------------------------
   // 'not_required' covers the window where Razorpay keys are not configured:

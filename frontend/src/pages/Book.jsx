@@ -57,6 +57,21 @@ function loadRazorpay() {
   })
 }
 
+/* The practice keeps one schedule, in its own timezone, but the site is sold as
+   "online worldwide". Showing a bare "11:00" to someone abroad invites them to
+   read it as their own local time and miss the appointment, so slots carry a
+   UTC instant and are rendered in the visitor's zone with the zone named. */
+const LOCAL_TZ = (() => {
+  try { return Intl.DateTimeFormat().resolvedOptions().timeZone || '' } catch { return '' }
+})()
+
+const localLabel = (iso, fallback) => {
+  if (!iso) return fallback
+  try {
+    return new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  } catch { return fallback }
+}
+
 const money = (n, c = 'INR') =>
   c === 'INR' ? `₹${Number(n).toLocaleString('en-IN')}` : `${c} ${n}`
 
@@ -71,6 +86,7 @@ export default function Book() {
   const [date, setDate] = useState('')
   const [slots, setSlots] = useState(null)      // null = not asked yet
   const [slotsReason, setSlotsReason] = useState('')
+  const [slotTz, setSlotTz] = useState('')
   const [slot, setSlot] = useState('')
   const [loadingSlots, setLoadingSlots] = useState(false)
 
@@ -87,22 +103,26 @@ export default function Book() {
 
   // Fetch availability whenever the date changes. The slot list is authoritative
   // from the server — the client never assumes a slot is free.
+  // Re-fetch on service change too: a longer consultation fits fewer starts,
+  // so the offered times genuinely differ per service.
   useEffect(() => {
     if (!date) { setSlots(null); setSlot(''); setSlotsReason(''); return }
     let cancelled = false
     setLoadingSlots(true)
     setSlot('')
-    fetch(`${API_BASE}/consultations/slots?date=${date}`)
+    const q = `date=${date}${serviceSlug ? `&service=${encodeURIComponent(serviceSlug)}` : ''}`
+    fetch(`${API_BASE}/consultations/slots?${q}`)
       .then((r) => r.json())
       .then((b) => {
         if (cancelled) return
         setSlots(b?.data?.available || [])
         setSlotsReason(b?.data?.reason || '')
+        setSlotTz(b?.data?.timezone || '')
       })
       .catch(() => { if (!cancelled) { setSlots([]); setSlotsReason('Could not load times.') } })
       .finally(() => { if (!cancelled) setLoadingSlots(false) })
     return () => { cancelled = true }
-  }, [date])
+  }, [date, serviceSlug])
 
   async function payFor(booking) {
     // No fee, or no gateway configured — the booking stands as it is.
@@ -425,20 +445,34 @@ export default function Book() {
                       {loadingSlots ? (
                         <p className="bk-hint">Checking availability…</p>
                       ) : slots && slots.length > 0 ? (
-                        <div className="bk-slots" id="bk-slots" role="radiogroup" aria-label="Available times">
-                          {slots.map((t) => (
-                            <button
-                              key={t}
-                              type="button"
-                              role="radio"
-                              aria-checked={slot === t}
-                              className={`bk-slot${slot === t ? ' is-on' : ''}`}
-                              onClick={() => setSlot(t)}
-                            >
-                              {t}
-                            </button>
-                          ))}
-                        </div>
+                        <>
+                          <div className="bk-slots" id="bk-slots" role="radiogroup" aria-label="Available times">
+                            {slots.map((t) => {
+                              const shown = LOCAL_TZ && slotTz && LOCAL_TZ !== slotTz
+                                ? localLabel(t.iso, t.time)
+                                : t.time
+                              return (
+                                <button
+                                  key={t.time}
+                                  type="button"
+                                  role="radio"
+                                  aria-checked={slot === t.time}
+                                  className={`bk-slot${slot === t.time ? ' is-on' : ''}`}
+                                  onClick={() => setSlot(t.time)}
+                                  title={LOCAL_TZ !== slotTz ? `${t.time} ${slotTz}` : undefined}
+                                >
+                                  {shown}
+                                </button>
+                              )
+                            })}
+                          </div>
+                          <p className="bk-hint">
+                            {LOCAL_TZ && slotTz && LOCAL_TZ !== slotTz
+                              ? `Times shown in your local time (${LOCAL_TZ}). The practice keeps ${slotTz}.`
+                              : `Times shown in ${slotTz || 'the practice’s local time'}.`}
+                            {service?.duration ? ` Session length ${service.duration} minutes.` : ''}
+                          </p>
+                        </>
                       ) : (
                         <p className="bk-hint">
                           {slotsReason || 'No times available on that date. Please try another.'}

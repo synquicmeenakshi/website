@@ -1,16 +1,24 @@
 /**
  * Slot availability for the Meenakshi booking page.
  *
- * A slot is offered only if all of these hold:
+ * A slot start S is offered for a consultation of D minutes only if all hold:
  *   - the weekday is a working day in the weekly schedule
- *   - the slot is listed for that weekday
+ *   - S is one of that weekday's configured slot starts
+ *   - the whole of [S, S+D) is covered by CONSECUTIVE configured slots, so a
+ *     long consultation cannot be booked across a break in the day
  *   - the date is within [today + leadTimeDays, today + horizonDays]
- *   - the date is not fully blocked, and the slot is not individually blocked
- *   - no other consultation already holds it
+ *   - the date is not fully blocked, and no slot the booking spans is blocked
+ *   - [S, S+D) does not overlap an existing booking's own [start, start+its
+ *     duration) interval
  *
- * "Already holds it" counts bookings that are paid, or awaiting payment and
- * recent. An abandoned checkout must not sterilise a slot forever, so pending
- * holds expire — see HOLD_MINUTES.
+ * That last pair is the point: a 120-minute consultation booked at 11:00 must
+ * remove 12:00 from the list. Treating a booking as occupying exactly one slot
+ * silently double-books the practitioner as soon as any service is longer than
+ * one slot.
+ *
+ * "Already booked" counts bookings that are paid, or awaiting payment and
+ * recent. An abandoned checkout must not sterilise a slot forever, hence
+ * HOLD_MINUTES.
  */
 
 const MeenakshiAvailability = require('../models/MeenakshiAvailability');
@@ -18,8 +26,17 @@ const MeenakshiBlockedDate = require('../models/MeenakshiBlockedDate');
 const Consultation = require('../models/Consultation');
 
 const HOLD_MINUTES = 20;
-
 const DAY_KEYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+/* ---- time helpers -------------------------------------------------------- */
+
+const toMinutes = (hhmm) => {
+  const [h, m] = String(hhmm || '').split(':').map(Number);
+  return (Number.isFinite(h) ? h : 0) * 60 + (Number.isFinite(m) ? m : 0);
+};
+
+const toHHMM = (mins) =>
+  `${String(Math.floor(mins / 60)).padStart(2, '0')}:${String(mins % 60).padStart(2, '0')}`;
 
 /** Today in the business timezone, as 'YYYY-MM-DD'. */
 function todayInZone(timezone) {
@@ -39,6 +56,37 @@ function weekdayKey(dateStr) {
   return DAY_KEYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
 }
 
+/**
+ * The UTC instant at which `date`/`time` occurs in `timeZone`.
+ *
+ * Derived rather than assumed: the business timezone is configurable, so a
+ * hardcoded +05:30 would quietly produce wrong instants for any other zone,
+ * and wrong ones across a DST boundary. Two passes converge because the offset
+ * changes by at most an hour or so.
+ */
+function zonedToUtc(date, time, timeZone) {
+  const [y, mo, d] = date.split('-').map(Number);
+  const [h, mi] = time.split(':').map(Number);
+  let utc = Date.UTC(y, mo - 1, d, h, mi);
+
+  for (let i = 0; i < 2; i++) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone, year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    }).formatToParts(new Date(utc));
+
+    const get = (t) => Number(parts.find((p) => p.type === t)?.value);
+    const asZone = Date.UTC(get('year'), get('month') - 1, get('day'), get('hour') % 24, get('minute'), get('second'));
+    const wanted = Date.UTC(y, mo - 1, d, h, mi, 0);
+    const drift = asZone - wanted;
+    if (drift === 0) break;
+    utc -= drift;
+  }
+  return new Date(utc).toISOString();
+}
+
+/* ---- settings ------------------------------------------------------------ */
+
 async function getSettings() {
   let doc = await MeenakshiAvailability.findOne({ settingsKey: 'meenakshi' });
   if (!doc) doc = await MeenakshiAvailability.create({ settingsKey: 'meenakshi' });
@@ -53,12 +101,13 @@ async function getWindow() {
     min: addDays(today, s.leadTimeDays),
     max: addDays(today, s.horizonDays),
     leadTimeDays: s.leadTimeDays,
+    slotMinutes: s.slotMinutes,
     timezone: s.timezone
   };
 }
 
-/** Slots already spoken for on a date. */
-async function takenSlots(date) {
+/** Busy intervals on a date, in minutes-from-midnight, business timezone. */
+async function busyIntervals(date, slotMinutes) {
   const cutoff = new Date(Date.now() - HOLD_MINUTES * 60 * 1000);
 
   const held = await Consultation.find({
@@ -68,60 +117,96 @@ async function takenSlots(date) {
       { paymentStatus: { $in: ['paid', 'not_required'] } },
       { paymentStatus: 'pending', createdAt: { $gte: cutoff } }
     ]
-  }).select('appointmentTime').lean();
+  }).select('appointmentTime durationMinutes').lean();
 
-  return new Set(held.map((h) => h.appointmentTime).filter(Boolean));
+  return held
+    .filter((h) => h.appointmentTime)
+    .map((h) => {
+      const start = toMinutes(h.appointmentTime);
+      // Legacy bookings predate durationMinutes; assume one slot.
+      const dur = h.durationMinutes || slotMinutes || 60;
+      return [start, start + dur];
+    });
 }
+
+const overlaps = (aStart, aEnd, [bStart, bEnd]) => aStart < bEnd && bStart < aEnd;
 
 /**
  * Available slots for one date.
- * Returns { date, available: [], all: [], reason? }
+ *
+ * @param {string} date 'YYYY-MM-DD'
+ * @param {number} [durationMinutes] length of the consultation being booked
+ * @returns {{date, timezone, slotMinutes, available: Array<{time,iso}>, all: string[], reason?: string}}
  */
-async function slotsForDate(date) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || ''))) {
-    return { date, available: [], all: [], reason: 'Invalid date' };
-  }
-
+async function slotsForDate(date, durationMinutes) {
   const s = await getSettings();
-  const { min, max } = await getWindow();
+  const tz = s.timezone;
+  const slotMinutes = s.slotMinutes || 60;
+  const empty = (reason, all = []) => ({ date, timezone: tz, slotMinutes, available: [], all, reason });
 
-  if (date < min) return { date, available: [], all: [], reason: `Earliest available date is ${min}` };
-  if (date > max) return { date, available: [], all: [], reason: 'That date is beyond the booking window' };
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || ''))) return empty('Invalid date');
+
+  const { min, max } = await getWindow();
+  if (date < min) return empty(`Earliest available date is ${min}`);
+  if (date > max) return empty('That date is beyond the booking window');
 
   const day = s.weeklySchedule?.[weekdayKey(date)];
-  if (!day || !day.isWorking) return { date, available: [], all: [], reason: 'Not a working day' };
+  if (!day || !day.isWorking) return empty('Not a working day');
 
-  const all = [...(day.slots || [])].sort();
+  const all = [...(day.slots || [])].filter(Boolean).sort();
+  if (!all.length) return empty('No times configured for this day');
 
   const block = await MeenakshiBlockedDate.findOne({ date, isActive: true }).lean();
-  if (block?.isFullDay) return { date, available: [], all, reason: block.reason || 'Unavailable' };
+  if (block?.isFullDay) return empty(block.reason || 'Unavailable', all);
 
   const blocked = new Set(block?.slots || []);
-  const taken = await takenSlots(date);
+  const busy = await busyIntervals(date, slotMinutes);
 
-  const available = all.filter((t) => !blocked.has(t) && !taken.has(t));
-  return { date, available, all };
+  const duration = Math.max(Number(durationMinutes) || slotMinutes, slotMinutes);
+  const startSet = new Set(all.map(toMinutes));
+
+  const available = [];
+  for (const time of all) {
+    const start = toMinutes(time);
+    const end = start + duration;
+
+    // Every slot-sized step the booking covers must itself be a configured
+    // start, so a long session cannot straddle a break in the day.
+    const stepsNeeded = Math.ceil(duration / slotMinutes);
+    let covered = true;
+    for (let k = 0; k < stepsNeeded; k++) {
+      const step = start + k * slotMinutes;
+      if (!startSet.has(step) || blocked.has(toHHMM(step))) { covered = false; break; }
+    }
+    if (!covered) continue;
+
+    if (busy.some((iv) => overlaps(start, end, iv))) continue;
+
+    available.push({ time, iso: zonedToUtc(date, time, tz) });
+  }
+
+  return { date, timezone: tz, slotMinutes, available, all };
 }
 
 /** Availability across a range, for painting a calendar. */
-async function slotsForRange(fromDate, days = 30) {
+async function slotsForRange(fromDate, days = 30, durationMinutes) {
   const out = [];
   for (let i = 0; i < Math.min(days, 90); i++) {
     const d = addDays(fromDate, i);
     // eslint-disable-next-line no-await-in-loop
-    const r = await slotsForDate(d);
+    const r = await slotsForDate(d, durationMinutes);
     out.push({ date: d, count: r.available.length });
   }
   return out;
 }
 
 /** Guard used at booking time — never trust the client's view of a slot. */
-async function isSlotBookable(date, time) {
-  const r = await slotsForDate(date);
-  return r.available.includes(time);
+async function isSlotBookable(date, time, durationMinutes) {
+  const r = await slotsForDate(date, durationMinutes);
+  return r.available.some((s) => s.time === time);
 }
 
 module.exports = {
   getSettings, getWindow, slotsForDate, slotsForRange, isSlotBookable,
-  todayInZone, addDays, HOLD_MINUTES
+  todayInZone, addDays, zonedToUtc, HOLD_MINUTES
 };
