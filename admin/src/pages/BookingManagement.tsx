@@ -3,6 +3,7 @@ import { Plus, Trash2, X, Loader2, CalendarOff, CalendarCheck, Menu, AlertCircle
 import Sidebar from '../components/Sidebar'
 
 import { API_BASE_URL } from '../config/api'
+import { authHeaders } from '../utils/meenakshiApi'
 import { formatBelgiumDate, getBelgiumDayOfWeek, getBelgiumTodayStr, getBelgiumDateStr } from '../utils/timezone'
 
 interface DaySchedule {
@@ -98,7 +99,7 @@ const BookingManagement = () => {
   // Fetch settings
   const fetchSettings = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates/settings`)
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability/settings`, { headers: authHeaders() })
       const data = await response.json()
       if (data.success) {
         setSettings(data.data)
@@ -113,9 +114,9 @@ const BookingManagement = () => {
   const handleSaveAdvanceBooking = async () => {
     setSavingAdvance(true)
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates/settings`, {
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability/settings`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders(),
         body: JSON.stringify({ minAdvanceBooking: minAdvanceHours })
       })
       const data = await response.json()
@@ -136,7 +137,7 @@ const BookingManagement = () => {
   // Fetch blocked dates
   const fetchBlockedDates = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates`)
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability`, { headers: authHeaders() })
       const data = await response.json()
       if (data.success) {
         setBlockedDates(data.data)
@@ -275,9 +276,9 @@ const BookingManagement = () => {
 
     setSaving(true)
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates/settings/day/${editingDay}`, {
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability/settings/day/${editingDay}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders(),
         body: JSON.stringify({
           isWorking: editingDayWorking,
           timeSlots: editingDaySlots
@@ -373,9 +374,9 @@ const BookingManagement = () => {
         }
 
         try {
-          const response = await fetch(`${API_BASE_URL}/blocked-dates`, {
+          const response = await fetch(`${API_BASE_URL}/meenakshi-availability`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: authHeaders(),
             body: JSON.stringify(payload)
           })
           const data = await response.json()
@@ -410,7 +411,7 @@ const BookingManagement = () => {
 
   const handleToggleBlock = async (id: string) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates/${id}/toggle`, {
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability/${id}/toggle`, {
         method: 'PUT'
       })
       const data = await response.json()
@@ -427,7 +428,7 @@ const BookingManagement = () => {
 
   const handleDeleteBlock = async (id: string) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability/${id}`, {
         method: 'DELETE'
       })
       const data = await response.json()
@@ -443,7 +444,7 @@ const BookingManagement = () => {
 
   const handleRemoveBlockedSlot = async (id: string, slot: string) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/blocked-dates/${id}/slot/${encodeURIComponent(slot)}`, {
+      const response = await fetch(`${API_BASE_URL}/meenakshi-availability/${id}/slot/${encodeURIComponent(slot)}`, {
         method: 'DELETE'
       })
       const data = await response.json()

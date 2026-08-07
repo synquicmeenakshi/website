@@ -13,6 +13,7 @@ const availability = require('../controllers/availabilityController');
 const blog = require('../controllers/meenakshiBlogController');
 const enquiries = require('../controllers/meenakshiEnquiryController');
 const customers = require('../controllers/customerController');
+const compat = require('../controllers/availabilityCompatController');
 
 /* ---- payments ------------------------------------------------------------ */
 router.get('/payments/config', payments.getConfig);
@@ -26,6 +27,19 @@ router.put('/availability/settings', authMiddleware, strictLimiter, availability
 router.get('/availability/blocked', authMiddleware, availability.listBlocked);
 router.post('/availability/blocked', authMiddleware, strictLimiter, availability.createBlocked);
 router.delete('/availability/blocked/:id', authMiddleware, strictLimiter, availability.deleteBlocked);
+
+/* ---- availability, in the shape the existing BookingManagement screen speaks
+   (see availabilityCompatController). Auth-protected, unlike the original
+   ZenYourLife /blocked-dates routes, which had none. */
+router.get('/meenakshi-availability/settings', authMiddleware, compat.getSettings);
+router.put('/meenakshi-availability/settings', authMiddleware, strictLimiter, compat.updateSettings);
+router.put('/meenakshi-availability/settings/day/:day', authMiddleware, strictLimiter, compat.updateDay);
+router.get('/meenakshi-availability/available-slots/:date', authMiddleware, compat.availableSlots);
+router.get('/meenakshi-availability', authMiddleware, compat.listBlocked);
+router.post('/meenakshi-availability', authMiddleware, strictLimiter, compat.createBlocked);
+router.put('/meenakshi-availability/:id/toggle', authMiddleware, strictLimiter, compat.toggleBlocked);
+router.delete('/meenakshi-availability/:id/slot/:slot', authMiddleware, strictLimiter, compat.deleteBlockedSlot);
+router.delete('/meenakshi-availability/:id', authMiddleware, strictLimiter, compat.deleteBlocked);
 
 /* ---- blog ---------------------------------------------------------------- */
 // Admin listing is declared before /:slug so 'admin' is not read as a slug.

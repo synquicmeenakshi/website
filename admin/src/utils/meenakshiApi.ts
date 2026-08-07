@@ -12,7 +12,7 @@ const RAW = import.meta.env.VITE_API_URL || 'http://localhost:5001/api'
 /** Guarantee exactly one trailing `/api`, whichever convention was configured. */
 export const API = RAW.replace(/\/+$/, '').replace(/\/api$/, '') + '/api'
 
-const authHeaders = (): Record<string, string> => {
+export const authHeaders = (): Record<string, string> => {
   const apiKey = localStorage.getItem('admin_api_key')
   const token = localStorage.getItem('admin_token')
   return {

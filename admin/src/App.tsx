@@ -22,7 +22,6 @@ import MeenakshiFaqs from './pages/MeenakshiFaqs'
 import MeenakshiJourney from './pages/MeenakshiJourney'
 import MeenakshiLegal from './pages/MeenakshiLegal'
 import MeenakshiSettings from './pages/MeenakshiSettings'
-import Availability from './pages/Availability'
 import Enquiries from './pages/Enquiries'
 import BlogPosts from './pages/BlogPosts'
 import Customers from './pages/Customers'
@@ -42,7 +41,8 @@ function App() {
         <Route path="/m/journey" element={<ProtectedRoute><MeenakshiJourney /></ProtectedRoute>} />
         <Route path="/m/legal" element={<ProtectedRoute><MeenakshiLegal /></ProtectedRoute>} />
         <Route path="/m/settings" element={<ProtectedRoute><MeenakshiSettings /></ProtectedRoute>} />
-        <Route path="/m/availability" element={<ProtectedRoute><Availability /></ProtectedRoute>} />
+        {/* Availability: the ZenYourLife screen, repointed at the Meenakshi models */}
+        <Route path="/booking-management" element={<ProtectedRoute><BookingManagement /></ProtectedRoute>} />
         <Route path="/m/enquiries" element={<ProtectedRoute><Enquiries /></ProtectedRoute>} />
         <Route path="/m/blog" element={<ProtectedRoute><BlogPosts /></ProtectedRoute>} />
         <Route path="/m/customers" element={<ProtectedRoute><Customers /></ProtectedRoute>} />
@@ -55,7 +55,6 @@ function App() {
         <Route path="/bookings" element={<ProtectedRoute><RentalBooking /></ProtectedRoute>} />
         <Route path="/massage-appointments" element={<ProtectedRoute><MassageBooking /></ProtectedRoute>} />
         <Route path="/booking-calendar" element={<ProtectedRoute><CalendarView /></ProtectedRoute>} />
-        <Route path="/booking-management" element={<ProtectedRoute><BookingManagement /></ProtectedRoute>} />
         <Route path="/inquiries" element={<ProtectedRoute><Inquiries /></ProtectedRoute>} />
         <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
         <Route path="/testimonials" element={<ProtectedRoute><Testimonials /></ProtectedRoute>} />

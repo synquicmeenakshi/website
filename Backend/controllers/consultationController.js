@@ -12,6 +12,7 @@ const Consultation = require('../models/Consultation');
 const MeenakshiService = require('../models/MeenakshiService');
 const transporter = require('../config/emailConfig');
 const availability = require('../services/availabilityService');
+const slide = require('../services/slideService');
 
 const emailConfigured = () => Boolean(process.env.EMAIL_USER && process.env.EMAIL_PASSWORD);
 
@@ -128,7 +129,7 @@ const getWindow = async (req, res) => {
 const createConsultation = async (req, res) => {
   try {
     const {
-      name, contact, dob, tob, pob,
+      name, contact, email, phone, dob, tob, pob,
       area, language, preferred, preferredDate, notes, consent,
       appointmentDate, appointmentTime, serviceSlug
     } = req.body;
@@ -139,12 +140,14 @@ const createConsultation = async (req, res) => {
     let amount = 0;
     let currency = 'INR';
     let durationMinutes = 0;
+    let serviceTitle = '';
     if (serviceSlug) {
       const service = await MeenakshiService.findOne({ slug: serviceSlug, isActive: true }).lean();
       if (service) {
         amount = service.price || 0;
         currency = service.currency || 'INR';
         durationMinutes = service.duration || 0;
+        serviceTitle = service.title || '';
       }
     }
 
@@ -163,7 +166,10 @@ const createConsultation = async (req, res) => {
 
     const consultation = await Consultation.create({
       name,
-      contact,
+      email: email || '',
+      phone: phone || '',
+      // Legacy single-field callers still work; the model derives it otherwise.
+      contact: contact || email || phone || '',
       dob,
       tob,
       pob,
@@ -183,8 +189,19 @@ const createConsultation = async (req, res) => {
       source: 'meenakshi-web'
     });
 
-    // Persisted — the request is safe from here on. Notify out of band.
+    // Persisted — the request is safe from here on. Notify out of band:
+    // neither a mail failure nor a Slide outage may fail the booking.
     notify(consultation);
+
+    // Client confirmations go out only once the booking is actually settled.
+    // With a fee outstanding, "your appointment is confirmed" would be a lie
+    // until payment clears — paymentController fires them after verification.
+    if (consultation.paymentStatus === 'not_required') {
+      slide.notifyBooking(consultation, {
+        serviceTitle: serviceTitle || consultation.area,
+        timezone: process.env.BUSINESS_TIMEZONE || 'Asia/Kolkata'
+      });
+    }
 
     res.status(201).json({
       success: true,
@@ -220,7 +237,7 @@ const getAllConsultations = async (req, res) => {
     if (status && status !== 'all') query.status = status;
     if (search) {
       const re = new RegExp(String(search).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-      query.$or = [{ name: re }, { contact: re }, { area: re }, { pob: re }];
+      query.$or = [{ name: re }, { contact: re }, { email: re }, { phone: re }, { area: re }, { pob: re }];
     }
 
     const consultations = await Consultation.find(query)

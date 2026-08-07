@@ -21,9 +21,27 @@ const consultationSchema = new mongoose.Schema({
     trim: true,
     maxlength: 200
   },
+  // Email and phone are now collected separately: the confirmation flow needs
+  // both channels (a prompt WhatsApp message and a detailed email), which a
+  // single either/or field cannot support.
+  email: {
+    type: String,
+    default: '',
+    trim: true,
+    lowercase: true,
+    maxlength: 200
+  },
+  phone: {
+    type: String,
+    default: '',
+    trim: true,
+    maxlength: 60
+  },
+  // Retained as the display/search value and for records created before the
+  // split. Derived from email/phone on save when not supplied.
   contact: {
     type: String,
-    required: [true, 'A contact number or email is required'],
+    default: '',
     trim: true,
     maxlength: 200
   },
@@ -167,13 +185,27 @@ const consultationSchema = new mongoose.Schema({
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[\d\s+\-()]{7,}$/;
 
-consultationSchema.pre('save', function (next) {
-  if (this.isModified('contact') || this.isNew) {
-    const c = String(this.contact || '').trim();
-    if (EMAIL_RE.test(c)) this.contactType = 'email';
-    else if (PHONE_RE.test(c)) this.contactType = 'phone';
-    else this.contactType = 'unknown';
+consultationSchema.pre('validate', function (next) {
+  // At least one way to reach the client. Enforced here rather than with
+  // `required` on both, because older records carry only `contact`.
+  if (!this.email && !this.phone && !this.contact) {
+    return next(new Error('An email address or phone number is required'));
   }
+  next();
+});
+
+consultationSchema.pre('save', function (next) {
+  // Keep `contact` populated so admin search and the customer grouping keep
+  // working across both the old and new shapes.
+  if (!this.contact) this.contact = this.email || this.phone || '';
+
+  const c = String(this.contact || '').trim();
+  if (this.email && EMAIL_RE.test(this.email)) this.contactType = 'email';
+  else if (this.phone && PHONE_RE.test(this.phone)) this.contactType = 'phone';
+  else if (EMAIL_RE.test(c)) this.contactType = 'email';
+  else if (PHONE_RE.test(c)) this.contactType = 'phone';
+  else this.contactType = 'unknown';
+
   next();
 });
 

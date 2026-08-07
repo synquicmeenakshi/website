@@ -24,7 +24,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
   const menuItems: MenuItem[] = [
     { name: 'Dashboard', icon: <LayoutDashboard className="w-5 h-5" />, path: '/dashboard' },
     { name: 'Consultations', icon: <CalendarCheck className="w-5 h-5" />, path: '/consultations' },
-    { name: 'Availability', icon: <CalendarClock className="w-5 h-5" />, path: '/m/availability' },
+    { name: 'Availability', icon: <CalendarClock className="w-5 h-5" />, path: '/booking-management' },
     { name: 'Customers', icon: <Users className="w-5 h-5" />, path: '/m/customers' },
     { name: 'Enquiries', icon: <MessageSquare className="w-5 h-5" />, path: '/m/enquiries' },
     { name: 'Services', icon: <Sparkles className="w-5 h-5" />, path: '/m/services' },

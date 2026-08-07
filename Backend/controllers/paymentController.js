@@ -13,6 +13,8 @@
 
 const crypto = require('crypto');
 const Consultation = require('../models/Consultation');
+const MeenakshiService = require('../models/MeenakshiService');
+const slide = require('../services/slideService');
 
 const KEY_ID = process.env.RAZORPAY_KEY_ID || '';
 const KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || '';
@@ -148,6 +150,19 @@ const verifyPayment = async (req, res) => {
     consultation.paidAt = new Date();
     if (consultation.status === 'new') consultation.status = 'confirmed';
     await consultation.save();
+
+    // Now the booking is genuinely confirmed — send the client's WhatsApp and
+    // email confirmations. Out of band: a Slide failure must not turn a
+    // successful payment into an error response.
+    let serviceTitle = consultation.area;
+    if (consultation.serviceSlug) {
+      const svc = await MeenakshiService.findOne({ slug: consultation.serviceSlug }).select('title').lean();
+      if (svc?.title) serviceTitle = svc.title;
+    }
+    slide.notifyBooking(consultation, {
+      serviceTitle,
+      timezone: process.env.BUSINESS_TIMEZONE || 'Asia/Kolkata'
+    });
 
     res.json({
       success: true,
