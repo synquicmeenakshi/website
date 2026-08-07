@@ -23,7 +23,7 @@ admin editor updated. Proposal: "each with duration and pricing".
 - `GET /api/consultations/slots?date=` — returns slots for a date, minus those
   already taken and minus blocked ones. This is the "real-time" part.
 
-Deliberately **not** reusing ZenYourLife's `BookingSettings` / `BlockedDate`:
+Deliberately **not** reusing Meenakshi's `BookingSettings` / `BlockedDate`:
 they are wired to the massage `Appointment` model and its Belgium assumptions.
 
 **A3 · Consultation booking & payment**
@@ -66,7 +66,7 @@ Repoint the scheduler at `Consultation` using `appointmentDate`.
 - Customers
 - Dashboard: revenue tiles
 - Services: price/duration fields
-- Remove the dead "Users" screen — it reads ZenYourLife enrolments and is
+- Remove the dead "Users" screen — it reads Meenakshi enrolments and is
   permanently empty
 
 ## Phase C — Frontend

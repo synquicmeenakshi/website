@@ -9,15 +9,24 @@ const Admin = require('../models/Admin');
 
 const createAdmin = async () => {
   try {
+    // Credentials come from the environment and are never committed.
+    // Validate before connecting so a missing value fails immediately.
+    const { ADMIN_SEED_EMAIL, ADMIN_SEED_PASSWORD } = process.env;
+
+    if (!ADMIN_SEED_EMAIL || !ADMIN_SEED_PASSWORD) {
+      console.error('❌ ADMIN_SEED_EMAIL and ADMIN_SEED_PASSWORD must both be set.');
+      console.error('   ADMIN_SEED_EMAIL=admin@example.com ADMIN_SEED_PASSWORD=... node Backend/scripts/createAdmin.js');
+      process.exit(1);
+    }
+
     // Connect to MongoDB
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connected to MongoDB');
 
-    // Admin credentials
     const adminData = {
-      email: 'admin@zenyourlife.be',
-      password: 'ZenYourLife@Admin2026!', // Strong password
-      name: 'ZenYourLife Admin',
+      email: ADMIN_SEED_EMAIL,
+      password: ADMIN_SEED_PASSWORD,
+      name: 'Meenakshi Admin',
       role: 'super-admin',
       isActive: true
     };
@@ -34,7 +43,7 @@ const createAdmin = async () => {
         await existingAdmin.save();
         console.log('✅ Admin password updated successfully');
         console.log('Email:', adminData.email);
-        console.log('Password:', adminData.password);
+        console.log('Password: (set from ADMIN_SEED_PASSWORD)');
       }
     } else {
       // Create new admin
@@ -44,10 +53,9 @@ const createAdmin = async () => {
       console.log('✅ Admin created successfully!');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       console.log('Email:', adminData.email);
-      console.log('Password:', adminData.password);
+      console.log('Password: (set from ADMIN_SEED_PASSWORD)');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('⚠️  IMPORTANT: Save these credentials securely!');
-      console.log('⚠️  Change the password after first login');
+      console.log('⚠️  IMPORTANT: Change the password after first login');
     }
 
     mongoose.connection.close();

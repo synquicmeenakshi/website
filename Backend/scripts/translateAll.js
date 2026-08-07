@@ -1,7 +1,7 @@
 /**
  * Comprehensive Translation Script
  * Translates all remaining English content in the database:
- * 1. Properties (Casa Artevista, Villa Zen Your Life)
+ * 1. Properties (Casa Artevista, Villa Meenakshi)
  * 2. Testimonials (Damian, James Wilson, Marc Vettori)
  * 3. Home page content
  * 4. About page content
@@ -168,9 +168,9 @@ const propertyTranslations = {
     }
   },
 
-  'Villa Zen Your Life': {
+  'Villa Meenakshi': {
     fr: {
-      name: 'Villa Zen Your Life',
+      name: 'Villa Meenakshi',
       description: "Villa élégante avec terrasse ensoleillée, beau jardin et piscine extérieure chauffée. Profitez de 3 chambres, 2 salles de bain, climatisation, cuisine entièrement équipée et barbecue. Située à seulement 1,9 km de la plage de Playa Dorada avec WiFi gratuit et parking privé.",
       priceUnit: 'par nuit',
       parking: 'Parking pour 2',
@@ -180,8 +180,8 @@ const propertyTranslations = {
         description: 'Nettoyé et désinfecté professionnellement avant chaque séjour.'
       },
       overview: {
-        title: 'Villa Zen Your Life - Votre évasion parfaite à Lanzarote',
-        description1: "Découvrez un hébergement élégant à Villa Zen Your Life, avec terrasse ensoleillée, beau jardin et piscine extérieure chauffée avec WiFi gratuit dans toute la propriété. Cette magnifique villa dispose de 3 chambres spacieuses et 2 salles de bain modernes, avec climatisation pour votre confort sous le soleil de Lanzarote.",
+        title: 'Villa Meenakshi - Votre évasion parfaite à Lanzarote',
+        description1: "Découvrez un hébergement élégant à Villa Meenakshi, avec terrasse ensoleillée, beau jardin et piscine extérieure chauffée avec WiFi gratuit dans toute la propriété. Cette magnifique villa dispose de 3 chambres spacieuses et 2 salles de bain modernes, avec climatisation pour votre confort sous le soleil de Lanzarote.",
         description2: "Profitez d'équipements confortables comprenant un barbecue parfait pour les soirées en plein air, des espaces de détente extérieurs pour profiter des vues, et un enregistrement/départ privé pour votre commodité.",
         highlights: [
           'Piscine extérieure chauffée',
@@ -198,7 +198,7 @@ const propertyTranslations = {
       },
       location: {
         title: 'Emplacement privilégié à Playa Blanca',
-        description: "Villa Zen Your Life est idéalement située dans le sud ensoleillé de Lanzarote, à seulement 25 minutes à pied de la Marina Rubicon et à proximité de belles plages.",
+        description: "Villa Meenakshi est idéalement située dans le sud ensoleillé de Lanzarote, à seulement 25 minutes à pied de la Marina Rubicon et à proximité de belles plages.",
         places: [
           { title: 'Playa Dorada' },
           { title: 'Marina Rubicon' },
@@ -207,7 +207,7 @@ const propertyTranslations = {
       }
     },
     nl: {
-      name: 'Villa Zen Your Life',
+      name: 'Villa Meenakshi',
       description: 'Elegante villa met zonneterras, prachtige tuin en verwarmd buitenzwembad. Geniet van 3 slaapkamers, 2 badkamers, airconditioning, volledig uitgeruste keuken en BBQ-faciliteiten. Op slechts 1,9 km van het strand Playa Dorada met gratis WiFi en privéparking.',
       priceUnit: 'per nacht',
       parking: 'Parking voor 2',
@@ -217,8 +217,8 @@ const propertyTranslations = {
         description: 'Professioneel schoongemaakt en ontsmet vóór elk verblijf.'
       },
       overview: {
-        title: 'Villa Zen Your Life - Uw perfecte Lanzarote-verblijf',
-        description1: 'Ervaar elegant verblijf in Villa Zen Your Life, met zonneterras, prachtige tuin en verwarmd buitenzwembad met gratis WiFi in de hele woning. Deze prachtige villa biedt 3 ruime slaapkamers en 2 moderne badkamers, met airconditioning om u comfortabel te houden onder de zon van Lanzarote.',
+        title: 'Villa Meenakshi - Uw perfecte Lanzarote-verblijf',
+        description1: 'Ervaar elegant verblijf in Villa Meenakshi, met zonneterras, prachtige tuin en verwarmd buitenzwembad met gratis WiFi in de hele woning. Deze prachtige villa biedt 3 ruime slaapkamers en 2 moderne badkamers, met airconditioning om u comfortabel te houden onder de zon van Lanzarote.',
         description2: 'Geniet van comfortabele voorzieningen waaronder BBQ-faciliteiten perfect voor avondbijeenkomsten, buitenzitplaatsen om van het uitzicht te genieten, en privé in-/uitchecken voor uw gemak.',
         highlights: [
           'Verwarmd buitenzwembad',
@@ -235,7 +235,7 @@ const propertyTranslations = {
       },
       location: {
         title: 'Toplocatie in Playa Blanca',
-        description: 'Villa Zen Your Life is perfect gelegen in het zonnige zuiden van Lanzarote, op slechts 25 minuten lopen van Marina Rubicon en dicht bij prachtige stranden.',
+        description: 'Villa Meenakshi is perfect gelegen in het zonnige zuiden van Lanzarote, op slechts 25 minuten lopen van Marina Rubicon en dicht bij prachtige stranden.',
         places: [
           { title: 'Playa Dorada' },
           { title: 'Marina Rubicon' },
@@ -244,7 +244,7 @@ const propertyTranslations = {
       }
     },
     de: {
-      name: 'Villa Zen Your Life',
+      name: 'Villa Meenakshi',
       description: 'Elegante Villa mit Sonnenterrasse, schönem Garten und beheiztem Außenpool. Genießen Sie 3 Schlafzimmer, 2 Badezimmer, Klimaanlage, voll ausgestattete Küche und Grillmöglichkeiten. Nur 1,9 km vom Strand Playa Dorada entfernt mit kostenlosem WLAN und privatem Parkplatz.',
       priceUnit: 'pro Nacht',
       parking: 'Parkplatz für 2',
@@ -254,8 +254,8 @@ const propertyTranslations = {
         description: 'Vor jedem Aufenthalt professionell gereinigt und desinfiziert.'
       },
       overview: {
-        title: 'Villa Zen Your Life - Ihr perfekter Lanzarote-Urlaub',
-        description1: 'Erleben Sie elegantes Wohnen in der Villa Zen Your Life mit Sonnenterrasse, schönem Garten und beheiztem Außenpool mit kostenlosem WLAN im gesamten Haus. Diese atemberaubende Villa bietet 3 geräumige Schlafzimmer und 2 moderne Badezimmer mit Klimaanlage, um Ihnen unter der Sonne Lanzarotes Komfort zu bieten.',
+        title: 'Villa Meenakshi - Ihr perfekter Lanzarote-Urlaub',
+        description1: 'Erleben Sie elegantes Wohnen in der Villa Meenakshi mit Sonnenterrasse, schönem Garten und beheiztem Außenpool mit kostenlosem WLAN im gesamten Haus. Diese atemberaubende Villa bietet 3 geräumige Schlafzimmer und 2 moderne Badezimmer mit Klimaanlage, um Ihnen unter der Sonne Lanzarotes Komfort zu bieten.',
         description2: 'Genießen Sie komfortable Annehmlichkeiten wie Grillmöglichkeiten, perfekt für gesellige Abende, Außensitzbereiche mit herrlichem Ausblick und privaten Check-in/Check-out für Ihre Bequemlichkeit.',
         highlights: [
           'Beheizter Außenpool',
@@ -272,7 +272,7 @@ const propertyTranslations = {
       },
       location: {
         title: 'Beste Lage in Playa Blanca',
-        description: 'Villa Zen Your Life liegt perfekt im sonnigen Süden von Lanzarote, nur 25 Gehminuten von der Marina Rubicon entfernt und in der Nähe wunderschöner Strände.',
+        description: 'Villa Meenakshi liegt perfekt im sonnigen Süden von Lanzarote, nur 25 Gehminuten von der Marina Rubicon entfernt und in der Nähe wunderschöner Strände.',
         places: [
           { title: 'Playa Dorada' },
           { title: 'Marina Rubicon' },
@@ -281,7 +281,7 @@ const propertyTranslations = {
       }
     },
     es: {
-      name: 'Villa Zen Your Life',
+      name: 'Villa Meenakshi',
       description: 'Elegante villa con terraza soleada, hermoso jardín y piscina exterior climatizada. Disfrute de 3 dormitorios, 2 baños, aire acondicionado, cocina totalmente equipada y barbacoa. Situada a solo 1,9 km de la playa de Playa Dorada con WiFi gratuito y aparcamiento privado.',
       priceUnit: 'por noche',
       parking: 'Aparcamiento para 2',
@@ -291,8 +291,8 @@ const propertyTranslations = {
         description: 'Limpiado y desinfectado profesionalmente antes de cada estancia.'
       },
       overview: {
-        title: 'Villa Zen Your Life - Su escapada perfecta en Lanzarote',
-        description1: 'Disfrute de un alojamiento elegante en Villa Zen Your Life, con terraza soleada, hermoso jardín y piscina exterior climatizada con WiFi gratuito en toda la propiedad. Esta impresionante villa ofrece 3 amplios dormitorios y 2 baños modernos, con aire acondicionado para mantenerle cómodo bajo el sol de Lanzarote.',
+        title: 'Villa Meenakshi - Su escapada perfecta en Lanzarote',
+        description1: 'Disfrute de un alojamiento elegante en Villa Meenakshi, con terraza soleada, hermoso jardín y piscina exterior climatizada con WiFi gratuito en toda la propiedad. Esta impresionante villa ofrece 3 amplios dormitorios y 2 baños modernos, con aire acondicionado para mantenerle cómodo bajo el sol de Lanzarote.',
         description2: 'Disfrute de cómodas instalaciones incluyendo barbacoa perfecta para reuniones nocturnas, zonas de estar exteriores para disfrutar de las vistas, y check-in/check-out privado para su comodidad.',
         highlights: [
           'Piscina exterior climatizada',
@@ -309,7 +309,7 @@ const propertyTranslations = {
       },
       location: {
         title: 'Ubicación privilegiada en Playa Blanca',
-        description: 'Villa Zen Your Life está perfectamente ubicada en el soleado sur de Lanzarote, a solo 25 minutos a pie de Marina Rubicón y cerca de hermosas playas.',
+        description: 'Villa Meenakshi está perfectamente ubicada en el soleado sur de Lanzarote, a solo 25 minutos a pie de Marina Rubicón y cerca de hermosas playas.',
         places: [
           { title: 'Playa Dorada' },
           { title: 'Marina Rubicón' },
@@ -363,19 +363,19 @@ const testimonialTranslations = {
   },
   'Marc Vettori': {
     fr: {
-      text: 'Excellent massage Zen Your Life',
+      text: 'Excellent massage Meenakshi',
       role: ''
     },
     nl: {
-      text: 'Top Zen Your Life massage',
+      text: 'Top Meenakshi massage',
       role: ''
     },
     de: {
-      text: 'Erstklassige Zen Your Life Massage',
+      text: 'Erstklassige Meenakshi Massage',
       role: ''
     },
     es: {
-      text: 'Excelente masaje Zen Your Life',
+      text: 'Excelente masaje Meenakshi',
       role: ''
     }
   }
@@ -388,7 +388,7 @@ const testimonialTranslations = {
 const homePageTranslations = {
   fr: {
     hero: {
-      title: 'Bienvenue chez ZenYourLife',
+      title: 'Bienvenue chez Meenakshi',
       subtitle: "Découvrez l'art de la relaxation et du rajeunissement",
       badgeText: 'Accueil',
       buttonText: 'Voir les services'
@@ -409,7 +409,7 @@ const homePageTranslations = {
   },
   nl: {
     hero: {
-      title: 'Welkom bij ZenYourLife',
+      title: 'Welkom bij Meenakshi',
       subtitle: 'Ontdek de kunst van ontspanning en verjonging',
       badgeText: 'Home',
       buttonText: 'Bekijk diensten'
@@ -430,7 +430,7 @@ const homePageTranslations = {
   },
   de: {
     hero: {
-      title: 'Willkommen bei ZenYourLife',
+      title: 'Willkommen bei Meenakshi',
       subtitle: 'Entdecken Sie die Kunst der Entspannung und Verjüngung',
       badgeText: 'Startseite',
       buttonText: 'Dienstleistungen ansehen'
@@ -451,7 +451,7 @@ const homePageTranslations = {
   },
   es: {
     hero: {
-      title: 'Bienvenido a ZenYourLife',
+      title: 'Bienvenido a Meenakshi',
       subtitle: 'Descubra el arte de la relajación y el rejuvenecimiento',
       badgeText: 'Inicio',
       buttonText: 'Ver servicios'

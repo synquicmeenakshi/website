@@ -1,7 +1,7 @@
 /**
  * Business timezone utility functions.
  *
- * Originally hardcoded to Europe/Brussels for ZenYourLife. Now configurable so
+ * Originally hardcoded to Europe/Brussels for Meenakshi. Now configurable so
  * the Meenakshi practice runs on Asia/Kolkata, which is also the new default.
  * The exported names keep their Belgium wording because they are referenced
  * across the existing controllers; only the zone they resolve to has changed.

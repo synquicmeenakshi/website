@@ -1,6 +1,6 @@
-# ZenYourLife — Admin Handbook & Complete Guide
+# Meenakshi — Admin Handbook & Complete Guide
 
-> **This document is for the admin of the ZenYourLife portal.**
+> **This document is for the admin of the Meenakshi portal.**
 > Every field in every popup, every section on the website, emails triggered, translations, images — everything is documented here.
 
 ---
@@ -188,8 +188,8 @@ A popup modal opens:
 | Message body | Textarea | The actual message content |
 
 **What happens when you Send:**
-- **If Email:** Sends an email from `EMAIL_USER` (ZenYourLife Gmail) to the customer's email. Email is styled with ZenYourLife gold branding. Shows "Dear [Customer Name]" and your typed message.
-- **If SMS:** Sends an SMS via Twilio to the customer's phone number. Message prefixes with "Zen Your Life" and signs off "- Zen Your Life Team".
+- **If Email:** Sends an email from `EMAIL_USER` (Meenakshi Gmail) to the customer's email. Email is styled with Meenakshi gold branding. Shows "Dear [Customer Name]" and your typed message.
+- **If SMS:** Sends an SMS via Twilio to the customer's phone number. Message prefixes with "Meenakshi" and signs off "- Meenakshi Team".
 
 **Success/Error feedback:** A green or red status banner appears at the bottom of the popup.
 
@@ -1097,4 +1097,4 @@ Contact your developer to update `ADMIN_EMAIL` in the `.env` file.
 
 ---
 
-*Last updated: March 2026 | ZenYourLife Admin Portal*
+*Last updated: March 2026 | Meenakshi Admin Portal*

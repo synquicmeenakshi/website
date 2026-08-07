@@ -1,17 +1,28 @@
-# ZenYourLife - Wellness & Massage Services Platform
+# Astrologer Meenakshi - Consultation Platform
 
-Multi-language wellness and massage services booking platform with admin panel.
+Astrology consultation booking and content-management platform with admin panel.
 
 ## Live URLs
 
-- **Frontend:** https://zenyourlife.be
-- **Admin Panel:** https://zenyourlife.be/admin
-- **API:** https://zenyourlife.be/api
+Not yet assigned. Set these per environment:
+
+| Variable | Used by | Example |
+|---|---|---|
+| `VITE_API_URL` | admin build | `https://<domain>/api` |
+| `VITE_SERVER_URL` | admin build | `https://<domain>` |
+| `FRONTEND_URL` | backend email links | `https://<domain>` |
+
+The admin build has no hardcoded fallback — a missing variable fails the build
+rather than silently pointing at the wrong site.
 
 ## Admin Access
 
-- **Email:** admin@zenyourlife.be
-- **Password:** ZenYourLife@Admin2026!
+Created by `Backend/scripts/createAdmin.js`, which reads credentials from the
+environment. Credentials are never stored in this repository.
+
+```bash
+ADMIN_SEED_EMAIL=admin@example.com ADMIN_SEED_PASSWORD='...' node Backend/scripts/createAdmin.js
+```
 
 ## Deployment
 

@@ -35,7 +35,7 @@ This is the best approach for production. The Docker volume mount works correctl
    ls -la backend/uploads/
 
    # After deployment, check container can access uploads
-   docker exec zenyourlife-app ls -la /app/backend/uploads/
+   docker exec meenakshi-app ls -la /app/backend/uploads/
    ```
 
 ### Option 2: Backup and Restore Uploads During Deployment
@@ -115,10 +115,10 @@ RUN mkdir -p /app/backend/uploads /app/logs && \
 ls -la backend/uploads/
 
 # Check if container can see uploads
-docker exec zenyourlife-app ls -la /app/backend/uploads/
+docker exec meenakshi-app ls -la /app/backend/uploads/
 
 # Check volume mounts
-docker inspect zenyourlife-app | grep -A 10 "Mounts"
+docker inspect meenakshi-app | grep -A 10 "Mounts"
 ```
 
 **Common causes:**
@@ -195,7 +195,7 @@ export const getImageUrl = (imageUrl) => {
 ls -la backend/uploads/ | wc -l
 
 # Check Docker container can access images
-docker exec zenyourlife-app ls -la /app/backend/uploads/ | wc -l
+docker exec meenakshi-app ls -la /app/backend/uploads/ | wc -l
 
 # Both should return same count (186+ files)
 
@@ -205,7 +205,7 @@ curl -I http://localhost:5001/uploads/service-1765824098415-349058066.jpg
 
 # Check volume mount
 docker volume ls
-docker inspect zenyourlife-app --format='{{json .Mounts}}' | jq
+docker inspect meenakshi-app --format='{{json .Mounts}}' | jq
 ```
 
 ## Backend Code Analysis
@@ -295,8 +295,8 @@ The images reverting to default has **TWO root causes**:
 ## Support
 
 If images still disappear after following this guide:
-1. Check Docker logs: `docker logs zenyourlife-app`
-2. Verify volume mount: `docker inspect zenyourlife-app | grep uploads`
+1. Check Docker logs: `docker logs meenakshi-app`
+2. Verify volume mount: `docker inspect meenakshi-app | grep uploads`
 3. Check filesystem permissions: `ls -la backend/uploads/`
 4. Review deployment process - ensure not deleting uploads directory
 

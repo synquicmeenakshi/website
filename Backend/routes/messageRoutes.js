@@ -18,13 +18,13 @@ router.post('/send', async (req, res) => {
     if (type === 'email') {
       // Send email
       const mailOptions = {
-        from: `"Zen Your Life" <${process.env.EMAIL_USER}>`,
+        from: `"Meenakshi" <${process.env.EMAIL_USER}>`,
         to: to,
-        subject: subject || 'Message from Zen Your Life',
+        subject: subject || 'Message from Meenakshi',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: linear-gradient(135deg, #DFB13B 0%, #C9A032 100%); padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
-              <h1 style="color: white; margin: 0; font-size: 24px;">Zen Your Life</h1>
+              <h1 style="color: white; margin: 0; font-size: 24px;">Meenakshi</h1>
             </div>
             <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 10px 10px;">
               <p style="color: #333; font-size: 16px;">Dear ${customerName || 'Valued Customer'},</p>
@@ -33,7 +33,7 @@ router.post('/send', async (req, res) => {
               </div>
               <p style="color: #666; font-size: 14px; margin-top: 20px;">
                 Best regards,<br>
-                <strong>Zen Your Life Team</strong>
+                <strong>Meenakshi Team</strong>
               </p>
               <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
               <p style="color: #999; font-size: 12px; text-align: center;">
@@ -56,7 +56,7 @@ router.post('/send', async (req, res) => {
       // Send SMS via Twilio
       const formattedNumber = formatPhoneNumber(to, country || 'BE');
 
-      const smsMessage = `Dear ${customerName || 'Customer'},\n\n${message}\n\nKind Regards,\nZen Your Life Team`;
+      const smsMessage = `Dear ${customerName || 'Customer'},\n\n${message}\n\nKind Regards,\nMeenakshi Team`;
 
       const sent = await sendSms(formattedNumber, smsMessage);
 

@@ -72,7 +72,7 @@ ES: ❌ COMPLETELY MISSING (no translations.es object)
 **Issue**: Both properties missing description translations
 
 **Properties Affected**:
-- "Villa Zen Your Life"
+- "Villa Meenakshi"
 - "Casa Artevista"
 
 **Missing Fields**:

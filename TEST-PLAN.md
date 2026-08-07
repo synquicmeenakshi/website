@@ -15,7 +15,7 @@ change.
 | Public site | http://localhost:5173 |
 | Admin portal | http://localhost:5174/admin/ |
 | API | http://localhost:5001 |
-| Admin login | `admin@zenyourlife.be` / `ZenYourLife@Admin2026!` |
+| Admin login | the account seeded via `ADMIN_SEED_EMAIL` / `ADMIN_SEED_PASSWORD` |
 | Database | MongoDB Atlas, database `meenakshi` |
 
 **Before starting**
@@ -151,7 +151,7 @@ change.
 | TC-615 ★ | Blocked date | Block a date. Try to book it | No slots; reason shown. Unblock → slots return. |
 | TC-616 | Customers grouping | Book twice with the same phone number in different formats (`9119138356` and `+91 91191 38356`) | Admin → Customers shows **one** person with 2 bookings, not two people |
 | TC-617 | Customer history | Open a customer | Full consultation history with birth details and status |
-| TC-618 ★ | No dead screens | Check the sidebar | No "Users" entry. (It read ZenYourLife enrolments and was permanently empty.) |
+| TC-618 ★ | No dead screens | Check the sidebar | No "Users" entry. (It read Meenakshi enrolments and was permanently empty.) |
 
 ## 7 · Cross-cutting
 
@@ -173,7 +173,7 @@ change.
 | WhatsApp | The UI promises WhatsApp confirmation; Twilio is installed but unconfigured. Nothing sends. |
 | Payments | Without Razorpay keys, TC-222 to TC-226 cannot run. |
 | Prices | All services are ₹0 until set, so everything reads "On enquiry" and payment is skipped. |
-| Reminders | The scheduler still targets the old ZenYourLife appointment model, not consultations. |
+| Reminders | The scheduler still targets the old Meenakshi appointment model, not consultations. |
 | SEO | Titles and descriptions are set client-side. Crawlers that do not execute JavaScript see only the base title. |
 | Consent | The booking form has no consent checkbox, so `consent` is stored as `false`. |
 

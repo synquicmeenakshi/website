@@ -29,8 +29,8 @@ Added upload preservation logic on the **server side** during deployment:
 ```bash
 # BEFORE DEPLOYMENT
 echo "Creating backup of current uploads..."
-mkdir -p /tmp/zenyourlife-uploads-backup
-cp -r backend/uploads/* /tmp/zenyourlife-uploads-backup/
+mkdir -p /tmp/meenakshi-uploads-backup
+cp -r backend/uploads/* /tmp/meenakshi-uploads-backup/
 
 # STOP CONTAINERS
 docker-compose down
@@ -38,8 +38,8 @@ docker-compose down
 # AFTER STOPPING, BEFORE STARTING
 echo "Restoring uploads from backup..."
 mkdir -p backend/uploads
-cp -r /tmp/zenyourlife-uploads-backup/* backend/uploads/
-rm -rf /tmp/zenyourlife-uploads-backup
+cp -r /tmp/meenakshi-uploads-backup/* backend/uploads/
+rm -rf /tmp/meenakshi-uploads-backup
 
 # START CONTAINERS
 docker-compose up -d
@@ -67,7 +67,7 @@ uploads/
 
 1. **Local Machine - Step 2:** Backup server uploads to local backup
    ```bash
-   rsync server:/app/zenyourlife/backend/uploads/ → local/backend/uploads-backup/
+   rsync server:/app/meenakshi/backend/uploads/ → local/backend/uploads-backup/
    ```
 
 2. **Local Machine - Steps 3-5:** Build and upload Docker image
@@ -77,13 +77,13 @@ uploads/
 3. **Server - Step 6:** Deploy with upload preservation
    ```bash
    # Backup uploads on server (to /tmp)
-   cp -r backend/uploads/* /tmp/zenyourlife-uploads-backup/
+   cp -r backend/uploads/* /tmp/meenakshi-uploads-backup/
 
    # Stop containers
    docker-compose down
 
    # Restore uploads from backup
-   cp -r /tmp/zenyourlife-uploads-backup/* backend/uploads/
+   cp -r /tmp/meenakshi-uploads-backup/* backend/uploads/
 
    # Start containers with preserved uploads
    docker-compose up -d
@@ -111,7 +111,7 @@ The volume mount ensures uploads persist outside containers:
 
 ```yaml
 services:
-  zenyourlife-app:
+  meenakshi-app:
     volumes:
       - ./backend/uploads:/app/backend/uploads  # ✅ Persists on host
       - ./logs:/app/logs
@@ -160,18 +160,18 @@ Starting containers...
 **Check 1: Verify server directory exists**
 ```bash
 ssh -p 2212 root@72.60.214.160
-cd /app/zenyourlife
+cd /app/meenakshi
 ls -la backend/uploads/
 ```
 
 **Check 2: Verify Docker volume mount**
 ```bash
-docker inspect zenyourlife-app | grep -A 5 "Mounts"
+docker inspect meenakshi-app | grep -A 5 "Mounts"
 ```
 Should show:
 ```json
 {
-  "Source": "/app/zenyourlife/backend/uploads",
+  "Source": "/app/meenakshi/backend/uploads",
   "Destination": "/app/backend/uploads",
   "Type": "bind"
 }
@@ -179,7 +179,7 @@ Should show:
 
 **Check 3: Check permissions**
 ```bash
-ls -la /app/zenyourlife/backend/uploads
+ls -la /app/meenakshi/backend/uploads
 ```
 Should be readable/writable:
 ```
@@ -189,7 +189,7 @@ drwxr-xr-x  backend/uploads
 **Check 4: Verify backup/restore ran**
 ```bash
 # During deployment, SSH to server and check:
-ls -la /tmp/zenyourlife-uploads-backup/
+ls -la /tmp/meenakshi-uploads-backup/
 ```
 
 ---
@@ -200,9 +200,9 @@ If uploads were lost before this fix, you can recover from local backup:
 
 ```bash
 # From your local machine, restore to server:
-cd /path/to/zenyourlife
+cd /path/to/meenakshi
 sshpass -p "JbNM7TNPMgv9387grrGS#Sj" rsync -avz -e "ssh -p 2212 -o StrictHostKeyChecking=no" \
-    backend/uploads-backup/ root@72.60.214.160:/app/zenyourlife/backend/uploads/
+    backend/uploads-backup/ root@72.60.214.160:/app/meenakshi/backend/uploads/
 ```
 
 ---
@@ -236,13 +236,13 @@ sshpass -p "JbNM7TNPMgv9387grrGS#Sj" rsync -avz -e "ssh -p 2212 -o StrictHostKey
 ┌─────────────────────────────────────────────────────────────┐
 │ Server: 72.60.214.160                                       │
 │                                                             │
-│  /app/zenyourlife/backend/uploads/  ← Persistent storage   │
+│  /app/meenakshi/backend/uploads/  ← Persistent storage   │
 │         ↓                                                   │
 │  Docker Volume Mount                                        │
 │         ↓                                                   │
 │  Container: /app/backend/uploads/  ← Application sees      │
 │                                                             │
-│  Backup: /tmp/zenyourlife-uploads-backup/ (during deploy)  │
+│  Backup: /tmp/meenakshi-uploads-backup/ (during deploy)  │
 └─────────────────────────────────────────────────────────────┘
 ```
 

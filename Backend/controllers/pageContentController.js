@@ -209,7 +209,7 @@ async function createDefaultPageContent(pageId) {
 function getDefaultHeroTitle(pageId) {
   const titles = {
     services: 'Find Your Balance, One Massage at a Time',
-    home: 'Welcome to ZenYourLife',
+    home: 'Welcome to Meenakshi',
     about: 'Our Story'
   };
   return titles[pageId] || 'Welcome';

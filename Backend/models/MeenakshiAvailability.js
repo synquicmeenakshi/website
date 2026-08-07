@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 /**
  * The weekly consulting schedule — a singleton.
  *
- * Deliberately separate from ZenYourLife's BookingSettings, which is bound to
+ * Deliberately separate from Meenakshi's BookingSettings, which is bound to
  * the massage Appointment model and its Europe/Brussels assumptions. This one
  * is the source of truth for which slots the Meenakshi booking page offers.
  */

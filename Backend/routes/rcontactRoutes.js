@@ -125,8 +125,8 @@ const sendAdminNotificationEmail = async (contactData) => {
         </div>
 
         <div class="footer">
-          <p>This is an automated notification from ZenYourLife Rental System</p>
-          <p>© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+          <p>This is an automated notification from Meenakshi Rental System</p>
+          <p>© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
         </div>
       </body>
       </html>

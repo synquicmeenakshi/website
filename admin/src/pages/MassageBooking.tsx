@@ -363,7 +363,7 @@ const MassageBooking = () => {
         body: JSON.stringify({
           type: messageType,
           to: messageType === 'email' ? selectedBooking.email : selectedBooking.phoneNumber,
-          subject: messageSubject || `Message from Zen Your Life`,
+          subject: messageSubject || `Message from Meenakshi`,
           message: messageContent,
           customerName: `${selectedBooking.firstName} ${selectedBooking.lastName}`,
           country: selectedBooking.country

@@ -325,7 +325,7 @@ GET /api/properties/:id?lang=es
 
 ### 🎯 Result
 
-Your ZenYourLife application now fully supports 5 languages:
+Your Meenakshi application now fully supports 5 languages:
 - **English (EN)** - Original
 - **Dutch (NL)** - Complete
 - **French (FR)** - Complete

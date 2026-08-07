@@ -1,5 +1,5 @@
 /**
- * Script to update Villa Zen Your Life pool description
+ * Script to update Villa Meenakshi pool description
  * Changes "year-round outdoor pool" to "heated outdoor pool"
  * Run: node backend/scripts/updatePoolDescription.js
  */
@@ -59,16 +59,16 @@ const updatePoolDescription = async () => {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connected to MongoDB\n');
 
-    // Find Villa Zen Your Life
-    const villa = await Property.findOne({ name: 'Villa Zen Your Life' });
+    // Find Villa Meenakshi
+    const villa = await Property.findOne({ name: 'Villa Meenakshi' });
 
     if (!villa) {
-      console.log('❌ Villa Zen Your Life not found');
+      console.log('❌ Villa Meenakshi not found');
       mongoose.connection.close();
       process.exit(1);
     }
 
-    console.log('📦 Found Villa Zen Your Life');
+    console.log('📦 Found Villa Meenakshi');
     console.log('Current description:', villa.description);
     console.log('');
 
@@ -106,7 +106,7 @@ const updatePoolDescription = async () => {
 
     await villa.save();
 
-    console.log('\n✅ Villa Zen Your Life updated successfully!');
+    console.log('\n✅ Villa Meenakshi updated successfully!');
     console.log('Pool is now described as "heated" in all languages.');
 
     mongoose.connection.close();

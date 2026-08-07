@@ -30,7 +30,7 @@ router.delete('/availability/blocked/:id', authMiddleware, strictLimiter, availa
 
 /* ---- availability, in the shape the existing BookingManagement screen speaks
    (see availabilityCompatController). Auth-protected, unlike the original
-   ZenYourLife /blocked-dates routes, which had none. */
+   Meenakshi /blocked-dates routes, which had none. */
 router.get('/meenakshi-availability/settings', authMiddleware, compat.getSettings);
 router.put('/meenakshi-availability/settings', authMiddleware, strictLimiter, compat.updateSettings);
 router.put('/meenakshi-availability/settings/day/:day', authMiddleware, strictLimiter, compat.updateDay);

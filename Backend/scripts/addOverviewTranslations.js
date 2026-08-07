@@ -8,8 +8,8 @@ const mongoose = require('mongoose');
 
 const villaOverviewTranslations = {
   fr: {
-    title: "Villa Zen Your Life - Votre Escapade Parfaite à Lanzarote",
-    description1: "Découvrez un hébergement élégant à la Villa Zen Your Life, avec une terrasse ensoleillée, un magnifique jardin et une piscine extérieure chauffée avec WiFi gratuit dans tout l'établissement. Cette superbe villa offre 3 chambres spacieuses et 2 salles de bains modernes, avec climatisation pour votre confort sous le soleil de Lanzarote.",
+    title: "Villa Meenakshi - Votre Escapade Parfaite à Lanzarote",
+    description1: "Découvrez un hébergement élégant à la Villa Meenakshi, avec une terrasse ensoleillée, un magnifique jardin et une piscine extérieure chauffée avec WiFi gratuit dans tout l'établissement. Cette superbe villa offre 3 chambres spacieuses et 2 salles de bains modernes, avec climatisation pour votre confort sous le soleil de Lanzarote.",
     description2: "Profitez d'équipements confortables, notamment des installations de barbecue parfaites pour les soirées, des espaces de détente extérieurs pour admirer la vue, et un enregistrement/départ privé pour votre commodité.",
     highlights: [
       "Piscine extérieure chauffée",
@@ -24,8 +24,8 @@ const villaOverviewTranslations = {
     ]
   },
   de: {
-    title: "Villa Zen Your Life - Ihr Perfekter Lanzarote-Urlaub",
-    description1: "Erleben Sie elegante Unterkünfte in der Villa Zen Your Life mit Sonnenterrasse, wunderschönem Garten und beheiztem Außenpool mit kostenlosem WLAN im gesamten Haus. Diese atemberaubende Villa bietet 3 geräumige Schlafzimmer und 2 moderne Badezimmer mit Klimaanlage für Ihren Komfort unter der Sonne Lanzarotes.",
+    title: "Villa Meenakshi - Ihr Perfekter Lanzarote-Urlaub",
+    description1: "Erleben Sie elegante Unterkünfte in der Villa Meenakshi mit Sonnenterrasse, wunderschönem Garten und beheiztem Außenpool mit kostenlosem WLAN im gesamten Haus. Diese atemberaubende Villa bietet 3 geräumige Schlafzimmer und 2 moderne Badezimmer mit Klimaanlage für Ihren Komfort unter der Sonne Lanzarotes.",
     description2: "Genießen Sie komfortable Annehmlichkeiten wie Grillmöglichkeiten, perfekt für Abendveranstaltungen, Außensitzbereiche zum Genießen der Aussicht und privaten Check-in/Check-out für Ihre Bequemlichkeit.",
     highlights: [
       "Beheizter Außenpool",
@@ -40,8 +40,8 @@ const villaOverviewTranslations = {
     ]
   },
   nl: {
-    title: "Villa Zen Your Life - Jouw Perfecte Lanzarote Vakantie",
-    description1: "Ervaar elegante accommodatie in Villa Zen Your Life, met een zonneterras, prachtige tuin en verwarmd buitenzwembad met gratis WiFi in het hele huis. Deze prachtige villa biedt 3 ruime slaapkamers en 2 moderne badkamers, compleet met airconditioning voor uw comfort onder de zon van Lanzarote.",
+    title: "Villa Meenakshi - Jouw Perfecte Lanzarote Vakantie",
+    description1: "Ervaar elegante accommodatie in Villa Meenakshi, met een zonneterras, prachtige tuin en verwarmd buitenzwembad met gratis WiFi in het hele huis. Deze prachtige villa biedt 3 ruime slaapkamers en 2 moderne badkamers, compleet met airconditioning voor uw comfort onder de zon van Lanzarote.",
     description2: "Geniet van comfortabele voorzieningen waaronder BBQ-faciliteiten, perfect voor avondbijeenkomsten, buitenzitplaatsen om van het uitzicht te genieten, en privé in-/uitchecken voor uw gemak.",
     highlights: [
       "Verwarmd buitenzwembad",
@@ -56,8 +56,8 @@ const villaOverviewTranslations = {
     ]
   },
   es: {
-    title: "Villa Zen Your Life - Tu Escapada Perfecta en Lanzarote",
-    description1: "Experimenta un alojamiento elegante en Villa Zen Your Life, con terraza soleada, hermoso jardín y piscina exterior climatizada con WiFi gratuito en toda la propiedad. Esta impresionante villa ofrece 3 amplios dormitorios y 2 baños modernos, con aire acondicionado para tu comodidad bajo el sol de Lanzarote.",
+    title: "Villa Meenakshi - Tu Escapada Perfecta en Lanzarote",
+    description1: "Experimenta un alojamiento elegante en Villa Meenakshi, con terraza soleada, hermoso jardín y piscina exterior climatizada con WiFi gratuito en toda la propiedad. Esta impresionante villa ofrece 3 amplios dormitorios y 2 baños modernos, con aire acondicionado para tu comodidad bajo el sol de Lanzarote.",
     description2: "Disfruta de comodidades confortables que incluyen instalaciones de barbacoa perfectas para reuniones nocturnas, áreas de estar al aire libre para disfrutar de las vistas, y check-in/check-out privado para tu conveniencia.",
     highlights: [
       "Piscina exterior climatizada",
@@ -148,10 +148,10 @@ const addOverviewTranslations = async () => {
     const db = mongoose.connection.db;
     const collection = db.collection('properties');
 
-    // Update Villa Zen Your Life
-    console.log('📦 Updating Villa Zen Your Life...');
+    // Update Villa Meenakshi
+    console.log('📦 Updating Villa Meenakshi...');
     const villaResult = await collection.updateOne(
-      { name: 'Villa Zen Your Life' },
+      { name: 'Villa Meenakshi' },
       {
         $set: {
           'translations.fr.overview': villaOverviewTranslations.fr,
@@ -159,7 +159,7 @@ const addOverviewTranslations = async () => {
           'translations.nl.overview': villaOverviewTranslations.nl,
           'translations.es.overview': villaOverviewTranslations.es,
           // Also fix English overview to say heated instead of year-round
-          'overview.description1': 'Experience elegant accommodation at Villa Zen Your Life, featuring a sun terrace, beautiful garden, and a heated outdoor pool with free WiFi throughout. This stunning villa offers 3 spacious bedrooms and 2 modern bathrooms, complete with air conditioning to keep you comfortable in the Lanzarote sun.',
+          'overview.description1': 'Experience elegant accommodation at Villa Meenakshi, featuring a sun terrace, beautiful garden, and a heated outdoor pool with free WiFi throughout. This stunning villa offers 3 spacious bedrooms and 2 modern bathrooms, complete with air conditioning to keep you comfortable in the Lanzarote sun.',
           'overview.highlights': [
             'Heated outdoor swimming pool',
             'Free WiFi throughout the property',
@@ -174,7 +174,7 @@ const addOverviewTranslations = async () => {
         }
       }
     );
-    console.log(`✅ Villa Zen Your Life updated: ${villaResult.modifiedCount} document(s)`);
+    console.log(`✅ Villa Meenakshi updated: ${villaResult.modifiedCount} document(s)`);
 
     // Update Casa Artevista
     console.log('\n📦 Updating Casa Artevista...');
@@ -193,7 +193,7 @@ const addOverviewTranslations = async () => {
 
     // Verify the update
     console.log('\n📦 Verifying updates...');
-    const villa = await collection.findOne({ name: 'Villa Zen Your Life' });
+    const villa = await collection.findOne({ name: 'Villa Meenakshi' });
     console.log('Villa NL overview title:', villa?.translations?.nl?.overview?.title);
     console.log('Villa NL highlight 1:', villa?.translations?.nl?.overview?.highlights?.[0]);
 

@@ -82,8 +82,8 @@ const generateCustomerReminderTemplate = (enrollment) => {
 
           <div class="footer">
             <p>Need to reschedule? Please contact us as soon as possible.</p>
-            <p>Best regards,<br><strong>The ZenYourLife Team</strong></p>
-            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+            <p>Best regards,<br><strong>The Meenakshi Team</strong></p>
+            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -174,8 +174,8 @@ const generateAdminReminderTemplate = (enrollment) => {
           ` : ''}
         </div>
         <div class="footer">
-          <p>This is an automated reminder from ZenYourLife Booking System</p>
-          <p>© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+          <p>This is an automated reminder from Meenakshi Booking System</p>
+          <p>© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
         </div>
       </div>
     </body>
@@ -192,7 +192,7 @@ const sendCustomerReminder = async (enrollment) => {
 
   try {
     const mailOptions = {
-      from: `"ZenYourLife" <${process.env.EMAIL_USER}>`,
+      from: `"Meenakshi" <${process.env.EMAIL_USER}>`,
       to: enrollment.email,
       subject: `Reminder: Your Massage Appointment Tomorrow - ${enrollment.serviceTitle}`,
       html: generateCustomerReminderTemplate(enrollment)
@@ -217,7 +217,7 @@ const sendAdminReminder = async (enrollment) => {
   try {
     const adminEmail = process.env.ADMIN_EMAIL || process.env.EMAIL_USER;
     const mailOptions = {
-      from: `"ZenYourLife Booking System" <${process.env.EMAIL_USER}>`,
+      from: `"Meenakshi Booking System" <${process.env.EMAIL_USER}>`,
       to: adminEmail,
       subject: `Appointment Tomorrow: ${enrollment.fullName || `${enrollment.firstName} ${enrollment.lastName}`} - ${enrollment.serviceTitle}`,
       html: generateAdminReminderTemplate(enrollment)

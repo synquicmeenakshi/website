@@ -74,7 +74,7 @@ const generateCustomerSmsReminder = (enrollment) => {
 
   return `Dear ${enrollment.firstName},
 
-This is a friendly reminder for your upcoming appointment at Zen Your Life.
+This is a friendly reminder for your upcoming appointment at Meenakshi.
 
 Service: ${enrollment.serviceTitle}
 Date: ${formattedDate}
@@ -86,7 +86,7 @@ Please arrive 5 minutes early. To reschedule or cancel, kindly contact us in adv
 We look forward to seeing you!
 
 Kind Regards,
-Zen Your Life Team`;
+Meenakshi Team`;
 };
 
 // Generate admin reminder SMS message
@@ -213,7 +213,7 @@ const sendAdminSmsReminder = async (enrollment) => {
 // Test SMS function (for testing purposes)
 const sendTestSms = async (phoneNumber, countryCode = 'BE') => {
   const formattedNumber = formatPhoneNumber(phoneNumber, countryCode);
-  const testMessage = `ZenYourLife Test: This is a test SMS from ZenYourLife booking system. If you received this, SMS notifications are working correctly!`;
+  const testMessage = `Meenakshi Test: This is a test SMS from Meenakshi booking system. If you received this, SMS notifications are working correctly!`;
 
   return await sendSms(formattedNumber, testMessage);
 };

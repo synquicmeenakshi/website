@@ -125,9 +125,9 @@ exports.createRentalBooking = async (req, res) => {
         // Send email to customer
         const customerEmailHTML = generateCustomerEmailTemplate(rentalBooking);
         const customerMailOptions = {
-          from: `"ZenYourLife Rentals" <${process.env.EMAIL_USER}>`,
+          from: `"Meenakshi Rentals" <${process.env.EMAIL_USER}>`,
           to: email,
-          subject: `Thank You for Your Booking! - ZenYourLife`,
+          subject: `Thank You for Your Booking! - Meenakshi`,
           html: customerEmailHTML
         };
 
@@ -139,7 +139,7 @@ exports.createRentalBooking = async (req, res) => {
         const adminEmail = process.env.ADMIN_EMAIL || process.env.EMAIL_USER;
         const adminEmailHTML = generateAdminEmailTemplate(rentalBooking);
         const adminMailOptions = {
-          from: `"ZenYourLife Booking System" <${process.env.EMAIL_USER}>`,
+          from: `"Meenakshi Booking System" <${process.env.EMAIL_USER}>`,
           to: adminEmail,
           subject: `New Rental Booking #${rentalBooking.bookingId} - ${firstName} ${lastName}`,
           html: adminEmailHTML
@@ -415,7 +415,7 @@ function generateCustomerEmailTemplate(booking) {
         <div class="content">
           <div class="thank-you-box">
             <h2>Thank You, ${booking.firstName}!</h2>
-            <p>We truly appreciate your trust in ZenYourLife. Our team will review your booking and get back to you shortly with your confirmation details.</p>
+            <p>We truly appreciate your trust in Meenakshi. Our team will review your booking and get back to you shortly with your confirmation details.</p>
           </div>
 
           <h3 style="color: #333;">Dear ${booking.firstName} ${booking.lastName},</h3>
@@ -472,8 +472,8 @@ function generateCustomerEmailTemplate(booking) {
 
           <div class="footer">
             <p>If you have any questions, feel free to reach out to us.</p>
-            <p>Best regards,<br><strong>The ZenYourLife Team</strong></p>
-            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+            <p>Best regards,<br><strong>The Meenakshi Team</strong></p>
+            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -622,8 +622,8 @@ function generateAdminEmailTemplate(booking) {
           </div>
         </div>
         <div class="footer">
-          <p>This is an automated notification from ZenYourLife Booking System</p>
-          <p>© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+          <p>This is an automated notification from Meenakshi Booking System</p>
+          <p>© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
         </div>
       </div>
     </body>

@@ -10,14 +10,14 @@ const updatePropertyImages = async () => {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('Connected to MongoDB');
 
-    // Update Villa Zen Your Life - Playa Blanca
+    // Update Villa Meenakshi - Playa Blanca
     // Exact nearby locations from booking.com
     const villaUpdate = await Property.findOneAndUpdate(
       { name: { $regex: /villa.*zen/i } },
       {
         $set: {
           'location.title': 'Prime Location in Playa Blanca',
-          'location.description': 'Villa Zen Your Life is perfectly situated in the sunny south of Lanzarote, just 25 minutes walk from Marina Rubicon and close to beautiful beaches.',
+          'location.description': 'Villa Meenakshi is perfectly situated in the sunny south of Lanzarote, just 25 minutes walk from Marina Rubicon and close to beautiful beaches.',
           'location.places': [
             {
               title: 'Playa Dorada - 1.7 km',
@@ -38,12 +38,12 @@ const updatePropertyImages = async () => {
     );
 
     if (villaUpdate) {
-      console.log('✅ Updated Villa Zen Your Life (Playa Blanca):');
+      console.log('✅ Updated Villa Meenakshi (Playa Blanca):');
       console.log('   - Playa Dorada (1.7 km) - Golden sand beach');
       console.log('   - Marina Rubicon (2 km) - Luxury marina');
       console.log('   - Playa Flamingo (3.2 km) - Family beach');
     } else {
-      console.log('❌ Villa Zen Your Life not found');
+      console.log('❌ Villa Meenakshi not found');
     }
 
     // Update Casa Artevista - Tabayesco

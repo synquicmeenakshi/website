@@ -6,10 +6,16 @@ const nodemailer = require('nodemailer');
 const { BELGIUM_TIMEZONE, getStartOfDayBelgium, getBelgiumDateStr, getTimeSlot, formatAppointmentDate } = require('../utils/timezone');
 const { sendSms, formatPhoneNumber } = require('../services/twilioSmsService');
 
-const FRONTEND_URL = (
-  process.env.FRONTEND_URL
-  || (process.env.NODE_ENV === 'production' ? 'https://zenyourlife.be' : 'http://localhost:5173')
-).replace(/\/$/, '');
+// In production FRONTEND_URL must be set explicitly — no domain fallback, so a
+// misconfigured deploy cannot email clients links to another site.
+const FRONTEND_URL = (() => {
+  const configured = process.env.FRONTEND_URL;
+  if (configured) return configured.replace(/\/$/, '');
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('FRONTEND_URL must be set in production; it is used in outgoing email links.');
+  }
+  return 'http://localhost:5173';
+})();
 
 // Create email transporter
 const transporter = nodemailer.createTransport({
@@ -107,8 +113,8 @@ const generateCustomerEmailTemplate = (enrollment, cancelUrl) => {
 
           <div class="footer">
             <p>If you need to reschedule, please contact us at least 24 hours in advance.</p>
-            <p>Best regards,<br><strong>The ZenYourLife Team</strong></p>
-            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+            <p>Best regards,<br><strong>The Meenakshi Team</strong></p>
+            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -246,8 +252,8 @@ const generateAdminEmailTemplate = (enrollment) => {
           </div>
         </div>
         <div class="footer">
-          <p>This is an automated notification from ZenYourLife Booking System</p>
-          <p>© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+          <p>This is an automated notification from Meenakshi Booking System</p>
+          <p>© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
         </div>
       </div>
     </body>
@@ -324,8 +330,8 @@ const generateCustomerCancellationEmail = (booking) => {
 
           <div class="footer">
             <p>If you did not request this cancellation, please contact us immediately.</p>
-            <p>Best regards,<br><strong>The ZenYourLife Team</strong></p>
-            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+            <p>Best regards,<br><strong>The Meenakshi Team</strong></p>
+            <p style="font-size: 12px; color: #999; margin-top: 20px;">© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -386,7 +392,7 @@ const generateAdminCancellationEmail = (booking) => {
           </div>
 
           <div class="footer">
-            <p>This is an automated notification from ZenYourLife Booking System</p>
+            <p>This is an automated notification from Meenakshi Booking System</p>
           </div>
         </div>
       </div>
@@ -409,9 +415,9 @@ exports.sendCancellationEmails = async (booking) => {
 
   try {
     await transporter.sendMail({
-      from: `"ZenYourLife" <${process.env.EMAIL_USER}>`,
+      from: `"Meenakshi" <${process.env.EMAIL_USER}>`,
       to: booking.email,
-      subject: `Appointment Cancelled - ${booking.serviceTitle} | ZenYourLife`,
+      subject: `Appointment Cancelled - ${booking.serviceTitle} | Meenakshi`,
       html: generateCustomerCancellationEmail(booking)
     });
     console.log('📧 Cancellation email sent to customer:', booking.email);
@@ -421,7 +427,7 @@ exports.sendCancellationEmails = async (booking) => {
 
   try {
     await transporter.sendMail({
-      from: `"ZenYourLife Booking System" <${process.env.EMAIL_USER}>`,
+      from: `"Meenakshi Booking System" <${process.env.EMAIL_USER}>`,
       to: adminEmail,
       subject: `Cancellation ${reference} - ${booking.serviceTitle}`,
       html: generateAdminCancellationEmail(booking)
@@ -601,9 +607,9 @@ exports.createEnrollment = async (req, res) => {
         // ALWAYS send confirmation email to customer (reminder preference only affects 1-day-before reminder)
         try {
           const customerMailOptions = {
-            from: `"ZenYourLife" <${process.env.EMAIL_USER}>`,
+            from: `"Meenakshi" <${process.env.EMAIL_USER}>`,
             to: enrollment.email,
-            subject: `Booking Confirmed - ${enrollment.serviceTitle} | ZenYourLife`,
+            subject: `Booking Confirmed - ${enrollment.serviceTitle} | Meenakshi`,
             html: generateCustomerEmailTemplate(enrollment, cancelUrl)
           };
 
@@ -619,7 +625,7 @@ exports.createEnrollment = async (req, res) => {
         try {
           const adminEmail = process.env.ADMIN_EMAIL || process.env.EMAIL_USER;
           const adminMailOptions = {
-            from: `"ZenYourLife Booking System" <${process.env.EMAIL_USER}>`,
+            from: `"Meenakshi Booking System" <${process.env.EMAIL_USER}>`,
             to: adminEmail,
             subject: `New Booking #${enrollment.enrollmentId} - ${enrollment.serviceTitle}`,
             html: generateAdminEmailTemplate(enrollment)
@@ -645,7 +651,7 @@ exports.createEnrollment = async (req, res) => {
 
         const smsMessage = `Dear ${enrollment.firstName},
 
-Your booking at Zen Your Life is confirmed!
+Your booking at Meenakshi is confirmed!
 
 Booking #${enrollment.enrollmentId}
 Service: ${enrollment.serviceTitle}
@@ -656,7 +662,7 @@ Location: Schapenbaan 45, 1731 Relegem
 Please arrive 5 minutes early.
 
 Kind Regards,
-Zen Your Life Team`;
+Meenakshi Team`;
 
         const formattedPhone = formatPhoneNumber(enrollment.phoneNumber, enrollment.country);
         customerSmsSent = await sendSms(formattedPhone, smsMessage);

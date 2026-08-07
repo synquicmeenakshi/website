@@ -127,7 +127,7 @@ const rentalTestimonialTranslations = {
 
 async function addTranslations() {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/zenyourlife';
+    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/meenakshi';
     await mongoose.connect(mongoUri);
     console.log('Connected to MongoDB\n');
 

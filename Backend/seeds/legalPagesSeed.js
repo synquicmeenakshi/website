@@ -9,9 +9,9 @@ const privacyPolicyData = {
   en: {
     pageType: 'privacy-policy',
     language: 'en',
-    pageTitle: 'Privacy Policy - Zenyourlife',
+    pageTitle: 'Privacy Policy - Meenakshi',
     lastUpdated: 'December 2024',
-    introduction: 'Zenyourlife ("we", "our", or "us") operates the website zenyourlife.be and provides massage services, coaching, massage therapy, and holiday rentals in Lanzarote. We are committed to protecting your privacy and complying with the EU GDPR and Belgian data-protection laws.',
+    introduction: 'Meenakshi ("we", "our", or "us") operates the website zenyourlife.be and provides massage services, coaching, massage therapy, and holiday rentals in Lanzarote. We are committed to protecting your privacy and complying with the EU GDPR and Belgian data-protection laws.',
     sections: [
       {
         key: 'personalData',
@@ -115,7 +115,7 @@ To exercise your rights, contact: info@zenyourlife.be`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 Email: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
@@ -124,9 +124,9 @@ Website: www.zenyourlife.be`
   fr: {
     pageType: 'privacy-policy',
     language: 'fr',
-    pageTitle: 'Politique de Confidentialité - Zenyourlife',
+    pageTitle: 'Politique de Confidentialité - Meenakshi',
     lastUpdated: 'Décembre 2024',
-    introduction: 'Zenyourlife ("nous", "notre" ou "nos") exploite le site web zenyourlife.be et fournit des services de bien-être, coaching, massothérapie et locations de vacances à Lanzarote. Nous nous engageons à protéger votre vie privée et à respecter le RGPD européen et les lois belges sur la protection des données.',
+    introduction: 'Meenakshi ("nous", "notre" ou "nos") exploite le site web zenyourlife.be et fournit des services de bien-être, coaching, massothérapie et locations de vacances à Lanzarote. Nous nous engageons à protéger votre vie privée et à respecter le RGPD européen et les lois belges sur la protection des données.',
     sections: [
       {
         key: 'personalData',
@@ -230,7 +230,7 @@ Pour exercer vos droits, contactez : info@zenyourlife.be`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-mail : info@zenyourlife.be
 Site web : www.zenyourlife.be`
       }
@@ -239,9 +239,9 @@ Site web : www.zenyourlife.be`
   de: {
     pageType: 'privacy-policy',
     language: 'de',
-    pageTitle: 'Datenschutzrichtlinie - Zenyourlife',
+    pageTitle: 'Datenschutzrichtlinie - Meenakshi',
     lastUpdated: 'Dezember 2024',
-    introduction: 'Zenyourlife ("wir", "unser" oder "uns") betreibt die Website zenyourlife.be und bietet Massagedienstleistungen, Coaching, Massagetherapie und Ferienvermietungen auf Lanzarote an. Wir verpflichten uns, Ihre Privatsphäre zu schützen und die EU-DSGVO sowie die belgischen Datenschutzgesetze einzuhalten.',
+    introduction: 'Meenakshi ("wir", "unser" oder "uns") betreibt die Website zenyourlife.be und bietet Massagedienstleistungen, Coaching, Massagetherapie und Ferienvermietungen auf Lanzarote an. Wir verpflichten uns, Ihre Privatsphäre zu schützen und die EU-DSGVO sowie die belgischen Datenschutzgesetze einzuhalten.',
     sections: [
       {
         key: 'personalData',
@@ -345,7 +345,7 @@ Zur Ausübung Ihrer Rechte kontaktieren Sie: info@zenyourlife.be`
       {
         key: 'contact',
         title: 'Kontakt',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-Mail: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
@@ -354,9 +354,9 @@ Website: www.zenyourlife.be`
   nl: {
     pageType: 'privacy-policy',
     language: 'nl',
-    pageTitle: 'Privacybeleid - Zenyourlife',
+    pageTitle: 'Privacybeleid - Meenakshi',
     lastUpdated: 'December 2024',
-    introduction: 'Zenyourlife ("wij", "ons" of "onze") exploiteert de website zenyourlife.be en biedt massagediensten, coaching, massagetherapie en vakantieverhuur op Lanzarote. Wij zijn toegewijd aan het beschermen van uw privacy en het naleven van de EU AVG en Belgische gegevensbeschermingswetten.',
+    introduction: 'Meenakshi ("wij", "ons" of "onze") exploiteert de website zenyourlife.be en biedt massagediensten, coaching, massagetherapie en vakantieverhuur op Lanzarote. Wij zijn toegewijd aan het beschermen van uw privacy en het naleven van de EU AVG en Belgische gegevensbeschermingswetten.',
     sections: [
       {
         key: 'personalData',
@@ -460,7 +460,7 @@ Om uw rechten uit te oefenen, neem contact op: info@zenyourlife.be`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-mail: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
@@ -475,20 +475,20 @@ const termsData = {
   en: {
     pageType: 'terms-and-conditions',
     language: 'en',
-    pageTitle: 'Terms & Conditions - Zenyourlife',
+    pageTitle: 'Terms & Conditions - Meenakshi',
     lastUpdated: 'December 2024',
     sections: [
       {
         key: 'introduction',
         title: 'Introduction',
-        content: `These Terms and Conditions apply to your use of the website zenyourlife.be and all services provided by Zenyourlife, including massages, coaching, and holiday rental accommodations.
+        content: `These Terms and Conditions apply to your use of the website zenyourlife.be and all services provided by Meenakshi, including massages, coaching, and holiday rental accommodations.
 
 By using the Site or booking a service, you agree to these Terms.`
       },
       {
         key: 'services',
         title: 'Services',
-        content: `Zenyourlife provides:
+        content: `Meenakshi provides:
 • Massage treatments
 • Coaching sessions
 • Retreat and self-care programs
@@ -528,7 +528,7 @@ We reserve the right to refuse service in case of inappropriate behavior.`
       {
         key: 'liability',
         title: 'Liability',
-        content: `Zenyourlife is not responsible for:
+        content: `Meenakshi is not responsible for:
 • Loss of personal belongings
 • Damages caused by misuse of facilities
 • Injuries resulting from ignoring safety instructions
@@ -552,7 +552,7 @@ The latest version is always available on the website.`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 Email: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
@@ -561,20 +561,20 @@ Website: www.zenyourlife.be`
   fr: {
     pageType: 'terms-and-conditions',
     language: 'fr',
-    pageTitle: 'Conditions Générales - Zenyourlife',
+    pageTitle: 'Conditions Générales - Meenakshi',
     lastUpdated: 'Décembre 2024',
     sections: [
       {
         key: 'introduction',
         title: 'Introduction',
-        content: `Ces Conditions Générales s'appliquent à votre utilisation du site web zenyourlife.be et à tous les services fournis par Zenyourlife, y compris les massages, le coaching et les locations de vacances.
+        content: `Ces Conditions Générales s'appliquent à votre utilisation du site web zenyourlife.be et à tous les services fournis par Meenakshi, y compris les massages, le coaching et les locations de vacances.
 
 En utilisant le Site ou en réservant un service, vous acceptez ces Conditions.`
       },
       {
         key: 'services',
         title: 'Services',
-        content: `Zenyourlife propose :
+        content: `Meenakshi propose :
 • Soins de bien-être et massages
 • Séances de coaching
 • Programmes de retraite et de bien-être
@@ -614,7 +614,7 @@ Nous nous réservons le droit de refuser le service en cas de comportement inapp
       {
         key: 'liability',
         title: 'Responsabilité',
-        content: `Zenyourlife n'est pas responsable de :
+        content: `Meenakshi n'est pas responsable de :
 • Perte d'effets personnels
 • Dommages causés par une mauvaise utilisation des installations
 • Blessures résultant du non-respect des consignes de sécurité
@@ -638,7 +638,7 @@ La dernière version est toujours disponible sur le site.`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-mail : info@zenyourlife.be
 Site web : www.zenyourlife.be`
       }
@@ -647,20 +647,20 @@ Site web : www.zenyourlife.be`
   de: {
     pageType: 'terms-and-conditions',
     language: 'de',
-    pageTitle: 'Allgemeine Geschäftsbedingungen - Zenyourlife',
+    pageTitle: 'Allgemeine Geschäftsbedingungen - Meenakshi',
     lastUpdated: 'Dezember 2024',
     sections: [
       {
         key: 'introduction',
         title: 'Einleitung',
-        content: `Diese Allgemeinen Geschäftsbedingungen gelten für die Nutzung der Website zenyourlife.be und aller von Zenyourlife angebotenen Dienstleistungen, einschließlich Massagen, Coaching und Ferienwohnungen.
+        content: `Diese Allgemeinen Geschäftsbedingungen gelten für die Nutzung der Website zenyourlife.be und aller von Meenakshi angebotenen Dienstleistungen, einschließlich Massagen, Coaching und Ferienwohnungen.
 
 Durch die Nutzung der Website oder die Buchung einer Dienstleistung stimmen Sie diesen Bedingungen zu.`
       },
       {
         key: 'services',
         title: 'Dienstleistungen',
-        content: `Zenyourlife bietet:
+        content: `Meenakshi bietet:
 • Massagebehandlungen
 • Coaching-Sitzungen
 • Retreat- und Selbstfürsorge-Programme
@@ -700,7 +700,7 @@ Wir behalten uns das Recht vor, bei unangemessenem Verhalten den Service zu verw
       {
         key: 'liability',
         title: 'Haftung',
-        content: `Zenyourlife haftet nicht für:
+        content: `Meenakshi haftet nicht für:
 • Verlust persönlicher Gegenstände
 • Schäden durch Missbrauch von Einrichtungen
 • Verletzungen durch Missachtung von Sicherheitsanweisungen
@@ -724,7 +724,7 @@ Die neueste Version ist immer auf der Website verfügbar.`
       {
         key: 'contact',
         title: 'Kontakt',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-Mail: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
@@ -733,20 +733,20 @@ Website: www.zenyourlife.be`
   nl: {
     pageType: 'terms-and-conditions',
     language: 'nl',
-    pageTitle: 'Algemene Voorwaarden - Zenyourlife',
+    pageTitle: 'Algemene Voorwaarden - Meenakshi',
     lastUpdated: 'December 2024',
     sections: [
       {
         key: 'introduction',
         title: 'Inleiding',
-        content: `Deze Algemene Voorwaarden zijn van toepassing op uw gebruik van de website zenyourlife.be en alle diensten van Zenyourlife, inclusief massages, coaching en vakantieverhuur.
+        content: `Deze Algemene Voorwaarden zijn van toepassing op uw gebruik van de website zenyourlife.be en alle diensten van Meenakshi, inclusief massages, coaching en vakantieverhuur.
 
 Door de Site te gebruiken of een dienst te boeken, gaat u akkoord met deze Voorwaarden.`
       },
       {
         key: 'services',
         title: 'Diensten',
-        content: `Zenyourlife biedt:
+        content: `Meenakshi biedt:
 • Massagebehandelingen
 • Coachingsessies
 • Retreat- en zelfzorgprogramma's
@@ -786,7 +786,7 @@ Wij behouden ons het recht voor om service te weigeren bij ongepast gedrag.`
       {
         key: 'liability',
         title: 'Aansprakelijkheid',
-        content: `Zenyourlife is niet verantwoordelijk voor:
+        content: `Meenakshi is niet verantwoordelijk voor:
 • Verlies van persoonlijke bezittingen
 • Schade veroorzaakt door misbruik van faciliteiten
 • Letsel als gevolg van het negeren van veiligheidsinstructies
@@ -810,7 +810,7 @@ De laatste versie is altijd beschikbaar op de website.`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-mail: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
@@ -825,7 +825,7 @@ const cookiePolicyData = {
   en: {
     pageType: 'cookie-policy',
     language: 'en',
-    pageTitle: 'Cookie Policy - Zenyourlife',
+    pageTitle: 'Cookie Policy - Meenakshi',
     lastUpdated: 'December 2024',
     sections: [
       {
@@ -866,24 +866,24 @@ Necessary cookies cannot be disabled.`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 Email: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
     ],
     disclaimer: {
-      title: 'Website Disclaimer - Zenyourlife',
+      title: 'Website Disclaimer - Meenakshi',
       content: `The content of this website is provided for general information purposes only.
 
 Massage information, or coaching insights do not replace professional medical advice.
 
-Zenyourlife is not liable for decisions taken based on website content.`
+Meenakshi is not liable for decisions taken based on website content.`
     }
   },
   fr: {
     pageType: 'cookie-policy',
     language: 'fr',
-    pageTitle: 'Politique de Cookies - Zenyourlife',
+    pageTitle: 'Politique de Cookies - Meenakshi',
     lastUpdated: 'Décembre 2024',
     sections: [
       {
@@ -924,24 +924,24 @@ Les cookies nécessaires ne peuvent pas être désactivés.`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-mail : info@zenyourlife.be
 Site web : www.zenyourlife.be`
       }
     ],
     disclaimer: {
-      title: 'Avertissement du Site Web - Zenyourlife',
+      title: 'Avertissement du Site Web - Meenakshi',
       content: `Le contenu de ce site web est fourni à titre d'information générale uniquement.
 
 Les conseils de bien-être, les informations sur les massages ou les conseils de coaching ne remplacent pas les conseils médicaux professionnels.
 
-Zenyourlife n'est pas responsable des décisions prises sur la base du contenu du site.`
+Meenakshi n'est pas responsable des décisions prises sur la base du contenu du site.`
     }
   },
   de: {
     pageType: 'cookie-policy',
     language: 'de',
-    pageTitle: 'Cookie-Richtlinie - Zenyourlife',
+    pageTitle: 'Cookie-Richtlinie - Meenakshi',
     lastUpdated: 'Dezember 2024',
     sections: [
       {
@@ -982,24 +982,24 @@ Notwendige Cookies können nicht deaktiviert werden.`
       {
         key: 'contact',
         title: 'Kontakt',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-Mail: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
     ],
     disclaimer: {
-      title: 'Website-Haftungsausschluss - Zenyourlife',
+      title: 'Website-Haftungsausschluss - Meenakshi',
       content: `Der Inhalt dieser Website dient nur allgemeinen Informationszwecken.
 
 Massage-Informationen oder Coaching-Einblicke ersetzen keine professionelle medizinische Beratung.
 
-Zenyourlife haftet nicht für Entscheidungen, die auf Grundlage des Website-Inhalts getroffen werden.`
+Meenakshi haftet nicht für Entscheidungen, die auf Grundlage des Website-Inhalts getroffen werden.`
     }
   },
   nl: {
     pageType: 'cookie-policy',
     language: 'nl',
-    pageTitle: 'Cookiebeleid - Zenyourlife',
+    pageTitle: 'Cookiebeleid - Meenakshi',
     lastUpdated: 'December 2024',
     sections: [
       {
@@ -1040,18 +1040,18 @@ Noodzakelijke cookies kunnen niet worden uitgeschakeld.`
       {
         key: 'contact',
         title: 'Contact',
-        content: `Zenyourlife
+        content: `Meenakshi
 E-mail: info@zenyourlife.be
 Website: www.zenyourlife.be`
       }
     ],
     disclaimer: {
-      title: 'Website Disclaimer - Zenyourlife',
+      title: 'Website Disclaimer - Meenakshi',
       content: `De inhoud van deze website wordt alleen verstrekt voor algemene informatiedoeleinden.
 
 Massage-informatie of coaching-inzichten vervangen geen professioneel medisch advies.
 
-Zenyourlife is niet aansprakelijk voor beslissingen die worden genomen op basis van website-inhoud.`
+Meenakshi is niet aansprakelijk voor beslissingen die worden genomen op basis van website-inhoud.`
     }
   }
 };
@@ -1066,14 +1066,14 @@ const dpaData = {
     pageTitle: 'Data Processing Agreement (DPA)',
     lastUpdated: 'December 2024',
     parties: {
-      controller: { name: 'Zenyourlife', role: 'Data Controller', email: 'info@zenyourlife.be' },
+      controller: { name: 'Meenakshi', role: 'Data Controller', email: 'info@zenyourlife.be' },
       processor: { name: 'Hostinger', role: 'Data Processor' }
     },
     sections: [
       {
         key: 'subject',
         title: 'Subject of the Agreement',
-        content: `The Processor processes personal data on behalf of Zenyourlife strictly for providing:
+        content: `The Processor processes personal data on behalf of Meenakshi strictly for providing:
 • IT services
 • Booking management
 • Hosting
@@ -1088,10 +1088,10 @@ const dpaData = {
         key: 'obligations',
         title: 'Processor Obligations',
         content: `The Processor shall:
-• Process data only on documented instructions of Zenyourlife
+• Process data only on documented instructions of Meenakshi
 • Ensure confidentiality
 • Protect data with adequate security measures
-• Notify Zenyourlife of any data breach within 24 hours
+• Notify Meenakshi of any data breach within 24 hours
 • Assist with GDPR rights requests
 • Allow audits if necessary`
       },
@@ -1108,7 +1108,7 @@ const dpaData = {
       {
         key: 'endcontract',
         title: 'End of Contract',
-        content: 'All personal data must be deleted or returned to Zenyourlife.'
+        content: 'All personal data must be deleted or returned to Meenakshi.'
       },
       {
         key: 'liability',
@@ -1140,7 +1140,7 @@ const dpaData = {
       {
         key: 'insurance',
         title: 'Insurance',
-        content: 'Zenyourlife maintains mandatory liability insurance as required by Canarias tourism law.'
+        content: 'Meenakshi maintains mandatory liability insurance as required by Canarias tourism law.'
       },
       {
         key: 'checkin',
@@ -1155,14 +1155,14 @@ const dpaData = {
     pageTitle: 'Accord de Traitement des Données (DPA)',
     lastUpdated: 'Décembre 2024',
     parties: {
-      controller: { name: 'Zenyourlife', role: 'Responsable du Traitement', email: 'info@zenyourlife.be' },
+      controller: { name: 'Meenakshi', role: 'Responsable du Traitement', email: 'info@zenyourlife.be' },
       processor: { name: 'Hostinger', role: 'Sous-traitant' }
     },
     sections: [
       {
         key: 'subject',
         title: 'Objet de l\'Accord',
-        content: `Le Sous-traitant traite les données personnelles pour le compte de Zenyourlife strictement pour fournir :
+        content: `Le Sous-traitant traite les données personnelles pour le compte de Meenakshi strictement pour fournir :
 • Services informatiques
 • Gestion des réservations
 • Hébergement
@@ -1177,10 +1177,10 @@ const dpaData = {
         key: 'obligations',
         title: 'Obligations du Sous-traitant',
         content: `Le Sous-traitant doit :
-• Traiter les données uniquement selon les instructions documentées de Zenyourlife
+• Traiter les données uniquement selon les instructions documentées de Meenakshi
 • Assurer la confidentialité
 • Protéger les données avec des mesures de sécurité adéquates
-• Notifier Zenyourlife de toute violation de données dans les 24 heures
+• Notifier Meenakshi de toute violation de données dans les 24 heures
 • Aider avec les demandes de droits RGPD
 • Permettre les audits si nécessaire`
       },
@@ -1197,7 +1197,7 @@ const dpaData = {
       {
         key: 'endcontract',
         title: 'Fin du Contrat',
-        content: 'Toutes les données personnelles doivent être supprimées ou retournées à Zenyourlife.'
+        content: 'Toutes les données personnelles doivent être supprimées ou retournées à Meenakshi.'
       },
       {
         key: 'liability',
@@ -1229,7 +1229,7 @@ const dpaData = {
       {
         key: 'insurance',
         title: 'Assurance',
-        content: 'Zenyourlife maintient une assurance responsabilité obligatoire comme exigé par la loi touristique des Canaries.'
+        content: 'Meenakshi maintient une assurance responsabilité obligatoire comme exigé par la loi touristique des Canaries.'
       },
       {
         key: 'checkin',
@@ -1244,14 +1244,14 @@ const dpaData = {
     pageTitle: 'Auftragsverarbeitungsvertrag (AVV)',
     lastUpdated: 'Dezember 2024',
     parties: {
-      controller: { name: 'Zenyourlife', role: 'Verantwortlicher', email: 'info@zenyourlife.be' },
+      controller: { name: 'Meenakshi', role: 'Verantwortlicher', email: 'info@zenyourlife.be' },
       processor: { name: 'Hostinger', role: 'Auftragsverarbeiter' }
     },
     sections: [
       {
         key: 'subject',
         title: 'Gegenstand der Vereinbarung',
-        content: `Der Auftragsverarbeiter verarbeitet personenbezogene Daten im Auftrag von Zenyourlife ausschließlich für:
+        content: `Der Auftragsverarbeiter verarbeitet personenbezogene Daten im Auftrag von Meenakshi ausschließlich für:
 • IT-Dienstleistungen
 • Buchungsverwaltung
 • Hosting
@@ -1266,10 +1266,10 @@ const dpaData = {
         key: 'obligations',
         title: 'Pflichten des Auftragsverarbeiters',
         content: `Der Auftragsverarbeiter muss:
-• Daten nur nach dokumentierten Anweisungen von Zenyourlife verarbeiten
+• Daten nur nach dokumentierten Anweisungen von Meenakshi verarbeiten
 • Vertraulichkeit gewährleisten
 • Daten mit angemessenen Sicherheitsmaßnahmen schützen
-• Zenyourlife über Datenschutzverletzungen innerhalb von 24 Stunden informieren
+• Meenakshi über Datenschutzverletzungen innerhalb von 24 Stunden informieren
 • Bei DSGVO-Rechtsanfragen unterstützen
 • Audits bei Bedarf ermöglichen`
       },
@@ -1286,7 +1286,7 @@ const dpaData = {
       {
         key: 'endcontract',
         title: 'Vertragsende',
-        content: 'Alle personenbezogenen Daten müssen gelöscht oder an Zenyourlife zurückgegeben werden.'
+        content: 'Alle personenbezogenen Daten müssen gelöscht oder an Meenakshi zurückgegeben werden.'
       },
       {
         key: 'liability',
@@ -1318,7 +1318,7 @@ const dpaData = {
       {
         key: 'insurance',
         title: 'Versicherung',
-        content: 'Zenyourlife unterhält eine obligatorische Haftpflichtversicherung gemäß kanarischem Tourismusrecht.'
+        content: 'Meenakshi unterhält eine obligatorische Haftpflichtversicherung gemäß kanarischem Tourismusrecht.'
       },
       {
         key: 'checkin',
@@ -1333,14 +1333,14 @@ const dpaData = {
     pageTitle: 'Gegevensverwerkingsovereenkomst (GVO)',
     lastUpdated: 'December 2024',
     parties: {
-      controller: { name: 'Zenyourlife', role: 'Verwerkingsverantwoordelijke', email: 'info@zenyourlife.be' },
+      controller: { name: 'Meenakshi', role: 'Verwerkingsverantwoordelijke', email: 'info@zenyourlife.be' },
       processor: { name: 'Hostinger', role: 'Verwerker' }
     },
     sections: [
       {
         key: 'subject',
         title: 'Onderwerp van de Overeenkomst',
-        content: `De Verwerker verwerkt persoonsgegevens namens Zenyourlife strikt voor het leveren van:
+        content: `De Verwerker verwerkt persoonsgegevens namens Meenakshi strikt voor het leveren van:
 • IT-diensten
 • Boekingsbeheer
 • Hosting
@@ -1355,10 +1355,10 @@ const dpaData = {
         key: 'obligations',
         title: 'Verplichtingen van de Verwerker',
         content: `De Verwerker zal:
-• Gegevens alleen verwerken volgens gedocumenteerde instructies van Zenyourlife
+• Gegevens alleen verwerken volgens gedocumenteerde instructies van Meenakshi
 • Vertrouwelijkheid waarborgen
 • Gegevens beschermen met adequate beveiligingsmaatregelen
-• Zenyourlife binnen 24 uur op de hoogte stellen van datalekken
+• Meenakshi binnen 24 uur op de hoogte stellen van datalekken
 • Assisteren bij AVG-rechtenverzoeken
 • Audits toestaan indien nodig`
       },
@@ -1375,7 +1375,7 @@ const dpaData = {
       {
         key: 'endcontract',
         title: 'Einde van Contract',
-        content: 'Alle persoonsgegevens moeten worden verwijderd of teruggestuurd naar Zenyourlife.'
+        content: 'Alle persoonsgegevens moeten worden verwijderd of teruggestuurd naar Meenakshi.'
       },
       {
         key: 'liability',
@@ -1407,7 +1407,7 @@ const dpaData = {
       {
         key: 'insurance',
         title: 'Verzekering',
-        content: 'Zenyourlife onderhoudt verplichte aansprakelijkheidsverzekering zoals vereist door Canarische toerismewetgeving.'
+        content: 'Meenakshi onderhoudt verplichte aansprakelijkheidsverzekering zoals vereist door Canarische toerismewetgeving.'
       },
       {
         key: 'checkin',
@@ -1422,7 +1422,7 @@ const dpaData = {
 async function seedLegalPages() {
   try {
     // Connect to MongoDB
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/zenyourlife';
+    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/meenakshi';
     await mongoose.connect(mongoUri);
     console.log('✅ Connected to MongoDB');
 

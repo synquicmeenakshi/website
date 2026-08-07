@@ -17,8 +17,8 @@ const translations = {
     description2: 'Of je nu uitzicht op de oceaan wilt, totale afzondering, of een moderne uitvalsbasis dicht bij de culturele plekken van Lanzarote, je vindt hier een plek die comfortabel van jou aanvoelt.',
     cards: [
       {
-        title: 'Villa Zen Your Life',
-        description: 'Villa Zen Your Life in Playa Blanca biedt een zonneterras, weelderige tuin en een buitenzwembad dat het hele jaar geopend is'
+        title: 'Villa Meenakshi',
+        description: 'Villa Meenakshi in Playa Blanca biedt een zonneterras, weelderige tuin en een buitenzwembad dat het hele jaar geopend is'
       },
       {
         title: 'Casa Artevista',
@@ -34,8 +34,8 @@ const translations = {
     description2: 'Que vous souhaitiez une vue sur l\'océan, une intimité totale ou une base moderne proche des sites culturels de Lanzarote, vous trouverez ici un endroit qui vous ressemble confortablement.',
     cards: [
       {
-        title: 'Villa Zen Your Life',
-        description: 'La Villa Zen Your Life à Playa Blanca offre une terrasse ensoleillée, un jardin luxuriant et une piscine extérieure ouverte toute l\'année'
+        title: 'Villa Meenakshi',
+        description: 'La Villa Meenakshi à Playa Blanca offre une terrasse ensoleillée, un jardin luxuriant et une piscine extérieure ouverte toute l\'année'
       },
       {
         title: 'Casa Artevista',
@@ -51,8 +51,8 @@ const translations = {
     description2: 'Ob Sie Meerblick, völlige Abgeschiedenheit oder eine moderne Basis in der Nähe von Lanzarotes kulturellen Hotspots wünschen, Sie finden hier einen Ort, der sich bequem wie Ihr eigener anfühlt.',
     cards: [
       {
-        title: 'Villa Zen Your Life',
-        description: 'Die Villa Zen Your Life in Playa Blanca bietet eine Sonnenterrasse, einen üppigen Garten und einen ganzjährig geöffneten Außenpool'
+        title: 'Villa Meenakshi',
+        description: 'Die Villa Meenakshi in Playa Blanca bietet eine Sonnenterrasse, einen üppigen Garten und einen ganzjährig geöffneten Außenpool'
       },
       {
         title: 'Casa Artevista',
@@ -68,8 +68,8 @@ const translations = {
     description2: 'Ya sea que desees vistas al océano, aislamiento total o una base moderna cerca de los lugares culturales de Lanzarote, encontrarás aquí un lugar que se siente cómodamente tuyo.',
     cards: [
       {
-        title: 'Villa Zen Your Life',
-        description: 'Villa Zen Your Life en Playa Blanca ofrece una terraza sooleada, jardín exuberante y una piscina exterior abierta todo el año'
+        title: 'Villa Meenakshi',
+        description: 'Villa Meenakshi en Playa Blanca ofrece una terraza sooleada, jardín exuberante y una piscina exterior abierta todo el año'
       },
       {
         title: 'Casa Artevista',

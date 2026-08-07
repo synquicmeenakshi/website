@@ -49,7 +49,7 @@
 All company contact information centralized:
 ```json
 "company": {
-  "name": "ZENYOURLIFE.BE",
+  "name": "zenyourlife.be",
   "name_lowercase": "zenyourlife.be",
   "email": "info@zenyourlife.be",
   "email_privacy": "privacy@zenyourlife.be",
@@ -129,7 +129,7 @@ All scripts located in `/backend/scripts/`:
 ### Verification: ✅ PASSED
 ```bash
 # Verified no hardcoded values remain (except API config)
-grep -r "info@zenyourlife\|0476 66 71 15\|Schapenbaan 45" --include="*.tsx"
+grep -r "info@meenakshi\|0476 66 71 15\|Schapenbaan 45" --include="*.tsx"
 # Result: 0 matches (3 in api.ts are correct - API URLs, not display text)
 ```
 

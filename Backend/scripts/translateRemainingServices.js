@@ -31,7 +31,7 @@ const serviceTranslations = {
         { title: "Récupération active", description: "Toute personne en récupération après une activité physique" }
       ],
       contentSections: [
-        { title: "Soutien idéal du mode de vie sportif", description: "Un massage sportif est légèrement plus dynamique que le massage Zen Your Body et est idéal pour le sport, après le sport ou comme entretien pendant une pratique sportive régulière.\n\nToute personne qui bouge régulièrement, tant l'athlète récréatif que celui qui pratique le sport à un niveau plus élevé, peut grandement bénéficier du massage sportif. De nombreux athlètes de haut niveau font confiance à Zen Your Life pour leur massage sportif." },
+        { title: "Soutien idéal du mode de vie sportif", description: "Un massage sportif est légèrement plus dynamique que le massage Zen Your Body et est idéal pour le sport, après le sport ou comme entretien pendant une pratique sportive régulière.\n\nToute personne qui bouge régulièrement, tant l'athlète récréatif que celui qui pratique le sport à un niveau plus élevé, peut grandement bénéficier du massage sportif. De nombreux athlètes de haut niveau font confiance à Meenakshi pour leur massage sportif." },
         { title: "Effet profond sur le muscle", description: "Les techniques du massage sportif (lissage, pétrissage et techniques de pression), qui sont dérivées du massage suédois et de la pression sur les points de pression, ont un effet profond sur le tissu conjonctif musculaire." },
         { title: "Prévention des blessures", description: "Les muscles rigides ou excessivement tendus augmentent le risque de blessure lors de l'exercice. Si vous faites régulièrement un massage sportif, vous garderez non seulement vos muscles souples, mais vous stimulerez également la circulation sanguine, améliorerez le drainage lymphatique et accélérerez l'élimination de l'acide lactique." }
       ]
@@ -53,7 +53,7 @@ const serviceTranslations = {
         { title: "Aktive Erholung", description: "Jeder, der sich von körperlicher Aktivität erholt" }
       ],
       contentSections: [
-        { title: "Ideale Unterstützung des sportlichen Lebensstils", description: "Eine Sportmassage ist etwas dynamischer als die Zen Your Body Massage und ist ideal für Sport, nach dem Sport oder als Pflege während regelmäßiger sportlicher Aktivitäten.\n\nJeder, der sich regelmäßig bewegt, sowohl der Freizeitsportler als auch derjenige, der auf höherem Niveau Sport treibt, kann von einer Sportmassage stark profitieren. Es gibt viele Spitzensportler, die auf Zen Your Life für ihre Sportmassage vertrauen." },
+        { title: "Ideale Unterstützung des sportlichen Lebensstils", description: "Eine Sportmassage ist etwas dynamischer als die Zen Your Body Massage und ist ideal für Sport, nach dem Sport oder als Pflege während regelmäßiger sportlicher Aktivitäten.\n\nJeder, der sich regelmäßig bewegt, sowohl der Freizeitsportler als auch derjenige, der auf höherem Niveau Sport treibt, kann von einer Sportmassage stark profitieren. Es gibt viele Spitzensportler, die auf Meenakshi für ihre Sportmassage vertrauen." },
         { title: "Tiefe Wirkung auf den Muskel", description: "Die Techniken der Sportmassage (Streichen, Kneten und Drucktechniken), die von der schwedischen Massage und dem Druck auf Druckpunkte abgeleitet sind, haben eine tiefe Wirkung auf das Muskel-Bindegewebe." },
         { title: "Verletzungen vorbeugen", description: "Steife oder übermäßig angespannte Muskeln erhöhen das Verletzungsrisiko beim Sport. Wenn Sie regelmäßig eine Sportmassage erhalten, halten Sie nicht nur Ihre Muskeln geschmeidig, sondern stimulieren auch die Durchblutung, verbessern den Lymphabfluss und beschleunigen den Abbau von Milchsäure." }
       ]
@@ -75,7 +75,7 @@ const serviceTranslations = {
         { title: "Actief herstel", description: "Iedereen die herstelt van fysieke activiteit" }
       ],
       contentSections: [
-        { title: "Ideale ondersteuning van sportieve levensstijl", description: "Een sportmassage is iets dynamischer dan de Zen Your Body massage en is ideaal bij sport, na sport of als onderhoud tijdens regelmatig sporten.\n\nIedereen die regelmatig beweegt, zowel de recreatieve sporter als degene die op hoger niveau sport, kan veel baat hebben bij sportmassage. Er zijn veel topsporters die vertrouwen op Zen Your Life voor hun sportmassage." },
+        { title: "Ideale ondersteuning van sportieve levensstijl", description: "Een sportmassage is iets dynamischer dan de Zen Your Body massage en is ideaal bij sport, na sport of als onderhoud tijdens regelmatig sporten.\n\nIedereen die regelmatig beweegt, zowel de recreatieve sporter als degene die op hoger niveau sport, kan veel baat hebben bij sportmassage. Er zijn veel topsporters die vertrouwen op Meenakshi voor hun sportmassage." },
         { title: "Diep effect op de spier", description: "De technieken van sportmassage (strijken, kneden en druktechnieken), die zijn afgeleid van de Zweedse massage en de druk op drukpunten, hebben een diep effect op het spierweefsel." },
         { title: "Blessures voorkomen", description: "Stijve of overmatig gespannen spieren verhogen het risico op blessures bij het sporten. Als u regelmatig een sportmassage krijgt, houdt u niet alleen uw spieren soepel, maar stimuleert u ook de bloedcirculatie, verbetert u de lymfedrainage en versnelt u de afvoer van melkzuur." }
       ]
@@ -466,7 +466,7 @@ const serviceTranslations = {
 
 async function addTranslations() {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/zenyourlife';
+    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/meenakshi';
     await mongoose.connect(mongoUri);
     console.log('Connected to MongoDB\n');
 

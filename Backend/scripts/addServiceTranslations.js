@@ -312,7 +312,7 @@ const serviceTranslations = [
         contentSections: [
           {
             title: "Numerous advantages",
-            description: "A massage with warm hop stamps... This is an exclusive treatment at Zen Your Life! Hop stamps are bundles filled with hops heated in steam to release their healing properties. They are used against hypersensitivity, nervousness, melancholy, cramps, nerve pain, migraines, and more."
+            description: "A massage with warm hop stamps... This is an exclusive treatment at Meenakshi! Hop stamps are bundles filled with hops heated in steam to release their healing properties. They are used against hypersensitivity, nervousness, melancholy, cramps, nerve pain, migraines, and more."
           },
           {
             title: "Indigenous herb",
@@ -339,7 +339,7 @@ const serviceTranslations = [
         contentSections: [
           {
             title: "Tal van voordelen",
-            description: "Een massage met warme hopstempels... Dit is een exclusieve behandeling bij Zen Your Life! Hopstempels zijn bundels gevuld met hop die in stoom worden verwarmd om hun geneeskrachtige eigenschappen vrij te geven. Ze worden gebruikt tegen overgevoeligheid, nervositeit, melancholie, krampen, zenuwpijnen, migraine, ..."
+            description: "Een massage met warme hopstempels... Dit is een exclusieve behandeling bij Meenakshi! Hopstempels zijn bundels gevuld met hop die in stoom worden verwarmd om hun geneeskrachtige eigenschappen vrij te geven. Ze worden gebruikt tegen overgevoeligheid, nervositeit, melancholie, krampen, zenuwpijnen, migraine, ..."
           },
           {
             title: "Inheemkruid",
@@ -366,7 +366,7 @@ const serviceTranslations = [
         contentSections: [
           {
             title: "De nombreux avantages",
-            description: "Un massage avec des tampons de houblon chauds... C'est un soin exclusif de Zen Your Life ! Les tampons de houblon sont des sachets remplis de houblon chauffés à la vapeur pour libérer leurs propriétés curatives. Ils sont utilisés contre l'hypersensibilité, la nervosité, la mélancolie, les crampes, les douleurs nerveuses, les migraines, ..."
+            description: "Un massage avec des tampons de houblon chauds... C'est un soin exclusif de Meenakshi ! Les tampons de houblon sont des sachets remplis de houblon chauffés à la vapeur pour libérer leurs propriétés curatives. Ils sont utilisés contre l'hypersensibilité, la nervosité, la mélancolie, les crampes, les douleurs nerveuses, les migraines, ..."
           },
           {
             title: "Herbe indigène",
@@ -393,7 +393,7 @@ const serviceTranslations = [
         contentSections: [
           {
             title: "Zahlreiche Vorteile",
-            description: "Eine Massage mit warmen Hopfenstempeln... Dies ist eine exklusive Behandlung bei Zen Your Life! Hopfenstempel sind Bündel, die mit Hopfen gefüllt und im Dampf erhitzt werden, um ihre heilenden Eigenschaften freizusetzen. Sie werden eingesetzt gegen Überempfindlichkeit, Nervosität, Melancholie, Krämpfe, Nervenschmerzen, Migräne, ..."
+            description: "Eine Massage mit warmen Hopfenstempeln... Dies ist eine exklusive Behandlung bei Meenakshi! Hopfenstempel sind Bündel, die mit Hopfen gefüllt und im Dampf erhitzt werden, um ihre heilenden Eigenschaften freizusetzen. Sie werden eingesetzt gegen Überempfindlichkeit, Nervosität, Melancholie, Krämpfe, Nervenschmerzen, Migräne, ..."
           },
           {
             title: "Einheimisches Kraut",
@@ -546,7 +546,7 @@ const serviceTranslations = [
 
 async function addTranslations() {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/zenyourlife';
+    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/meenakshi';
     await mongoose.connect(mongoUri);
     console.log('Connected to MongoDB');
 

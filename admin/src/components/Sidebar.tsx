@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
   const navigate = useNavigate()
   const location = useLocation()
 // /deploy
-  // The ZenYourLife screens (rentals, massage, properties) are retired from the
+  // The Meenakshi screens (rentals, massage, properties) are retired from the
   // nav but still routed — see MEENAKSHI-INTEGRATION-PLAN.md, Phase 5.
   const menuItems: MenuItem[] = [
     { name: 'Dashboard', icon: <LayoutDashboard className="w-5 h-5" />, path: '/dashboard' },

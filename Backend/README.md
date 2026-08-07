@@ -1,4 +1,4 @@
-# ZenYourLife Backend - Appointment Booking System
+# Meenakshi Backend - Appointment Booking System
 
 A RESTful API built with Express.js and MongoDB for managing massage/wellness service appointments.
 
@@ -43,14 +43,14 @@ Create a `.env` file in the backend directory (already provided):
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/zenyourlife
+MONGODB_URI=mongodb://localhost:27017/meenakshi
 NODE_ENV=development
 ```
 
 **For MongoDB Atlas (Cloud):**
 Replace `MONGODB_URI` with your connection string:
 ```env
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/zenyourlife?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/meenakshi?retryWrites=true&w=majority
 ```
 
 ### 3. Start MongoDB (Local Installation)

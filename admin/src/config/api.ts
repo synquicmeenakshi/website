@@ -2,10 +2,21 @@
 // This file centralizes the API base URL for the entire admin application
 // URLs are loaded from environment variables (.env.development or .env.production)
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://zenyourlife.be/api';
+// No fallback by design. A missing variable must fail loudly here rather than
+// silently resolve to some other deployment's domain.
+const required = (name: string, value: string | undefined): string => {
+  if (!value) {
+    throw new Error(
+      `${name} is not set. Define it in .env.development / .env.production before building the admin app.`
+    );
+  }
+  return value.replace(/\/$/, '');
+};
+
+export const API_BASE_URL = required('VITE_API_URL', import.meta.env.VITE_API_URL);
 
 // Server base URL (without /api) for serving static files like images
-export const SERVER_BASE_URL = import.meta.env.VITE_SERVER_URL || 'https://zenyourlife.be';
+export const SERVER_BASE_URL = required('VITE_SERVER_URL', import.meta.env.VITE_SERVER_URL);
 
 // Helper function to get full image URL from backend paths
 // Includes cache-busting to prevent browsers from showing stale cached images

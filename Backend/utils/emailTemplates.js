@@ -81,7 +81,7 @@ exports.enrollmentConfirmationEmail = (enrollment) => {
       <div class="container">
         <div class="header">
           <h1>✨ Booking Confirmed!</h1>
-          <p style="margin: 10px 0 0 0;">Thank you for choosing ZenYourLife</p>
+          <p style="margin: 10px 0 0 0;">Thank you for choosing Meenakshi</p>
         </div>
 
         <div class="content">
@@ -118,14 +118,14 @@ exports.enrollmentConfirmationEmail = (enrollment) => {
 
           <p style="margin-top: 20px;">
             <strong>Best regards,</strong><br>
-            The ZenYourLife Team<br>
+            The Meenakshi Team<br>
             📞 +32 123 456 789<br>
             📧 info@zenyouths.be
           </p>
         </div>
 
         <div class="footer">
-          <p>© 2025 ZenYourLife. All rights reserved.</p>
+          <p>© 2025 Meenakshi. All rights reserved.</p>
           <p style="font-size: 12px; color: #999;">This is an automated confirmation email. Please do not reply directly to this message.</p>
         </div>
       </div>

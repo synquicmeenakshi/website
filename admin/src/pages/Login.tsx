@@ -70,9 +70,9 @@ const Login = () => {
       {/* Logo Section */}
       <div className="text-center mb-8 mt-10">
         <div className="flex justify-center mb-2">
-          <img src={znlogo} alt="ZenYourLife" className="w-12 h-12" />
+          <img src={znlogo} alt="Meenakshi" className="w-12 h-12" />
         </div>
-        <h1 className="text-xl font-semibold text-gray-800">ZenYourLife</h1>
+        <h1 className="text-xl font-semibold text-gray-800">Meenakshi</h1>
         <p className="text-sm text-gray-500">Admin Panel</p>
       </div>
 
@@ -154,7 +154,7 @@ const Login = () => {
 
       {/* Footer */}
       <p className="text-sm text-gray-400 mt-8">
-        © 2024 ZenYourLife Admin
+        © 2024 Meenakshi Admin
       </p>
     </div>
   )

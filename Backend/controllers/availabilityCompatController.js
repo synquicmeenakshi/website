@@ -2,7 +2,7 @@
  * Compatibility layer so the existing BookingManagement admin screen can drive
  * Meenakshi availability without being rewritten.
  *
- * That screen was built against ZenYourLife's /blocked-dates contract, which
+ * That screen was built against Meenakshi's /blocked-dates contract, which
  * names things differently (`timeSlots` vs `slots`, `isFullDayBlocked` vs
  * `isFullDay`) and is backed by models tied to the massage Appointment flow.
  * Rather than rebuild a working 1,800-line UI, this translates its requests

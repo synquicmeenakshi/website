@@ -1,5 +1,5 @@
 /**
- * Script to update Villa Zen Your Life property with Booking.com content
+ * Script to update Villa Meenakshi property with Booking.com content
  * Run this with: node scripts/updateVillaZenOverview.js
  */
 
@@ -8,8 +8,8 @@ require('dotenv').config();
 const { Property } = require('../models/Property');
 
 const villaZenOverview = {
-  title: 'Villa Zen Your Life - Your Perfect Lanzarote Escape',
-  description1: "Experience elegant accommodation at Villa Zen Your Life, featuring a sun terrace, beautiful garden, and a year-round outdoor pool with free WiFi throughout. This stunning villa offers 3 spacious bedrooms and 2 modern bathrooms, complete with air conditioning to keep you comfortable in the Lanzarote sun. The fully equipped kitchen has everything you need, plus a washing machine for longer stays.",
+  title: 'Villa Meenakshi - Your Perfect Lanzarote Escape',
+  description1: "Experience elegant accommodation at Villa Meenakshi, featuring a sun terrace, beautiful garden, and a year-round outdoor pool with free WiFi throughout. This stunning villa offers 3 spacious bedrooms and 2 modern bathrooms, complete with air conditioning to keep you comfortable in the Lanzarote sun. The fully equipped kitchen has everything you need, plus a washing machine for longer stays.",
   description2: "Enjoy comfortable amenities including BBQ facilities perfect for evening gatherings, outdoor seating areas to soak in the views, and private check-in/check-out for your convenience. Located in a prime position just 1.9 km from the beautiful Playa Dorada beach, with Montañas de Fuego (20 km) and Timanfaya National Park (24 km) easily accessible. The property is 29 km from the airport with free private parking on-site.",
   highlights: [
     'Year-round outdoor swimming pool',
@@ -71,13 +71,13 @@ async function updateVillaZen() {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('Connected to MongoDB');
 
-    // Find Villa Zen Your Life property
+    // Find Villa Meenakshi property
     const property = await Property.findOne({
       name: { $regex: /zen.*life/i }
     });
 
     if (!property) {
-      console.log('Villa Zen Your Life property not found. Available properties:');
+      console.log('Villa Meenakshi property not found. Available properties:');
       const allProperties = await Property.find({}, 'name');
       allProperties.forEach(p => console.log(`   - ${p.name} (ID: ${p._id})`));
       console.log('\nPlease update the property manually using the property ID above');
@@ -94,7 +94,7 @@ async function updateVillaZen() {
 
     await property.save();
 
-    console.log('Villa Zen Your Life updated successfully with Booking.com content!');
+    console.log('Villa Meenakshi updated successfully with Booking.com content!');
     console.log('\nUpdated content:');
     console.log(`Title: ${villaZenOverview.title}`);
     console.log(`Description: ${mainDescription}`);
@@ -113,7 +113,7 @@ async function updateVillaZen() {
 
     process.exit(0);
   } catch (error) {
-    console.error('Error updating Villa Zen Your Life:', error);
+    console.error('Error updating Villa Meenakshi:', error);
     process.exit(1);
   }
 }

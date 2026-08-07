@@ -41,7 +41,7 @@ function App() {
         <Route path="/m/journey" element={<ProtectedRoute><MeenakshiJourney /></ProtectedRoute>} />
         <Route path="/m/legal" element={<ProtectedRoute><MeenakshiLegal /></ProtectedRoute>} />
         <Route path="/m/settings" element={<ProtectedRoute><MeenakshiSettings /></ProtectedRoute>} />
-        {/* Availability: the ZenYourLife screen, repointed at the Meenakshi models */}
+        {/* Availability: the Meenakshi screen, repointed at the Meenakshi models */}
         <Route path="/booking-management" element={<ProtectedRoute><BookingManagement /></ProtectedRoute>} />
         <Route path="/m/enquiries" element={<ProtectedRoute><Enquiries /></ProtectedRoute>} />
         <Route path="/m/blog" element={<ProtectedRoute><BlogPosts /></ProtectedRoute>} />
@@ -50,7 +50,7 @@ function App() {
         <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
         <Route path="/health" element={<ProtectedRoute><HealthCheck /></ProtectedRoute>} />
 
-        {/* ZenYourLife — retired from the nav, routes kept until the data is
+        {/* Meenakshi — retired from the nav, routes kept until the data is
             confirmed dead (Phase 5 of MEENAKSHI-INTEGRATION-PLAN.md). */}
         <Route path="/bookings" element={<ProtectedRoute><RentalBooking /></ProtectedRoute>} />
         <Route path="/massage-appointments" element={<ProtectedRoute><MassageBooking /></ProtectedRoute>} />

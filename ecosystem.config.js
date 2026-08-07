@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'zenyourlife-backend',
+    name: 'meenakshi-backend',
     script: '/app/backend/server.js',
     cwd: '/app/backend',
     instances: 1,

@@ -1,7 +1,7 @@
 {
-  "name": "zenyourlife-backend",
+  "name": "meenakshi-backend",
   "version": "1.0.0",
-  "description": "Backend API for ZenYourLife appointment booking system",
+  "description": "Backend API for Meenakshi appointment booking system",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -39,12 +39,12 @@ pages (`/legal/:slug`), and the "Ask Meenakshi" guidance desk.
 | Item | Status | Note |
 |---|---|---|
 | Service selection with duration and pricing | **Partial** | Consultation-area dropdown works; no duration or price anywhere in the data model |
-| Real-time slot availability, date & time picker | **Not started** | Form asks only "preferred date". Admin assigns the slot manually afterwards. `BookingSettings` / `BlockedDate` infrastructure exists from ZenYourLife but is not wired to consultations |
+| Real-time slot availability, date & time picker | **Not started** | Form asks only "preferred date". Admin assigns the slot manually afterwards. `BookingSettings` / `BlockedDate` infrastructure exists from Meenakshi but is not wired to consultations |
 | Customer details capture (name, birth details, contact) | **Done** | Name, DOB, TOB, POB, area, language, contact — all stored |
 | Razorpay payment gateway | **Not started** | No integration of any kind. Site copy already promises "Secure payment — processed through Razorpay" |
 | Automated booking confirmation email | **Built, not live** | Admin alert + client acknowledgement written and wired; `EMAIL_USER`/`EMAIL_PASSWORD` blank so sends are skipped |
 | Reschedule & cancellation via admin | **Partial** | Status changes and date/time reassignment work. No client-facing reschedule, no notification when changed |
-| Automated reminder emails | **Not started** | `reminderScheduler` runs but still queries the ZenYourLife `Appointment` model, not `Consultation` |
+| Automated reminder emails | **Not started** | `reminderScheduler` runs but still queries the Meenakshi `Appointment` model, not `Consultation` |
 
 ## 3 · Admin Portal
 
@@ -57,7 +57,7 @@ pages (`/legal/:slug`), and the "Ask Meenakshi" guidance desk.
 | Availability & time-slot management | **Not started** | Not wired to consultations |
 | Service management | **Done** | Full CRUD + reorder |
 | **Pricing** management | **Not started** | No price field on the model |
-| Customer records & enquiry management | **Not started** | No customer model — repeat clients create unlinked records. The "Users" screen is a dead ZenYourLife leftover reading empty `enrollments` |
+| Customer records & enquiry management | **Not started** | No customer model — repeat clients create unlinked records. The "Users" screen is a dead Meenakshi leftover reading empty `enrollments` |
 
 Also delivered beyond scope: admin editing for testimonials, FAQ, journey
 steps, legal pages and site-wide settings.
@@ -89,7 +89,7 @@ steps, legal pages and site-wide settings.
 | Synquic-managed server, SSL | — | ❌ pending |
 
 The proposal commits to PostgreSQL "for services, slots, bookings, customers and
-payments". The build is MongoDB, inherited from the ZenYourLife codebase this
+payments". The build is MongoDB, inherited from the Meenakshi codebase this
 was adapted from. Functionally fine, but it differs from a signed document — it
 needs either client sign-off on the change or a migration. Raising it now is far
 cheaper than at handover.
@@ -129,7 +129,7 @@ cheaper than at handover.
 9. **Revenue reporting** — depends on 1.
 10. **Per-route SEO meta** — titles and descriptions per page.
 11. **Standalone testimonials page.**
-12. **Deployment** — server, domain, SSL, plus the Dockerfile/`build:frontend`/`server.js` paths that still assume the old ZenYourLife layout.
+12. **Deployment** — server, domain, SSL, plus the Dockerfile/`build:frontend`/`server.js` paths that still assume the old Meenakshi layout.
 13. **PostgreSQL decision** — migrate, or get the change signed off.
 14. **Training & handover walkthrough.**
 

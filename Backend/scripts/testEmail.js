@@ -41,14 +41,14 @@ const testEmail = async () => {
     console.log('Sending test email...\n');
 
     const info = await transporter.sendMail({
-      from: `"ZenYourLife Test" <${process.env.EMAIL_USER}>`,
+      from: `"Meenakshi Test" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER, // Send to self
-      subject: 'ZenYourLife Email Test - ' + new Date().toLocaleString(),
-      text: 'This is a test email from ZenYourLife. If you receive this, email configuration is working correctly!',
+      subject: 'Meenakshi Email Test - ' + new Date().toLocaleString(),
+      text: 'This is a test email from Meenakshi. If you receive this, email configuration is working correctly!',
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9;">
-          <h2 style="color: #DFB13B;">ZenYourLife Email Test</h2>
-          <p>This is a test email from ZenYourLife.</p>
+          <h2 style="color: #DFB13B;">Meenakshi Email Test</h2>
+          <p>This is a test email from Meenakshi.</p>
           <p>If you receive this, email configuration is working correctly!</p>
           <hr>
           <p style="color: #666; font-size: 12px;">Sent at: ${new Date().toLocaleString()}</p>

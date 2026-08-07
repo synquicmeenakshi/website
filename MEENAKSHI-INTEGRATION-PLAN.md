@@ -6,14 +6,14 @@
 > in §8. Razorpay and Hindi translation remain out of scope (§6).
 
 **Goal:** make the Meenakshi site content-managed and booking-capable through the
-existing (ZenYourLife) backend and admin panel.
+existing (Meenakshi) backend and admin panel.
 
 **Hard constraint:** the user-facing frontend's UI must not change. No markup, no
 CSS, no layout, no copy-rendering differences. Wiring code may change; anything a
 visitor can see may not. The admin UI is expected to change and will be rebuilt.
 
 **Decisions taken (2026-08-05):**
-- **Repurpose** — Meenakshi replaces ZenYourLife. ZYL treated as a template.
+- **Repurpose** — Meenakshi replaces Meenakshi. ZYL treated as a template.
 - **New `Consultation` model** for bookings, rather than extending `Appointment`.
 
 ---
@@ -107,11 +107,11 @@ Any difference is a bug, not an improvement.
 ### Phase 0 — Repo & deployment hygiene
 Cleanup owed from the folder move; nothing else is safe to build on until it's done.
 
-1. ~~Nested git repos~~ — **done 2026-08-05.** Both old `.git` folders (`Synquic/zenyourlife`,
+1. ~~Nested git repos~~ — **done 2026-08-05.** Both old `.git` folders (`Synquic/meenakshi`,
    `Chandreshhere/meenakshii`) were deleted and a single fresh repo initialised at
    `Backend/` on branch `main`, no remote yet. Awaiting the new GitHub remote and an
    initial commit. Note: `deploy.sh` is no longer present in the working tree — recover
-   it from the old `Synquic/zenyourlife` repo if still needed (it targets ZYL infra and
+   it from the old `Synquic/meenakshi` repo if still needed (it targets ZYL infra and
    needs rewriting for this project regardless).
 2. `server.js:56` serves `../frontend/dist` in production — now the Meenakshi build.
    Confirm intended, since it changes what `zenyourlife.be` would serve.
@@ -220,7 +220,7 @@ in flight. Nothing changes in the success path.
 ## 8 · Outstanding
 
 - **`deploy.sh` is missing** from the working tree (noted in §4 Phase 0). Recover
-  from the old `Synquic/zenyourlife` repo if wanted; it targets ZYL infrastructure
+  from the old `Synquic/meenakshi` repo if wanted; it targets ZYL infrastructure
   and needs rewriting regardless.
 - **Email is unconfigured.** `EMAIL_USER` / `EMAIL_PASSWORD` are blank, so the
   transporter logs `EAUTH` on boot and notifications are skipped (deliberately —

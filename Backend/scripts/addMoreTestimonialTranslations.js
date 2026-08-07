@@ -203,7 +203,7 @@ const additionalTranslations = [
       role: "Client"
     },
     de: {
-      text: "Top Zen Your Life Massage.",
+      text: "Top Meenakshi Massage.",
       role: "Kunde"
     },
     nl: {

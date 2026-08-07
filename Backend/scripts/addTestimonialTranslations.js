@@ -118,23 +118,23 @@ const villaTestimonialTranslations = [
     // Sarah Miller
     nameMatch: "Sarah Miller",
     en: {
-      text: "Villa Zen Your Life is absolutely stunning! The panoramic views of the volcanic landscape took our breath away. Perfect for families!",
+      text: "Villa Meenakshi is absolutely stunning! The panoramic views of the volcanic landscape took our breath away. Perfect for families!",
       role: "@sarahmiller"
     },
     fr: {
-      text: "Villa Zen Your Life est absolument magnifique ! Les vues panoramiques sur le paysage volcanique nous ont coupé le souffle. Parfait pour les familles !",
+      text: "Villa Meenakshi est absolument magnifique ! Les vues panoramiques sur le paysage volcanique nous ont coupé le souffle. Parfait pour les familles !",
       role: "@sarahmiller"
     },
     de: {
-      text: "Villa Zen Your Life ist absolut atemberaubend! Der Panoramablick auf die Vulkanlandschaft hat uns den Atem geraubt. Perfekt für Familien!",
+      text: "Villa Meenakshi ist absolut atemberaubend! Der Panoramablick auf die Vulkanlandschaft hat uns den Atem geraubt. Perfekt für Familien!",
       role: "@sarahmiller"
     },
     nl: {
-      text: "Villa Zen Your Life is absoluut prachtig! Het panoramische uitzicht op het vulkanische landschap was adembenemend. Perfect voor gezinnen!",
+      text: "Villa Meenakshi is absoluut prachtig! Het panoramische uitzicht op het vulkanische landschap was adembenemend. Perfect voor gezinnen!",
       role: "@sarahmiller"
     },
     es: {
-      text: "¡Villa Zen Your Life es absolutamente impresionante! Las vistas panorámicas del paisaje volcánico nos dejaron sin aliento. ¡Perfecto para familias!",
+      text: "¡Villa Meenakshi es absolutamente impresionante! Las vistas panorámicas del paisaje volcánico nos dejaron sin aliento. ¡Perfecto para familias!",
       role: "@sarahmiller"
     }
   },

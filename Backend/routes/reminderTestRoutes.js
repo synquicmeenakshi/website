@@ -8,12 +8,12 @@ const transporter = require('../config/emailConfig');
 // Send a simple test email
 router.post('/send-test-email', async (req, res) => {
   try {
-    const { email = 'parv@synquic.com', subject = 'Test Email from ZenYourLife', message = 'This is a test email to verify email functionality is working correctly.' } = req.body;
+    const { email = 'parv@synquic.com', subject = 'Test Email from Meenakshi', message = 'This is a test email to verify email functionality is working correctly.' } = req.body;
 
     console.log('Sending test email to:', email);
 
     const mailOptions = {
-      from: `"ZenYourLife" <${process.env.EMAIL_USER}>`,
+      from: `"Meenakshi" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: subject,
       html: `
@@ -33,7 +33,7 @@ router.post('/send-test-email', async (req, res) => {
           <div class="container">
             <div class="header">
               <h1>✅ Test Email</h1>
-              <p>ZenYourLife Email System</p>
+              <p>Meenakshi Email System</p>
             </div>
             <div class="content">
               <h2>Email Functionality Test</h2>
@@ -41,11 +41,11 @@ router.post('/send-test-email', async (req, res) => {
               <p><strong>Sent at:</strong> ${new Date().toLocaleString('en-BE', { timeZone: 'Europe/Brussels' })}</p>
               <p><strong>Environment:</strong> ${process.env.SERVER_ENV || 'development'}</p>
               <p><strong>Email Service:</strong> Gmail (Nodemailer)</p>
-              <a href="https://zenyourlife.be" class="button">Visit ZenYourLife</a>
+              <a href="https://zenyourlife.be" class="button">Visit Meenakshi</a>
             </div>
             <div class="footer">
-              <p>This is an automated test email from ZenYourLife</p>
-              <p>© ${new Date().getFullYear()} ZenYourLife. All rights reserved.</p>
+              <p>This is an automated test email from Meenakshi</p>
+              <p>© ${new Date().getFullYear()} Meenakshi. All rights reserved.</p>
             </div>
           </div>
         </body>

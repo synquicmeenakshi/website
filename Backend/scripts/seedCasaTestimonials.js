@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Connect to MongoDB
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/zenyourlife';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/meenakshi';
 
 const testimonialSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },

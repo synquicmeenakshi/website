@@ -179,7 +179,7 @@ app.use('/api', meenakshiExtraRoutes);
 // Health Check Routes
 app.get('/', (req, res) => {
   res.json({
-    message: 'ZenYourLife API is running!',
+    message: 'Meenakshi API is running!',
     status: 'OK',
     timestamp: new Date().toISOString()
   });
@@ -189,7 +189,7 @@ app.get('/', (req, res) => {
 app.get('/api', (req, res) => {
   res.json({
     success: true,
-    message: 'ZenYourLife API Server',
+    message: 'Meenakshi API Server',
     status: 'healthy',
     version: '1.0.0',
     environment: process.env.SERVER_ENV || 'development',

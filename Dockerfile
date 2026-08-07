@@ -1,4 +1,4 @@
-# Multi-stage build for ZenYourLife (Frontend + Admin + Backend with PM2)
+# Multi-stage build for Meenakshi (Frontend + Admin + Backend with PM2)
 FROM node:18-alpine AS frontend-builder
 
 WORKDIR /app/frontend

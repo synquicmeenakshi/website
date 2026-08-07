@@ -43,7 +43,7 @@ For each of 16 services, for each of 4 languages (FR, DE, NL, ES):
 
 **Check Progress**:
 ```bash
-tail -f /tmp/claude/-Users-parvjain-vscode-zenyourlife/tasks/bf161fc.output
+tail -f /tmp/claude/-Users-parvjain-vscode-meenakshi/tasks/bf161fc.output
 ```
 
 ---

@@ -1,5 +1,5 @@
 /**
- * Script to update both Villa Zen Your Life and Casa Artevista with property-specific location data
+ * Script to update both Villa Meenakshi and Casa Artevista with property-specific location data
  * Run this with: node scripts/updatePropertiesLocation.js
  */
 
@@ -7,10 +7,10 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const { Property } = require('../models/Property');
 
-// Villa Zen Your Life - Modern luxury villa with beach access
+// Villa Meenakshi - Modern luxury villa with beach access
 const villaZenLocation = {
   title: 'Prime Location',
-  description: 'Experience modern luxury at Villa Zen Your Life, perfectly positioned near Lanzarote\'s pristine beaches and volcanic landscapes. Enjoy easy access to top attractions while retreating to your private paradise.',
+  description: 'Experience modern luxury at Villa Meenakshi, perfectly positioned near Lanzarote\'s pristine beaches and volcanic landscapes. Enjoy easy access to top attractions while retreating to your private paradise.',
   mapEmbedUrl: '', // Add your Google Maps embed URL here
   places: [
     {
@@ -55,7 +55,7 @@ async function updatePropertiesLocation() {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connected to MongoDB');
 
-    // Update Villa Zen Your Life
+    // Update Villa Meenakshi
     const villaZen = await Property.findOne({
       name: { $regex: /zen.*life/i }
     });
@@ -63,10 +63,10 @@ async function updatePropertiesLocation() {
     if (villaZen) {
       villaZen.location = villaZenLocation;
       await villaZen.save();
-      console.log('✅ Villa Zen Your Life location updated!');
+      console.log('✅ Villa Meenakshi location updated!');
       console.log(`   Description: ${villaZenLocation.description.substring(0, 50)}...`);
     } else {
-      console.log('⚠️  Villa Zen Your Life not found');
+      console.log('⚠️  Villa Meenakshi not found');
     }
 
     // Update Casa Artevista
