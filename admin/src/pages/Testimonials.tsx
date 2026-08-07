@@ -384,7 +384,7 @@ const Testimonials = () => {
                 onClick={() => setActiveTab('massage')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   activeTab === 'massage'
-                    ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md'
+                    ? 'bg-[var(--saffron)] text-white shadow-md'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
@@ -425,7 +425,7 @@ const Testimonials = () => {
               onClick={() => setActiveTab('massage')}
               className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
                 activeTab === 'massage'
-                  ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md'
+                  ? 'bg-[var(--saffron)] text-white shadow-md'
                   : 'bg-slate-100 text-slate-600'
               }`}
             >
@@ -456,7 +456,7 @@ const Testimonials = () => {
           {!loading && (
             <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-3">
               {/* Total Reviews */}
-              <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#DFB13B] to-[#C9A032] p-2.5 sm:p-3 shadow-md">
+              <div className="relative overflow-hidden rounded-xl bg-[var(--saffron)] p-2.5 sm:p-3 shadow-md">
                 <div className="absolute -top-4 -right-4 w-12 h-12 bg-white/10 rounded-full blur-xl" />
                 <div className="relative flex items-center justify-between">
                   <div>
@@ -515,7 +515,7 @@ const Testimonials = () => {
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all outline-none"
+                className="w-full pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all outline-none"
               />
             </div>
 
@@ -558,7 +558,7 @@ const Testimonials = () => {
               {/* Add */}
               <button
                 onClick={handleAddNew}
-                className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl text-sm font-medium shadow-md hover:shadow-lg transition"
+                className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[var(--saffron)] text-white rounded-xl text-sm font-medium shadow-md hover:shadow-lg transition"
               >
                 <Plus className="w-4 h-4" />
                 <span className="hidden sm:inline">Add</span>
@@ -575,7 +575,7 @@ const Testimonials = () => {
           {loading && (
             <div className="flex items-center justify-center h-64">
               <div className="text-center">
-                <Loader2 className="w-8 h-8 animate-spin text-[#DFB13B] mx-auto mb-3" />
+                <Loader2 className="w-8 h-8 animate-spin text-[#d4531d] mx-auto mb-3" />
                 <p className="text-slate-500 text-sm">Loading...</p>
               </div>
             </div>
@@ -601,7 +601,7 @@ const Testimonials = () => {
                 <button onClick={handleSeedTestimonials} className="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-sm font-medium hover:bg-slate-200 transition">
                   Seed Demo
                 </button>
-                <button onClick={handleAddNew} className="px-4 py-2 bg-[#DFB13B] text-white rounded-xl text-sm font-medium hover:bg-[#C9A032] transition">
+                <button onClick={handleAddNew} className="px-4 py-2 bg-[#d4531d] text-white rounded-xl text-sm font-medium hover:bg-[#ad3f15] transition">
                   Add New
                 </button>
               </div>
@@ -701,7 +701,7 @@ const Testimonials = () => {
             <div className="border-b border-slate-100">
               <div className="flex items-center justify-between px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-xl flex items-center justify-center shadow-md">
+                  <div className="w-10 h-10 bg-[var(--saffron)] rounded-xl flex items-center justify-center shadow-md">
                     {editingTestimonial ? <Edit2 className="w-5 h-5 text-white" /> : <Plus className="w-5 h-5 text-white" />}
                   </div>
                   <div>
@@ -720,7 +720,7 @@ const Testimonials = () => {
                 <span className="text-xs text-slate-400 mr-1">Language:</span>
                 {(['en', 'fr', 'de', 'nl', 'es'] as const).map(lang => (
                   <button key={lang} type="button" onClick={() => setSelectedLang(lang)}
-                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition ${selectedLang === lang ? 'bg-[#DFB13B] text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition ${selectedLang === lang ? 'bg-[#d4531d] text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                     {lang.toUpperCase()}
                   </button>
                 ))}
@@ -747,7 +747,7 @@ const Testimonials = () => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="John Doe"
                     disabled={selectedLang !== 'en'}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] outline-none transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] outline-none transition disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
                 <div>
@@ -761,7 +761,7 @@ const Testimonials = () => {
                       ? setFormData({ ...formData, role: e.target.value })
                       : updateTranslation(selectedLang, 'role', e.target.value)}
                     placeholder={selectedLang === 'en' ? '@handle' : formData.role || 'Role translation...'}
-                    className={`w-full px-3 py-2 bg-slate-50 border rounded-xl text-sm outline-none transition ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]'}`}
+                    className={`w-full px-3 py-2 bg-slate-50 border rounded-xl text-sm outline-none transition ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d]'}`}
                   />
                 </div>
               </div>
@@ -780,7 +780,7 @@ const Testimonials = () => {
                       category: e.target.value ? 'rental' : 'massage'
                     })
                   }}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] outline-none transition"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] outline-none transition"
                 >
                   <option value="">General (Massage)</option>
                   {properties.map(property => (
@@ -804,7 +804,7 @@ const Testimonials = () => {
                     : updateTranslation(selectedLang, 'text', e.target.value)}
                   placeholder={selectedLang === 'en' ? 'Customer feedback...' : formData.text || 'Testimonial translation...'}
                   rows={3}
-                  className={`w-full px-3 py-2 bg-slate-50 border rounded-xl text-sm outline-none resize-none transition ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]'}`}
+                  className={`w-full px-3 py-2 bg-slate-50 border rounded-xl text-sm outline-none resize-none transition ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d]'}`}
                 />
               </div>
 
@@ -841,7 +841,7 @@ const Testimonials = () => {
                       onClick={() => setFormData({ ...formData, photo: photo.name })}
                       className={`p-2 rounded-xl transition ${
                         formData.photo === photo.name
-                          ? 'bg-[#FFEEC3]/30 border-2 border-[#DFB13B]'
+                          ? 'bg-[#FFEEC3]/30 border-2 border-[#d4531d]'
                           : 'bg-slate-50 border-2 border-transparent hover:border-slate-200'
                       }`}
                     >
@@ -861,7 +861,7 @@ const Testimonials = () => {
                   value={formData.photoUrl}
                   onChange={(e) => setFormData({ ...formData, photoUrl: e.target.value })}
                   placeholder="https://..."
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] outline-none transition"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] outline-none transition"
                 />
               </div>
 
@@ -874,7 +874,7 @@ const Testimonials = () => {
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, isActive: !formData.isActive })}
-                  className={`w-11 h-6 rounded-full transition ${formData.isActive ? 'bg-[#DFB13B]' : 'bg-slate-300'}`}
+                  className={`w-11 h-6 rounded-full transition ${formData.isActive ? 'bg-[#d4531d]' : 'bg-slate-300'}`}
                 >
                   <div className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${formData.isActive ? 'translate-x-5' : 'translate-x-0.5'}`} />
                 </button>
@@ -892,7 +892,7 @@ const Testimonials = () => {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl shadow-md hover:shadow-lg transition text-sm font-medium disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-[var(--saffron)] text-white rounded-xl shadow-md hover:shadow-lg transition text-sm font-medium disabled:opacity-50"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                 {saving ? 'Saving...' : 'Save'}

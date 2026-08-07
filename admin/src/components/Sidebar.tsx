@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { LayoutDashboard, Sparkles, Users, LogOut, Quote, X, Settings2, HelpCircle, CalendarCheck, Footprints, Scale, CalendarClock, MessageSquare, Newspaper } from 'lucide-react'
-import znlogo from '../assets/znlogo.png'
+import { BrandLockup } from './Brand'
 import { destroyAdminSession } from '../utils/cookies'
 
 interface MenuItem {
@@ -54,26 +54,22 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
       {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[60] lg:hidden"
+          className="fixed inset-0 bg-[rgba(36,26,20,0.5)] z-[60] lg:hidden"
           onClick={onClose}
         />
       )}
 
       <div className={`
         fixed inset-y-0 left-0 z-[70]
-        w-64 lg:w-60 h-screen bg-white flex flex-col border-r border-slate-200/80 shadow-lg lg:shadow-sm
+        w-64 lg:w-60 h-screen bg-[var(--cream)] flex flex-col border-r border-[var(--hairline)] shadow-lg lg:shadow-none
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         {/* Logo Section */}
-        <div className="px-4 py-4 border-b border-slate-100">
+        <div className="px-4 py-5 border-b border-[var(--hairline)]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={znlogo} alt="Meenakshi" className="w-10 h-10 object-contain" />
-              <div>
-                <h1 className="text-sm font-bold text-slate-800">Meenakshi</h1>
-                <p className="text-xs text-slate-400">Admin Portal</p>
-              </div>
+              <BrandLockup />
             </div>
             {/* Close button for mobile */}
             <button
@@ -81,9 +77,9 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
                 e.stopPropagation()
                 if (onClose) onClose()
               }}
-              className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors"
+              className="lg:hidden p-2 hover:bg-[var(--ivory-2)] rounded-[var(--radius)] transition-colors"
             >
-              <X className="w-5 h-5 text-slate-500" />
+              <X className="w-5 h-5 text-[var(--ink-soft)]" />
             </button>
           </div>
         </div>
@@ -95,10 +91,10 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
               <li key={item.name}>
                 <button
                   onClick={() => handleNavigation(item.path)}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group ${
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius)] text-[13.5px] font-medium transition-colors duration-200 group ${
                     isActive(item.path)
-                      ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md shadow-[#DFB13B]/25'
-                      : 'text-slate-600 hover:bg-slate-50'
+                      ? 'bg-[var(--saffron)] text-[var(--cream)]'
+                      : 'text-[var(--ink-soft)] hover:bg-[rgba(212,83,29,0.07)] hover:text-[var(--ink)]'
                   }`}
                 >
                   <span className={`transition-transform duration-200 ${isActive(item.path) ? '' : 'group-hover:scale-110'}`}>
@@ -121,21 +117,22 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
         </nav>
 
         {/* Bottom Section */}
-        <div className="px-3 py-3 mt-auto border-t border-slate-100">
+        <div className="px-3 py-3 mt-auto border-t border-[var(--hairline)]">
           {/* User Profile */}
           <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-slate-50 transition cursor-pointer">
-            <div className="w-9 h-9 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-md shadow-[#DFB13B]/20">
+            <div className="w-9 h-9 rounded-[var(--radius)] flex items-center justify-center text-[var(--cream)] text-sm bg-[var(--saffron)]"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '17px' }}>
               A
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-slate-700 truncate">Admin User</p>
+              <p className="text-[13px] text-[var(--ink)] truncate">Admin User</p>
             </div>
           </div>
 
           {/* Logout Button */}
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 px-3 py-2.5 mt-2 rounded-lg text-sm font-medium text-red-500 hover:bg-red-50 border border-red-100 transition-all"
+            className="w-full flex items-center justify-center gap-2 px-3 py-2.5 mt-2 rounded-[var(--radius)] text-[13px] font-medium text-[#b3421a] hover:bg-[rgba(179,66,26,0.08)] border border-[rgba(179,66,26,0.25)] transition-colors"
           >
             <LogOut className="w-4 h-4" />
             Sign Out

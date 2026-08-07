@@ -7,11 +7,11 @@ import { listPosts, createPost, updatePost, deletePost } from '../utils/meenaksh
 
 const inputCls =
   'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/40 focus:border-[#DFB13B] transition'
+  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
 const btnGold =
   'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] shadow-md shadow-[#DFB13B]/25 hover:opacity-95 disabled:opacity-50 transition'
+  'bg-[var(--saffron)] hover:opacity-95 disabled:opacity-50 transition'
 
 const slugify = (s: string) =>
   s.toLowerCase().trim()
@@ -247,7 +247,7 @@ const BlogPosts = () => {
               </details>
 
               <label className="inline-flex items-center gap-2 text-sm text-slate-600">
-                <input type="checkbox" className="w-4 h-4 accent-[#DFB13B]" checked={Boolean(form.isPublished)}
+                <input type="checkbox" className="w-4 h-4 accent-[#d4531d]" checked={Boolean(form.isPublished)}
                   onChange={(e) => setForm({ ...form, isPublished: e.target.checked })} />
                 Published — visible on the site
               </label>

@@ -163,7 +163,7 @@ const Users = () => {
                 placeholder="Search by name, email or phone..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl w-64 lg:w-80 focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                className="pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl w-64 lg:w-80 focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
               />
             </div>
           </div>
@@ -180,14 +180,14 @@ const Users = () => {
                 placeholder="Search by name, email or phone..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-sm"
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-sm"
               />
             </div>
           </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 mb-6 sm:mb-8">
-            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-slate-100 shadow-sm group hover:shadow-md hover:border-[#DFB13B]/20 transition-all">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-slate-100 shadow-sm group hover:shadow-md hover:border-[rgba(212,83,29,0.2)] transition-all">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-slate-500 mb-1">Total Customers</p>
@@ -197,8 +197,8 @@ const Users = () => {
                     <span className="text-emerald-600 font-medium">Active</span> <span className="hidden sm:inline">users</span>
                   </p>
                 </div>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#DFB13B]/10 to-[#DFB13B]/5 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <UsersIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#DFB13B]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#d4531d]/10 to-[#d4531d]/5 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <UsersIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#d4531d]" />
                 </div>
               </div>
             </div>
@@ -268,7 +268,7 @@ const Users = () => {
             {loading && (
               <div className="flex items-center justify-center py-16 sm:py-20">
                 <div className="text-center">
-                  <Loader2 className="w-8 h-8 text-[#DFB13B] animate-spin mx-auto mb-3" />
+                  <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin mx-auto mb-3" />
                   <p className="text-slate-500 text-sm">Loading customers...</p>
                 </div>
               </div>
@@ -348,7 +348,7 @@ const Users = () => {
                         <button
                           onClick={() => fetchUserDetails(user.email)}
                           disabled={loadingDetails}
-                          className="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#DFB13B] hover:text-white transition-all text-sm font-medium group-hover:bg-[#DFB13B] group-hover:text-white"
+                          className="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-[#d4531d] hover:text-white transition-all text-sm font-medium group-hover:bg-[#d4531d] group-hover:text-white"
                         >
                           <Eye className="w-4 h-4" />
                           View
@@ -412,7 +412,7 @@ const Users = () => {
                         <button
                           onClick={() => fetchUserDetails(user.email)}
                           disabled={loadingDetails}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-[#DFB13B] text-white rounded-lg text-xs font-medium"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-[#d4531d] text-white rounded-lg text-xs font-medium"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           View
@@ -451,7 +451,7 @@ const Users = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header with Gradient */}
-            <div className="bg-gradient-to-r from-[#DFB13B] to-[#C9A032] px-6 py-8 text-white relative">
+            <div className="bg-[var(--saffron)] px-6 py-8 text-white relative">
               <button
                 onClick={() => { setIsModalOpen(false); setSelectedUser(null) }}
                 className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-lg transition-all"

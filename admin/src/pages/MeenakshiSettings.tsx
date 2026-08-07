@@ -5,11 +5,11 @@ import { getSettings, saveSettings } from '../utils/meenakshiApi'
 
 const inputCls =
   'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/40 focus:border-[#DFB13B] transition'
+  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
 const btnGold =
   'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] shadow-md shadow-[#DFB13B]/25 ' +
+  'bg-[var(--saffron)] ' +
   'hover:opacity-95 disabled:opacity-50 transition'
 
 const Card = ({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) => (
@@ -34,7 +34,7 @@ const StringList = ({ value, onChange }: { value: string[]; onChange: (v: string
       </div>
     ))}
     <button type="button" onClick={() => onChange([...(value || []), ''])}
-      className="text-sm text-[#C9A032] hover:underline font-medium">+ Add</button>
+      className="text-sm text-[#ad3f15] hover:underline font-medium">+ Add</button>
   </div>
 )
 
@@ -67,7 +67,7 @@ const ObjectList = ({
     ))}
     <button type="button"
       onClick={() => onChange([...(value || []), keys.reduce((a, k) => ({ ...a, [k.key]: '' }), {})])}
-      className="text-sm text-[#C9A032] hover:underline font-medium">+ Add</button>
+      className="text-sm text-[#ad3f15] hover:underline font-medium">+ Add</button>
   </div>
 )
 

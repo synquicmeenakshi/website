@@ -21,7 +21,7 @@ const CalendarView = () => {
               >
                 <Menu className="w-5 h-5 text-slate-600" />
               </button>
-              <div className="hidden sm:flex w-10 h-10 rounded-xl bg-gradient-to-br from-[#DFB13B] to-[#C9A032] items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+              <div className="hidden sm:flex w-10 h-10 rounded-xl bg-[var(--saffron)] items-center justify-center ">
                 <Calendar className="w-5 h-5 text-white" />
               </div>
               <div>

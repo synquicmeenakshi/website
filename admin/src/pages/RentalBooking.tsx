@@ -280,7 +280,7 @@ const RentalBooking = () => {
         <Sidebar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <Loader2 className="w-10 h-10 animate-spin text-[#DFB13B] mx-auto mb-4" />
+            <Loader2 className="w-10 h-10 animate-spin text-[#d4531d] mx-auto mb-4" />
             <p className="text-slate-500 font-medium">Loading bookings...</p>
           </div>
         </div>
@@ -301,7 +301,7 @@ const RentalBooking = () => {
             <p className="text-slate-500 text-sm mb-6">{error}</p>
             <button
               onClick={fetchBookings}
-              className="bg-[#DFB13B] text-white px-6 py-2.5 rounded-xl hover:bg-[#C9A032] transition font-medium"
+              className="bg-[#d4531d] text-white px-6 py-2.5 rounded-xl hover:bg-[#ad3f15] transition font-medium"
             >
               Try Again
             </button>
@@ -325,7 +325,7 @@ const RentalBooking = () => {
             </div>
             <button
               onClick={openNewBookingModal}
-              className="flex items-center gap-2 bg-[#DFB13B] text-white px-5 py-2.5 rounded-xl hover:bg-[#C9A032] transition font-medium shadow-sm shadow-[#DFB13B]/20"
+              className="flex items-center gap-2 bg-[#d4531d] text-white px-5 py-2.5 rounded-xl hover:bg-[#ad3f15] transition font-medium shadow-sm shadow-none"
             >
               <Plus className="w-4 h-4" />
               New Booking
@@ -346,7 +346,7 @@ const RentalBooking = () => {
                   placeholder="Search bookings..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                  className="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                 />
               </div>
 
@@ -369,7 +369,7 @@ const RentalBooking = () => {
                   >
                     {tab.label}
                     <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] ${
-                      statusFilter === tab.key ? 'bg-[#DFB13B]/10 text-[#DFB13B]' : 'bg-slate-200/50'
+                      statusFilter === tab.key ? 'bg-[rgba(212,83,29,0.09)] text-[#d4531d]' : 'bg-slate-200/50'
                     }`}>
                       {tab.count}
                     </span>
@@ -400,7 +400,7 @@ const RentalBooking = () => {
                         onClick={() => setSelectedBooking(booking)}
                         className={`p-4 cursor-pointer transition-all ${
                           isSelected
-                            ? 'bg-[#DFB13B]/5 border-l-3 border-l-[#DFB13B]'
+                            ? 'bg-[rgba(212,83,29,0.05)] border-l-3 border-l-[#d4531d]'
                             : 'hover:bg-slate-50'
                         }`}
                       >
@@ -448,7 +448,7 @@ const RentalBooking = () => {
               <div className="max-w-3xl mx-auto space-y-6">
                 {/* Booking Header Card */}
                 <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-                  <div className="bg-gradient-to-r from-[#DFB13B] to-[#C9A032] px-6 py-5 text-white">
+                  <div className="bg-[var(--saffron)] px-6 py-5 text-white">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="w-14 h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center text-xl font-bold">
@@ -548,8 +548,8 @@ const RentalBooking = () => {
                   {/* Guest Information */}
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                        <User className="w-4 h-4 text-[#DFB13B]" />
+                      <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                        <User className="w-4 h-4 text-[#d4531d]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Guest Information</h3>
                     </div>
@@ -579,8 +579,8 @@ const RentalBooking = () => {
                   {/* Booking Details */}
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                        <Calendar className="w-4 h-4 text-[#DFB13B]" />
+                      <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                        <Calendar className="w-4 h-4 text-[#d4531d]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Booking Details</h3>
                     </div>
@@ -613,15 +613,15 @@ const RentalBooking = () => {
                   {selectedBooking.property && (
                     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                       <div className="flex items-center gap-2 mb-4">
-                        <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                          <Home className="w-4 h-4 text-[#DFB13B]" />
+                        <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                          <Home className="w-4 h-4 text-[#d4531d]" />
                         </div>
                         <h3 className="font-semibold text-slate-800">Property</h3>
                       </div>
                       <div className="space-y-3">
-                        <div className="p-3 bg-gradient-to-r from-[#DFB13B]/5 to-transparent rounded-xl">
+                        <div className="p-3 bg-gradient-to-r from-[#d4531d]/5 to-transparent rounded-xl">
                           <p className="font-medium text-slate-800">{selectedBooking.property.name}</p>
-                          <p className="text-2xl font-bold text-[#DFB13B] mt-1">€{selectedBooking.property.price}<span className="text-sm font-normal text-slate-500">/night</span></p>
+                          <p className="text-2xl font-bold text-[#d4531d] mt-1">€{selectedBooking.property.price}<span className="text-sm font-normal text-slate-500">/night</span></p>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                           <div className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
@@ -640,8 +640,8 @@ const RentalBooking = () => {
                   {/* Payment Details */}
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                        <CreditCard className="w-4 h-4 text-[#DFB13B]" />
+                      <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                        <CreditCard className="w-4 h-4 text-[#d4531d]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Payment</h3>
                     </div>
@@ -676,8 +676,8 @@ const RentalBooking = () => {
                 {(selectedBooking.specialRequests || selectedBooking.message) && (
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                        <MessageSquare className="w-4 h-4 text-[#DFB13B]" />
+                      <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                        <MessageSquare className="w-4 h-4 text-[#d4531d]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Additional Notes</h3>
                     </div>
@@ -719,7 +719,7 @@ const RentalBooking = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-[#DFB13B] to-[#C9A032] px-6 py-5 text-white">
+            <div className="bg-[var(--saffron)] px-6 py-5 text-white">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-xl font-semibold">Create New Booking</h2>
@@ -739,8 +739,8 @@ const RentalBooking = () => {
                 {/* Customer Information */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                      <User className="w-4 h-4 text-[#DFB13B]" />
+                    <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                      <User className="w-4 h-4 text-[#d4531d]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Customer Information</h3>
                   </div>
@@ -751,7 +751,7 @@ const RentalBooking = () => {
                         type="text"
                         value={newBookingForm.firstName}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, firstName: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                         required
                       />
                     </div>
@@ -761,7 +761,7 @@ const RentalBooking = () => {
                         type="text"
                         value={newBookingForm.lastName}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, lastName: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                         required
                       />
                     </div>
@@ -771,7 +771,7 @@ const RentalBooking = () => {
                         type="email"
                         value={newBookingForm.email}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, email: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                         required
                       />
                     </div>
@@ -781,7 +781,7 @@ const RentalBooking = () => {
                         type="tel"
                         value={newBookingForm.phone}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                         placeholder="+32 123456789"
                         required
                       />
@@ -796,7 +796,7 @@ const RentalBooking = () => {
                             onClick={() => setNewBookingForm({ ...newBookingForm, gender: g })}
                             className={`flex-1 px-4 py-2.5 rounded-xl border text-sm font-medium transition-all capitalize ${
                               newBookingForm.gender === g
-                                ? 'bg-[#DFB13B] text-white border-[#DFB13B]'
+                                ? 'bg-[#d4531d] text-white border-[#d4531d]'
                                 : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-300'
                             }`}
                           >
@@ -811,15 +811,15 @@ const RentalBooking = () => {
                 {/* Property Selection */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                      <Home className="w-4 h-4 text-[#DFB13B]" />
+                    <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                      <Home className="w-4 h-4 text-[#d4531d]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Property Selection</h3>
                   </div>
                   <select
                     value={newBookingForm.propertyId}
                     onChange={(e) => setNewBookingForm({ ...newBookingForm, propertyId: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                     required
                   >
                     <option value="">Select a property</option>
@@ -834,8 +834,8 @@ const RentalBooking = () => {
                 {/* Booking Details */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                      <Calendar className="w-4 h-4 text-[#DFB13B]" />
+                    <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                      <Calendar className="w-4 h-4 text-[#d4531d]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Booking Details</h3>
                   </div>
@@ -846,7 +846,7 @@ const RentalBooking = () => {
                         type="date"
                         value={newBookingForm.checkInDate}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, checkInDate: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                         required
                       />
                     </div>
@@ -856,7 +856,7 @@ const RentalBooking = () => {
                         type="time"
                         value={newBookingForm.checkInTime}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, checkInTime: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                       />
                     </div>
                     <div>
@@ -865,7 +865,7 @@ const RentalBooking = () => {
                         type="time"
                         value={newBookingForm.checkOutTime}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, checkOutTime: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm"
                       />
                     </div>
                   </div>
@@ -874,8 +874,8 @@ const RentalBooking = () => {
                 {/* Additional Information */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 bg-[#DFB13B]/10 rounded-lg flex items-center justify-center">
-                      <MessageSquare className="w-4 h-4 text-[#DFB13B]" />
+                    <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
+                      <MessageSquare className="w-4 h-4 text-[#d4531d]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Additional Information</h3>
                   </div>
@@ -885,7 +885,7 @@ const RentalBooking = () => {
                       <textarea
                         value={newBookingForm.specialRequests}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, specialRequests: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm h-20 resize-none"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm h-20 resize-none"
                         placeholder="Any special requests from the guest..."
                       />
                     </div>
@@ -894,7 +894,7 @@ const RentalBooking = () => {
                       <textarea
                         value={newBookingForm.message}
                         onChange={(e) => setNewBookingForm({ ...newBookingForm, message: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all text-sm h-20 resize-none"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all text-sm h-20 resize-none"
                         placeholder="Additional notes..."
                       />
                     </div>
@@ -914,7 +914,7 @@ const RentalBooking = () => {
                 <button
                   type="submit"
                   disabled={savingBooking}
-                  className="flex-1 px-4 py-2.5 bg-[#DFB13B] text-white rounded-xl hover:bg-[#C9A032] transition font-medium flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm shadow-[#DFB13B]/20"
+                  className="flex-1 px-4 py-2.5 bg-[#d4531d] text-white rounded-xl hover:bg-[#ad3f15] transition font-medium flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm shadow-none"
                 >
                   {savingBooking ? (
                     <>

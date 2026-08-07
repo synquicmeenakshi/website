@@ -1,5 +1,118 @@
 @import "tailwindcss";
 
+/* ============================================================
+   MEENAKSHI ADMIN — theme
+   ============================================================
+
+   The palette, type and shape are lifted verbatim from the website's
+   global.css so the portal and the site are the same product.
+
+   The `--color-slate-*` block below is the important part. The admin carries
+   roughly sixteen thousand lines of Tailwind utilities written against slate
+   and amber, most of it in screens nobody is going to hand-restyle. Redefining
+   what those names resolve to restyles all of it at once: every `bg-slate-50`
+   becomes ivory, every `text-slate-800` becomes warm ink. The class names stay
+   misleading — they say slate and render brown — which is the price of not
+   rewriting sixteen thousand lines.
+   ============================================================ */
+
+@theme {
+  /* ---- brand ------------------------------------------------ */
+  --color-ivory: #f7f2e7;
+  --color-ivory-2: #efe7d5;
+  --color-sand: #e3d7bd;
+  --color-cream: #f8f4ea;
+
+  --color-ink: #241a14;
+  --color-ink-soft: #6f6055;
+  --color-ink-deep: #140d09;
+
+  --color-saffron: #d4531d;
+  --color-saffron-600: #ad3f15;
+  --color-saffron-300: #e0866a;
+  --color-saffron-100: #f0d7c9;
+
+  --color-gold: #b58a46;
+  --color-tan: #cfa96b;
+  --color-maroon: #4a1410;
+  --color-indigo-band: #191533;
+
+  /* ---- slate, remapped to the warm ramp ---------------------
+     Interpolated between --cream and --ink-deep so existing utilities land on
+     the website's palette rather than a cool grey. */
+  --color-slate-50: #faf7f0;
+  --color-slate-100: #f2ece0;
+  --color-slate-200: #e3d9c8;
+  --color-slate-300: #cfc2ad;
+  --color-slate-400: #a89880;
+  --color-slate-500: #8a7963;
+  --color-slate-600: #6f6055;
+  --color-slate-700: #52453b;
+  --color-slate-800: #362a22;
+  --color-slate-900: #241a14;
+  --color-slate-950: #140d09;
+
+  /* Gray shares the ramp — some screens reach for one, some the other. */
+  --color-gray-50: #faf7f0;
+  --color-gray-100: #f2ece0;
+  --color-gray-200: #e3d9c8;
+  --color-gray-300: #cfc2ad;
+  --color-gray-400: #a89880;
+  --color-gray-500: #8a7963;
+  --color-gray-600: #6f6055;
+  --color-gray-700: #52453b;
+  --color-gray-800: #362a22;
+  --color-gray-900: #241a14;
+
+  /* ---- amber / yellow -> saffron ---------------------------
+     The old ZenYourLife gold (#DFB13B) was applied through amber and yellow
+     utilities as well as literal hex. Pointing the ramp at saffron catches
+     the utility cases; the literal hexes are swept by hand. */
+  --color-amber-50: #fdf2ec;
+  --color-amber-100: #f0d7c9;
+  --color-amber-200: #e8c0aa;
+  --color-amber-300: #e0866a;
+  --color-amber-400: #dc6a42;
+  --color-amber-500: #d4531d;
+  --color-amber-600: #ad3f15;
+  --color-amber-700: #8e3411;
+  --color-amber-800: #6f280d;
+  --color-amber-900: #4a1410;
+
+  --color-yellow-50: #fdf2ec;
+  --color-yellow-100: #f0d7c9;
+  --color-yellow-400: #dc6a42;
+  --color-yellow-500: #d4531d;
+  --color-yellow-600: #ad3f15;
+
+  /* ---- type ------------------------------------------------- */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-sans: 'Josefin Sans', 'Futura', 'Avenir Next', system-ui, sans-serif;
+
+  /* ---- shape and motion ------------------------------------- */
+  --radius-card: 10px;
+  --ease-brand: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- design tokens for hand-written CSS ---------------------- */
+:root {
+  --ivory: #f7f2e7;
+  --ivory-2: #efe7d5;
+  --sand: #e3d7bd;
+  --cream: #f8f4ea;
+  --ink: #241a14;
+  --ink-soft: #6f6055;
+  --saffron: #d4531d;
+  --saffron-600: #ad3f15;
+  --saffron-100: #f0d7c9;
+  --gold: #b58a46;
+  --hairline: rgba(36, 26, 20, 0.15);
+  --hairline-strong: rgba(36, 26, 20, 0.38);
+  --radius: 10px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-quick: 0.22s;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -7,34 +120,79 @@ html, body, #root {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Josefin Sans', 'Futura', 'Avenir Next', system-ui, sans-serif;
+  background: var(--ivory);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide scrollbar but keep functionality */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+/* Josefin Sans runs small and light for its point size. Nudging the base up
+   keeps data tables as legible as they were in the old system stack. */
+body { font-size: 15px; letter-spacing: 0.005em; }
+
+h1, h2, h3, .u-display {
+  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
-/* Custom scrollbar for JSON viewer */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* ---- shared component idiom, mirroring the site's .btn ------- */
+.a-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 40px; padding: 0 18px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-family: inherit; font-size: 13.5px; font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color var(--dur-quick) var(--ease),
+              color var(--dur-quick) var(--ease),
+              border-color var(--dur-quick) var(--ease);
+}
+.a-btn:disabled { opacity: 0.5; cursor: default; }
+.a-btn--primary { background: var(--saffron); color: var(--cream); }
+.a-btn--primary:not(:disabled):hover { background: var(--saffron-600); }
+.a-btn--outline { border-color: var(--hairline-strong); color: var(--ink); background: transparent; }
+.a-btn--outline:not(:disabled):hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.a-btn--quiet { color: var(--ink-soft); background: transparent; }
+.a-btn--quiet:not(:disabled):hover { color: var(--saffron); }
+.a-btn--danger { color: #b3421a; background: transparent; }
+.a-btn--danger:not(:disabled):hover { background: rgba(179, 66, 26, 0.08); }
+
+.a-card {
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #1e293b;
-  border-radius: 4px;
+.a-field {
+  width: 100%; min-height: 40px; padding: 0 12px;
+  background: #fff; color: var(--ink);
+  border: 1px solid var(--hairline); border-radius: var(--radius);
+  font-family: inherit; font-size: 14px;
+  transition: border-color var(--dur-quick) var(--ease), box-shadow var(--dur-quick) var(--ease);
+}
+textarea.a-field { padding: 10px 12px; min-height: 0; }
+.a-field:hover { border-color: rgba(36, 26, 20, 0.3); }
+.a-field:focus {
+  outline: none; border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(212, 83, 29, 0.14);
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 4px;
+/* Selects get the site's chevron rather than the platform arrow. */
+select.a-field {
+  appearance: none; cursor: pointer; padding-right: 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236f6055' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.75 6 6.25 11 1.75'/%3E%3C/svg%3E");
+  background-position: right 12px center;
+  background-size: 11px 7px;
+  background-repeat: no-repeat;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
-}
+/* ---- scrollbars ---------------------------------------------- */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: var(--ivory-2); border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--gold); }

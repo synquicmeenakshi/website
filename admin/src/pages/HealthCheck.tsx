@@ -336,10 +336,10 @@ const HealthCheck = () => {
       case 'healthy':
         return {
           bg: 'bg-[#FFEEC3]/30',
-          border: 'border-[#DFB13B]/30',
+          border: 'border-[rgba(212,83,29,0.3)]',
           text: 'text-[#B8922D]',
-          icon: 'text-[#DFB13B]',
-          badge: 'bg-[#DFB13B]'
+          icon: 'text-[#d4531d]',
+          badge: 'bg-[#d4531d]'
         }
       case 'degraded':
         return {
@@ -386,7 +386,7 @@ const HealthCheck = () => {
                 >
                   <Menu className="w-5 h-5 text-slate-600" />
                 </button>
-                <div className="hidden sm:flex w-10 h-10 rounded-xl bg-gradient-to-br from-[#DFB13B] to-[#C9A032] items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                <div className="hidden sm:flex w-10 h-10 rounded-xl bg-[var(--saffron)] items-center justify-center ">
                   <Activity className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -398,7 +398,7 @@ const HealthCheck = () => {
               <button
                 onClick={checkAllServices}
                 disabled={isChecking}
-                className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl hover:shadow-lg hover:shadow-[#DFB13B]/30 transition-all font-medium text-sm disabled:opacity-50"
+                className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm disabled:opacity-50"
               >
                 <RefreshCw className={`w-4 h-4 ${isChecking ? 'animate-spin' : ''}`} />
                 <span className="hidden sm:inline">{isChecking ? 'Checking...' : 'Refresh'}</span>
@@ -630,7 +630,7 @@ const HealthCheck = () => {
             <div className="mt-6 pt-6 border-t border-slate-100">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FFEEC3]/30 flex items-center justify-center">
-                  <Database className="w-5 h-5 text-[#DFB13B]" />
+                  <Database className="w-5 h-5 text-[#d4531d]" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-800">MongoDB Connection</p>
@@ -659,7 +659,7 @@ const HealthCheck = () => {
                     <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${
-                          isGood ? 'bg-[#DFB13B]' : isOkay ? 'bg-amber-500' : 'bg-red-500'
+                          isGood ? 'bg-[#d4531d]' : isOkay ? 'bg-amber-500' : 'bg-red-500'
                         }`}
                         style={{ width: `${Math.min(percentage, 100)}%` }}
                       />

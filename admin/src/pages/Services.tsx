@@ -1049,13 +1049,13 @@ const Services = () => {
                   placeholder="Search services..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2.5 bg-slate-100/80 border-0 rounded-xl text-sm w-48 lg:w-64 focus:ring-2 focus:ring-[#DFB13B]/20 focus:bg-white transition-all outline-none"
+                  className="pl-10 pr-4 py-2.5 bg-slate-100/80 border-0 rounded-xl text-sm w-48 lg:w-64 focus:ring-2 focus:ring-[#d4531d]/20 focus:bg-white transition-all outline-none"
                 />
               </div>
               {/* Notification */}
 
               {/* Profile */}
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-xl flex items-center justify-center text-white font-semibold shadow-lg shadow-[#DFB13B]/20 flex-shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[var(--saffron)] rounded-xl flex items-center justify-center text-white font-semibold flex-shrink-0">
                 A
               </div>
             </div>
@@ -1076,7 +1076,7 @@ const Services = () => {
                     {totalServices}
                   </p>
                 </div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[var(--saffron)] rounded-xl sm:rounded-2xl flex items-center justify-center ">
                   <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
               </div>
@@ -1091,7 +1091,7 @@ const Services = () => {
                     {activeServices}
                   </p>
                 </div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#DFB13B] via-[#DFB13B] to-[#FFEEC3] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#d4531d] via-[#d4531d] to-[#FFEEC3] rounded-xl sm:rounded-2xl flex items-center justify-center ">
                   <Eye className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
               </div>
@@ -1124,7 +1124,7 @@ const Services = () => {
                 placeholder="Search services..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all outline-none"
               />
             </div>
           </div>
@@ -1220,7 +1220,7 @@ const Services = () => {
 
             <button
               onClick={handleAddNew}
-              className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:shadow-[#DFB13B]/30 transition shadow-lg shadow-[#DFB13B]/30 text-xs sm:text-sm font-medium w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-[var(--saffron)] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:transition text-xs sm:text-sm font-medium w-full sm:w-auto"
             >
               <Plus className="w-4 h-4" />
               Add Service
@@ -1230,7 +1230,7 @@ const Services = () => {
           {/* Loading State */}
           {loading && (
             <div className="flex flex-col items-center justify-center h-64 bg-white rounded-2xl">
-              <Loader2 className="w-10 h-10 animate-spin text-[#DFB13B] mb-4" />
+              <Loader2 className="w-10 h-10 animate-spin text-[#d4531d] mb-4" />
               <span className="text-slate-500">Loading services...</span>
             </div>
           )}
@@ -1264,7 +1264,7 @@ const Services = () => {
               </p>
               <button
                 onClick={handleAddNew}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#DFB13B] text-white rounded-xl hover:bg-[#C9A032] transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#d4531d] text-white rounded-xl hover:bg-[#ad3f15] transition"
               >
                 <Plus className="w-4 h-4" />
                 Add Service
@@ -1589,7 +1589,7 @@ const Services = () => {
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl">
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-[#DFB13B] to-[#C9A032]">
+            <div className="bg-[var(--saffron)]">
               <div className="relative px-4 sm:px-8 py-4 sm:py-6">
                 <button
                   onClick={() => setShowModal(false)}
@@ -1620,7 +1620,7 @@ const Services = () => {
                 <span className="text-xs text-white/70 mr-1">Language:</span>
                 {(['en', 'fr', 'de', 'nl', 'es'] as const).map(lang => (
                   <button key={lang} type="button" onClick={() => setSelectedLang(lang)}
-                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition ${selectedLang === lang ? 'bg-white text-[#C9A032] shadow-sm' : 'bg-white/20 text-white hover:bg-white/30'}`}>
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition ${selectedLang === lang ? 'bg-white text-[#ad3f15] shadow-sm' : 'bg-white/20 text-white hover:bg-white/30'}`}>
                     {lang.toUpperCase()}
                   </button>
                 ))}
@@ -1648,7 +1648,7 @@ const Services = () => {
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="e.g., Swedish Massage"
                   disabled={selectedLang !== 'en'}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all outline-none text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all outline-none text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
 
@@ -1664,7 +1664,7 @@ const Services = () => {
                     : updateTranslation(selectedLang, 'description', e.target.value)}
                   placeholder={selectedLang === 'en' ? 'Describe the service...' : formData.description || 'Description translation...'}
                   rows={3}
-                  className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border rounded-xl focus:bg-white transition-all outline-none resize-none text-sm sm:text-base ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]'}`}
+                  className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border rounded-xl focus:bg-white transition-all outline-none resize-none text-sm sm:text-base ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d]'}`}
                 />
               </div>
 
@@ -1679,7 +1679,7 @@ const Services = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, category: e.target.value })
                     }
-                    className="w-full px-2 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all outline-none appearance-none cursor-pointer text-sm sm:text-base"
+                    className="w-full px-2 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all outline-none appearance-none cursor-pointer text-sm sm:text-base"
                   >
                     {categories.map((cat) => (
                       <option key={cat.value} value={cat.value}>
@@ -1704,7 +1704,7 @@ const Services = () => {
                         })
                       }
                       min="0"
-                      className="w-full pl-8 sm:pl-11 pr-2 sm:pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all outline-none text-sm sm:text-base"
+                      className="w-full pl-8 sm:pl-11 pr-2 sm:pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all outline-none text-sm sm:text-base"
                     />
                   </div>
                 </div>
@@ -1746,7 +1746,7 @@ const Services = () => {
                     <img
                       src={getImageUrl(formData.imageUrl) || formData.imageUrl}
                       alt="Uploaded preview"
-                      className="w-20 h-20 object-cover rounded-xl border-2 border-[#DFB13B]"
+                      className="w-20 h-20 object-cover rounded-xl border-2 border-[#d4531d]"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
@@ -1769,7 +1769,7 @@ const Services = () => {
                       setFormData({ ...formData, imageUrl: e.target.value })
                     }
                     placeholder="https://example.com/image.jpg"
-                    className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all outline-none text-sm sm:text-base"
+                    className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all outline-none text-sm sm:text-base"
                   />
                   <input
                     ref={mainImageInputRef}
@@ -1782,7 +1782,7 @@ const Services = () => {
                     type="button"
                     onClick={() => mainImageInputRef.current?.click()}
                     disabled={uploadingMainImage}
-                    className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#DFB13B] text-white rounded-xl hover:bg-[#C9A032] transition flex items-center gap-1.5 disabled:opacity-50"
+                    className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#d4531d] text-white rounded-xl hover:bg-[#ad3f15] transition flex items-center gap-1.5 disabled:opacity-50"
                   >
                     {uploadingMainImage ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -1877,7 +1877,7 @@ const Services = () => {
                     setFormData({ ...formData, isActive: !formData.isActive })
                   }
                   className={`relative w-12 h-7 sm:w-14 sm:h-8 rounded-full transition-colors flex-shrink-0 ${
-                    formData.isActive ? "bg-[#DFB13B]" : "bg-slate-300"
+                    formData.isActive ? "bg-[#d4531d]" : "bg-slate-300"
                   }`}
                 >
                   <div
@@ -2247,7 +2247,7 @@ const Services = () => {
               <div className="border-t border-slate-200 pt-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <Image className="w-5 h-5 text-[#DFB13B]" />
+                    <Image className="w-5 h-5 text-[#d4531d]" />
                     <label className="text-sm font-semibold text-slate-700">
                       Service Gallery{" "}
                       <span className="font-normal text-slate-400">
@@ -2273,13 +2273,13 @@ const Services = () => {
                           (e.preventDefault(), handleAddImageUrl())
                         }
                         placeholder="Paste image URL here..."
-                        className="flex-1 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] focus:bg-white transition-all outline-none text-sm"
+                        className="flex-1 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] focus:bg-white transition-all outline-none text-sm"
                       />
                       <button
                         type="button"
                         onClick={handleAddImageUrl}
                         disabled={!imageUrlInput.trim()}
-                        className="px-4 py-2.5 bg-[#DFB13B] text-white rounded-xl hover:bg-[#C9A032] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-4 py-2.5 bg-[#d4531d] text-white rounded-xl hover:bg-[#ad3f15] transition disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -2302,8 +2302,8 @@ const Services = () => {
                       onClick={() => fileInputRef.current?.click()}
                       className={`relative border-2 border-dashed rounded-xl p-5 text-center cursor-pointer transition-all ${
                         isDragging
-                          ? "border-[#DFB13B] bg-[#FFEEC3]/20"
-                          : "border-slate-300 hover:border-[#DFB13B]/50 hover:bg-slate-50"
+                          ? "border-[#d4531d] bg-[#FFEEC3]/20"
+                          : "border-slate-300 hover:border-[rgba(212,83,29,0.45)] hover:bg-slate-50"
                       }`}
                     >
                       <input
@@ -2316,12 +2316,12 @@ const Services = () => {
                       />
                       {uploadingImage ? (
                         <div className="flex flex-col items-center">
-                          <Loader2 className="w-6 h-6 text-[#DFB13B] animate-spin mb-2" />
+                          <Loader2 className="w-6 h-6 text-[#d4531d] animate-spin mb-2" />
                           <p className="text-sm text-slate-600">Uploading...</p>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center">
-                          <Upload className="w-6 h-6 text-[#DFB13B] mb-2" />
+                          <Upload className="w-6 h-6 text-[#d4531d] mb-2" />
                           <p className="text-sm font-medium text-slate-700">
                             {isDragging
                               ? "Drop images here"
@@ -2389,7 +2389,7 @@ const Services = () => {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl hover:shadow-lg hover:shadow-[#DFB13B]/30 transition shadow-lg shadow-[#DFB13B]/30 font-medium disabled:opacity-50 text-sm sm:text-base"
+                className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition font-medium disabled:opacity-50 text-sm sm:text-base"
               >
                 {saving ? (
                   <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />

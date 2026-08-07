@@ -37,7 +37,10 @@
 
   /* ---- Type -------------------------------------------------- */
   --font-serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
-  --font-sans: 'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+  /* Josefin Sans, not Jost. Jost was declared but never loaded — index.html
+     requests Josefin Sans — so every sans element fell through to system-ui
+     and rendered in Segoe UI. Verified with Chrome's font resolver. */
+  --font-sans: 'Josefin Sans', 'Futura', 'Avenir Next', system-ui, sans-serif;
   --font-deva: 'Tiro Devanagari Hindi', serif;
 
   /* One scale. Use a step, do not invent a clamp.

@@ -14,11 +14,11 @@ const statusStyle: Record<string, string> = {
 
 const inputCls =
   'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/40 focus:border-[#DFB13B] transition'
+  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
 const btnGold =
   'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] shadow-md shadow-[#DFB13B]/25 hover:opacity-95 disabled:opacity-50 transition'
+  'bg-[var(--saffron)] hover:opacity-95 disabled:opacity-50 transition'
 
 const fmt = (iso: string) => {
   try {
@@ -106,7 +106,7 @@ const Enquiries = () => {
           <button key={s} onClick={() => setStatus(s)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium capitalize transition ${
               status === s
-                ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md shadow-[#DFB13B]/25'
+                ? 'bg-[var(--saffron)] text-white '
                 : 'text-slate-600 bg-white border border-slate-200 hover:bg-slate-50'
             }`}>
             {s}
@@ -167,12 +167,12 @@ const Enquiries = () => {
             <div className="px-5 py-4 space-y-4">
               <div className="flex flex-wrap gap-3 text-sm">
                 {selected.email && (
-                  <a href={`mailto:${selected.email}`} className="inline-flex items-center gap-1.5 text-[#C9A032] hover:underline">
+                  <a href={`mailto:${selected.email}`} className="inline-flex items-center gap-1.5 text-[#ad3f15] hover:underline">
                     <Mail className="w-3.5 h-3.5" /> {selected.email}
                   </a>
                 )}
                 {selected.phone && (
-                  <a href={`tel:${selected.phone}`} className="inline-flex items-center gap-1.5 text-[#C9A032] hover:underline">
+                  <a href={`tel:${selected.phone}`} className="inline-flex items-center gap-1.5 text-[#ad3f15] hover:underline">
                     <Phone className="w-3.5 h-3.5" /> {selected.phone}
                   </a>
                 )}

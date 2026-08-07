@@ -656,7 +656,7 @@ const BookingManagement = () => {
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
-                <Loader2 className="w-8 h-8 text-[#DFB13B] animate-spin mx-auto mb-3" />
+                <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin mx-auto mb-3" />
                 <p className="text-slate-500 text-sm">Loading booking settings...</p>
               </div>
             </div>
@@ -701,7 +701,7 @@ const BookingManagement = () => {
                   {/* Advance Booking Settings - Modern Card */}
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
                     <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-slate-100">
-                      <div className="w-10 h-10 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-xl flex items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                      <div className="w-10 h-10 bg-[var(--saffron)] rounded-xl flex items-center justify-center ">
                         <Clock className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -727,7 +727,7 @@ const BookingManagement = () => {
                               max="720"
                               value={minAdvanceHours}
                               onChange={(e) => setMinAdvanceHours(Math.max(0, parseInt(e.target.value) || 0))}
-                              className="w-32 px-4 py-2.5 border-2 border-slate-100 rounded-xl text-center text-lg font-semibold focus:outline-none focus:border-[#DFB13B] focus:shadow-lg focus:shadow-[#DFB13B]/10 transition-all"
+                              className="w-32 px-4 py-2.5 border-2 border-slate-100 rounded-xl text-center text-lg font-semibold focus:outline-none focus:border-[#d4531d] focus:shadow-lg focus:shadow-[#d4531d]/10 transition-all"
                             />
                             <span className="text-slate-600 font-medium">hours</span>
                             <span className="text-slate-400 text-sm">
@@ -738,7 +738,7 @@ const BookingManagement = () => {
                         <button
                           onClick={handleSaveAdvanceBooking}
                           disabled={savingAdvance || minAdvanceHours === settings?.minAdvanceBooking}
-                          className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#DFB13B]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+                          className="flex items-center gap-2 px-5 py-2.5 bg-[var(--saffron)] text-white rounded-xl font-semibold hover:shadow-lg hover:transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                         >
                           {savingAdvance ? (
                             <>
@@ -755,7 +755,7 @@ const BookingManagement = () => {
                       </div>
 
                       {minAdvanceHours > 0 && (
-                        <div className="mt-4 p-3 bg-gradient-to-r from-[#DFB13B]/10 to-[#C9A032]/5 border border-[#DFB13B]/20 rounded-xl">
+                        <div className="mt-4 p-3 bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 border border-[rgba(212,83,29,0.2)] rounded-xl">
                           <p className="text-sm text-[#8B7B2A]">
                             <span className="font-semibold">Current setting:</span> Users can only book appointments that are at least <span className="font-bold">{minAdvanceHours} hours</span> ({minAdvanceHours >= 24 ? `${Math.floor(minAdvanceHours / 24)} day${Math.floor(minAdvanceHours / 24) !== 1 ? 's' : ''}` : `${minAdvanceHours} hours`}) from now.
                           </p>
@@ -820,7 +820,7 @@ const BookingManagement = () => {
                                   <button
                                     onClick={handleSaveDaySchedule}
                                     disabled={saving}
-                                    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#DFB13B] text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-[#C9A032] transition-colors disabled:opacity-50"
+                                    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#d4531d] text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-[#ad3f15] transition-colors disabled:opacity-50"
                                   >
                                     {saving ? <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" /> : <Save className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                                     Save
@@ -860,7 +860,7 @@ const BookingManagement = () => {
                                       value={newSlot}
                                       onChange={(e) => setNewSlot(e.target.value)}
                                       placeholder="e.g., 10:00"
-                                      className="flex-1 px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-200 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]"
+                                      className="flex-1 px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-200 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d]"
                                       onKeyDown={(e) => e.key === 'Enter' && handleAddSlotToDay()}
                                     />
                                     <button
@@ -965,8 +965,8 @@ const BookingManagement = () => {
                             onClick={() => handleQuickRange(days, label)}
                             className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
                               activeRange === label
-                                ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md shadow-[#DFB13B]/25'
-                                : 'bg-slate-100 text-slate-600 hover:bg-[#DFB13B]/15 hover:text-[#8B7B2A]'
+                                ? 'bg-[var(--saffron)] text-white '
+                                : 'bg-slate-100 text-slate-600 hover:bg-[#d4531d]/15 hover:text-[#8B7B2A]'
                             }`}
                           >
                             {label}
@@ -996,9 +996,9 @@ const BookingManagement = () => {
                           onClick={() => handleOpenPicker('from')}
                           className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-sm transition-all ${
                             filterFrom
-                              ? 'bg-[#DFB13B]/10 border-[#DFB13B]/30 text-[#8B7B2A]'
-                              : 'bg-white border-slate-200 text-slate-400 hover:border-[#DFB13B]/40'
-                          } ${openPicker === 'from' ? 'ring-2 ring-[#DFB13B]/30' : ''}`}
+                              ? 'bg-[rgba(212,83,29,0.09)] border-[rgba(212,83,29,0.3)] text-[#8B7B2A]'
+                              : 'bg-white border-slate-200 text-slate-400 hover:border-[#d4531d]/40'
+                          } ${openPicker === 'from' ? 'ring-2 ring-[rgba(212,83,29,0.3)]' : ''}`}
                         >
                           <CalendarDays className="w-4 h-4" />
                           <span className="text-[11px] font-semibold uppercase tracking-wide">From:</span>
@@ -1012,9 +1012,9 @@ const BookingManagement = () => {
                           onClick={() => handleOpenPicker('to')}
                           className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-sm transition-all ${
                             filterTo
-                              ? 'bg-[#DFB13B]/10 border-[#DFB13B]/30 text-[#8B7B2A]'
-                              : 'bg-white border-slate-200 text-slate-400 hover:border-[#DFB13B]/40'
-                          } ${openPicker === 'to' ? 'ring-2 ring-[#DFB13B]/30' : ''}`}
+                              ? 'bg-[rgba(212,83,29,0.09)] border-[rgba(212,83,29,0.3)] text-[#8B7B2A]'
+                              : 'bg-white border-slate-200 text-slate-400 hover:border-[#d4531d]/40'
+                          } ${openPicker === 'to' ? 'ring-2 ring-[rgba(212,83,29,0.3)]' : ''}`}
                         >
                           <CalendarDays className="w-4 h-4" />
                           <span className="text-[11px] font-semibold uppercase tracking-wide">To:</span>
@@ -1076,8 +1076,8 @@ const BookingManagement = () => {
                                     onClick={() => handlePickDate(dateStr)}
                                     className={`w-8 h-8 rounded-lg text-xs font-medium transition-all flex items-center justify-center ${
                                       isSelected
-                                        ? 'bg-gradient-to-br from-[#DFB13B] to-[#C9A032] text-white font-bold shadow-md shadow-[#DFB13B]/30'
-                                        : 'text-slate-700 hover:bg-[#DFB13B]/10'
+                                        ? 'bg-[var(--saffron)] text-white font-bold '
+                                        : 'text-slate-700 hover:bg-[rgba(212,83,29,0.09)]'
                                     }`}
                                   >
                                     {day}
@@ -1760,7 +1760,7 @@ const BookingManagement = () => {
                     (blockMode === 'single' && blockType === 'slots' && selectedBlockSlots.length === 0) ||
                     (blockMode === 'range' && !blockEndDate)
                   }
-                  className="flex-1 px-6 py-3.5 bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-xl hover:shadow-lg hover:shadow-red-500/30 transition-all font-semibold flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none text-sm"
+                  className="flex-1 px-6 py-3.5 bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-xl hover:shadow-lg hover:shadow-red-500/30 transition-all font-semibold flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:text-sm"
                 >
                   {submitting ? (
                     <>

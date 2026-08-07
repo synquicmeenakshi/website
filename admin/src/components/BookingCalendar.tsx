@@ -215,8 +215,8 @@ const BookingCalendar = () => {
     return (
       <div className="flex items-center justify-center h-96">
         <div className="relative">
-          <div className="w-16 h-16 border-4 border-[#DFB13B]/20 rounded-full"></div>
-          <div className="w-16 h-16 border-4 border-[#DFB13B] border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
+          <div className="w-16 h-16 border-4 border-[rgba(212,83,29,0.2)] rounded-full"></div>
+          <div className="w-16 h-16 border-4 border-[#d4531d] border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
         </div>
       </div>
     )
@@ -322,7 +322,7 @@ const BookingCalendar = () => {
                 onClick={() => handleDayClick(dayStatus)}
                 className={`min-h-[52px] sm:min-h-[110px] border-b border-r border-slate-200 p-1.5 sm:p-3 transition-all hover:bg-slate-50 relative ${
                   isPast ? 'opacity-50' : ''
-                } bg-white ${isToday ? 'ring-2 ring-inset ring-[#DFB13B]' : ''}`}
+                } bg-white ${isToday ? 'ring-2 ring-inset ring-[#d4531d]' : ''}`}
               >
                 {/* Status Indicator Dot */}
                 <div className="absolute top-1 right-1 sm:top-2 sm:right-2">
@@ -343,7 +343,7 @@ const BookingCalendar = () => {
                 <div
                   className={`text-sm sm:text-2xl font-bold mb-0.5 sm:mb-2 ${
                     isToday
-                      ? 'text-[#DFB13B]'
+                      ? 'text-[#d4531d]'
                       : isWeekend
                       ? 'text-slate-500'
                       : 'text-slate-800'

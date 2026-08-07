@@ -39,11 +39,11 @@ interface Props {
 
 const inputCls =
   'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/40 focus:border-[#DFB13B] transition'
+  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
 const btnGold =
   'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] shadow-md shadow-[#DFB13B]/25 ' +
+  'bg-[var(--saffron)] ' +
   'hover:opacity-95 disabled:opacity-50 transition'
 
 /* ---- sub-editors ---------------------------------------------------------- */
@@ -74,7 +74,7 @@ const StringListEditor = ({ value, onChange }: { value: string[]; onChange: (v: 
     <button
       type="button"
       onClick={() => onChange([...(value || []), ''])}
-      className="text-sm text-[#C9A032] hover:underline font-medium"
+      className="text-sm text-[#ad3f15] hover:underline font-medium"
     >
       + Add item
     </button>
@@ -120,7 +120,7 @@ const SectionListEditor = ({ value, onChange }: { value: Section[]; onChange: (v
     <button
       type="button"
       onClick={() => onChange([...(value || []), { heading: '', paragraphs: [''] }])}
-      className="text-sm text-[#C9A032] hover:underline font-medium"
+      className="text-sm text-[#ad3f15] hover:underline font-medium"
     >
       + Add section
     </button>
@@ -276,7 +276,7 @@ const CollectionEditor = ({
 
               <div className="flex-1 min-w-0">
                 {groupKey && item[groupKey] && (
-                  <p className="text-[11px] uppercase tracking-wider text-[#C9A032] font-semibold mb-0.5">
+                  <p className="text-[11px] uppercase tracking-wider text-[#ad3f15] font-semibold mb-0.5">
                     {item[groupKey]}
                   </p>
                 )}
@@ -334,7 +334,7 @@ const CollectionEditor = ({
                       onChange={(e) => setForm({ ...form, [f.key]: e.target.value })} />
                   ) : f.type === 'boolean' ? (
                     <label className="inline-flex items-center gap-2 text-sm text-slate-600">
-                      <input type="checkbox" className="w-4 h-4 accent-[#DFB13B]"
+                      <input type="checkbox" className="w-4 h-4 accent-[#d4531d]"
                         checked={Boolean(form[f.key])}
                         onChange={(e) => setForm({ ...form, [f.key]: e.target.checked })} />
                       Enabled
@@ -365,7 +365,7 @@ const CollectionEditor = ({
 
               {'isActive' in emptyItem && (
                 <label className="inline-flex items-center gap-2 text-sm text-slate-600">
-                  <input type="checkbox" className="w-4 h-4 accent-[#DFB13B]"
+                  <input type="checkbox" className="w-4 h-4 accent-[#d4531d]"
                     checked={form.isActive !== false}
                     onChange={(e) => setForm({ ...form, isActive: e.target.checked })} />
                   Visible on the site

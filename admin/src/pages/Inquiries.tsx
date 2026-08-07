@@ -242,7 +242,7 @@ const Inquiries = () => {
                       }}
                       className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors ${
                         filterPeriod === option.value
-                          ? 'bg-gradient-to-r from-[#DFB13B]/10 to-[#C9A032]/5 text-[#DFB13B] font-semibold'
+                          ? 'bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 text-[#d4531d] font-semibold'
                           : 'text-slate-700'
                       }`}
                     >
@@ -351,7 +351,7 @@ const Inquiries = () => {
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#DFB13B] focus:ring-2 focus:ring-[#DFB13B]/10 transition-all"
+                className="w-full pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#d4531d] focus:ring-2 focus:ring-[#d4531d]/10 transition-all"
               />
             </div>
 
@@ -369,7 +369,7 @@ const Inquiries = () => {
                   onClick={() => setStatusFilter(key)}
                   className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
                     statusFilter === key
-                      ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-sm'
+                      ? 'bg-[var(--saffron)] text-white shadow-sm'
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
@@ -404,7 +404,7 @@ const Inquiries = () => {
                 {loading ? (
                   <div className="flex items-center justify-center h-48">
                     <div className="text-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-xl flex items-center justify-center mx-auto mb-3 animate-pulse">
+                      <div className="w-10 h-10 bg-[var(--saffron)] rounded-xl flex items-center justify-center mx-auto mb-3 animate-pulse">
                         <Loader2 className="w-5 h-5 animate-spin text-white" />
                       </div>
                       <p className="text-slate-500 text-xs">Loading inquiries...</p>
@@ -433,11 +433,11 @@ const Inquiries = () => {
                           key={inquiry._id}
                           onClick={() => handleSelectInquiry(inquiry)}
                           className={`p-3 sm:p-4 cursor-pointer transition-all hover:bg-slate-50 ${
-                            isSelected ? 'bg-gradient-to-r from-[#DFB13B]/10 to-[#C9A032]/5 border-l-4 border-[#DFB13B]' : ''
+                            isSelected ? 'bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 border-l-4 border-[#d4531d]' : ''
                           }`}
                         >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-xl flex items-center justify-center text-white font-semibold text-sm shadow-md shadow-[#DFB13B]/30 shrink-0">
+                            <div className="w-10 h-10 bg-[var(--saffron)] rounded-xl flex items-center justify-center text-white font-semibold text-sm shrink-0">
                               {inquiry.firstName.charAt(0)}{inquiry.lastName.charAt(0)}
                             </div>
                             <div className="flex-1 min-w-0">
@@ -472,7 +472,7 @@ const Inquiries = () => {
               {selectedInquiry ? (
                 <>
                   {/* Detail Header with Gradient */}
-                  <div className="bg-gradient-to-r from-[#DFB13B] via-[#E8C54A] to-[#C9A032] p-4 sm:p-5 relative overflow-hidden shrink-0">
+                  <div className="bg-gradient-to-r from-[#d4531d] via-[#E8C54A] to-[#ad3f15] p-4 sm:p-5 relative overflow-hidden shrink-0">
                     <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-xl" />
                     <div className="absolute -bottom-8 left-1/4 w-24 h-24 bg-white/10 rounded-full blur-xl" />
 
@@ -563,7 +563,7 @@ const Inquiries = () => {
                     {/* Message Card */}
                     <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
                       <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-slate-50 to-slate-100 border-b border-slate-100">
-                        <div className="w-8 h-8 bg-gradient-to-br from-[#DFB13B] to-[#C9A032] rounded-lg flex items-center justify-center shadow-md shadow-[#DFB13B]/30">
+                        <div className="w-8 h-8 bg-[var(--saffron)] rounded-lg flex items-center justify-center ">
                           <MessageSquare className="w-4 h-4 text-white" />
                         </div>
                         <h3 className="font-bold text-slate-800 text-sm">Message</h3>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import znlogo from '../assets/znlogo.png'
+import { YantraMark } from '../components/Brand'
 import { createAdminSession } from '../utils/cookies'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001'
@@ -66,23 +66,38 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] flex flex-col items-center justify-center px-4">
-      {/* Logo Section */}
-      <div className="text-center mb-8 mt-10">
-        <div className="flex justify-center mb-2">
-          <img src={znlogo} alt="Meenakshi" className="w-12 h-12" />
+    <div className="min-h-screen bg-[var(--ivory)] flex flex-col items-center justify-center px-4">
+      {/* Masthead, set as the website sets it */}
+      <div className="text-center mb-7">
+        <div className="flex justify-center mb-3">
+          <YantraMark width={44} height={44} className="text-[var(--saffron)]" />
         </div>
-        <h1 className="text-xl font-semibold text-gray-800">Meenakshi</h1>
-        <p className="text-sm text-gray-500">Admin Panel</p>
+        <h1
+          className="text-[var(--ink)]"
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: '30px', fontWeight: 500,
+            letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1,
+          }}
+        >
+          Meenakshi
+        </h1>
+        <p className="text-[var(--ink-soft)] mt-2"
+          style={{ fontSize: '9px', letterSpacing: '0.32em', textTransform: 'uppercase' }}>
+          Sacred Sciences
+        </p>
       </div>
 
       {/* Login Card */}
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-sm p-6 -mt-5">
+      <div className="w-full max-w-md bg-white rounded-[var(--radius)] border border-[var(--hairline)] p-7">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Admin Login</h2>
-          <p className="text-sm text-gray-500">
-            Enter your credentials to access the booking<br />system.
+          <h2 className="text-[var(--ink)] mb-2"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '25px', fontWeight: 500 }}>
+            Admin Portal
+          </h2>
+          <p className="text-[13px] text-[var(--ink-soft)]">
+            Enter your credentials to manage consultations and site content.
           </p>
         </div>
 
@@ -106,7 +121,7 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your username or email"
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]/50 transition"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[rgba(212,83,29,0.45)] transition"
             />
           </div>
 
@@ -122,7 +137,7 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]/50 transition pr-10"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[rgba(212,83,29,0.45)] transition pr-10"
               />
               <button
                 type="button"
@@ -138,7 +153,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white py-3 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#DFB13B]/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-[var(--saffron)] text-white py-3 rounded-lg text-sm font-medium hover:shadow-lg hover:transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Logging in...' : 'Log In'}
           </button>
@@ -154,7 +169,7 @@ const Login = () => {
 
       {/* Footer */}
       <p className="text-sm text-gray-400 mt-8">
-        © 2024 Meenakshi Admin
+        © {new Date().getFullYear()} Meenakshi
       </p>
     </div>
   )

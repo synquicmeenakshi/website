@@ -111,7 +111,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="space-y-5">
-          <div className="rounded-xl p-5 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md shadow-[#DFB13B]/20">
+          <div className="rounded-xl p-5 bg-[var(--saffron)] text-white ">
             <p className="text-white/80 text-xs uppercase tracking-wider font-semibold">Meenakshi</p>
             <h2 className="text-xl font-semibold mt-0.5">
               {counts.new
@@ -128,7 +128,7 @@ const Dashboard = () => {
               <button
                 key={t.key}
                 onClick={() => navigate('/consultations')}
-                className="text-left bg-white rounded-xl border border-slate-200/80 p-4 hover:border-[#DFB13B]/50 hover:shadow-sm transition"
+                className="text-left bg-white rounded-xl border border-slate-200/80 p-4 hover:border-[rgba(212,83,29,0.45)] hover:shadow-sm transition"
               >
                 <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${t.tone}`}>{t.icon}</div>
                 <p className="text-2xl font-semibold text-slate-800 mt-3">{t.value}</p>
@@ -158,7 +158,7 @@ const Dashboard = () => {
               <h3 className="text-sm font-semibold text-slate-800">Recent requests</h3>
               <button
                 onClick={() => navigate('/consultations')}
-                className="text-xs font-medium text-[#C9A032] hover:underline inline-flex items-center gap-1"
+                className="text-xs font-medium text-[#ad3f15] hover:underline inline-flex items-center gap-1"
               >
                 View all <ArrowRight className="w-3 h-3" />
               </button>
@@ -206,7 +206,7 @@ const Dashboard = () => {
                 <button
                   key={l.path}
                   onClick={() => navigate(l.path)}
-                  className="flex items-center gap-3 bg-white rounded-xl border border-slate-200/80 p-4 hover:border-[#DFB13B]/50 hover:shadow-sm transition text-left"
+                  className="flex items-center gap-3 bg-white rounded-xl border border-slate-200/80 p-4 hover:border-[rgba(212,83,29,0.45)] hover:shadow-sm transition text-left"
                 >
                   <span className="w-9 h-9 rounded-lg bg-slate-50 text-slate-500 flex items-center justify-center shrink-0">
                     {l.icon}

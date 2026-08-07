@@ -804,7 +804,7 @@ const Properties = () => {
                 >
                   <Menu className="w-5 h-5 text-slate-600" />
                 </button>
-                <div className="hidden sm:flex w-10 h-10 rounded-xl bg-gradient-to-br from-[#DFB13B] to-[#C9A032] items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                <div className="hidden sm:flex w-10 h-10 rounded-xl bg-[var(--saffron)] items-center justify-center ">
                   <Building2 className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -822,14 +822,14 @@ const Properties = () => {
                     placeholder="Search properties..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-48 md:w-72 pl-10 pr-4 py-2.5 bg-slate-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:bg-white transition-all"
+                    className="w-48 md:w-72 pl-10 pr-4 py-2.5 bg-slate-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:bg-white transition-all"
                   />
                 </div>
 
                 {/* Add Button */}
                 <button
                   onClick={openNewModal}
-                  className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl hover:shadow-lg hover:shadow-[#DFB13B]/30 transition-all font-medium text-sm"
+                  className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm"
                 >
                   <Plus className="w-4 h-4" />
                   <span className="hidden sm:inline">Add Property</span>
@@ -848,14 +848,14 @@ const Properties = () => {
               placeholder="Search properties..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]/50 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[rgba(212,83,29,0.45)] transition-all"
             />
           </div>
 
           {/* Stats Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-6 sm:mb-8">
             {/* Total Properties */}
-            <div className="group relative bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border border-slate-100 hover:border-[#DFB13B]/30 transition-all hover:shadow-xl hover:shadow-[#DFB13B]/5">
+            <div className="group relative bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border border-slate-100 hover:border-[rgba(212,83,29,0.3)] transition-all hover:shadow-xl hover:shadow-[#d4531d]/5">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-slate-500 mb-1">Total Properties</p>
@@ -865,15 +865,15 @@ const Properties = () => {
                     +2 this month
                   </p>
                 </div>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#DFB13B] to-[#C9A032] flex items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[var(--saffron)] flex items-center justify-center ">
                   <Home className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#DFB13B] to-[#FFEEC3] rounded-b-xl sm:rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#d4531d] to-[#FFEEC3] rounded-b-xl sm:rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
 
             {/* Active Listings */}
-            <div className="group relative bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border border-slate-100 hover:border-[#FFEEC3] transition-all hover:shadow-xl hover:shadow-[#DFB13B]/5">
+            <div className="group relative bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border border-slate-100 hover:border-[#FFEEC3] transition-all hover:shadow-xl hover:shadow-[#d4531d]/5">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-slate-500 mb-1">Active Listings</p>
@@ -882,11 +882,11 @@ const Properties = () => {
                     {totalProperties > 0 ? Math.round((activeProperties / totalProperties) * 100) : 0}% of total
                   </p>
                 </div>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#DFB13B] via-[#DFB13B] to-[#FFEEC3] flex items-center justify-center shadow-lg shadow-[#DFB13B]/30">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4531d] via-[#d4531d] to-[#FFEEC3] flex items-center justify-center ">
                   <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#DFB13B] to-[#FFEEC3] rounded-b-xl sm:rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#d4531d] to-[#FFEEC3] rounded-b-xl sm:rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
 
             {/* Average Price */}
@@ -1015,13 +1015,13 @@ const Properties = () => {
               <div className="flex items-center bg-white border border-slate-200 rounded-lg sm:rounded-xl p-0.5 sm:p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-1.5 sm:p-2 rounded-md sm:rounded-lg transition-all ${viewMode === 'grid' ? 'bg-[#DFB13B] text-white shadow-lg shadow-[#DFB13B]/30' : 'text-slate-400 hover:text-slate-600'}`}
+                  className={`p-1.5 sm:p-2 rounded-md sm:rounded-lg transition-all ${viewMode === 'grid' ? 'bg-[#d4531d] text-white ' : 'text-slate-400 hover:text-slate-600'}`}
                 >
                   <LayoutGrid className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-1.5 sm:p-2 rounded-md sm:rounded-lg transition-all ${viewMode === 'list' ? 'bg-[#DFB13B] text-white shadow-lg shadow-[#DFB13B]/30' : 'text-slate-400 hover:text-slate-600'}`}
+                  className={`p-1.5 sm:p-2 rounded-md sm:rounded-lg transition-all ${viewMode === 'list' ? 'bg-[#d4531d] text-white ' : 'text-slate-400 hover:text-slate-600'}`}
                 >
                   <List className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
@@ -1037,7 +1037,7 @@ const Properties = () => {
           {/* Loading State */}
           {loading && (
             <div className="flex flex-col items-center justify-center h-64 gap-4">
-              <div className="w-12 h-12 rounded-full border-4 border-[#FFEEC3] border-t-[#DFB13B] animate-spin" />
+              <div className="w-12 h-12 rounded-full border-4 border-[#FFEEC3] border-t-[#d4531d] animate-spin" />
               <p className="text-slate-500">Loading properties...</p>
             </div>
           )}
@@ -1114,16 +1114,16 @@ const Properties = () => {
                       {/* Features */}
                       <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4">
                         <span className="flex items-center gap-1 sm:gap-1.5">
-                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                           {property.guests}
                         </span>
                         <span className="flex items-center gap-1 sm:gap-1.5">
-                          <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                          <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                           {property.bedrooms}
                         </span>
                         {property.parking && (
                           <span className="flex items-center gap-1 sm:gap-1.5">
-                            <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                            <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                             Yes
                           </span>
                         )}
@@ -1183,23 +1183,23 @@ const Properties = () => {
                           <h3 className="text-base sm:text-lg font-semibold text-slate-800">{property.name}</h3>
                           <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-[#FFEEC3]/30 text-[#B8922D] text-xs sm:text-sm font-bold rounded-md sm:rounded-lg">
                             {property.currency}{property.price}
-                            <span className="text-[#C9A032] font-normal">/{property.priceUnit?.replace('per ', '')}</span>
+                            <span className="text-[#ad3f15] font-normal">/{property.priceUnit?.replace('per ', '')}</span>
                           </span>
                         </div>
                         <p className="text-slate-500 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-1">{property.description}</p>
 
                         <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-600">
                           <span className="flex items-center gap-1 sm:gap-1.5">
-                            <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                            <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                             {property.guests} guests
                           </span>
                           <span className="flex items-center gap-1 sm:gap-1.5">
-                            <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                            <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                             {property.bedrooms} bedrooms
                           </span>
                           {property.parking && (
                             <span className="flex items-center gap-1 sm:gap-1.5">
-                              <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                              <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                               Parking
                             </span>
                           )}
@@ -1255,7 +1255,7 @@ const Properties = () => {
               </p>
               <button
                 onClick={openNewModal}
-                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-xl hover:shadow-lg hover:shadow-[#DFB13B]/30 transition-all font-medium text-sm sm:text-base"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm sm:text-base"
               >
                 <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 Add Your First Property
@@ -1273,7 +1273,7 @@ const Properties = () => {
             <div className="border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
               <div className="px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#DFB13B] to-[#C9A032] flex items-center justify-center">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[var(--saffron)] flex items-center justify-center">
                     {editingProperty ? <Edit2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" /> : <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
                   </div>
                   <div>
@@ -1292,7 +1292,7 @@ const Properties = () => {
                 <span className="text-xs text-slate-400 mr-1">Language:</span>
                 {(['en', 'fr', 'de', 'nl', 'es'] as const).map(lang => (
                   <button key={lang} type="button" onClick={() => setSelectedLang(lang)}
-                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition ${selectedLang === lang ? 'bg-[#DFB13B] text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition ${selectedLang === lang ? 'bg-[#d4531d] text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
                     {lang.toUpperCase()}
                   </button>
                 ))}
@@ -1312,7 +1312,7 @@ const Properties = () => {
               {/* Basic Info Section */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                  <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                   Basic Information
                 </div>
 
@@ -1322,7 +1322,7 @@ const Properties = () => {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                     placeholder="e.g., Lanzarote Beachfront Villa"
                     required
                   />
@@ -1338,7 +1338,7 @@ const Properties = () => {
                       ? setFormData({ ...formData, description: e.target.value })
                       : updateTranslation(selectedLang as 'fr'|'de'|'nl'|'es', 'description', e.target.value)}
                     placeholder={selectedLang === 'en' ? 'Describe the property, its features and surroundings...' : formData.description || 'Description translation...'}
-                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border rounded-lg sm:rounded-xl focus:outline-none transition-all h-20 sm:h-24 resize-none text-xs sm:text-sm ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]'}`}
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border rounded-lg sm:rounded-xl focus:outline-none transition-all h-20 sm:h-24 resize-none text-xs sm:text-sm ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d]'}`}
                     required={selectedLang === 'en'}
                   />
                 </div>
@@ -1347,7 +1347,7 @@ const Properties = () => {
               {/* Pricing Section */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <Euro className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                  <Euro className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                   Pricing
                 </div>
 
@@ -1358,7 +1358,7 @@ const Properties = () => {
                       type="number"
                       value={formData.price || ''}
                       onChange={(e) => setFormData({ ...formData, price: e.target.value === '' ? 0 : Number(e.target.value) })}
-                      className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                      className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                       min="0"
                       placeholder="0"
                       required
@@ -1369,7 +1369,7 @@ const Properties = () => {
                     <select
                       value={formData.currency}
                       onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-                      className="w-full px-1.5 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                      className="w-full px-1.5 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                     >
                       <option value="€">€ Euro</option>
                       <option value="$">$ Dollar</option>
@@ -1381,7 +1381,7 @@ const Properties = () => {
                     <select
                       value={formData.priceUnit}
                       onChange={(e) => setFormData({ ...formData, priceUnit: e.target.value })}
-                      className="w-full px-1.5 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                      className="w-full px-1.5 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                     >
                       <option value="per night">Night</option>
                       <option value="per week">Week</option>
@@ -1394,7 +1394,7 @@ const Properties = () => {
               {/* Capacity Section */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                   Capacity & Features
                 </div>
 
@@ -1406,7 +1406,7 @@ const Properties = () => {
                       value={formData.guests === 0 ? '' : formData.guests}
                       onChange={(e) => setFormData({ ...formData, guests: e.target.value === '' ? 0 : Number(e.target.value) })}
                       onBlur={(e) => { if (e.target.value === '' || Number(e.target.value) < 1) setFormData(prev => ({ ...prev, guests: 1 })) }}
-                      className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                      className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                       min="1"
                       placeholder="1"
                       required
@@ -1419,7 +1419,7 @@ const Properties = () => {
                       value={formData.bedrooms === 0 ? '' : formData.bedrooms}
                       onChange={(e) => setFormData({ ...formData, bedrooms: e.target.value === '' ? 0 : Number(e.target.value) })}
                       onBlur={(e) => { if (e.target.value === '' || Number(e.target.value) < 1) setFormData(prev => ({ ...prev, bedrooms: 1 })) }}
-                      className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                      className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                       min="1"
                       placeholder="1"
                       required
@@ -1435,7 +1435,7 @@ const Properties = () => {
                       onChange={(e) => selectedLang === 'en'
                         ? setFormData({ ...formData, parking: e.target.value })
                         : updateTranslation(selectedLang as 'fr'|'de'|'nl'|'es', 'parking', e.target.value)}
-                      className={`w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border rounded-lg sm:rounded-xl focus:outline-none transition-all text-xs sm:text-sm placeholder:text-[10px] sm:placeholder:text-sm ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B]'}`}
+                      className={`w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border rounded-lg sm:rounded-xl focus:outline-none transition-all text-xs sm:text-sm placeholder:text-[10px] sm:placeholder:text-sm ${selectedLang !== 'en' ? 'border-violet-200 focus:ring-2 focus:ring-violet-400/20 focus:border-violet-400' : 'border-slate-200 focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d]'}`}
                       placeholder={selectedLang === 'en' ? 'e.g., 2 cars' : formData.parking || 'Parking translation...'}
                     />
                   </div>
@@ -1445,7 +1445,7 @@ const Properties = () => {
                 <div>
                   <label className="block text-[10px] sm:text-sm font-medium text-slate-600 mb-1">
                     <div className="flex items-center gap-1.5">
-                      <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#DFB13B]" />
+                      <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#d4531d]" />
                       Map Location URL
                     </div>
                   </label>
@@ -1453,7 +1453,7 @@ const Properties = () => {
                     type="url"
                     value={formData.mapUrl}
                     onChange={(e) => setFormData({ ...formData, mapUrl: e.target.value })}
-                    className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm placeholder:text-[10px] sm:placeholder:text-sm"
+                    className="w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm placeholder:text-[10px] sm:placeholder:text-sm"
                     placeholder="e.g., https://maps.app.goo.gl/..."
                   />
                   <p className="text-[9px] sm:text-xs text-slate-400 mt-1">Google Maps share link for "View on Map" feature</p>
@@ -1463,7 +1463,7 @@ const Properties = () => {
               {/* Image Selection */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                  <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                   Property Image
                 </div>
 
@@ -1477,7 +1477,7 @@ const Properties = () => {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-2 left-2 px-2 py-1 bg-[#DFB13B] text-white text-xs rounded-lg font-medium">
+                      <div className="absolute bottom-2 left-2 px-2 py-1 bg-[#d4531d] text-white text-xs rounded-lg font-medium">
                         Custom Image
                       </div>
                       <button
@@ -1499,8 +1499,8 @@ const Properties = () => {
                   onClick={() => fileInputRef.current?.click()}
                   className={`relative border-2 border-dashed rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all ${
                     isDragging
-                      ? 'border-[#DFB13B] bg-[#FFEEC3]/20'
-                      : 'border-slate-200 hover:border-[#DFB13B]/50 hover:bg-slate-50'
+                      ? 'border-[#d4531d] bg-[#FFEEC3]/20'
+                      : 'border-slate-200 hover:border-[rgba(212,83,29,0.45)] hover:bg-slate-50'
                   }`}
                 >
                   <input
@@ -1512,13 +1512,13 @@ const Properties = () => {
                   />
                   {uploadingImage ? (
                     <div className="flex flex-col items-center gap-2">
-                      <Loader2 className="w-8 h-8 text-[#DFB13B] animate-spin" />
+                      <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin" />
                       <span className="text-sm text-slate-600">Uploading...</span>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center gap-2">
                       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#FFEEC3]/30 flex items-center justify-center">
-                        <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-[#DFB13B]" />
+                        <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-[#d4531d]" />
                       </div>
                       <div>
                         <p className="text-xs sm:text-sm font-medium text-slate-700">
@@ -1541,14 +1541,14 @@ const Properties = () => {
                         value={imageUrlInput}
                         onChange={(e) => setImageUrlInput(e.target.value)}
                         onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleImageUrlSubmit())}
-                        className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-slate-50 border-0 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:bg-white transition-all text-sm"
+                        className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-slate-50 border-0 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:bg-white transition-all text-sm"
                         placeholder="https://example.com/image.jpg"
                       />
                     </div>
                     <button
                       type="button"
                       onClick={handleImageUrlSubmit}
-                      className="px-4 py-2.5 sm:py-3 bg-[#DFB13B] text-white rounded-lg sm:rounded-xl hover:bg-[#C9A032] transition-all"
+                      className="px-4 py-2.5 sm:py-3 bg-[#d4531d] text-white rounded-lg sm:rounded-xl hover:bg-[#ad3f15] transition-all"
                     >
                       Add
                     </button>
@@ -1567,7 +1567,7 @@ const Properties = () => {
                           onClick={() => setFormData({ ...formData, image: img.name })}
                           className={`relative h-20 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden transition-all ${
                             formData.image === img.name && !formData.imageUrl
-                              ? 'ring-2 ring-[#DFB13B] ring-offset-2 scale-[0.98]'
+                              ? 'ring-2 ring-[#d4531d] ring-offset-2 scale-[0.98]'
                               : 'hover:scale-[0.98]'
                           }`}
                         >
@@ -1578,7 +1578,7 @@ const Properties = () => {
                             <span className="text-[10px] sm:text-[11px] text-white font-medium">{img.label}</span>
                           </div>
                           {formData.image === img.name && !formData.imageUrl && (
-                            <div className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 w-4 h-4 sm:w-5 sm:h-5 bg-[#DFB13B] rounded-full flex items-center justify-center">
+                            <div className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 w-4 h-4 sm:w-5 sm:h-5 bg-[#d4531d] rounded-full flex items-center justify-center">
                               <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                               </svg>
@@ -1595,11 +1595,11 @@ const Properties = () => {
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                    <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                    <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                     Gallery Images (Side Images)
                   </div>
                   {formData.galleryImages.length > 0 && (
-                    <span className="text-xs bg-[#DFB13B] text-white px-2 py-0.5 rounded-full">
+                    <span className="text-xs bg-[#d4531d] text-white px-2 py-0.5 rounded-full">
                       {formData.galleryImages.length} image{formData.galleryImages.length > 1 ? 's' : ''}
                     </span>
                   )}
@@ -1638,7 +1638,7 @@ const Properties = () => {
                 {/* Add Gallery Image Button */}
                 <div
                   onClick={() => galleryFileInputRef.current?.click()}
-                  className="border-2 border-dashed border-slate-200 rounded-xl p-4 text-center cursor-pointer hover:border-[#DFB13B]/50 hover:bg-slate-50 transition-all"
+                  className="border-2 border-dashed border-slate-200 rounded-xl p-4 text-center cursor-pointer hover:border-[rgba(212,83,29,0.45)] hover:bg-slate-50 transition-all"
                 >
                   <input
                     ref={galleryFileInputRef}
@@ -1650,7 +1650,7 @@ const Properties = () => {
                   />
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#FFEEC3]/30 flex items-center justify-center">
-                      <Plus className="w-4 h-4 text-[#DFB13B]" />
+                      <Plus className="w-4 h-4 text-[#d4531d]" />
                     </div>
                     <p className="text-xs font-medium text-slate-600">Add Gallery Images</p>
                     <p className="text-[10px] text-slate-400">Select multiple images at once</p>
@@ -1662,11 +1662,11 @@ const Properties = () => {
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFB13B]" />
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
                     Amenities
                   </div>
                   {formData.amenities.length > 0 && (
-                    <span className="text-xs bg-[#DFB13B] text-white px-2 py-0.5 rounded-full">
+                    <span className="text-xs bg-[#d4531d] text-white px-2 py-0.5 rounded-full">
                       {formData.amenities.length} selected
                     </span>
                   )}
@@ -1691,18 +1691,18 @@ const Properties = () => {
                         }}
                         className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border-2 transition-all text-left ${
                           isSelected
-                            ? 'border-[#DFB13B] bg-[#FFEEC3]/30 text-[#B8922D]'
+                            ? 'border-[#d4531d] bg-[#FFEEC3]/30 text-[#B8922D]'
                             : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                         }`}
                       >
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                          isSelected ? 'bg-[#DFB13B]/20' : 'bg-slate-100'
+                          isSelected ? 'bg-[#d4531d]/20' : 'bg-slate-100'
                         }`}>
-                          <IconComponent className={`w-4 h-4 ${isSelected ? 'text-[#DFB13B]' : 'text-slate-500'}`} />
+                          <IconComponent className={`w-4 h-4 ${isSelected ? 'text-[#d4531d]' : 'text-slate-500'}`} />
                         </div>
                         <span className="text-xs font-medium line-clamp-1">{amenity.label}</span>
                         {isSelected && (
-                          <Check className="w-4 h-4 text-[#DFB13B] ml-auto flex-shrink-0" />
+                          <Check className="w-4 h-4 text-[#d4531d] ml-auto flex-shrink-0" />
                         )}
                       </button>
                     )
@@ -1718,13 +1718,13 @@ const Properties = () => {
                       value={amenityInput}
                       onChange={(e) => setAmenityInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addAmenity())}
-                      className="flex-1 px-3 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:border-[#DFB13B] transition-all text-xs sm:text-sm"
+                      className="flex-1 px-3 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:border-[#d4531d] transition-all text-xs sm:text-sm"
                       placeholder="Type a custom amenity..."
                     />
                     <button
                       type="button"
                       onClick={addAmenity}
-                      className="px-3 py-2 bg-[#DFB13B] text-white rounded-lg hover:bg-[#C9A032] transition-all"
+                      className="px-3 py-2 bg-[#d4531d] text-white rounded-lg hover:bg-[#ad3f15] transition-all"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -2198,7 +2198,7 @@ const Properties = () => {
                   type="text"
                   value={formData.hostName}
                   onChange={(e) => setFormData({ ...formData, hostName: e.target.value })}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border-0 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/20 focus:bg-white transition-all text-sm"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border-0 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4531d]/20 focus:bg-white transition-all text-sm"
                   placeholder="e.g., Maria"
                 />
               </div>
@@ -2240,7 +2240,7 @@ const Properties = () => {
               <button
                 onClick={handleSubmit}
                 disabled={saving}
-                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:shadow-[#DFB13B]/30 transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 text-sm"
+                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-[var(--saffron)] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 text-sm"
               >
                 {saving ? (
                   <>

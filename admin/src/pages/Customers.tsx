@@ -7,7 +7,7 @@ import { listCustomers, type Customer } from '../utils/meenakshiApi'
 
 const inputCls =
   'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/40 focus:border-[#DFB13B] transition'
+  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
 const statusStyle: Record<string, string> = {
   new: 'bg-amber-50 text-amber-700 border-amber-200',

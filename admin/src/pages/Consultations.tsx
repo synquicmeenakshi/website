@@ -21,11 +21,11 @@ const statusStyle: Record<string, string> = {
 
 const inputCls =
   'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[#DFB13B]/40 focus:border-[#DFB13B] transition'
+  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
 const btnGold =
   'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] shadow-md shadow-[#DFB13B]/25 ' +
+  'bg-[var(--saffron)] ' +
   'hover:opacity-95 disabled:opacity-50 transition'
 
 const BUSINESS_TZ = 'Asia/Kolkata'
@@ -189,7 +189,7 @@ const Consultations = () => {
             onClick={() => setStatus(s)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium capitalize transition ${
               status === s
-                ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white shadow-md shadow-[#DFB13B]/25'
+                ? 'bg-[var(--saffron)] text-white '
                 : 'text-slate-600 bg-white border border-slate-200 hover:bg-slate-50'
             }`}
           >
@@ -272,7 +272,7 @@ const Consultations = () => {
             <div className="px-5 py-4 space-y-5">
               {/* The appointment is the headline fact — it was previously not
                   shown at all, so admin could not tell when anyone was booked. */}
-              <div className="p-4 rounded-lg bg-gradient-to-r from-[#DFB13B]/10 to-[#C9A032]/5 border border-[#DFB13B]/30">
+              <div className="p-4 rounded-lg bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 border border-[rgba(212,83,29,0.3)]">
                 <p className="text-[11px] uppercase tracking-wider text-[#9a7b2f] font-semibold flex items-center gap-1.5">
                   <CalendarClock className="w-3.5 h-3.5" /> Appointment
                 </p>
@@ -316,7 +316,7 @@ const Consultations = () => {
                   </p>
                   {selected.email || /@/.test(selected.contact || '') ? (
                     <a href={`mailto:${selected.email || selected.contact}`}
-                      className="text-sm text-[#C9A032] hover:underline mt-1 block break-words">
+                      className="text-sm text-[#ad3f15] hover:underline mt-1 block break-words">
                       {selected.email || selected.contact}
                     </a>
                   ) : <p className="text-sm text-slate-400 mt-1">—</p>}
@@ -328,7 +328,7 @@ const Consultations = () => {
                   {selected.phone || !/@/.test(selected.contact || '') ? (
                     <a href={`https://wa.me/${String(selected.phone || selected.contact || '').replace(/\D/g, '')}`}
                       target="_blank" rel="noreferrer"
-                      className="text-sm text-[#C9A032] hover:underline mt-1 block break-words">
+                      className="text-sm text-[#ad3f15] hover:underline mt-1 block break-words">
                       {selected.phone || selected.contact}
                     </a>
                   ) : <p className="text-sm text-slate-400 mt-1">—</p>}
@@ -382,7 +382,7 @@ const Consultations = () => {
                 <div>
                   <button type="button"
                     onClick={() => setRescheduling((v) => !v)}
-                    className="text-sm font-medium text-[#C9A032] hover:underline">
+                    className="text-sm font-medium text-[#ad3f15] hover:underline">
                     {rescheduling ? 'Cancel reschedule' : 'Reschedule…'}
                   </button>
 
@@ -409,8 +409,8 @@ const Consultations = () => {
                                 onClick={() => setDraft({ ...draft, appointmentTime: t })}
                                 className={`px-3 py-1.5 rounded-lg text-sm border transition ${
                                   draft.appointmentTime === t
-                                    ? 'bg-gradient-to-r from-[#DFB13B] to-[#C9A032] text-white border-transparent'
-                                    : 'bg-white text-slate-700 border-slate-200 hover:border-[#DFB13B]'
+                                    ? 'bg-[var(--saffron)] text-white border-transparent'
+                                    : 'bg-white text-slate-700 border-slate-200 hover:border-[#d4531d]'
                                 }`}>
                                 {t}
                               </button>
@@ -424,7 +424,7 @@ const Consultations = () => {
                       </div>
 
                       <label className="inline-flex items-center gap-2 text-xs text-slate-600">
-                        <input type="checkbox" className="w-4 h-4 accent-[#DFB13B]"
+                        <input type="checkbox" className="w-4 h-4 accent-[#d4531d]"
                           checked={force} onChange={(e) => setForce(e.target.checked)} />
                         Override availability (for a booking taken by phone)
                       </label>
