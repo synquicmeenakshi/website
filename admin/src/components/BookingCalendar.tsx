@@ -343,7 +343,7 @@ const BookingCalendar = () => {
                 <div
                   className={`text-sm sm:text-2xl font-bold mb-0.5 sm:mb-2 ${
                     isToday
-                      ? 'text-[#d4531d]'
+                      ? 'text-[var(--saffron-ink)]'
                       : isWeekend
                       ? 'text-slate-500'
                       : 'text-slate-800'

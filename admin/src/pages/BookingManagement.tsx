@@ -656,7 +656,7 @@ const BookingManagement = () => {
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
-                <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin mx-auto mb-3" />
+                <Loader2 className="w-8 h-8 text-[var(--saffron-ink)] animate-spin mx-auto mb-3" />
                 <p className="text-slate-500 text-sm">Loading booking settings...</p>
               </div>
             </div>
@@ -738,7 +738,7 @@ const BookingManagement = () => {
                         <button
                           onClick={handleSaveAdvanceBooking}
                           disabled={savingAdvance || minAdvanceHours === settings?.minAdvanceBooking}
-                          className="flex items-center gap-2 px-5 py-2.5 bg-[var(--saffron)] text-white rounded-xl font-semibold hover:shadow-lg hover:transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+                          className="flex items-center gap-2 px-5 py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl font-semibold hover:shadow-lg hover:transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                         >
                           {savingAdvance ? (
                             <>
@@ -965,7 +965,7 @@ const BookingManagement = () => {
                             onClick={() => handleQuickRange(days, label)}
                             className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
                               activeRange === label
-                                ? 'bg-[var(--saffron)] text-white '
+                                ? 'bg-[var(--saffron-ink)] text-white '
                                 : 'bg-slate-100 text-slate-600 hover:bg-[#d4531d]/15 hover:text-[#8B7B2A]'
                             }`}
                           >
@@ -1076,7 +1076,7 @@ const BookingManagement = () => {
                                     onClick={() => handlePickDate(dateStr)}
                                     className={`w-8 h-8 rounded-lg text-xs font-medium transition-all flex items-center justify-center ${
                                       isSelected
-                                        ? 'bg-[var(--saffron)] text-white font-bold '
+                                        ? 'bg-[var(--saffron-ink)] text-white font-bold '
                                         : 'text-slate-700 hover:bg-[rgba(212,83,29,0.09)]'
                                     }`}
                                   >

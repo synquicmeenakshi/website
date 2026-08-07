@@ -4,6 +4,7 @@ import {
   ArrowUp, ArrowDown, AlertCircle,
 } from 'lucide-react'
 import AdminShell from './AdminShell'
+import * as ui from '../utils/ui'
 import {
   listItems, createItem, updateItem, deleteItem, reorderItems,
   type CollectionName,
@@ -37,14 +38,7 @@ interface Props {
   labelOf: (item: any) => string
 }
 
-const inputCls =
-  'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
-const btnGold =
-  'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-[var(--saffron)] ' +
-  'hover:opacity-95 disabled:opacity-50 transition'
 
 /* ---- sub-editors ---------------------------------------------------------- */
 
@@ -53,7 +47,7 @@ const StringListEditor = ({ value, onChange }: { value: string[]; onChange: (v: 
     {(value || []).map((v, i) => (
       <div key={i} className="flex gap-2">
         <input
-          className={inputCls}
+          className={ui.input}
           value={v}
           onChange={(e) => {
             const next = [...value]
@@ -64,7 +58,7 @@ const StringListEditor = ({ value, onChange }: { value: string[]; onChange: (v: 
         <button
           type="button"
           onClick={() => onChange(value.filter((_, j) => j !== i))}
-          className="px-2 rounded-lg text-red-500 hover:bg-red-50 transition"
+          className="px-2 rounded-[10px] text-red-500 hover:bg-red-50 transition"
           aria-label="Remove"
         >
           <X className="w-4 h-4" />
@@ -74,7 +68,7 @@ const StringListEditor = ({ value, onChange }: { value: string[]; onChange: (v: 
     <button
       type="button"
       onClick={() => onChange([...(value || []), ''])}
-      className="text-sm text-[#ad3f15] hover:underline font-medium"
+      className="text-[13px] text-[var(--saffron-600)] hover:underline font-medium"
     >
       + Add item
     </button>
@@ -86,10 +80,10 @@ type Section = { heading: string; paragraphs: string[] }
 const SectionListEditor = ({ value, onChange }: { value: Section[]; onChange: (v: Section[]) => void }) => (
   <div className="space-y-4">
     {(value || []).map((s, i) => (
-      <div key={i} className="p-3 rounded-lg border border-slate-200 bg-slate-50/60 space-y-2">
+      <div key={i} className="p-3 rounded-[10px] border border-[var(--hairline)] bg-slate-50/60 space-y-2">
         <div className="flex gap-2">
           <input
-            className={inputCls}
+            className={ui.input}
             placeholder="Section heading"
             value={s.heading}
             onChange={(e) => {
@@ -101,7 +95,7 @@ const SectionListEditor = ({ value, onChange }: { value: Section[]; onChange: (v
           <button
             type="button"
             onClick={() => onChange(value.filter((_, j) => j !== i))}
-            className="px-2 rounded-lg text-red-500 hover:bg-red-50 transition"
+            className="px-2 rounded-[10px] text-red-500 hover:bg-red-50 transition"
             aria-label="Remove section"
           >
             <Trash2 className="w-4 h-4" />
@@ -120,7 +114,7 @@ const SectionListEditor = ({ value, onChange }: { value: Section[]; onChange: (v
     <button
       type="button"
       onClick={() => onChange([...(value || []), { heading: '', paragraphs: [''] }])}
-      className="text-sm text-[#ad3f15] hover:underline font-medium"
+      className="text-[13px] text-[var(--saffron-600)] hover:underline font-medium"
     >
       + Add section
     </button>
@@ -226,13 +220,13 @@ const CollectionEditor = ({
       title={title}
       subtitle={subtitle}
       actions={
-        <button onClick={openCreate} className={btnGold}>
+        <button onClick={openCreate} className={ui.btnPrimary}>
           <Plus className="w-4 h-4" /> <span className="hidden sm:inline">New</span>
         </button>
       }
     >
       {error && (
-        <div className="mb-4 flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-100 text-sm text-red-700">
+        <div className="mb-4 flex items-start gap-2 p-3 rounded-[10px] bg-[rgba(179,66,26,0.07)] border border-[rgba(179,66,26,0.22)] text-[13px] text-[#8e3411]">
           <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
           <span>{error}</span>
         </div>
@@ -241,7 +235,7 @@ const CollectionEditor = ({
       <div className="mb-4 relative max-w-sm">
         <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
         <input
-          className={`${inputCls} pl-9`}
+          className={`${ui.input} pl-9`}
           placeholder="Search…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -255,11 +249,11 @@ const CollectionEditor = ({
       ) : visible.length === 0 ? (
         <div className="text-center py-16 text-slate-500 text-sm">Nothing here yet.</div>
       ) : (
-        <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden">
+        <div className="bg-white rounded-[10px] border border-[var(--hairline)] overflow-hidden">
           {visible.map((item, i) => (
             <div
               key={item._id}
-              className={`flex items-start gap-3 px-4 py-3 ${i ? 'border-t border-slate-100' : ''} ${
+              className={`flex items-start gap-3 px-4 py-3 ${i ? 'border-t border-[var(--hairline)]' : ''} ${
                 item.isActive === false ? 'opacity-50' : ''
               }`}
             >
@@ -276,7 +270,7 @@ const CollectionEditor = ({
 
               <div className="flex-1 min-w-0">
                 {groupKey && item[groupKey] && (
-                  <p className="text-[11px] uppercase tracking-wider text-[#ad3f15] font-semibold mb-0.5">
+                  <p className="text-[10.5px] uppercase tracking-[0.14em] text-[var(--saffron-600)] font-semibold mb-0.5">
                     {item[groupKey]}
                   </p>
                 )}
@@ -291,17 +285,17 @@ const CollectionEditor = ({
               <div className="flex items-center gap-1 shrink-0">
                 {'isActive' in emptyItem && (
                   <button onClick={() => toggleActive(item)}
-                    className="p-2 rounded-lg text-slate-400 hover:bg-slate-100 transition"
+                    className="p-2 rounded-[10px] text-slate-400 hover:bg-slate-100 transition"
                     title={item.isActive ? 'Hide from site' : 'Show on site'}>
                     {item.isActive ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                   </button>
                 )}
                 <button onClick={() => openEdit(item)}
-                  className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 transition" title="Edit">
+                  className="p-2 rounded-[10px] text-slate-500 hover:bg-slate-100 transition" title="Edit">
                   <Edit2 className="w-4 h-4" />
                 </button>
                 <button onClick={() => remove(item)}
-                  className="p-2 rounded-lg text-red-500 hover:bg-red-50 transition" title="Delete">
+                  className="p-2 rounded-[10px] text-red-500 hover:bg-red-50 transition" title="Delete">
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
@@ -311,14 +305,14 @@ const CollectionEditor = ({
       )}
 
       {showModal && (
-        <div className="fixed inset-0 z-[80] bg-black/40 flex items-start sm:items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-xl w-full max-w-2xl my-8 shadow-xl">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 sticky top-0 bg-white rounded-t-xl">
-              <h2 className="text-base font-semibold text-slate-800">
+        <div className="fixed inset-0 z-[80] bg-[rgba(36,26,20,0.42)] flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-[10px] w-full max-w-2xl my-8 shadow-[0_18px_50px_rgba(36,26,20,0.16)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--hairline)] sticky top-0 bg-white rounded-t-xl">
+              <h2 className="text-[19px] text-[var(--ink)]" style={ui.displayFace}>
                 {editing ? 'Edit' : 'New'} — {title}
               </h2>
               <button onClick={() => setShowModal(false)}
-                className="p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Close">
+                className="p-2 rounded-[10px] hover:bg-slate-100 transition" aria-label="Close">
                 <X className="w-5 h-5 text-slate-500" />
               </button>
             </div>
@@ -329,7 +323,7 @@ const CollectionEditor = ({
                   <label className="block text-sm font-medium text-slate-700 mb-1">{f.label}</label>
 
                   {f.type === 'textarea' ? (
-                    <textarea className={inputCls} rows={f.rows || 3}
+                    <textarea className={ui.input} rows={f.rows || 3}
                       value={form[f.key] ?? ''}
                       onChange={(e) => setForm({ ...form, [f.key]: e.target.value })} />
                   ) : f.type === 'boolean' ? (
@@ -340,11 +334,11 @@ const CollectionEditor = ({
                       Enabled
                     </label>
                   ) : f.type === 'number' ? (
-                    <input type="number" className={inputCls}
+                    <input type="number" className={ui.input}
                       value={form[f.key] ?? 0}
                       onChange={(e) => setForm({ ...form, [f.key]: Number(e.target.value) })} />
                   ) : f.type === 'select' ? (
-                    <select className={inputCls} value={form[f.key] ?? ''}
+                    <select className={ui.input} value={form[f.key] ?? ''}
                       onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}>
                       {(f.options || []).map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
@@ -355,7 +349,7 @@ const CollectionEditor = ({
                     <SectionListEditor value={form[f.key] || []}
                       onChange={(v) => setForm({ ...form, [f.key]: v })} />
                   ) : (
-                    <input className={inputCls} value={form[f.key] ?? ''}
+                    <input className={ui.input} value={form[f.key] ?? ''}
                       onChange={(e) => setForm({ ...form, [f.key]: e.target.value })} />
                   )}
 
@@ -373,12 +367,12 @@ const CollectionEditor = ({
               )}
             </div>
 
-            <div className="flex justify-end gap-2 px-5 py-4 border-t border-slate-100">
+            <div className="flex justify-end gap-2 px-5 py-4 border-t border-[var(--hairline)]">
               <button onClick={() => setShowModal(false)}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 transition">
+                className={ui.btnQuiet}>
                 Cancel
               </button>
-              <button onClick={save} disabled={saving} className={btnGold}>
+              <button onClick={save} disabled={saving} className={ui.btnPrimary}>
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                 Save
               </button>

@@ -198,7 +198,7 @@ const Users = () => {
                   </p>
                 </div>
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#d4531d]/10 to-[#d4531d]/5 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <UsersIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#d4531d]" />
+                  <UsersIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--saffron-ink)]" />
                 </div>
               </div>
             </div>
@@ -268,7 +268,7 @@ const Users = () => {
             {loading && (
               <div className="flex items-center justify-center py-16 sm:py-20">
                 <div className="text-center">
-                  <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin mx-auto mb-3" />
+                  <Loader2 className="w-8 h-8 text-[var(--saffron-ink)] animate-spin mx-auto mb-3" />
                   <p className="text-slate-500 text-sm">Loading customers...</p>
                 </div>
               </div>

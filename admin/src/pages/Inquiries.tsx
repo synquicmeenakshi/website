@@ -242,7 +242,7 @@ const Inquiries = () => {
                       }}
                       className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors ${
                         filterPeriod === option.value
-                          ? 'bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 text-[#d4531d] font-semibold'
+                          ? 'bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 text-[var(--saffron-ink)] font-semibold'
                           : 'text-slate-700'
                       }`}
                     >
@@ -369,7 +369,7 @@ const Inquiries = () => {
                   onClick={() => setStatusFilter(key)}
                   className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
                     statusFilter === key
-                      ? 'bg-[var(--saffron)] text-white shadow-sm'
+                      ? 'bg-[var(--saffron-ink)] text-white shadow-sm'
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >

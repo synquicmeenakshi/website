@@ -829,7 +829,7 @@ const Properties = () => {
                 {/* Add Button */}
                 <button
                   onClick={openNewModal}
-                  className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm"
+                  className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm"
                 >
                   <Plus className="w-4 h-4" />
                   <span className="hidden sm:inline">Add Property</span>
@@ -1114,16 +1114,16 @@ const Properties = () => {
                       {/* Features */}
                       <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4">
                         <span className="flex items-center gap-1 sm:gap-1.5">
-                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                           {property.guests}
                         </span>
                         <span className="flex items-center gap-1 sm:gap-1.5">
-                          <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                          <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                           {property.bedrooms}
                         </span>
                         {property.parking && (
                           <span className="flex items-center gap-1 sm:gap-1.5">
-                            <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                            <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                             Yes
                           </span>
                         )}
@@ -1190,16 +1190,16 @@ const Properties = () => {
 
                         <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-600">
                           <span className="flex items-center gap-1 sm:gap-1.5">
-                            <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                            <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                             {property.guests} guests
                           </span>
                           <span className="flex items-center gap-1 sm:gap-1.5">
-                            <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                            <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                             {property.bedrooms} bedrooms
                           </span>
                           {property.parking && (
                             <span className="flex items-center gap-1 sm:gap-1.5">
-                              <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                              <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                               Parking
                             </span>
                           )}
@@ -1255,7 +1255,7 @@ const Properties = () => {
               </p>
               <button
                 onClick={openNewModal}
-                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm sm:text-base"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-[var(--saffron-ink)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm sm:text-base"
               >
                 <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 Add Your First Property
@@ -1312,7 +1312,7 @@ const Properties = () => {
               {/* Basic Info Section */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                  <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                   Basic Information
                 </div>
 
@@ -1347,7 +1347,7 @@ const Properties = () => {
               {/* Pricing Section */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <Euro className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                  <Euro className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                   Pricing
                 </div>
 
@@ -1394,7 +1394,7 @@ const Properties = () => {
               {/* Capacity Section */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                   Capacity & Features
                 </div>
 
@@ -1445,7 +1445,7 @@ const Properties = () => {
                 <div>
                   <label className="block text-[10px] sm:text-sm font-medium text-slate-600 mb-1">
                     <div className="flex items-center gap-1.5">
-                      <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#d4531d]" />
+                      <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[var(--saffron-ink)]" />
                       Map Location URL
                     </div>
                   </label>
@@ -1463,7 +1463,7 @@ const Properties = () => {
               {/* Image Selection */}
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                  <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                  <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                   Property Image
                 </div>
 
@@ -1512,13 +1512,13 @@ const Properties = () => {
                   />
                   {uploadingImage ? (
                     <div className="flex flex-col items-center gap-2">
-                      <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin" />
+                      <Loader2 className="w-8 h-8 text-[var(--saffron-ink)] animate-spin" />
                       <span className="text-sm text-slate-600">Uploading...</span>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center gap-2">
                       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#FFEEC3]/30 flex items-center justify-center">
-                        <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-[#d4531d]" />
+                        <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--saffron-ink)]" />
                       </div>
                       <div>
                         <p className="text-xs sm:text-sm font-medium text-slate-700">
@@ -1595,7 +1595,7 @@ const Properties = () => {
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                    <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                    <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                     Gallery Images (Side Images)
                   </div>
                   {formData.galleryImages.length > 0 && (
@@ -1650,7 +1650,7 @@ const Properties = () => {
                   />
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#FFEEC3]/30 flex items-center justify-center">
-                      <Plus className="w-4 h-4 text-[#d4531d]" />
+                      <Plus className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <p className="text-xs font-medium text-slate-600">Add Gallery Images</p>
                     <p className="text-[10px] text-slate-400">Select multiple images at once</p>
@@ -1662,7 +1662,7 @@ const Properties = () => {
               <div className="space-y-3 sm:space-y-4 bg-slate-50/50 rounded-xl p-3 sm:p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d4531d]" />
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--saffron-ink)]" />
                     Amenities
                   </div>
                   {formData.amenities.length > 0 && (
@@ -1698,11 +1698,11 @@ const Properties = () => {
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                           isSelected ? 'bg-[#d4531d]/20' : 'bg-slate-100'
                         }`}>
-                          <IconComponent className={`w-4 h-4 ${isSelected ? 'text-[#d4531d]' : 'text-slate-500'}`} />
+                          <IconComponent className={`w-4 h-4 ${isSelected ? 'text-[var(--saffron-ink)]' : 'text-slate-500'}`} />
                         </div>
                         <span className="text-xs font-medium line-clamp-1">{amenity.label}</span>
                         {isSelected && (
-                          <Check className="w-4 h-4 text-[#d4531d] ml-auto flex-shrink-0" />
+                          <Check className="w-4 h-4 text-[var(--saffron-ink)] ml-auto flex-shrink-0" />
                         )}
                       </button>
                     )
@@ -2240,7 +2240,7 @@ const Properties = () => {
               <button
                 onClick={handleSubmit}
                 disabled={saving}
-                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-[var(--saffron)] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 text-sm"
+                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-[var(--saffron-ink)] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 text-sm"
               >
                 {saving ? (
                   <>

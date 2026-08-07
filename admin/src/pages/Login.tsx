@@ -70,7 +70,7 @@ const Login = () => {
       {/* Masthead, set as the website sets it */}
       <div className="text-center mb-7">
         <div className="flex justify-center mb-3">
-          <YantraMark width={44} height={44} className="text-[var(--saffron)]" />
+          <YantraMark width={44} height={44} className="text-[var(--saffron-ink)]" />
         </div>
         <h1
           className="text-[var(--ink)]"
@@ -153,7 +153,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[var(--saffron)] text-white py-3 rounded-lg text-sm font-medium hover:shadow-lg hover:transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-[var(--saffron-ink)] text-white py-3 rounded-lg text-sm font-medium hover:shadow-lg hover:transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Logging in...' : 'Log In'}
           </button>

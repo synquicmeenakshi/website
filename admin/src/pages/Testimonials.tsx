@@ -384,7 +384,7 @@ const Testimonials = () => {
                 onClick={() => setActiveTab('massage')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                   activeTab === 'massage'
-                    ? 'bg-[var(--saffron)] text-white shadow-md'
+                    ? 'bg-[var(--saffron-ink)] text-white shadow-md'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
@@ -425,7 +425,7 @@ const Testimonials = () => {
               onClick={() => setActiveTab('massage')}
               className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
                 activeTab === 'massage'
-                  ? 'bg-[var(--saffron)] text-white shadow-md'
+                  ? 'bg-[var(--saffron-ink)] text-white shadow-md'
                   : 'bg-slate-100 text-slate-600'
               }`}
             >
@@ -558,7 +558,7 @@ const Testimonials = () => {
               {/* Add */}
               <button
                 onClick={handleAddNew}
-                className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[var(--saffron)] text-white rounded-xl text-sm font-medium shadow-md hover:shadow-lg transition"
+                className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[var(--saffron-ink)] text-white rounded-xl text-sm font-medium shadow-md hover:shadow-lg transition"
               >
                 <Plus className="w-4 h-4" />
                 <span className="hidden sm:inline">Add</span>
@@ -575,7 +575,7 @@ const Testimonials = () => {
           {loading && (
             <div className="flex items-center justify-center h-64">
               <div className="text-center">
-                <Loader2 className="w-8 h-8 animate-spin text-[#d4531d] mx-auto mb-3" />
+                <Loader2 className="w-8 h-8 animate-spin text-[var(--saffron-ink)] mx-auto mb-3" />
                 <p className="text-slate-500 text-sm">Loading...</p>
               </div>
             </div>
@@ -892,7 +892,7 @@ const Testimonials = () => {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-2 px-4 py-2 bg-[var(--saffron)] text-white rounded-xl shadow-md hover:shadow-lg transition text-sm font-medium disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-[var(--saffron-ink)] text-white rounded-xl shadow-md hover:shadow-lg transition text-sm font-medium disabled:opacity-50"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                 {saving ? 'Saving...' : 'Save'}

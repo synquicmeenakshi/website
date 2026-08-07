@@ -44,10 +44,10 @@
   --color-slate-100: #f2ece0;
   --color-slate-200: #e3d9c8;
   --color-slate-300: #cfc2ad;
-  --color-slate-400: #a89880;
-  --color-slate-500: #8a7963;
-  --color-slate-600: #6f6055;
-  --color-slate-700: #52453b;
+  --color-slate-400: #7d6c55;   /* 4.53 on ivory */
+  --color-slate-500: #6f6055;   /* 5.40 */
+  --color-slate-600: #5c4e40;   /* 7.18 */
+  --color-slate-700: #4a3d31;
   --color-slate-800: #362a22;
   --color-slate-900: #241a14;
   --color-slate-950: #140d09;
@@ -57,10 +57,10 @@
   --color-gray-100: #f2ece0;
   --color-gray-200: #e3d9c8;
   --color-gray-300: #cfc2ad;
-  --color-gray-400: #a89880;
-  --color-gray-500: #8a7963;
-  --color-gray-600: #6f6055;
-  --color-gray-700: #52453b;
+  --color-gray-400: #7d6c55;
+  --color-gray-500: #6f6055;
+  --color-gray-600: #5c4e40;
+  --color-gray-700: #4a3d31;
   --color-gray-800: #362a22;
   --color-gray-900: #241a14;
 
@@ -102,8 +102,12 @@
   --cream: #f8f4ea;
   --ink: #241a14;
   --ink-soft: #6f6055;
-  --saffron: #d4531d;
+  --saffron: #d4531d;        /* accent: rules, icons, non-text fills */
   --saffron-600: #ad3f15;
+  /* Saffron wherever it sits behind or beside text. The bright tone fails AA
+     both as a background under cream (3.78) and as small text on ivory (3.72). */
+  --saffron-ink: #ad3f15;
+  --saffron-ink-hover: #9e3a13;
   --saffron-100: #f0d7c9;
   --gold: #b58a46;
   --hairline: rgba(36, 26, 20, 0.15);

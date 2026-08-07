@@ -93,7 +93,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
                   onClick={() => handleNavigation(item.path)}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius)] text-[13.5px] font-medium transition-colors duration-200 group ${
                     isActive(item.path)
-                      ? 'bg-[var(--saffron)] text-[var(--cream)]'
+                      ? 'bg-[var(--saffron-ink)] text-[var(--cream)]'
                       : 'text-[var(--ink-soft)] hover:bg-[rgba(212,83,29,0.07)] hover:text-[var(--ink)]'
                   }`}
                 >
@@ -120,7 +120,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
         <div className="px-3 py-3 mt-auto border-t border-[var(--hairline)]">
           {/* User Profile */}
           <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-slate-50 transition cursor-pointer">
-            <div className="w-9 h-9 rounded-[var(--radius)] flex items-center justify-center text-[var(--cream)] text-sm bg-[var(--saffron)]"
+            <div className="w-9 h-9 rounded-[var(--radius)] flex items-center justify-center text-[var(--cream)] text-sm bg-[var(--saffron-ink)]"
               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '17px' }}>
               A
             </div>

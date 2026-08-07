@@ -3,15 +3,10 @@ import {
   Loader2, Plus, Edit2, Trash2, X, Save, AlertCircle, Search, Eye, EyeOff, ExternalLink,
 } from 'lucide-react'
 import AdminShell from '../components/AdminShell'
+import * as ui from '../utils/ui'
 import { listPosts, createPost, updatePost, deletePost } from '../utils/meenakshiApi'
 
-const inputCls =
-  'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
-const btnGold =
-  'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-[var(--saffron)] hover:opacity-95 disabled:opacity-50 transition'
 
 const slugify = (s: string) =>
   s.toLowerCase().trim()
@@ -94,17 +89,17 @@ const BlogPosts = () => {
     <AdminShell
       title="Blog"
       subtitle="Articles for organic search reach"
-      actions={<button onClick={openCreate} className={btnGold}><Plus className="w-4 h-4" /><span className="hidden sm:inline">New post</span></button>}
+      actions={<button onClick={openCreate} className={ui.btnPrimary}><Plus className="w-4 h-4" /><span className="hidden sm:inline">New post</span></button>}
     >
       {error && (
-        <div className="mb-4 flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-100 text-sm text-red-700">
+        <div className="mb-4 flex items-start gap-2 p-3 rounded-[10px] bg-[rgba(179,66,26,0.07)] border border-[rgba(179,66,26,0.22)] text-[13px] text-[#8e3411]">
           <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" /> <span>{error}</span>
         </div>
       )}
 
       <div className="mb-4 relative max-w-sm">
         <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-        <input className={`${inputCls} pl-9`} placeholder="Search posts…" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <input className={`${ui.input} pl-9`} placeholder="Search posts…" value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
 
       {loading ? (
@@ -117,14 +112,14 @@ const BlogPosts = () => {
           <p className="text-xs text-slate-400 mt-1">Articles appear on /blog once published.</p>
         </div>
       ) : (
-        <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden">
+        <div className="bg-white rounded-[10px] border border-[var(--hairline)] overflow-hidden">
           {visible.map((p, i) => (
-            <div key={p._id} className={`flex items-start gap-3 px-4 py-3 ${i ? 'border-t border-slate-100' : ''} ${p.isPublished ? '' : 'opacity-60'}`}>
+            <div key={p._id} className={`flex items-start gap-3 px-4 py-3 ${i ? 'border-t border-[var(--hairline)]' : ''} ${p.isPublished ? '' : 'opacity-60'}`}>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-sm font-medium text-slate-800">{p.title}</span>
                   <span className={`px-2 py-0.5 rounded-full text-[11px] font-semibold border ${
-                    p.isPublished ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-600 border-slate-200'
+                    p.isPublished ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-600 border-[var(--hairline)]'
                   }`}>
                     {p.isPublished ? 'published' : 'draft'}
                   </span>
@@ -138,18 +133,18 @@ const BlogPosts = () => {
               <div className="flex items-center gap-1 shrink-0">
                 {p.isPublished && (
                   <a href={`http://localhost:5173/blog/${p.slug}`} target="_blank" rel="noreferrer"
-                    className="p-2 rounded-lg text-slate-400 hover:bg-slate-100 transition" title="View on site">
+                    className="p-2 rounded-[10px] text-slate-400 hover:bg-slate-100 transition" title="View on site">
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 )}
-                <button onClick={() => togglePublish(p)} className="p-2 rounded-lg text-slate-400 hover:bg-slate-100 transition"
+                <button onClick={() => togglePublish(p)} className="p-2 rounded-[10px] text-slate-400 hover:bg-slate-100 transition"
                   title={p.isPublished ? 'Unpublish' : 'Publish'}>
                   {p.isPublished ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                 </button>
-                <button onClick={() => openEdit(p)} className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 transition" title="Edit">
+                <button onClick={() => openEdit(p)} className="p-2 rounded-[10px] text-slate-500 hover:bg-slate-100 transition" title="Edit">
                   <Edit2 className="w-4 h-4" />
                 </button>
-                <button onClick={() => remove(p)} className="p-2 rounded-lg text-red-500 hover:bg-red-50 transition" title="Delete">
+                <button onClick={() => remove(p)} className="p-2 rounded-[10px] text-red-500 hover:bg-red-50 transition" title="Delete">
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
@@ -159,11 +154,11 @@ const BlogPosts = () => {
       )}
 
       {showModal && (
-        <div className="fixed inset-0 z-[80] bg-black/40 flex items-start sm:items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-xl w-full max-w-3xl my-8 shadow-xl">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 sticky top-0 bg-white rounded-t-xl">
-              <h2 className="text-base font-semibold text-slate-800">{editing ? 'Edit post' : 'New post'}</h2>
-              <button onClick={() => setShowModal(false)} className="p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Close">
+        <div className="fixed inset-0 z-[80] bg-[rgba(36,26,20,0.42)] flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-[10px] w-full max-w-3xl my-8 shadow-[0_18px_50px_rgba(36,26,20,0.16)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--hairline)] sticky top-0 bg-white rounded-t-xl">
+              <h2 className="text-[19px] text-[var(--ink)]" style={ui.displayFace}>{editing ? 'Edit post' : 'New post'}</h2>
+              <button onClick={() => setShowModal(false)} className={ui.btnIcon} aria-label="Close">
                 <X className="w-5 h-5 text-slate-500" />
               </button>
             </div>
@@ -171,7 +166,7 @@ const BlogPosts = () => {
             <div className="px-5 py-4 space-y-4">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Title</label>
-                <input className={inputCls} value={form.title}
+                <input className={ui.input} value={form.title}
                   onChange={(e) => {
                     const title = e.target.value
                     // Auto-slug only while creating; changing a live slug breaks links.
@@ -181,7 +176,7 @@ const BlogPosts = () => {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Slug</label>
-                <input className={inputCls} value={form.slug}
+                <input className={ui.input} value={form.slug}
                   onChange={(e) => setForm({ ...form, slug: slugify(e.target.value) })} />
                 <p className="text-xs text-slate-400 mt-1">
                   /blog/{form.slug || 'your-post'}{editing ? ' — changing this breaks existing links.' : ''}
@@ -190,14 +185,14 @@ const BlogPosts = () => {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Excerpt</label>
-                <textarea className={inputCls} rows={2} value={form.excerpt}
+                <textarea className={ui.input} rows={2} value={form.excerpt}
                   onChange={(e) => setForm({ ...form, excerpt: e.target.value })} />
                 <p className="text-xs text-slate-400 mt-1">Shown on the blog index.</p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Body</label>
-                <textarea className={`${inputCls} font-mono text-[13px]`} rows={14} value={form.body}
+                <textarea className={`${ui.input} font-mono text-[13px]`} rows={14} value={form.body}
                   onChange={(e) => setForm({ ...form, body: e.target.value })} />
                 <p className="text-xs text-slate-400 mt-1">
                   Plain text. Leave a blank line between paragraphs. A line starting with “## ” becomes a heading.
@@ -207,39 +202,39 @@ const BlogPosts = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Cover image path</label>
-                  <input className={inputCls} value={form.cover} placeholder="/img/blog-something.jpg"
+                  <input className={ui.input} value={form.cover} placeholder="/img/blog-something.jpg"
                     onChange={(e) => setForm({ ...form, cover: e.target.value })} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Cover alt text</label>
-                  <input className={inputCls} value={form.coverAlt}
+                  <input className={ui.input} value={form.coverAlt}
                     onChange={(e) => setForm({ ...form, coverAlt: e.target.value })} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Tags</label>
-                  <input className={inputCls} value={tagInput} placeholder="astrology, numerology"
+                  <input className={ui.input} value={tagInput} placeholder="astrology, numerology"
                     onChange={(e) => setTagInput(e.target.value)} />
                   <p className="text-xs text-slate-400 mt-1">Comma separated.</p>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Author</label>
-                  <input className={inputCls} value={form.author}
+                  <input className={ui.input} value={form.author}
                     onChange={(e) => setForm({ ...form, author: e.target.value })} />
                 </div>
               </div>
 
-              <details className="border border-slate-200 rounded-lg p-3">
+              <details className="border border-[var(--hairline)] rounded-[10px] p-3">
                 <summary className="text-sm font-medium text-slate-700 cursor-pointer">SEO</summary>
                 <div className="mt-3 space-y-3">
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">SEO title</label>
-                    <input className={inputCls} value={form.seoTitle}
+                    <input className={ui.input} value={form.seoTitle}
                       onChange={(e) => setForm({ ...form, seoTitle: e.target.value })} />
                     <p className="text-xs text-slate-400 mt-1">Falls back to the post title.</p>
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">SEO description</label>
-                    <textarea className={inputCls} rows={2} value={form.seoDescription}
+                    <textarea className={ui.input} rows={2} value={form.seoDescription}
                       onChange={(e) => setForm({ ...form, seoDescription: e.target.value })} />
                     <p className="text-xs text-slate-400 mt-1">Falls back to the excerpt.</p>
                   </div>
@@ -253,9 +248,9 @@ const BlogPosts = () => {
               </label>
             </div>
 
-            <div className="flex justify-end gap-2 px-5 py-4 border-t border-slate-100">
-              <button onClick={() => setShowModal(false)} className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 transition">Cancel</button>
-              <button onClick={save} disabled={saving || !form.title} className={btnGold}>
+            <div className="flex justify-end gap-2 px-5 py-4 border-t border-[var(--hairline)]">
+              <button onClick={() => setShowModal(false)} className={ui.btnQuiet}>Cancel</button>
+              <button onClick={save} disabled={saving || !form.title} className={ui.btnPrimary}>
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />} Save
               </button>
             </div>

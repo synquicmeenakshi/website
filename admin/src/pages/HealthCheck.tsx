@@ -338,7 +338,7 @@ const HealthCheck = () => {
           bg: 'bg-[#FFEEC3]/30',
           border: 'border-[rgba(212,83,29,0.3)]',
           text: 'text-[#B8922D]',
-          icon: 'text-[#d4531d]',
+          icon: 'text-[var(--saffron-ink)]',
           badge: 'bg-[#d4531d]'
         }
       case 'degraded':
@@ -398,7 +398,7 @@ const HealthCheck = () => {
               <button
                 onClick={checkAllServices}
                 disabled={isChecking}
-                className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm disabled:opacity-50"
+                className="flex items-center gap-2 px-3 sm:px-5 py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl hover:shadow-lg hover:transition-all font-medium text-sm disabled:opacity-50"
               >
                 <RefreshCw className={`w-4 h-4 ${isChecking ? 'animate-spin' : ''}`} />
                 <span className="hidden sm:inline">{isChecking ? 'Checking...' : 'Refresh'}</span>
@@ -630,7 +630,7 @@ const HealthCheck = () => {
             <div className="mt-6 pt-6 border-t border-slate-100">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FFEEC3]/30 flex items-center justify-center">
-                  <Database className="w-5 h-5 text-[#d4531d]" />
+                  <Database className="w-5 h-5 text-[var(--saffron-ink)]" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-800">MongoDB Connection</p>

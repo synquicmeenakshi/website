@@ -447,7 +447,7 @@ const MassageBooking = () => {
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <Loader2 className="w-10 h-10 animate-spin text-[#d4531d] mx-auto mb-4" />
+            <Loader2 className="w-10 h-10 animate-spin text-[var(--saffron-ink)] mx-auto mb-4" />
             <p className="text-slate-500 font-medium">Loading appointments...</p>
           </div>
         </div>
@@ -536,7 +536,7 @@ const MassageBooking = () => {
                         }}
                         className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors ${
                           filterPeriod === option.value
-                            ? 'bg-[rgba(212,83,29,0.09)] text-[#d4531d] font-semibold'
+                            ? 'bg-[rgba(212,83,29,0.09)] text-[var(--saffron-ink)] font-semibold'
                             : 'text-slate-700'
                         }`}
                       >
@@ -658,7 +658,7 @@ const MassageBooking = () => {
                 </div>
                 <button
                   onClick={() => setActivePanel(activePanel === 'left' ? 'both' : 'left')}
-                  className={`p-1.5 rounded-lg transition-all ${activePanel === 'left' ? 'bg-[var(--saffron)] text-white ' : 'hover:bg-slate-100 text-slate-500'}`}
+                  className={`p-1.5 rounded-lg transition-all ${activePanel === 'left' ? 'bg-[var(--saffron-ink)] text-white ' : 'hover:bg-slate-100 text-slate-500'}`}
                   title={activePanel === 'left' ? 'Show both panels' : 'Expand to full width'}
                 >
                   <PanelLeftClose className="w-4 h-4" />
@@ -669,7 +669,7 @@ const MassageBooking = () => {
             <div className="p-4 space-y-4 bg-gradient-to-b from-white to-slate-50/50">
               <div className="relative group">
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-br from-[#d4531d]/20 to-[#ad3f15]/10 rounded-lg flex items-center justify-center">
-                  <Search className="text-[#d4531d] w-4 h-4" />
+                  <Search className="text-[var(--saffron-ink)] w-4 h-4" />
                 </div>
                 <input
                   type="text"
@@ -703,7 +703,7 @@ const MassageBooking = () => {
                         ? tab.color === 'amber' ? 'bg-amber-100 text-amber-600'
                           : tab.color === 'emerald' ? 'bg-emerald-100 text-emerald-600'
                           : tab.color === 'blue' ? 'bg-blue-100 text-blue-600'
-                          : 'bg-[rgba(212,83,29,0.09)] text-[#d4531d]'
+                          : 'bg-[rgba(212,83,29,0.09)] text-[var(--saffron-ink)]'
                         : 'bg-slate-200/70 text-slate-500'
                     }`}>
                       {tab.count}
@@ -788,11 +788,11 @@ const MassageBooking = () => {
                       <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100/80">
                         <div className="flex items-center gap-2">
                           <span className="flex items-center gap-1.5 text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">
-                            <Calendar className="w-3 h-3 text-[#d4531d]" />
+                            <Calendar className="w-3 h-3 text-[var(--saffron-ink)]" />
                             {formatDate(booking.appointmentDate)}
                           </span>
                           <span className="flex items-center gap-1.5 text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">
-                            <Clock className="w-3 h-3 text-[#d4531d]" />
+                            <Clock className="w-3 h-3 text-[var(--saffron-ink)]" />
                             {booking.appointmentTime}
                           </span>
                         </div>
@@ -808,7 +808,7 @@ const MassageBooking = () => {
                     {currentAndFutureKeys.map(key => (
                       <div key={key}>
                         <div className="flex items-center gap-2 mb-2 px-1">
-                          <Calendar className="w-3.5 h-3.5 text-[#d4531d]" />
+                          <Calendar className="w-3.5 h-3.5 text-[var(--saffron-ink)]" />
                           <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">{monthGroups[key].label}</h3>
                           <span className="text-[10px] bg-[rgba(212,83,29,0.09)] text-[#B8960B] px-2 py-0.5 rounded-full font-semibold">{monthGroups[key].bookings.length}</span>
                         </div>
@@ -891,7 +891,7 @@ const MassageBooking = () => {
               </div>
               <button
                 onClick={() => setActivePanel(activePanel === 'right' ? 'both' : 'right')}
-                className={`hidden md:block p-1.5 rounded-lg transition-all ${activePanel === 'right' ? 'bg-[var(--saffron)] text-white ' : 'hover:bg-slate-100 text-slate-500'}`}
+                className={`hidden md:block p-1.5 rounded-lg transition-all ${activePanel === 'right' ? 'bg-[var(--saffron-ink)] text-white ' : 'hover:bg-slate-100 text-slate-500'}`}
                 title={activePanel === 'right' ? 'Show both panels' : 'Expand to full width'}
               >
                 <PanelRightClose className="w-4 h-4" />
@@ -974,7 +974,7 @@ const MassageBooking = () => {
                   )}
                   <button
                     onClick={openMessageModal}
-                    className="flex items-center gap-1.5 sm:gap-2 bg-[var(--saffron)] text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl hover:shadow-lg hover:transition-all font-semibold shadow-md text-xs whitespace-nowrap shrink-0"
+                    className="flex items-center gap-1.5 sm:gap-2 bg-[var(--saffron-ink)] text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl hover:shadow-lg hover:transition-all font-semibold shadow-md text-xs whitespace-nowrap shrink-0"
                   >
                     <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     Message
@@ -1194,7 +1194,7 @@ const MassageBooking = () => {
                 <div className="bg-slate-50/50 rounded-xl p-4 sm:p-5 border border-slate-100">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <User className="w-4 h-4 text-[#d4531d]" />
+                      <User className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800 text-sm sm:text-base">Customer Information</h3>
                   </div>
@@ -1281,7 +1281,7 @@ const MassageBooking = () => {
                 <div className="bg-slate-50/50 rounded-xl p-4 sm:p-5 border border-slate-100">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <Sparkles className="w-4 h-4 text-[#d4531d]" />
+                      <Sparkles className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800 text-sm sm:text-base">Service Selection</h3>
                   </div>
@@ -1304,7 +1304,7 @@ const MassageBooking = () => {
                 <div className="bg-slate-50/50 rounded-xl p-4 sm:p-5 border border-slate-100">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <Calendar className="w-4 h-4 text-[#d4531d]" />
+                      <Calendar className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800 text-sm sm:text-base">Appointment Details</h3>
                   </div>
@@ -1336,7 +1336,7 @@ const MassageBooking = () => {
                 <div className="bg-slate-50/50 rounded-xl p-4 sm:p-5 border border-slate-100">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <MessageSquare className="w-4 h-4 text-[#d4531d]" />
+                      <MessageSquare className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800 text-sm sm:text-base">Additional Information</h3>
                     <span className="text-xs text-slate-400 ml-auto">Optional</span>
@@ -1538,12 +1538,12 @@ const MassageBooking = () => {
               {/* Inline Contact Info */}
               <div className="flex items-center gap-4 text-xs text-slate-500">
                 <div className="flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5 text-[#d4531d]" />
+                  <Mail className="w-3.5 h-3.5 text-[var(--saffron-ink)]" />
                   <span className="truncate max-w-[140px]">{selectedBooking.email}</span>
                 </div>
                 <div className="w-px h-3 bg-slate-200" />
                 <div className="flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-[#d4531d]" />
+                  <Phone className="w-3.5 h-3.5 text-[var(--saffron-ink)]" />
                   <span>{selectedBooking.phoneNumber}</span>
                 </div>
               </div>
@@ -1622,7 +1622,7 @@ const MassageBooking = () => {
                 <button
                   onClick={sendMessage}
                   disabled={sendingMessage || !messageContent.trim()}
-                  className="flex-1 py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                  className="flex-1 py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl hover:shadow-lg hover:transition-all font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs"
                 >
                   {sendingMessage ? (
                     <>

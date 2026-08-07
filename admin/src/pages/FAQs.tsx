@@ -266,7 +266,7 @@ const FAQs = () => {
                 onClick={() => setActiveTab('massage')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                   activeTab === 'massage'
-                    ? 'bg-[var(--saffron)] text-white shadow-md'
+                    ? 'bg-[var(--saffron-ink)] text-white shadow-md'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
@@ -277,7 +277,7 @@ const FAQs = () => {
                 onClick={() => setActiveTab('rental')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                   activeTab === 'rental'
-                    ? 'bg-[var(--saffron)] text-white shadow-md'
+                    ? 'bg-[var(--saffron-ink)] text-white shadow-md'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
@@ -376,7 +376,7 @@ const FAQs = () => {
               {/* Add */}
               <button
                 onClick={handleAddNew}
-                className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[var(--saffron)] text-white rounded-xl text-sm font-medium shadow-md hover:shadow-lg transition"
+                className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[var(--saffron-ink)] text-white rounded-xl text-sm font-medium shadow-md hover:shadow-lg transition"
               >
                 <Plus className="w-4 h-4" />
                 <span className="hidden sm:inline">Add</span>
@@ -393,7 +393,7 @@ const FAQs = () => {
           {loading && (
             <div className="flex items-center justify-center h-64">
               <div className="text-center">
-                <Loader2 className="w-8 h-8 animate-spin text-[#d4531d] mx-auto mb-3" />
+                <Loader2 className="w-8 h-8 animate-spin text-[var(--saffron-ink)] mx-auto mb-3" />
                 <p className="text-slate-500 text-sm">Loading...</p>
               </div>
             </div>
@@ -439,7 +439,7 @@ const FAQs = () => {
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <HelpCircle className="w-4 h-4 text-[#d4531d] flex-shrink-0" />
+                          <HelpCircle className="w-4 h-4 text-[var(--saffron-ink)] flex-shrink-0" />
                           <h3 className="font-semibold text-slate-800 text-sm">{faq.question}</h3>
                         </div>
                         <p className="text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
@@ -594,7 +594,7 @@ const FAQs = () => {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-2 px-4 py-2 bg-[var(--saffron)] text-white rounded-xl shadow-md hover:shadow-lg transition text-sm font-medium disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-[var(--saffron-ink)] text-white rounded-xl shadow-md hover:shadow-lg transition text-sm font-medium disabled:opacity-50"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                 {saving ? 'Saving...' : 'Save'}

@@ -1220,7 +1220,7 @@ const Services = () => {
 
             <button
               onClick={handleAddNew}
-              className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-[var(--saffron)] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:transition text-xs sm:text-sm font-medium w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-[var(--saffron-ink)] text-white rounded-lg sm:rounded-xl hover:shadow-lg hover:transition text-xs sm:text-sm font-medium w-full sm:w-auto"
             >
               <Plus className="w-4 h-4" />
               Add Service
@@ -1230,7 +1230,7 @@ const Services = () => {
           {/* Loading State */}
           {loading && (
             <div className="flex flex-col items-center justify-center h-64 bg-white rounded-2xl">
-              <Loader2 className="w-10 h-10 animate-spin text-[#d4531d] mb-4" />
+              <Loader2 className="w-10 h-10 animate-spin text-[var(--saffron-ink)] mb-4" />
               <span className="text-slate-500">Loading services...</span>
             </div>
           )}
@@ -2247,7 +2247,7 @@ const Services = () => {
               <div className="border-t border-slate-200 pt-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <Image className="w-5 h-5 text-[#d4531d]" />
+                    <Image className="w-5 h-5 text-[var(--saffron-ink)]" />
                     <label className="text-sm font-semibold text-slate-700">
                       Service Gallery{" "}
                       <span className="font-normal text-slate-400">
@@ -2316,12 +2316,12 @@ const Services = () => {
                       />
                       {uploadingImage ? (
                         <div className="flex flex-col items-center">
-                          <Loader2 className="w-6 h-6 text-[#d4531d] animate-spin mb-2" />
+                          <Loader2 className="w-6 h-6 text-[var(--saffron-ink)] animate-spin mb-2" />
                           <p className="text-sm text-slate-600">Uploading...</p>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center">
-                          <Upload className="w-6 h-6 text-[#d4531d] mb-2" />
+                          <Upload className="w-6 h-6 text-[var(--saffron-ink)] mb-2" />
                           <p className="text-sm font-medium text-slate-700">
                             {isDragging
                               ? "Drop images here"
@@ -2389,7 +2389,7 @@ const Services = () => {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition font-medium disabled:opacity-50 text-sm sm:text-base"
+                className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl hover:shadow-lg hover:transition font-medium disabled:opacity-50 text-sm sm:text-base"
               >
                 {saving ? (
                   <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />

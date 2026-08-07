@@ -6,14 +6,10 @@ import {
   Sparkles, Quote, HelpCircle, Footprints, Scale, Settings2, IndianRupee, Newspaper, Users as UsersIcon, MessageSquare,
 } from 'lucide-react'
 import AdminShell from '../components/AdminShell'
+import * as ui from '../utils/ui'
 import { listConsultations, listItems, getRevenue, type Consultation } from '../utils/meenakshiApi'
 
-const statusStyle: Record<string, string> = {
-  new: 'bg-amber-50 text-amber-700 border-amber-200',
-  confirmed: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  completed: 'bg-slate-100 text-slate-600 border-slate-200',
-  cancelled: 'bg-red-50 text-red-600 border-red-200',
-}
+const statusStyle = ui.pill
 
 const fmt = (iso: string) => {
   if (!iso) return '—'
@@ -93,13 +89,13 @@ const Dashboard = () => {
       title="Dashboard"
       subtitle="Consultation requests and site content"
       actions={
-        <button onClick={load} className="p-2 rounded-lg hover:bg-slate-100 transition" title="Refresh">
-          <RefreshCw className="w-4 h-4 text-slate-500" />
+        <button onClick={load} className={ui.btnIcon} title="Refresh">
+          <RefreshCw className="w-4 h-4" />
         </button>
       }
     >
       {error && (
-        <div className="mb-4 flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-100 text-sm text-red-700">
+        <div className="mb-4 flex items-start gap-2 p-3 rounded-[10px] bg-[rgba(179,66,26,0.07)] border border-[rgba(179,66,26,0.22)] text-[13px] text-[#8e3411]">
           <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
           <span>{error}</span>
         </div>
@@ -111,7 +107,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="space-y-5">
-          <div className="rounded-xl p-5 bg-[var(--saffron)] text-white ">
+          <div className="rounded-[10px] p-5 bg-[var(--saffron-ink)] text-white ">
             <p className="text-white/80 text-xs uppercase tracking-wider font-semibold">Meenakshi</p>
             <h2 className="text-xl font-semibold mt-0.5">
               {counts.new
@@ -128,9 +124,9 @@ const Dashboard = () => {
               <button
                 key={t.key}
                 onClick={() => navigate('/consultations')}
-                className="text-left bg-white rounded-xl border border-slate-200/80 p-4 hover:border-[rgba(212,83,29,0.45)] hover:shadow-sm transition"
+                className="text-left bg-white rounded-[10px] border border-[var(--hairline)] p-4 hover:border-[rgba(212,83,29,0.45)] hover:shadow-sm transition"
               >
-                <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${t.tone}`}>{t.icon}</div>
+                <div className={`w-9 h-9 rounded-[10px] flex items-center justify-center ${t.tone}`}>{t.icon}</div>
                 <p className="text-2xl font-semibold text-slate-800 mt-3">{t.value}</p>
                 <p className="text-xs text-slate-500">{t.label}</p>
               </button>
@@ -143,8 +139,8 @@ const Dashboard = () => {
               { label: 'This month', value: `₹${(revenue.monthRevenue ?? 0).toLocaleString('en-IN')}` },
               { label: 'Paid bookings', value: revenue.paidCount ?? 0 },
             ].map((r) => (
-              <div key={r.label} className="bg-white rounded-xl border border-slate-200/80 p-4">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-amber-600 bg-amber-50">
+              <div key={r.label} className="bg-white rounded-[10px] border border-[var(--hairline)] p-4">
+                <div className="w-9 h-9 rounded-[10px] flex items-center justify-center text-amber-600 bg-amber-50">
                   <IndianRupee className="w-5 h-5" />
                 </div>
                 <p className="text-xl font-semibold text-slate-800 mt-3">{r.value}</p>
@@ -153,9 +149,9 @@ const Dashboard = () => {
             ))}
           </div>
 
-          <section className="bg-white rounded-xl border border-slate-200/80 overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
-              <h3 className="text-sm font-semibold text-slate-800">Recent requests</h3>
+          <section className="bg-white rounded-[10px] border border-[var(--hairline)] overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--hairline)]">
+              <h3 className="text-[16px] text-[var(--ink)]" style={ui.displayFace}>Recent requests</h3>
               <button
                 onClick={() => navigate('/consultations')}
                 className="text-xs font-medium text-[#ad3f15] hover:underline inline-flex items-center gap-1"
@@ -177,13 +173,13 @@ const Dashboard = () => {
                   key={c._id}
                   onClick={() => navigate('/consultations')}
                   className={`w-full text-left flex items-start gap-3 px-4 py-3 hover:bg-slate-50 transition ${
-                    i ? 'border-t border-slate-100' : ''
+                    i ? 'border-t border-[var(--hairline)]' : ''
                   }`}
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-sm font-medium text-slate-800">{c.name}</span>
-                      <span className={`px-2 py-0.5 rounded-full text-[11px] font-semibold border capitalize ${statusStyle[c.status]}`}>
+                      <span className={`px-2 py-0.5 rounded-full text-[10.5px] font-semibold border capitalize ${statusStyle[c.status]}`}>
                         {c.status}
                       </span>
                     </div>
@@ -200,15 +196,15 @@ const Dashboard = () => {
           </section>
 
           <section>
-            <h3 className="text-sm font-semibold text-slate-800 mb-2">Site content</h3>
+            <h3 className="text-[16px] text-[var(--ink)] mb-2" style={ui.displayFace}>Site content</h3>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
               {contentLinks.map((l) => (
                 <button
                   key={l.path}
                   onClick={() => navigate(l.path)}
-                  className="flex items-center gap-3 bg-white rounded-xl border border-slate-200/80 p-4 hover:border-[rgba(212,83,29,0.45)] hover:shadow-sm transition text-left"
+                  className="flex items-center gap-3 bg-white rounded-[10px] border border-[var(--hairline)] p-4 hover:border-[rgba(212,83,29,0.45)] hover:shadow-sm transition text-left"
                 >
-                  <span className="w-9 h-9 rounded-lg bg-slate-50 text-slate-500 flex items-center justify-center shrink-0">
+                  <span className="w-9 h-9 rounded-[10px] bg-slate-50 text-slate-500 flex items-center justify-center shrink-0">
                     {l.icon}
                   </span>
                   <span className="min-w-0">

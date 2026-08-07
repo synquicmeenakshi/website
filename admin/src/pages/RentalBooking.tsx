@@ -280,7 +280,7 @@ const RentalBooking = () => {
         <Sidebar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <Loader2 className="w-10 h-10 animate-spin text-[#d4531d] mx-auto mb-4" />
+            <Loader2 className="w-10 h-10 animate-spin text-[var(--saffron-ink)] mx-auto mb-4" />
             <p className="text-slate-500 font-medium">Loading bookings...</p>
           </div>
         </div>
@@ -369,7 +369,7 @@ const RentalBooking = () => {
                   >
                     {tab.label}
                     <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] ${
-                      statusFilter === tab.key ? 'bg-[rgba(212,83,29,0.09)] text-[#d4531d]' : 'bg-slate-200/50'
+                      statusFilter === tab.key ? 'bg-[rgba(212,83,29,0.09)] text-[var(--saffron-ink)]' : 'bg-slate-200/50'
                     }`}>
                       {tab.count}
                     </span>
@@ -549,7 +549,7 @@ const RentalBooking = () => {
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                        <User className="w-4 h-4 text-[#d4531d]" />
+                        <User className="w-4 h-4 text-[var(--saffron-ink)]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Guest Information</h3>
                     </div>
@@ -580,7 +580,7 @@ const RentalBooking = () => {
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                        <Calendar className="w-4 h-4 text-[#d4531d]" />
+                        <Calendar className="w-4 h-4 text-[var(--saffron-ink)]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Booking Details</h3>
                     </div>
@@ -614,14 +614,14 @@ const RentalBooking = () => {
                     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                       <div className="flex items-center gap-2 mb-4">
                         <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                          <Home className="w-4 h-4 text-[#d4531d]" />
+                          <Home className="w-4 h-4 text-[var(--saffron-ink)]" />
                         </div>
                         <h3 className="font-semibold text-slate-800">Property</h3>
                       </div>
                       <div className="space-y-3">
                         <div className="p-3 bg-gradient-to-r from-[#d4531d]/5 to-transparent rounded-xl">
                           <p className="font-medium text-slate-800">{selectedBooking.property.name}</p>
-                          <p className="text-2xl font-bold text-[#d4531d] mt-1">€{selectedBooking.property.price}<span className="text-sm font-normal text-slate-500">/night</span></p>
+                          <p className="text-2xl font-bold text-[var(--saffron-ink)] mt-1">€{selectedBooking.property.price}<span className="text-sm font-normal text-slate-500">/night</span></p>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                           <div className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
@@ -641,7 +641,7 @@ const RentalBooking = () => {
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                        <CreditCard className="w-4 h-4 text-[#d4531d]" />
+                        <CreditCard className="w-4 h-4 text-[var(--saffron-ink)]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Payment</h3>
                     </div>
@@ -677,7 +677,7 @@ const RentalBooking = () => {
                   <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                        <MessageSquare className="w-4 h-4 text-[#d4531d]" />
+                        <MessageSquare className="w-4 h-4 text-[var(--saffron-ink)]" />
                       </div>
                       <h3 className="font-semibold text-slate-800">Additional Notes</h3>
                     </div>
@@ -740,7 +740,7 @@ const RentalBooking = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <User className="w-4 h-4 text-[#d4531d]" />
+                      <User className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Customer Information</h3>
                   </div>
@@ -812,7 +812,7 @@ const RentalBooking = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <Home className="w-4 h-4 text-[#d4531d]" />
+                      <Home className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Property Selection</h3>
                   </div>
@@ -835,7 +835,7 @@ const RentalBooking = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <Calendar className="w-4 h-4 text-[#d4531d]" />
+                      <Calendar className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Booking Details</h3>
                   </div>
@@ -875,7 +875,7 @@ const RentalBooking = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-8 h-8 bg-[rgba(212,83,29,0.09)] rounded-lg flex items-center justify-center">
-                      <MessageSquare className="w-4 h-4 text-[#d4531d]" />
+                      <MessageSquare className="w-4 h-4 text-[var(--saffron-ink)]" />
                     </div>
                     <h3 className="font-semibold text-slate-800">Additional Information</h3>
                   </div>

@@ -269,7 +269,7 @@ const BlockedDates = () => {
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center gap-2 px-4 py-2.5 bg-[var(--saffron)] text-white rounded-xl hover:shadow-lg hover:transition-all text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl hover:shadow-lg hover:transition-all text-sm font-medium"
               >
                 <Plus className="w-4 h-4" />
                 Block Date
@@ -349,7 +349,7 @@ const BlockedDates = () => {
             {loading ? (
               <div className="flex items-center justify-center py-20">
                 <div className="text-center">
-                  <Loader2 className="w-8 h-8 text-[#d4531d] animate-spin mx-auto mb-3" />
+                  <Loader2 className="w-8 h-8 text-[var(--saffron-ink)] animate-spin mx-auto mb-3" />
                   <p className="text-slate-500 text-sm">Loading blocked dates...</p>
                 </div>
               </div>
@@ -678,7 +678,7 @@ const BlockedDates = () => {
                 <button
                   onClick={handleAddDate}
                   disabled={!selectedDate || submitting || (blockType === 'slots' && selectedTimeSlots.length === 0)}
-                  className="flex-1 px-4 py-3 bg-[var(--saffron)] text-white rounded-xl font-medium hover:shadow-lg hover:transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 bg-[var(--saffron-ink)] text-white rounded-xl font-medium hover:shadow-lg hover:transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {submitting ? (
                     <>

@@ -4,6 +4,7 @@ import {
   CalendarClock, MapPin, Clock, Cake, Languages, RefreshCw, IndianRupee,
 } from 'lucide-react'
 import AdminShell from '../components/AdminShell'
+import * as ui from '../utils/ui'
 import {
   listConsultations, updateConsultation, deleteConsultation, getSlots, getBookingWindow,
   type Consultation,
@@ -12,30 +13,13 @@ import {
 const STATUSES = ['all', 'new', 'confirmed', 'completed', 'cancelled'] as const
 type StatusFilter = (typeof STATUSES)[number]
 
-const statusStyle: Record<string, string> = {
-  new: 'bg-amber-50 text-amber-700 border-amber-200',
-  confirmed: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  completed: 'bg-slate-100 text-slate-600 border-slate-200',
-  cancelled: 'bg-red-50 text-red-600 border-red-200',
-}
+const statusStyle = ui.pill
 
-const inputCls =
-  'w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 ' +
-  'focus:outline-none focus:ring-2 focus:ring-[rgba(212,83,29,0.35)] focus:border-[#d4531d] transition'
 
-const btnGold =
-  'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white ' +
-  'bg-[var(--saffron)] ' +
-  'hover:opacity-95 disabled:opacity-50 transition'
 
 const BUSINESS_TZ = 'Asia/Kolkata'
 
-const payStyle: Record<string, string> = {
-  paid: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  pending: 'bg-amber-50 text-amber-700 border-amber-200',
-  failed: 'bg-red-50 text-red-600 border-red-200',
-  not_required: 'bg-slate-100 text-slate-600 border-slate-200',
-}
+const payStyle = ui.pill
 
 const payLabel = (c: Consultation) => {
   const amt = c.amount ? `₹${c.amount.toLocaleString('en-IN')}` : ''
@@ -170,13 +154,13 @@ const Consultations = () => {
       title="Consultations"
       subtitle="Requests submitted through the booking form"
       actions={
-        <button onClick={load} className="p-2 rounded-lg hover:bg-slate-100 transition" title="Refresh">
-          <RefreshCw className="w-4 h-4 text-slate-500" />
+        <button onClick={load} className={ui.btnIcon} title="Refresh">
+          <RefreshCw className="w-4 h-4" />
         </button>
       }
     >
       {error && (
-        <div className="mb-4 flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-100 text-sm text-red-700">
+        <div className="mb-4 flex items-start gap-2 p-3 rounded-[10px] bg-[rgba(179,66,26,0.07)] border border-[rgba(179,66,26,0.22)] text-[13px] text-[#8e3411]">
           <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
           <span>{error}</span>
         </div>
@@ -187,10 +171,10 @@ const Consultations = () => {
           <button
             key={s}
             onClick={() => setStatus(s)}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium capitalize transition ${
+            className={`px-3 py-1.5 rounded-[10px] text-sm font-medium capitalize transition ${
               status === s
-                ? 'bg-[var(--saffron)] text-white '
-                : 'text-slate-600 bg-white border border-slate-200 hover:bg-slate-50'
+                ? 'bg-[var(--saffron-ink)] text-white '
+                : 'text-slate-600 bg-white border border-[var(--hairline)] hover:bg-slate-50'
             }`}
           >
             {s}
@@ -205,7 +189,7 @@ const Consultations = () => {
         <div className="relative ml-auto w-full sm:w-64">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
-            className={`${inputCls} pl-9`}
+            className={`${ui.input} pl-9`}
             placeholder="Name, contact, area…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -222,19 +206,19 @@ const Consultations = () => {
           No consultation requests{status !== 'all' ? ` with status “${status}”` : ''} yet.
         </div>
       ) : (
-        <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden">
+        <div className="bg-white rounded-[10px] border border-[var(--hairline)] overflow-hidden">
           {items.map((c, i) => (
             <button
               key={c._id}
               onClick={() => open(c)}
               className={`w-full text-left flex items-start gap-3 px-4 py-3 hover:bg-slate-50 transition ${
-                i ? 'border-t border-slate-100' : ''
+                i ? 'border-t border-[var(--hairline)]' : ''
               }`}
             >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-sm font-medium text-slate-800">{c.name}</span>
-                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-semibold border capitalize ${statusStyle[c.status]}`}>
+                  <span className={`px-2 py-0.5 rounded-full text-[10.5px] font-semibold border capitalize ${statusStyle[c.status]}`}>
                     {c.status}
                   </span>
                 </div>
@@ -256,15 +240,15 @@ const Consultations = () => {
       )}
 
       {selected && (
-        <div className="fixed inset-0 z-[80] bg-black/40 flex items-start sm:items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-xl w-full max-w-2xl my-8 shadow-xl">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+        <div className="fixed inset-0 z-[80] bg-[rgba(36,26,20,0.42)] flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-[10px] w-full max-w-2xl my-8 shadow-[0_18px_50px_rgba(36,26,20,0.16)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--hairline)]">
               <div>
-                <h2 className="text-base font-semibold text-slate-800">{selected.name}</h2>
+                <h2 className="text-[19px] text-[var(--ink)]" style={ui.displayFace}>{selected.name}</h2>
                 <p className="text-xs text-slate-500">Requested {fmtDate(selected.createdAt)}</p>
               </div>
               <button onClick={() => setSelected(null)}
-                className="p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Close">
+                className={ui.btnIcon} aria-label="Close">
                 <X className="w-5 h-5 text-slate-500" />
               </button>
             </div>
@@ -272,7 +256,7 @@ const Consultations = () => {
             <div className="px-5 py-4 space-y-5">
               {/* The appointment is the headline fact — it was previously not
                   shown at all, so admin could not tell when anyone was booked. */}
-              <div className="p-4 rounded-lg bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 border border-[rgba(212,83,29,0.3)]">
+              <div className="p-4 rounded-[10px] bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 border border-[rgba(212,83,29,0.3)]">
                 <p className="text-[11px] uppercase tracking-wider text-[#9a7b2f] font-semibold flex items-center gap-1.5">
                   <CalendarClock className="w-3.5 h-3.5" /> Appointment
                 </p>
@@ -297,7 +281,7 @@ const Consultations = () => {
 
               {/* payment */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border capitalize ${statusStyle[selected.status]}`}>
+                <span className={`px-2.5 py-1 rounded-full text-[10.5px] font-semibold border capitalize ${statusStyle[selected.status]}`}>
                   {selected.status}
                 </span>
                 <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border ${payStyle[selected.paymentStatus || 'pending']}`}>
@@ -310,8 +294,8 @@ const Consultations = () => {
 
               {/* contact — email and phone are separate now, and actionable */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                <div className="p-3 rounded-[10px] bg-slate-50 border border-[var(--hairline)]">
+                  <p className="text-[10.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)] font-semibold flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5" /> Email
                   </p>
                   {selected.email || /@/.test(selected.contact || '') ? (
@@ -321,8 +305,8 @@ const Consultations = () => {
                     </a>
                   ) : <p className="text-sm text-slate-400 mt-1">—</p>}
                 </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                <div className="p-3 rounded-[10px] bg-slate-50 border border-[var(--hairline)]">
+                  <p className="text-[10.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)] font-semibold flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5" /> Phone / WhatsApp
                   </p>
                   {selected.phone || !/@/.test(selected.contact || '') ? (
@@ -343,8 +327,8 @@ const Consultations = () => {
                   { icon: <MapPin className="w-3.5 h-3.5" />, label: 'Place of birth', value: selected.pob },
                   { icon: <Languages className="w-3.5 h-3.5" />, label: 'Language', value: selected.language },
                 ].map((f) => (
-                  <div key={f.label} className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                    <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                  <div key={f.label} className="p-3 rounded-[10px] bg-slate-50 border border-[var(--hairline)]">
+                    <p className="text-[10.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)] font-semibold flex items-center gap-1.5">
                       {f.icon} {f.label}
                     </p>
                     <p className="text-sm text-slate-800 mt-1 break-words">{f.value || '—'}</p>
@@ -353,8 +337,8 @@ const Consultations = () => {
               </div>
 
               {selected.notes && (
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
+                <div className="p-3 rounded-[10px] bg-slate-50 border border-[var(--hairline)]">
+                  <p className="text-[10.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)] font-semibold">
                     What they would like guidance on
                   </p>
                   <p className="text-sm text-slate-800 mt-1 whitespace-pre-wrap">{selected.notes}</p>
@@ -362,10 +346,10 @@ const Consultations = () => {
               )}
 
               {/* ---- admin actions ---- */}
-              <div className="pt-1 border-t border-slate-100 space-y-4">
+              <div className="pt-1 border-t border-[var(--hairline)] space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Status</label>
-                  <select className={inputCls} value={draft.status}
+                  <select className={ui.input} value={draft.status}
                     onChange={(e) => setDraft({ ...draft, status: e.target.value as Consultation['status'] })}>
                     {['new', 'confirmed', 'completed', 'cancelled'].map((s) => (
                       <option key={s} value={s}>{s}</option>
@@ -387,10 +371,10 @@ const Consultations = () => {
                   </button>
 
                   {rescheduling && (
-                    <div className="mt-3 p-3 rounded-lg border border-slate-200 bg-slate-50/60 space-y-3">
+                    <div className="mt-3 p-3 rounded-[10px] border border-[var(--hairline)] bg-slate-50/60 space-y-3">
                       <div>
                         <label className="block text-xs font-medium text-slate-500 mb-1">New date</label>
-                        <input type="date" className={inputCls}
+                        <input type="date" className={ui.input}
                           value={draft.appointmentDate || ''}
                           min={bookingWindow?.min} max={bookingWindow?.max}
                           onChange={(e) => setDraft({ ...draft, appointmentDate: e.target.value, appointmentTime: '' })} />
@@ -407,10 +391,10 @@ const Consultations = () => {
                             {slotOptions.map((t) => (
                               <button key={t} type="button"
                                 onClick={() => setDraft({ ...draft, appointmentTime: t })}
-                                className={`px-3 py-1.5 rounded-lg text-sm border transition ${
+                                className={`px-3 py-1.5 rounded-[10px] text-sm border transition ${
                                   draft.appointmentTime === t
-                                    ? 'bg-[var(--saffron)] text-white border-transparent'
-                                    : 'bg-white text-slate-700 border-slate-200 hover:border-[#d4531d]'
+                                    ? 'bg-[var(--saffron-ink)] text-white border-transparent'
+                                    : 'bg-white text-slate-700 border-[var(--hairline)] hover:border-[#d4531d]'
                                 }`}>
                                 {t}
                               </button>
@@ -430,7 +414,7 @@ const Consultations = () => {
                       </label>
 
                       {force && (
-                        <input type="time" className={inputCls} value={draft.appointmentTime || ''}
+                        <input type="time" className={ui.input} value={draft.appointmentTime || ''}
                           onChange={(e) => setDraft({ ...draft, appointmentTime: e.target.value })} />
                       )}
                     </div>
@@ -439,24 +423,24 @@ const Consultations = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Internal notes</label>
-                  <textarea className={inputCls} rows={3} value={draft.adminNotes || ''}
+                  <textarea className={ui.input} rows={3} value={draft.adminNotes || ''}
                     onChange={(e) => setDraft({ ...draft, adminNotes: e.target.value })} />
                   <p className="text-xs text-slate-400 mt-1">Never shown to the client.</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between px-5 py-4 border-t border-slate-100">
+            <div className="flex items-center justify-between px-5 py-4 border-t border-[var(--hairline)]">
               <button onClick={() => remove(selected)}
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-red-500 hover:bg-red-50 transition">
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-[10px] text-sm font-medium text-red-500 hover:bg-red-50 transition">
                 <Trash2 className="w-4 h-4" /> Delete
               </button>
               <div className="flex gap-2">
                 <button onClick={() => setSelected(null)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 transition">
+                  className={ui.btnQuiet}>
                   Cancel
                 </button>
-                <button onClick={save} disabled={saving} className={btnGold}>
+                <button onClick={save} disabled={saving} className={ui.btnPrimary}>
                   {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   Save
                 </button>
