@@ -97,6 +97,25 @@ function connectMongo(attempt = 1) {
     });
 }
 
+/* Watchdog.
+   Atlas has twice dropped this pool with a TLS reset, after which the driver
+   sat in a state that never emitted 'disconnected' and never recovered — the
+   process stayed up while every query buffered to timeout, which looks like a
+   total outage with a healthy-looking server. readyState is the only reliable
+   signal: 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting.
+   If it is fully down (0) for two consecutive checks, reconnect explicitly. */
+let downTicks = 0;
+setInterval(() => {
+  const state = mongoose.connection.readyState;
+  if (state === 1) { downTicks = 0; return; }
+  if (state === 2) return;                 // already dialling, leave it alone
+  downTicks += 1;
+  if (downTicks === 2) {
+    console.warn(`⚠️  MongoDB stuck in readyState ${state} — forcing a reconnect`);
+    connectMongo();
+  }
+}, 15000).unref();
+
 mongoose.connection.on('disconnected', () => console.warn('⚠️  MongoDB disconnected'));
 mongoose.connection.on('reconnected', () => console.log('✅ MongoDB reconnected'));
 mongoose.connection.on('error', (err) => console.error('⚠️  MongoDB error:', err.message));
