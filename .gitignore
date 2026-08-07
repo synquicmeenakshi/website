@@ -36,3 +36,7 @@ backend/uploads/
 backend/uploads-backup/
 uploads/
 *.tar.gz
+
+# Client documents - kept local, not shared
+*.pptx
+*.pdf
