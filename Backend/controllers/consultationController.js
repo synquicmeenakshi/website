@@ -95,7 +95,7 @@ function notify(consultation) {
 /** GET /api/consultations/slots?date=YYYY-MM-DD — public. */
 const getSlots = async (req, res) => {
   try {
-    const { date, from, days, service, duration } = req.query;
+    const { date, from, days, service, duration, exclude } = req.query;
 
     // Duration comes from the service record so the client cannot shorten a
     // booking to squeeze into a slot it does not fit.
@@ -109,7 +109,7 @@ const getSlots = async (req, res) => {
       const range = await availability.slotsForRange(from, Number(days) || 30, mins);
       return res.json({ success: true, data: range });
     }
-    const result = await availability.slotsForDate(date, mins);
+    const result = await availability.slotsForDate(date, mins, exclude);
     res.json({ success: true, data: result });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -267,23 +267,55 @@ const getConsultationById = async (req, res) => {
   }
 };
 
-/** PATCH /api/consultations/:id — admin: status, confirmed slot, notes. */
+/**
+ * PATCH /api/consultations/:id — admin.
+ *
+ * Rescheduling moves appointmentDate/Time, which is what actually holds the
+ * slot. The old confirmedDate/confirmedTime pair is deliberately no longer
+ * writable: editing it changed nothing about availability, so an admin could
+ * "reschedule" someone while the calendar still blocked the original time and
+ * left the new one open.
+ *
+ * `force` skips the availability check, for a booking taken over the phone
+ * that deliberately sits outside published hours.
+ */
 const updateConsultation = async (req, res) => {
   try {
-    const allowed = ['status', 'confirmedDate', 'confirmedTime', 'adminNotes',
-      'appointmentDate', 'appointmentTime', 'paymentStatus'];
-    const payload = {};
-    for (const k of allowed) {
-      if (req.body[k] !== undefined) payload[k] = req.body[k];
-    }
-
-    const consultation = await Consultation.findByIdAndUpdate(
-      req.params.id,
-      payload,
-      { new: true, runValidators: true }
-    );
+    const consultation = await Consultation.findById(req.params.id);
     if (!consultation) return res.status(404).json({ success: false, message: 'Not found' });
 
+    const { status, adminNotes, appointmentDate, appointmentTime, paymentStatus, force } = req.body;
+
+    const movingDate = appointmentDate !== undefined && appointmentDate !== consultation.appointmentDate;
+    const movingTime = appointmentTime !== undefined && appointmentTime !== consultation.appointmentTime;
+
+    if (movingDate || movingTime) {
+      const nextDate = appointmentDate ?? consultation.appointmentDate;
+      const nextTime = appointmentTime ?? consultation.appointmentTime;
+
+      if (nextDate && nextTime && !force) {
+        // Availability excludes this booking's own current slot, so moving the
+        // time within the same day does not collide with itself.
+        const bookable = await availability.isSlotBookable(
+          nextDate, nextTime, consultation.durationMinutes, String(consultation._id)
+        );
+        if (!bookable) {
+          return res.status(409).json({
+            success: false,
+            code: 'SLOT_UNAVAILABLE',
+            message: 'That time is not available. Choose another, or override.'
+          });
+        }
+      }
+      consultation.appointmentDate = nextDate;
+      consultation.appointmentTime = nextTime;
+    }
+
+    if (status !== undefined) consultation.status = status;
+    if (adminNotes !== undefined) consultation.adminNotes = adminNotes;
+    if (paymentStatus !== undefined) consultation.paymentStatus = paymentStatus;
+
+    await consultation.save();
     res.json({ success: true, data: consultation });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });

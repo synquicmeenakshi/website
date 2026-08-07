@@ -128,7 +128,8 @@ export default function SlotCalendar({
           {DOW.map((d) => <span key={d}>{d}</span>)}
         </div>
 
-        <div className="bkcal__grid" role="grid" aria-label="Choose a date">
+        <div className={`bkcal__grid${loadingMonth ? ' is-loading' : ''}`} role="grid" aria-label="Choose a date"
+          aria-busy={loadingMonth}>
           {cells.map((iso, i) => {
             if (!iso) return <span key={`b${i}`} className="bkcal__pad" />
             const inWindow = iso >= (window_?.min || '') && iso <= (window_?.max || '9999-12-31')
@@ -151,7 +152,12 @@ export default function SlotCalendar({
           })}
         </div>
 
-        {loadingMonth && <p className="bkcal__note">Checking availability…</p>}
+        {loadingMonth && (
+          <div className="bkcal__loading" role="status">
+            <span className="bkcal__spin" aria-hidden="true" />
+            Checking availability…
+          </div>
+        )}
 
         <div className="bkcal__tz">
           <span className="bkcal__tz-label">Time zone</span>
@@ -172,7 +178,15 @@ export default function SlotCalendar({
           <>
             <p className="bkcal__day-h">{longDate(value.date)}</p>
             {loadingSlots ? (
-              <p className="bkcal__note">Loading times…</p>
+              <>
+                <p className="bkcal__times-loading">
+                  <span className="bkcal__spin" aria-hidden="true" />
+                  <span className="bkcal__note" style={{ margin: 0 }}>Loading times…</span>
+                </p>
+                <ul className="bkcal__list" aria-hidden="true">
+                  {[0, 1, 2, 3].map((i) => <li key={i}><span className="bkcal__skel" /></li>)}
+                </ul>
+              </>
             ) : slots && slots.length > 0 ? (
               <ul className="bkcal__list">
                 {slots.map((s) => (

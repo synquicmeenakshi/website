@@ -107,7 +107,7 @@ async function getWindow() {
 }
 
 /** Busy intervals on a date, in minutes-from-midnight, business timezone. */
-async function busyIntervals(date, slotMinutes) {
+async function busyIntervals(date, slotMinutes, excludeId) {
   const cutoff = new Date(Date.now() - HOLD_MINUTES * 60 * 1000);
 
   const held = await Consultation.find({
@@ -117,9 +117,10 @@ async function busyIntervals(date, slotMinutes) {
       { paymentStatus: { $in: ['paid', 'not_required'] } },
       { paymentStatus: 'pending', createdAt: { $gte: cutoff } }
     ]
-  }).select('appointmentTime durationMinutes').lean();
+  }).select('appointmentTime durationMinutes _id').lean();
 
   return held
+    .filter((h) => !excludeId || String(h._id) !== String(excludeId))
     .filter((h) => h.appointmentTime)
     .map((h) => {
       const start = toMinutes(h.appointmentTime);
@@ -138,7 +139,7 @@ const overlaps = (aStart, aEnd, [bStart, bEnd]) => aStart < bEnd && bStart < aEn
  * @param {number} [durationMinutes] length of the consultation being booked
  * @returns {{date, timezone, slotMinutes, available: Array<{time,iso}>, all: string[], reason?: string}}
  */
-async function slotsForDate(date, durationMinutes) {
+async function slotsForDate(date, durationMinutes, excludeId) {
   const s = await getSettings();
   const tz = s.timezone;
   const slotMinutes = s.slotMinutes || 60;
@@ -160,7 +161,7 @@ async function slotsForDate(date, durationMinutes) {
   if (block?.isFullDay) return empty(block.reason || 'Unavailable', all);
 
   const blocked = new Set(block?.slots || []);
-  const busy = await busyIntervals(date, slotMinutes);
+  const busy = await busyIntervals(date, slotMinutes, excludeId);
 
   const duration = Math.max(Number(durationMinutes) || slotMinutes, slotMinutes);
   const startSet = new Set(all.map(toMinutes));
@@ -201,8 +202,8 @@ async function slotsForRange(fromDate, days = 30, durationMinutes) {
 }
 
 /** Guard used at booking time — never trust the client's view of a slot. */
-async function isSlotBookable(date, time, durationMinutes) {
-  const r = await slotsForDate(date, durationMinutes);
+async function isSlotBookable(date, time, durationMinutes, excludeId) {
+  const r = await slotsForDate(date, durationMinutes, excludeId);
   return r.available.some((s) => s.time === time);
 }
 

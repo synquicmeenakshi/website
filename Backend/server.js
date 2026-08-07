@@ -21,6 +21,13 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// Razorpay webhook — MUST be mounted before the JSON body parser.
+// Its signature is computed over the raw bytes; once bodyParser.json() has
+// consumed and re-parsed the stream, re-stringifying produces different bytes
+// and the signature can never match.
+const { handleWebhook } = require('./controllers/paymentController');
+app.post('/api/payments/webhook', express.raw({ type: 'application/json' }), handleWebhook);
+
 // Body parsing middleware
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));

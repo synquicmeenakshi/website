@@ -175,6 +175,81 @@ const verifyPayment = async (req, res) => {
   }
 };
 
+
+/**
+ * POST /api/payments/webhook — public, called by Razorpay.
+ *
+ * The browser-side verify call is best-effort: if the client closes the tab,
+ * loses connection, or the handler never fires, the money is taken but the
+ * booking stays "pending" forever. Razorpay retries this webhook, so it is the
+ * authoritative record of payment.
+ *
+ * Signature is HMAC-SHA256 over the RAW body — hence express.raw on the route.
+ * Parsing first and re-stringifying would change the bytes and never match.
+ */
+const handleWebhook = async (req, res) => {
+  const secret = process.env.RAZORPAY_WEBHOOK_SECRET || '';
+  if (!secret) {
+    // Nothing configured — acknowledge so Razorpay stops retrying.
+    console.log('🔔 Razorpay webhook received but RAZORPAY_WEBHOOK_SECRET is not set');
+    return res.status(200).json({ received: true, configured: false });
+  }
+
+  try {
+    const raw = Buffer.isBuffer(req.body) ? req.body : Buffer.from(JSON.stringify(req.body));
+    const signature = req.headers['x-razorpay-signature'] || '';
+
+    const expected = crypto.createHmac('sha256', secret).update(raw).digest('hex');
+    const a = Buffer.from(expected, 'utf8');
+    const b = Buffer.from(String(signature), 'utf8');
+    if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) {
+      console.warn('🔔 Razorpay webhook signature mismatch');
+      return res.status(400).json({ received: false, message: 'Invalid signature' });
+    }
+
+    const event = JSON.parse(raw.toString('utf8'));
+    const entity = event?.payload?.payment?.entity || {};
+    const orderId = entity.order_id;
+    if (!orderId) return res.status(200).json({ received: true, ignored: 'no order id' });
+
+    const consultation = await Consultation.findOne({ orderId });
+    if (!consultation) return res.status(200).json({ received: true, ignored: 'no matching booking' });
+
+    if (event.event === 'payment.captured' || event.event === 'order.paid') {
+      // Idempotent: Razorpay retries, and the browser may already have verified.
+      if (consultation.paymentStatus !== 'paid') {
+        consultation.paymentStatus = 'paid';
+        consultation.paymentId = entity.id || consultation.paymentId;
+        consultation.paidAt = new Date();
+        if (consultation.status === 'new') consultation.status = 'confirmed';
+        await consultation.save();
+
+        let serviceTitle = consultation.area;
+        if (consultation.serviceSlug) {
+          const svc = await MeenakshiService.findOne({ slug: consultation.serviceSlug }).select('title').lean();
+          if (svc?.title) serviceTitle = svc.title;
+        }
+        slide.notifyBooking(consultation, {
+          serviceTitle,
+          timezone: process.env.BUSINESS_TIMEZONE || 'Asia/Kolkata'
+        });
+        console.log(`🔔 Payment captured via webhook for ${consultation._id}`);
+      }
+    } else if (event.event === 'payment.failed') {
+      if (consultation.paymentStatus === 'pending') {
+        consultation.paymentStatus = 'failed';
+        await consultation.save();
+      }
+    }
+
+    res.status(200).json({ received: true });
+  } catch (error) {
+    console.error('Razorpay webhook error:', error.message);
+    // 200 regardless: a 500 makes Razorpay retry a payload we cannot process.
+    res.status(200).json({ received: true, error: error.message });
+  }
+};
+
 /** GET /api/payments/summary — admin. Revenue for the dashboard. */
 const getSummary = async (req, res) => {
   try {
@@ -206,4 +281,4 @@ const getSummary = async (req, res) => {
   }
 };
 
-module.exports = { getConfig, createOrder, verifyPayment, getSummary, isConfigured };
+module.exports = { getConfig, createOrder, verifyPayment, handleWebhook, getSummary, isConfigured };

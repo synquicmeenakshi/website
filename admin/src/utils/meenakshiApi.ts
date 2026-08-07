@@ -66,7 +66,18 @@ export interface Consultation {
   _id: string
   name: string
   contact: string
+  email?: string
+  phone?: string
   contactType: 'email' | 'phone' | 'unknown'
+  appointmentDate?: string
+  appointmentTime?: string
+  serviceSlug?: string
+  durationMinutes?: number
+  amount?: number
+  currency?: string
+  paymentStatus?: 'pending' | 'paid' | 'failed' | 'not_required'
+  paymentId?: string
+  paidAt?: string
   dob: string
   tob: string
   pob: string
@@ -150,3 +161,12 @@ export interface Customer {
 export const listCustomers = (search?: string) =>
   request(`/customers${search ? `?search=${encodeURIComponent(search)}` : ''}`)
 export const getRevenue = () => request('/payments/summary')
+
+/** Live availability, used by the reschedule picker. */
+export const getSlots = (date: string, service?: string, excludeId?: string) => {
+  const q = new URLSearchParams({ date })
+  if (service) q.set('service', service)
+  if (excludeId) q.set('exclude', excludeId)
+  return request(`/consultations/slots?${q.toString()}`)
+}
+export const getBookingWindow = () => request('/consultations/window')

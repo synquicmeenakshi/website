@@ -805,7 +805,17 @@
 
 /* ---- right panel --------------------------------------------- */
 .bk__right { background: #fff; overflow-y: auto; padding: clamp(16px, 1.8vw, 28px) clamp(20px, 2.6vw, 48px) clamp(20px, 2.2vw, 34px); }
-.bk__right-inner { max-width: 820px; margin-inline: auto; display: grid; align-content: center; gap: clamp(12px, 1.4vw, 18px); }
+.bk__right-inner {
+  max-width: 820px; margin-inline: auto; display: grid;
+  gap: clamp(12px, 1.4vw, 18px);
+  /* `safe center` matters here. Plain `center` centres the column even when it
+     is taller than the panel, which pushes its top edge above the scroll
+     origin — the calendar step then had content that could not be scrolled
+     back to. `safe` falls back to start-alignment the moment it overflows.
+     The unprefixed value is declared first so older engines keep centring. */
+  align-content: center;
+  align-content: safe center;
+}
 
 .bk__masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .bk__brand { display: flex; align-items: center; gap: 12px; color: var(--saffron); }
@@ -863,10 +873,22 @@
 /* an icon parked inside the field, as in the reference */
 .bk-input-wrap { position: relative; display: block; }
 .bk-input-wrap input { padding-right: 42px; }
-.bk-input-ico { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #a9a29a; pointer-events: none; }
-/* the native date/time pickers already draw their own control */
-.bk-input-wrap input[type='date'] + .bk-input-ico,
-.bk-input-wrap input[type='time'] + .bk-input-ico { display: none; }
+/* Icons sit on the LEFT. On the right they collided with the browser's own
+   date/time picker button, which is why those two were previously hidden and
+   the fields looked inconsistent with one another. */
+.bk-input-ico {
+  position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+  width: 17px; height: 17px; color: #b0a89f; pointer-events: none;
+  stroke-width: 1.6;
+}
+.bk-input-wrap input { padding-left: 38px; }
+.bk-input-wrap input:focus + .bk-input-ico,
+.bk-input-wrap input:not(:placeholder-shown) + .bk-input-ico { color: var(--saffron); }
+/* Firefox has no picker indicator, so nudge the native control clear on Chrome. */
+.bk-input-wrap input[type='date']::-webkit-calendar-picker-indicator,
+.bk-input-wrap input[type='time']::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
+.bk-input-wrap input[type='date']:hover::-webkit-calendar-picker-indicator,
+.bk-input-wrap input[type='time']:hover::-webkit-calendar-picker-indicator { opacity: .9; }
 
 /* country code + number */
 .bk-phone { display: grid; grid-template-columns: 84px 1fr; gap: 8px; }
@@ -1438,3 +1460,31 @@
 .bkcal__slot:hover { background: rgba(212, 83, 29, 0.08); }
 .bkcal__slot.is-on { background: var(--saffron); border-color: var(--saffron); color: #fff; }
 .bkcal__slot:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(212, 83, 29, 0.18); }
+
+
+/* ---- booking calendar: loading ------------------------------------------
+   Without this the grid simply renders every day disabled while the month's
+   availability is in flight, which reads as "nothing is bookable" rather than
+   "still loading". */
+.bkcal__month { position: relative; }
+.bkcal__grid.is-loading { opacity: .35; pointer-events: none; }
+.bkcal__loading {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  gap: 9px; font-family: var(--font-sans); font-size: 13px; color: #6b625a;
+}
+.bkcal__spin {
+  width: 15px; height: 15px; border-radius: 50%;
+  border: 2px solid rgba(212, 83, 29, 0.25); border-top-color: var(--saffron);
+  animation: bkcal-spin .7s linear infinite;
+}
+@keyframes bkcal-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .bkcal__spin { animation-duration: 2s; } }
+
+.bkcal__times-loading { display: flex; align-items: center; gap: 9px; }
+.bkcal__skel {
+  display: block; height: 42px; border-radius: 8px;
+  background: linear-gradient(90deg, rgba(36,26,20,.05) 25%, rgba(36,26,20,.09) 37%, rgba(36,26,20,.05) 63%);
+  background-size: 400% 100%; animation: bkcal-shimmer 1.3s ease-in-out infinite;
+}
+@keyframes bkcal-shimmer { 0% { background-position: 100% 0 } 100% { background-position: 0 0 } }
+@media (prefers-reduced-motion: reduce) { .bkcal__skel { animation: none } }
