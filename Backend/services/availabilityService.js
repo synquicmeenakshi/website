@@ -189,16 +189,80 @@ async function slotsForDate(date, durationMinutes, excludeId) {
   return { date, timezone: tz, slotMinutes, available, all };
 }
 
-/** Availability across a range, for painting a calendar. */
+/**
+ * Availability across a range, for painting a calendar.
+ *
+ * Three queries for the whole month, not three per day. Looping slotsForDate
+ * issued roughly 90 sequential round trips for a 31-day month — imperceptible
+ * against a local mongod, but four to six seconds against Atlas, which is long
+ * enough that the grid renders every day disabled while it waits.
+ */
 async function slotsForRange(fromDate, days = 30, durationMinutes) {
-  const out = [];
-  for (let i = 0; i < Math.min(days, 90); i++) {
-    const d = addDays(fromDate, i);
-    // eslint-disable-next-line no-await-in-loop
-    const r = await slotsForDate(d, durationMinutes);
-    out.push({ date: d, count: r.available.length });
+  const span = Math.min(Math.max(Number(days) || 30, 1), 90);
+  const dates = Array.from({ length: span }, (_, i) => addDays(fromDate, i));
+
+  const s = await getSettings();
+  const tz = s.timezone;
+  const slotMinutes = s.slotMinutes || 60;
+  const duration = Math.max(Number(durationMinutes) || slotMinutes, slotMinutes);
+
+  const today = todayInZone(tz);
+  const min = addDays(today, s.leadTimeDays);
+  const max = addDays(today, s.horizonDays);
+
+  const [blocks, held] = await Promise.all([
+    MeenakshiBlockedDate.find({ date: { $in: dates }, isActive: true }).lean(),
+    Consultation.find({
+      appointmentDate: { $in: dates },
+      status: { $ne: 'cancelled' },
+      $or: [
+        { paymentStatus: { $in: ['paid', 'not_required'] } },
+        { paymentStatus: 'pending', createdAt: { $gte: new Date(Date.now() - HOLD_MINUTES * 60 * 1000) } }
+      ]
+    }).select('appointmentDate appointmentTime durationMinutes').lean()
+  ]);
+
+  const blockByDate = new Map(blocks.map((b) => [b.date, b]));
+  const busyByDate = new Map();
+  for (const h of held) {
+    if (!h.appointmentTime) continue;
+    const start = toMinutes(h.appointmentTime);
+    const arr = busyByDate.get(h.appointmentDate) || [];
+    arr.push([start, start + (h.durationMinutes || slotMinutes)]);
+    busyByDate.set(h.appointmentDate, arr);
   }
-  return out;
+
+  return dates.map((date) => {
+    if (date < min || date > max) return { date, count: 0 };
+
+    const day = s.weeklySchedule?.[weekdayKey(date)];
+    if (!day || !day.isWorking) return { date, count: 0 };
+
+    const all = [...(day.slots || [])].filter(Boolean).sort();
+    if (!all.length) return { date, count: 0 };
+
+    const block = blockByDate.get(date);
+    if (block?.isFullDay) return { date, count: 0 };
+
+    const blocked = new Set(block?.slots || []);
+    const busy = busyByDate.get(date) || [];
+    const startSet = new Set(all.map(toMinutes));
+    const steps = Math.ceil(duration / slotMinutes);
+
+    let count = 0;
+    for (const time of all) {
+      const start = toMinutes(time);
+      let covered = true;
+      for (let k = 0; k < steps; k++) {
+        const step = start + k * slotMinutes;
+        if (!startSet.has(step) || blocked.has(toHHMM(step))) { covered = false; break; }
+      }
+      if (!covered) continue;
+      if (busy.some((iv) => overlaps(start, start + duration, iv))) continue;
+      count++;
+    }
+    return { date, count };
+  });
 }
 
 /** Guard used at booking time — never trust the client's view of a slot. */
