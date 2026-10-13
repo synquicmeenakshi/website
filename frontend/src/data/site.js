@@ -7,8 +7,8 @@
 import { get } from '../content-store.js'
 
 const BRAND_FALLBACK = {
-  name: 'Meenakshi',
-  tag: 'Sacred Sciences',
+  name: 'Marrvel Aastro',
+  tag: 'By Meenakshi · Sacred Sciences',
   roles: ['Occult Sciences Expert', 'Spiritual Consultant', 'Destiny Strategist'],
   email: 'cncelestials@gmail.com',
   phone: '+91 91191 38356',

@@ -155,7 +155,7 @@ export default function Header() {
     >
       <div className="site-header__inner">
         <Link className="brand" to="/" aria-label={`${BRAND.name}, home`}>
-          <Monogram size={34} />
+          <img src="/img/logo.png" alt={BRAND.name} className="brand__logo" />
           <span className="brand__type">
             <span className="brand__name">{BRAND.name}</span>
             <span className="brand__tag">{BRAND.tag}</span>

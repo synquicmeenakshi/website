@@ -50,7 +50,7 @@ export default function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <Link to="/" aria-label={`${BRAND.name}, home`}>
-            <Monogram size={44} />
+            <img src="/img/logo.png" alt={BRAND.name} className="footer__logo" />
             <span className="footer__name">{BRAND.name}</span>
           </Link>
           <p className="footer__roles">{BRAND.roles.join(' · ')}</p>

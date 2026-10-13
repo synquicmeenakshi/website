@@ -311,6 +311,9 @@ section { position: relative; }
 }
 
 .brand { display: flex; align-items: center; gap: 11px; color: var(--saffron); flex: none; }
+.brand__logo { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; }
+.footer__logo { height: 60px; width: auto; object-fit: contain; }
+.bk__brand-logo { height: 46px; width: auto; object-fit: contain; flex-shrink: 0; }
 .brand__type { display: flex; flex-direction: column; line-height: 1; }
 .brand__name {
   font-family: var(--font-serif); font-size: 22px; font-weight: 500;

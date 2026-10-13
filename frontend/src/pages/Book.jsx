@@ -309,7 +309,7 @@ export default function Book() {
         <div className="bk__right-inner">
           <header className="bk__masthead">
             <Link className="bk__brand" to="/" aria-label={`${BRAND.name}, home`}>
-              <YantraMark width="42" height="42" />
+              <img src="/img/logo.png" alt={BRAND.name} className="bk__brand-logo" />
               <span>
                 <span className="bk__brand-name">{BRAND.name}</span>
                 <span className="bk__brand-tag">{BRAND.tag}</span>

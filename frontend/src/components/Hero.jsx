@@ -84,15 +84,6 @@ export default function Hero() {
           src="/img/portrait-hero.png"
           alt="Meenakshi, Occult Sciences Expert and Spiritual Consultant"
         />
-        <span className="hero-cell__scrim" aria-hidden="true" />
-        <span className="hero-cell__label hero-cell__label--bottom">
-          <i className="hero-cell__dash" aria-hidden="true" />
-          <em>Meet</em>
-          Meenakshi
-          <span className="hero-cell__sub">
-            Five years of practice, three hundred clients, four classical lineages.
-          </span>
-        </span>
       </Link>
 
       {/* ---- 3 · astrology, the way in for most visitors ---- */}
