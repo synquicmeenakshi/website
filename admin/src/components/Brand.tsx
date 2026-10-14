@@ -38,27 +38,32 @@ export const YantraBadge = (p: SvgProps) => (
 
 /** Wordmark lockup: the mark plus the name, as the site's masthead sets it. */
 export const BrandLockup = ({ compact = false }: { compact?: boolean }) => (
-  <span className="flex items-center gap-3 min-w-0">
-    <YantraMark width={compact ? 24 : 30} height={compact ? 24 : 30} className="text-saffron shrink-0" />
+  <span className="flex items-center gap-2 min-w-0">
+    <img
+      src={`${import.meta.env.BASE_URL}logo.png`}
+      alt="Marrvel Aastro"
+      style={{ height: compact ? 30 : 38, width: 'auto' }}
+      className="shrink-0 object-contain"
+    />
     <span className="min-w-0">
       <span
-        className="block truncate text-ink"
+        className="block text-ink break-words"
         style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: compact ? '18px' : '21px',
-          letterSpacing: '0.16em',
+          fontSize: compact ? '14px' : '16px',
+          letterSpacing: '0.08em',
           textTransform: 'uppercase',
-          lineHeight: 1.05,
+          lineHeight: 1.15,
           fontWeight: 500,
         }}
       >
-        Meenakshi
+        Marrvel Aastro
       </span>
       <span
         className="block text-ink-soft"
-        style={{ fontSize: '8.5px', letterSpacing: '0.3em', textTransform: 'uppercase', marginTop: '3px' }}
+        style={{ fontSize: '7.5px', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '3px' }}
       >
-        Sacred Sciences
+        By Meenakshi · Sacred Sciences
       </span>
     </span>
   </span>

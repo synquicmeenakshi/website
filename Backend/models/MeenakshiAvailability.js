@@ -33,6 +33,10 @@ const meenakshiAvailabilitySchema = new mongoose.Schema({
   // earliest bookable day is offset rather than "today".
   leadTimeDays: { type: Number, default: 4 },
 
+  // Site-wide minimum notice in HOURS. When null, leadTimeDays * 24 applies.
+  // A service's own minAdvanceHours overrides this.
+  minAdvanceHours: { type: Number, default: null, min: 0 },
+
   // How far ahead the calendar opens.
   horizonDays: { type: Number, default: 60 },
 

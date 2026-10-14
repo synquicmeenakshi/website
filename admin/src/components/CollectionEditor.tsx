@@ -305,9 +305,9 @@ const CollectionEditor = ({
       )}
 
       {showModal && (
-        <div className="fixed inset-0 z-[80] bg-[rgba(36,26,20,0.42)] flex items-start sm:items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-[10px] w-full max-w-2xl my-8 shadow-[0_18px_50px_rgba(36,26,20,0.16)]">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--hairline)] sticky top-0 bg-white rounded-t-xl">
+        <div className="fixed inset-0 z-[80] bg-[rgba(36,26,20,0.42)] flex items-center justify-center p-4">
+          <div className="bg-white rounded-[10px] w-full max-w-2xl max-h-full flex flex-col overflow-hidden shadow-[0_18px_50px_rgba(36,26,20,0.16)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--hairline)] shrink-0 bg-white">
               <h2 className="text-[19px] text-[var(--ink)]" style={ui.displayFace}>
                 {editing ? 'Edit' : 'New'} — {title}
               </h2>
@@ -317,7 +317,7 @@ const CollectionEditor = ({
               </button>
             </div>
 
-            <div className="px-5 py-4 space-y-4">
+            <div className="px-5 py-4 space-y-4 overflow-y-auto min-h-0 flex-1">
               {fields.filter((f) => !f.hidden).map((f) => (
                 <div key={f.key}>
                   <label className="block text-sm font-medium text-slate-700 mb-1">{f.label}</label>
@@ -367,7 +367,7 @@ const CollectionEditor = ({
               )}
             </div>
 
-            <div className="flex justify-end gap-2 px-5 py-4 border-t border-[var(--hairline)]">
+            <div className="flex justify-end gap-2 px-5 py-4 border-t border-[var(--hairline)] shrink-0 bg-white">
               <button onClick={() => setShowModal(false)}
                 className={ui.btnQuiet}>
                 Cancel

@@ -34,6 +34,8 @@ function toLegacySettings(doc) {
     timeSlots: [...new Set(DAYS.flatMap((d) => doc.weeklySchedule?.[d]?.slots || []))].sort(),
     slotMinutes: doc.slotMinutes,
     leadTimeDays: doc.leadTimeDays,
+    // The admin screen edits this in hours; fall back to the legacy day count.
+    minAdvanceBooking: availability.effectiveMinAdvanceHours(doc, null),
     horizonDays: doc.horizonDays,
     timezone: doc.timezone
   };
@@ -64,7 +66,7 @@ const getSettings = async (req, res) => {
 const updateSettings = async (req, res) => {
   try {
     const doc = await availability.getSettings();
-    const { weeklySchedule, slotMinutes, leadTimeDays, horizonDays, timezone } = req.body || {};
+    const { weeklySchedule, slotMinutes, leadTimeDays, horizonDays, timezone, minAdvanceBooking } = req.body || {};
 
     if (weeklySchedule) {
       for (const d of DAYS) {
@@ -79,6 +81,13 @@ const updateSettings = async (req, res) => {
     }
     if (slotMinutes !== undefined) doc.slotMinutes = slotMinutes;
     if (leadTimeDays !== undefined) doc.leadTimeDays = leadTimeDays;
+    if (minAdvanceBooking !== undefined) {
+      const h = Number(minAdvanceBooking);
+      if (!Number.isFinite(h) || h < 0) {
+        return res.status(400).json({ success: false, message: 'Minimum advance hours must be 0 or more' });
+      }
+      doc.minAdvanceHours = h;
+    }
     if (horizonDays !== undefined) doc.horizonDays = horizonDays;
     if (timezone) doc.timezone = timezone;
 

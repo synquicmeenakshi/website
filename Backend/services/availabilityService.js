@@ -6,7 +6,9 @@
  *   - S is one of that weekday's configured slot starts
  *   - the whole of [S, S+D) is covered by CONSECUTIVE configured slots, so a
  *     long consultation cannot be booked across a break in the day
- *   - the date is within [today + leadTimeDays, today + horizonDays]
+ *   - the slot starts at least minAdvanceHours from now (per service, falling
+ *     back to the site-wide setting, then leadTimeDays * 24), and the date is
+ *     within the booking horizon
  *   - the date is not fully blocked, and no slot the booking spans is blocked
  *   - [S, S+D) does not overlap an existing booking's own [start, start+its
  *     duration) interval
@@ -41,6 +43,11 @@ const toHHMM = (mins) =>
 /** Today in the business timezone, as 'YYYY-MM-DD'. */
 function todayInZone(timezone) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: timezone }).format(new Date());
+}
+
+/** The calendar date of an instant in the business timezone, as 'YYYY-MM-DD'. */
+function dateInZone(instant, timezone) {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: timezone }).format(instant);
 }
 
 /** Add days to a 'YYYY-MM-DD' string without tripping over local time. */
@@ -93,12 +100,25 @@ async function getSettings() {
   return doc;
 }
 
+/**
+ * Hours of notice required. A service's own value wins; otherwise the
+ * site-wide value; otherwise the legacy leadTimeDays, converted.
+ */
+function effectiveMinAdvanceHours(settings, serviceHours) {
+  const isSet = (v) => v !== null && v !== undefined && v !== '' && Number.isFinite(Number(v)) && Number(v) >= 0;
+  if (isSet(serviceHours)) return Number(serviceHours);
+  if (isSet(settings.minAdvanceHours)) return Number(settings.minAdvanceHours);
+  return (Number(settings.leadTimeDays) || 0) * 24;
+}
+
 /** The bookable window, as { min, max } 'YYYY-MM-DD'. */
-async function getWindow() {
+async function getWindow(serviceHours) {
   const s = await getSettings();
   const today = todayInZone(s.timezone);
+  const hours = effectiveMinAdvanceHours(s, serviceHours);
   return {
-    min: addDays(today, s.leadTimeDays),
+    min: dateInZone(new Date(Date.now() + hours * 3600 * 1000), s.timezone),
+    minAdvanceHours: hours,
     max: addDays(today, s.horizonDays),
     leadTimeDays: s.leadTimeDays,
     slotMinutes: s.slotMinutes,
@@ -139,7 +159,7 @@ const overlaps = (aStart, aEnd, [bStart, bEnd]) => aStart < bEnd && bStart < aEn
  * @param {number} [durationMinutes] length of the consultation being booked
  * @returns {{date, timezone, slotMinutes, available: Array<{time,iso}>, all: string[], reason?: string}}
  */
-async function slotsForDate(date, durationMinutes, excludeId) {
+async function slotsForDate(date, durationMinutes, excludeId, serviceHours) {
   const s = await getSettings();
   const tz = s.timezone;
   const slotMinutes = s.slotMinutes || 60;
@@ -147,7 +167,8 @@ async function slotsForDate(date, durationMinutes, excludeId) {
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || ''))) return empty('Invalid date');
 
-  const { min, max } = await getWindow();
+  const { min, max } = await getWindow(serviceHours);
+  const cutoff = Date.now() + effectiveMinAdvanceHours(s, serviceHours) * 3600 * 1000;
   if (date < min) return empty(`Earliest available date is ${min}`);
   if (date > max) return empty('That date is beyond the booking window');
 
@@ -183,6 +204,9 @@ async function slotsForDate(date, durationMinutes, excludeId) {
 
     if (busy.some((iv) => overlaps(start, end, iv))) continue;
 
+    // Notice period: the slot itself must start after now + minAdvanceHours.
+    if (new Date(zonedToUtc(date, time, tz)).getTime() < cutoff) continue;
+
     available.push({ time, iso: zonedToUtc(date, time, tz) });
   }
 
@@ -197,7 +221,7 @@ async function slotsForDate(date, durationMinutes, excludeId) {
  * against a local mongod, but four to six seconds against Atlas, which is long
  * enough that the grid renders every day disabled while it waits.
  */
-async function slotsForRange(fromDate, days = 30, durationMinutes) {
+async function slotsForRange(fromDate, days = 30, durationMinutes, serviceHours) {
   const span = Math.min(Math.max(Number(days) || 30, 1), 90);
   const dates = Array.from({ length: span }, (_, i) => addDays(fromDate, i));
 
@@ -207,7 +231,8 @@ async function slotsForRange(fromDate, days = 30, durationMinutes) {
   const duration = Math.max(Number(durationMinutes) || slotMinutes, slotMinutes);
 
   const today = todayInZone(tz);
-  const min = addDays(today, s.leadTimeDays);
+  const cutoff = Date.now() + effectiveMinAdvanceHours(s, serviceHours) * 3600 * 1000;
+  const min = dateInZone(new Date(cutoff), tz);
   const max = addDays(today, s.horizonDays);
 
   const [blocks, held] = await Promise.all([
@@ -259,6 +284,7 @@ async function slotsForRange(fromDate, days = 30, durationMinutes) {
       }
       if (!covered) continue;
       if (busy.some((iv) => overlaps(start, start + duration, iv))) continue;
+      if (new Date(zonedToUtc(date, time, tz)).getTime() < cutoff) continue;
       count++;
     }
     return { date, count };
@@ -266,12 +292,12 @@ async function slotsForRange(fromDate, days = 30, durationMinutes) {
 }
 
 /** Guard used at booking time — never trust the client's view of a slot. */
-async function isSlotBookable(date, time, durationMinutes, excludeId) {
-  const r = await slotsForDate(date, durationMinutes, excludeId);
+async function isSlotBookable(date, time, durationMinutes, excludeId, serviceHours) {
+  const r = await slotsForDate(date, durationMinutes, excludeId, serviceHours);
   return r.available.some((s) => s.time === time);
 }
 
 module.exports = {
-  getSettings, getWindow, slotsForDate, slotsForRange, isSlotBookable,
+  getSettings, getWindow, effectiveMinAdvanceHours, slotsForDate, slotsForRange, isSlotBookable,
   todayInZone, addDays, zonedToUtc, HOLD_MINUTES
 };

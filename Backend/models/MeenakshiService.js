@@ -86,6 +86,13 @@ const meenakshiServiceSchema = new mongoose.Schema({
     type: String,
     default: 'INR'
   },
+  // Minimum notice in hours before this service can be booked (e.g. 48 for a
+  // kundli, 4 for a palm reading). null = use the site-wide setting.
+  minAdvanceHours: {
+    type: Number,
+    default: null,
+    min: 0
+  },
 
   displayOrder: {
     type: Number,

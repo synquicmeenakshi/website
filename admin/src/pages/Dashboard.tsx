@@ -108,7 +108,7 @@ const Dashboard = () => {
       ) : (
         <div className="space-y-5">
           <div className="rounded-[10px] p-5 bg-[var(--saffron-ink)] text-white ">
-            <p className="text-white/80 text-xs uppercase tracking-wider font-semibold">Meenakshi</p>
+            <p className="text-white/80 text-xs uppercase tracking-wider font-semibold">Marrvel Aastro</p>
             <h2 className="text-xl font-semibold mt-0.5">
               {counts.new
                 ? `${counts.new} new request${counts.new === 1 ? '' : 's'} waiting`

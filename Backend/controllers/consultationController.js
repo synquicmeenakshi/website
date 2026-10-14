@@ -100,16 +100,17 @@ const getSlots = async (req, res) => {
     // Duration comes from the service record so the client cannot shorten a
     // booking to squeeze into a slot it does not fit.
     let mins = Number(duration) || 0;
+    let hours = null;
     if (service) {
-      const svc = await MeenakshiService.findOne({ slug: service, isActive: true }).select('duration').lean();
-      if (svc) mins = svc.duration || 0;
+      const svc = await MeenakshiService.findOne({ slug: service, isActive: true }).select('duration minAdvanceHours').lean();
+      if (svc) { mins = svc.duration || 0; hours = svc.minAdvanceHours; }
     }
 
     if (from) {
-      const range = await availability.slotsForRange(from, Number(days) || 30, mins);
+      const range = await availability.slotsForRange(from, Number(days) || 30, mins, hours);
       return res.json({ success: true, data: range });
     }
-    const result = await availability.slotsForDate(date, mins, exclude);
+    const result = await availability.slotsForDate(date, mins, exclude, hours);
     res.json({ success: true, data: result });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -119,7 +120,12 @@ const getSlots = async (req, res) => {
 /** GET /api/consultations/window — public. Earliest/latest bookable dates. */
 const getWindow = async (req, res) => {
   try {
-    res.json({ success: true, data: await availability.getWindow() });
+    let hours = null;
+    if (req.query.service) {
+      const svc = await MeenakshiService.findOne({ slug: req.query.service, isActive: true }).select('minAdvanceHours').lean();
+      if (svc) hours = svc.minAdvanceHours;
+    }
+    res.json({ success: true, data: await availability.getWindow(hours) });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -140,6 +146,7 @@ const createConsultation = async (req, res) => {
     let amount = 0;
     let currency = 'INR';
     let durationMinutes = 0;
+    let serviceMinAdvanceHours = null;
     let serviceTitle = '';
     if (serviceSlug) {
       const service = await MeenakshiService.findOne({ slug: serviceSlug, isActive: true }).lean();
@@ -147,6 +154,7 @@ const createConsultation = async (req, res) => {
         amount = service.price || 0;
         currency = service.currency || 'INR';
         durationMinutes = service.duration || 0;
+        serviceMinAdvanceHours = service.minAdvanceHours;
         serviceTitle = service.title || '';
       }
     }
@@ -154,7 +162,7 @@ const createConsultation = async (req, res) => {
     // Never trust the client's view of availability — re-check server-side,
     // and check the whole duration, not just the start time.
     if (appointmentDate && appointmentTime) {
-      const bookable = await availability.isSlotBookable(appointmentDate, appointmentTime, durationMinutes);
+      const bookable = await availability.isSlotBookable(appointmentDate, appointmentTime, durationMinutes, undefined, serviceMinAdvanceHours);
       if (!bookable) {
         return res.status(409).json({
           success: false,

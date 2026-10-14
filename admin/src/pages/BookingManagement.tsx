@@ -3,7 +3,7 @@ import { Plus, Trash2, X, Loader2, CalendarOff, CalendarCheck, Menu, AlertCircle
 import Sidebar from '../components/Sidebar'
 
 import { API_BASE_URL } from '../config/api'
-import { authHeaders } from '../utils/meenakshiApi'
+import { authHeaders, listItems, updateItem } from '../utils/meenakshiApi'
 import { formatBelgiumDate, getBelgiumDayOfWeek, getBelgiumTodayStr, getBelgiumDateStr } from '../utils/timezone'
 
 interface DaySchedule {
@@ -66,6 +66,10 @@ const BookingManagement = () => {
   const [newSlot, setNewSlot] = useState('')
   const [minAdvanceHours, setMinAdvanceHours] = useState<number>(0)
   const [savingAdvance, setSavingAdvance] = useState(false)
+  // Per-service notice: '' = the default above, otherwise a service _id.
+  const [services, setServices] = useState<{ _id: string; title: string; minAdvanceHours: number | null }[]>([])
+  const [selectedSvc, setSelectedSvc] = useState('')
+  const [svcHours, setSvcHours] = useState('')
 
   // Blocked dates state
   const [blockedDates, setBlockedDates] = useState<BlockedDate[]>([])
@@ -110,9 +114,43 @@ const BookingManagement = () => {
     }
   }
 
+  useEffect(() => {
+    listItems('services')
+      .then((res: any) => setServices((res?.data || []).map((s: any) => ({
+        _id: s._id, title: s.title, minAdvanceHours: s.minAdvanceHours ?? null,
+      }))))
+      .catch((e: unknown) => console.error('Error loading services:', e))
+  }, [])
+
+  const selectedService = services.find((s) => s._id === selectedSvc) || null
+  const storedSvcHours = selectedService?.minAdvanceHours == null ? '' : String(selectedService.minAdvanceHours)
+  // What the box currently means: the chosen service's value, else the default.
+  const shownHours = selectedService && svcHours !== '' ? parseInt(svcHours, 10) || 0 : minAdvanceHours
+
+  const handleSelectService = (id: string) => {
+    setSelectedSvc(id)
+    const s = services.find((x) => x._id === id)
+    setSvcHours(s?.minAdvanceHours == null ? '' : String(s.minAdvanceHours))
+  }
+
   // Save minimum advance booking hours
   const handleSaveAdvanceBooking = async () => {
     setSavingAdvance(true)
+    if (selectedService) {
+      try {
+        const value = svcHours.trim() === '' ? null : Math.max(0, parseInt(svcHours, 10) || 0)
+        await updateItem('services', selectedService._id, { minAdvanceHours: value })
+        setServices((prev) => prev.map((s) => (s._id === selectedService._id ? { ...s, minAdvanceHours: value } : s)))
+        setSvcHours(value === null ? '' : String(value))
+        alert(`Saved for ${selectedService.title}`)
+      } catch (error) {
+        console.error('Error saving service advance booking:', error)
+        alert('Failed to save setting')
+      } finally {
+        setSavingAdvance(false)
+      }
+      return
+    }
     try {
       const response = await fetch(`${API_BASE_URL}/meenakshi-availability/settings`, {
         method: 'PUT',
@@ -716,6 +754,18 @@ const BookingManagement = () => {
                           <label className="block text-sm font-semibold text-slate-700 mb-2">
                             Minimum Advance Booking (Hours)
                           </label>
+                          <select
+                            value={selectedSvc}
+                            onChange={(e) => handleSelectService(e.target.value)}
+                            className="mb-3 w-full sm:w-72 px-3 py-2 border-2 border-slate-100 rounded-xl text-sm font-medium focus:outline-none focus:border-[#d4531d]"
+                          >
+                            <option value="">All services (default)</option>
+                            {services.map((s) => (
+                              <option key={s._id} value={s._id}>
+                                {s.title}{s.minAdvanceHours != null ? ` - ${s.minAdvanceHours}h` : ''}
+                              </option>
+                            ))}
+                          </select>
                           <p className="text-xs text-slate-500 mb-3">
                             Users must book at least this many hours before the appointment time.
                             <span className="font-medium"> E.g., 48 hours means users can only book appointments that are at least 2 days away.</span>
@@ -725,19 +775,22 @@ const BookingManagement = () => {
                               type="number"
                               min="0"
                               max="720"
-                              value={minAdvanceHours}
-                              onChange={(e) => setMinAdvanceHours(Math.max(0, parseInt(e.target.value) || 0))}
+                              value={selectedService ? svcHours : minAdvanceHours}
+                              placeholder={selectedService ? `${minAdvanceHours} (default)` : undefined}
+                              onChange={(e) => selectedService
+                                ? setSvcHours(e.target.value === '' ? '' : String(Math.max(0, parseInt(e.target.value) || 0)))
+                                : setMinAdvanceHours(Math.max(0, parseInt(e.target.value) || 0))}
                               className="w-32 px-4 py-2.5 border-2 border-slate-100 rounded-xl text-center text-lg font-semibold focus:outline-none focus:border-[#d4531d] focus:shadow-lg focus:shadow-[#d4531d]/10 transition-all"
                             />
                             <span className="text-slate-600 font-medium">hours</span>
                             <span className="text-slate-400 text-sm">
-                              ({minAdvanceHours >= 24 ? `${Math.floor(minAdvanceHours / 24)} day${Math.floor(minAdvanceHours / 24) !== 1 ? 's' : ''}${minAdvanceHours % 24 > 0 ? ` ${minAdvanceHours % 24}h` : ''}` : `${minAdvanceHours}h`})
+                              ({shownHours >= 24 ? `${Math.floor(shownHours / 24)} day${Math.floor(shownHours / 24) !== 1 ? 's' : ''}${shownHours % 24 > 0 ? ` ${shownHours % 24}h` : ''}` : `${shownHours}h`})
                             </span>
                           </div>
                         </div>
                         <button
                           onClick={handleSaveAdvanceBooking}
-                          disabled={savingAdvance || minAdvanceHours === settings?.minAdvanceBooking}
+                          disabled={savingAdvance || (selectedService ? svcHours === storedSvcHours : minAdvanceHours === settings?.minAdvanceBooking)}
                           className="flex items-center gap-2 px-5 py-2.5 bg-[var(--saffron-ink)] text-white rounded-xl font-semibold hover:shadow-lg hover:transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                         >
                           {savingAdvance ? (
@@ -754,10 +807,10 @@ const BookingManagement = () => {
                         </button>
                       </div>
 
-                      {minAdvanceHours > 0 && (
+                      {shownHours > 0 && (
                         <div className="mt-4 p-3 bg-gradient-to-r from-[#d4531d]/10 to-[#ad3f15]/5 border border-[rgba(212,83,29,0.2)] rounded-xl">
                           <p className="text-sm text-[#8B7B2A]">
-                            <span className="font-semibold">Current setting:</span> Users can only book appointments that are at least <span className="font-bold">{minAdvanceHours} hours</span> ({minAdvanceHours >= 24 ? `${Math.floor(minAdvanceHours / 24)} day${Math.floor(minAdvanceHours / 24) !== 1 ? 's' : ''}` : `${minAdvanceHours} hours`}) from now.
+                            <span className="font-semibold">Current setting:</span> Users can only book appointments that are at least <span className="font-bold">{shownHours} hours</span> ({shownHours >= 24 ? `${Math.floor(shownHours / 24)} day${Math.floor(shownHours / 24) !== 1 ? 's' : ''}` : `${shownHours} hours`}) from now.
                           </p>
                         </div>
                       )}

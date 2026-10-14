@@ -17,7 +17,7 @@ const slugify = (s: string) =>
 
 const empty = {
   title: '', slug: '', excerpt: '', body: '', cover: '', coverAlt: '',
-  tags: [] as string[], author: 'Meenakshi', isPublished: false,
+  tags: [] as string[], author: 'Marrvel Aastro', isPublished: false,
   seoTitle: '', seoDescription: '',
 }
 

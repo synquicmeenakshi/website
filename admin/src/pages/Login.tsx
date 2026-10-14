@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { YantraMark } from '../components/Brand'
 import { createAdminSession } from '../utils/cookies'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001'
@@ -70,7 +69,7 @@ const Login = () => {
       {/* Masthead, set as the website sets it */}
       <div className="text-center mb-7">
         <div className="flex justify-center mb-3">
-          <YantraMark width={44} height={44} className="text-[var(--saffron-ink)]" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Marrvel Aastro" style={{ height: 72, width: 'auto' }} className="object-contain" />
         </div>
         <h1
           className="text-[var(--ink)]"
@@ -80,11 +79,11 @@ const Login = () => {
             letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1,
           }}
         >
-          Meenakshi
+          Marrvel Aastro
         </h1>
         <p className="text-[var(--ink-soft)] mt-2"
           style={{ fontSize: '9px', letterSpacing: '0.32em', textTransform: 'uppercase' }}>
-          Sacred Sciences
+          By Meenakshi · Sacred Sciences
         </p>
       </div>
 
@@ -169,7 +168,7 @@ const Login = () => {
 
       {/* Footer */}
       <p className="text-sm text-gray-400 mt-8">
-        © {new Date().getFullYear()} Meenakshi
+        © {new Date().getFullYear()} Marrvel Aastro
       </p>
     </div>
   )
